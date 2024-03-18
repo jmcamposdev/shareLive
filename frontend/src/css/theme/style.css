@@ -1,10 +1,10 @@
 @charset "UTF-8";
-@import url(./plugins/fontawesome.css);
-@import url(./plugins/ace-responsive-menu.css);
-@import url(./plugins/dashbord_navitaion.css);
-@import url(./plugins/flaticon.css);
-@import url(./plugins/menu.css);
-@import url(./plugins/ud-custom-spacing.css);
+@import "./plugins/fontawesome.css";
+@import "./plugins/ace-responsive-menu.css";
+@import "./plugins/dashbord_navitaion.css";
+@import "./plugins/flaticon.css";
+@import "./plugins/menu.css";
+@import "./plugins/ud-custom-spacing.css";
 
 /* Project/Template Name: Homez - Real Estate Nextjs Template Template Url: Author: ib-themes Author Url: https://themeforest.net/user/ib-themes/portfolio Version: 1.0.0 Description: Zeomart - Multi-Vendor & Marketplace HTML Template Tag: advanced search, agency, agent, classified, directory, house, listing, property, real estate, real estate agency, real estate agent, realestate, realtor, rental ********/
 /* CSS Document */
