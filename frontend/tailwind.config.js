@@ -6,6 +6,9 @@ export default {
   ],
   darkMode: 'class',
   theme: {
+    fontFamily: {
+      clarityCity: ['Clarity City', 'sans-serif']
+    },
     extend: {}
   },
   plugins: []
