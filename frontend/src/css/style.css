@@ -7,3 +7,12 @@
 #root {
   font-family: 'Clarity City';
 }
+
+.search_input_header {
+  outline: none;
+}
+.search_input_header:focus-visible {
+  outline: none !important;
+  border: none;
+  border-bottom: 1px solid black;
+}

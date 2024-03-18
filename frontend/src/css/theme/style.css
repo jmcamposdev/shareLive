@@ -8232,7 +8232,8 @@ header.nav-homepage-style .header-logo.logo2 {
 }
 
 header.nav-homepage-style .sidemenu-btn,
-header.nav-homepage-style .login-info {
+header.nav-homepage-style .login-info,
+header.nav-homepage-style .flaticon-search {
   color: #fff;
 }
 
@@ -8263,7 +8264,8 @@ header.nav-homepage-style.sticky .ace-responsive-menu a {
 }
 
 header.nav-homepage-style.sticky .sidemenu-btn,
-header.nav-homepage-style.sticky .login-info {
+header.nav-homepage-style.sticky .login-info,
+header.nav-homepage-style.sticky .flaticon-search {
   color: var(--headings-color);
 }
 

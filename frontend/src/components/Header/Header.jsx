@@ -61,6 +61,19 @@ const Header = () => {
 
               <div className='col-auto'>
                 <div className='flex items-center'>
+                  <form className='flex items-center justify-center gap-2'>
+                    <input className={`search_input_header border-b px-4 ${navbar ? 'border-black' : 'border-white'}`} type='text' name='search' id='search' placeholder='Search' />
+                    <button type='submit' className='flex items-center justify-center'>
+                      <span class='flaticon-search text-[16px]' />
+                    </button>
+                  </form>
+                  <Link
+                    className='ud-btn add-property menu-btn bdrs60 mx-2 xl:mx-6'
+                    href='/dashboard-add-property'
+                  >
+                    Add Property
+                    <i className='fal fa-arrow-right-long' />
+                  </Link>
                   <a
                     href='#'
                     className='login-info flex items-center'
@@ -71,13 +84,6 @@ const Header = () => {
                     <i className='far fa-user-circle fz16 me-2' />{' '}
                     <span className='hidden xl:block'>Login / Register</span>
                   </a>
-                  <Link
-                    className='ud-btn add-property menu-btn bdrs60 mx-2 xl:mx-6'
-                    href='/dashboard-add-property'
-                  >
-                    Add Property
-                    <i className='fal fa-arrow-right-long' />
-                  </Link>
                 </div>
               </div>
               {/* End .col-auto */}
@@ -87,6 +93,7 @@ const Header = () => {
         </nav>
       </header>
       {/* End Header */}
+
     </>
   )
 }
