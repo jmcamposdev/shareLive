@@ -6,16 +6,16 @@
  * © 2023 Indian Type Foundry
  *
  * Font Styles:
- * Satoshi Light
- * Satoshi Light Italic
- * Satoshi Regular
- * Satoshi Italic
- * Satoshi Medium
- * Satoshi Medium Italic
- * Satoshi Bold
- * Satoshi Bold Italic
- * Satoshi Black
- * Satoshi Black Italic
+ * Clarify City Light
+ * Clarify City Light Italic
+ * Clarify City Regular
+ * Clarify City Italic
+ * Clarify City Medium
+ * Clarify City Medium Italic
+ * Clarify City Bold
+ * Clarify City Bold Italic
+ * Clarify City Black
+ * Clarify City Black Italic
  *
 */
 
@@ -48,8 +48,8 @@
 
 @font-face {
   font-family: 'Clarity City';
-  src:url('ClarityCity-ExtraBold.woff2') format('woff2'),
-      url('ClarityCity-ExtraBold.ttf') format('truetype');
+  src:url('../fonts/ClarityCity-ExtraBold.woff2') format('woff2'),
+      url('../fonts/ClarityCity-ExtraBold.ttf') format('truetype');
   font-weight: bold;
   font-style: normal;
   font-display: swap;
@@ -57,8 +57,8 @@
 
 @font-face {
   font-family: 'Clarity City';
-  src:url('ClarityCity-Medium.woff2') format('woff2'),
-      url('ClarityCity-Medium.ttf') format('truetype');
+  src:url('../fonts/ClarityCity-Medium.woff2') format('woff2'),
+      url('../fonts/ClarityCity-Medium.ttf') format('truetype');
   font-weight: 500;
   font-style: normal;
   font-display: swap;
@@ -66,12 +66,8 @@
 
 @font-face {
   font-family: 'Clarity City';
-  src: url('ClarityCity-Light.eot');
-  src: url('ClarityCity-Light.eot?#iefix') format('embedded-opentype'),
-      url('ClarityCity-Light.woff2') format('woff2'),
-      url('ClarityCity-Light.woff') format('woff'),
-      url('ClarityCity-Light.ttf') format('truetype'),
-      url('ClarityCity-Light.svg#ClarityCity-Light') format('svg');
+  src:url('../fonts/ClarityCity-Light.woff2') format('woff2'),
+      url('../fonts/ClarityCity-Light.svg#../fonts/ClarityCity-Light') format('svg');
   font-weight: 300;
   font-style: normal;
   font-display: swap;
@@ -79,12 +75,8 @@
 
 @font-face {
   font-family: 'Clarity City';
-  src: url('ClarityCity-LightItalic.eot');
-  src: url('ClarityCity-LightItalic.eot?#iefix') format('embedded-opentype'),
-      url('ClarityCity-LightItalic.woff2') format('woff2'),
-      url('ClarityCity-LightItalic.woff') format('woff'),
-      url('ClarityCity-LightItalic.ttf') format('truetype'),
-      url('ClarityCity-LightItalic.svg#ClarityCity-LightItalic') format('svg');
+  src:url('../fonts/ClarityCity-LightItalic.woff2') format('woff2'),
+      url('../fonts/ClarityCity-LightItalic.ttf') format('truetype');
   font-weight: 300;
   font-style: italic;
   font-display: swap;
@@ -92,12 +84,8 @@
 
 @font-face {
   font-family: 'Clarity City';
-  src: url('ClarityCity-ExtraBoldItalic.eot');
-  src: url('ClarityCity-ExtraBoldItalic.eot?#iefix') format('embedded-opentype'),
-      url('ClarityCity-ExtraBoldItalic.woff2') format('woff2'),
-      url('ClarityCity-ExtraBoldItalic.woff') format('woff'),
-      url('ClarityCity-ExtraBoldItalic.ttf') format('truetype'),
-      url('ClarityCity-ExtraBoldItalic.svg#ClarityCity-ExtraBoldItalic') format('svg');
+  src:url('../fonts/ClarityCity-ExtraBoldItalic.woff2') format('woff2'),
+      url('../fonts/ClarityCity-ExtraBoldItalic.ttf') format('truetype');
   font-weight: bold;
   font-style: italic;
   font-display: swap;
@@ -105,12 +93,9 @@
 
 @font-face {
   font-family: 'Clarity City';
-  src: url('ClarityCity-BoldItalic.eot');
-  src: url('ClarityCity-BoldItalic.eot?#iefix') format('embedded-opentype'),
-      url('ClarityCity-BoldItalic.woff2') format('woff2'),
-      url('ClarityCity-BoldItalic.woff') format('woff'),
-      url('ClarityCity-BoldItalic.ttf') format('truetype'),
-      url('ClarityCity-BoldItalic.svg#ClarityCity-BoldItalic') format('svg');
+  src:
+      url('../fonts/ClarityCity-BoldItalic.woff2') format('woff2'),
+      url('../fonts/ClarityCity-BoldItalic.ttf') format('truetype');
   font-weight: bold;
   font-style: italic;
   font-display: swap;
@@ -118,12 +103,9 @@
 
 @font-face {
   font-family: 'Clarity City';
-  src: url('ClarityCity-Black.eot');
-  src: url('ClarityCity-Black.eot?#iefix') format('embedded-opentype'),
-      url('ClarityCity-Black.woff2') format('woff2'),
-      url('ClarityCity-Black.woff') format('woff'),
-      url('ClarityCity-Black.ttf') format('truetype'),
-      url('ClarityCity-Black.svg#ClarityCity-Black') format('svg');
+  src:
+      url('../fonts/ClarityCity-Black.woff2') format('woff2'),
+      url('../fonts/ClarityCity-Black.ttf') format('truetype');
   font-weight: 900;
   font-style: normal;
   font-display: swap;
@@ -131,12 +113,9 @@
 
 @font-face {
   font-family: 'Clarity City';
-  src: url('ClarityCity-Thin.eot');
-  src: url('ClarityCity-Thin.eot?#iefix') format('embedded-opentype'),
-      url('ClarityCity-Thin.woff2') format('woff2'),
-      url('ClarityCity-Thin.woff') format('woff'),
-      url('ClarityCity-Thin.ttf') format('truetype'),
-      url('ClarityCity-Thin.svg#ClarityCity-Thin') format('svg');
+  src:
+      url('../fonts/ClarityCity-Thin.woff2') format('woff2'),
+      url('../fonts/ClarityCity-Thin.ttf') format('truetype');
   font-weight: 100;
   font-style: normal;
   font-display: swap;
@@ -144,12 +123,8 @@
 
 @font-face {
   font-family: 'Clarity City';
-  src: url('ClarityCity-BlackItalic.eot');
-  src: url('ClarityCity-BlackItalic.eot?#iefix') format('embedded-opentype'),
-      url('ClarityCity-BlackItalic.woff2') format('woff2'),
-      url('ClarityCity-BlackItalic.woff') format('woff'),
-      url('ClarityCity-BlackItalic.ttf') format('truetype'),
-      url('ClarityCity-BlackItalic.svg#ClarityCity-BlackItalic') format('svg');
+  src:url('../fonts/ClarityCity-BlackItalic.woff2') format('woff2'),
+      url('../fonts/ClarityCity-BlackItalic.ttf') format('truetype');
   font-weight: 900;
   font-style: italic;
   font-display: swap;
@@ -157,12 +132,8 @@
 
 @font-face {
   font-family: 'Clarity City';
-  src: url('ClarityCity-SemiBoldItalic.eot');
-  src: url('ClarityCity-SemiBoldItalic.eot?#iefix') format('embedded-opentype'),
-      url('ClarityCity-SemiBoldItalic.woff2') format('woff2'),
-      url('ClarityCity-SemiBoldItalic.woff') format('woff'),
-      url('ClarityCity-SemiBoldItalic.ttf') format('truetype'),
-      url('ClarityCity-SemiBoldItalic.svg#ClarityCity-SemiBoldItalic') format('svg');
+  src:url('../fonts/ClarityCity-SemiBoldItalic.woff2') format('woff2'),
+      url('../fonts/ClarityCity-SemiBoldItalic.ttf') format('truetype');
   font-weight: 600;
   font-style: italic;
   font-display: swap;
@@ -170,12 +141,8 @@
 
 @font-face {
   font-family: 'Clarity City';
-  src: url('ClarityCity-ThinItalic.eot');
-  src: url('ClarityCity-ThinItalic.eot?#iefix') format('embedded-opentype'),
-      url('ClarityCity-ThinItalic.woff2') format('woff2'),
-      url('ClarityCity-ThinItalic.woff') format('woff'),
-      url('ClarityCity-ThinItalic.ttf') format('truetype'),
-      url('ClarityCity-ThinItalic.svg#ClarityCity-ThinItalic') format('svg');
+  src:url('../fonts/ClarityCity-ThinItalic.woff2') format('woff2'),
+      url('../fonts/ClarityCity-ThinItalic.ttf') format('truetype');
   font-weight: 100;
   font-style: italic;
   font-display: swap;
@@ -183,12 +150,8 @@
 
 @font-face {
   font-family: 'Clarity City';
-  src: url('ClarityCity-MediumItalic.eot');
-  src: url('ClarityCity-MediumItalic.eot?#iefix') format('embedded-opentype'),
-      url('ClarityCity-MediumItalic.woff2') format('woff2'),
-      url('ClarityCity-MediumItalic.woff') format('woff'),
-      url('ClarityCity-MediumItalic.ttf') format('truetype'),
-      url('ClarityCity-MediumItalic.svg#ClarityCity-MediumItalic') format('svg');
+  src:url('../fonts/ClarityCity-MediumItalic.woff2') format('woff2'),
+      url('../fonts/ClarityCity-MediumItalic.ttf') format('truetype');
   font-weight: 500;
   font-style: italic;
   font-display: swap;
@@ -196,12 +159,8 @@
 
 @font-face {
   font-family: 'Clarity City';
-  src: url('ClarityCity-Bold.eot');
-  src: url('ClarityCity-Bold.eot?#iefix') format('embedded-opentype'),
-      url('ClarityCity-Bold.woff2') format('woff2'),
-      url('ClarityCity-Bold.woff') format('woff'),
-      url('ClarityCity-Bold.ttf') format('truetype'),
-      url('ClarityCity-Bold.svg#ClarityCity-Bold') format('svg');
+  src:url('../fonts/ClarityCity-Bold.woff2') format('woff2'),
+      url('../fonts/ClarityCity-Bold.ttf') format('truetype');
   font-weight: bold;
   font-style: normal;
   font-display: swap;
@@ -209,12 +168,8 @@
 
 @font-face {
   font-family: 'Clarity City';
-  src: url('ClarityCity-RegularItalic.eot');
-  src: url('ClarityCity-RegularItalic.eot?#iefix') format('embedded-opentype'),
-      url('ClarityCity-RegularItalic.woff2') format('woff2'),
-      url('ClarityCity-RegularItalic.woff') format('woff'),
-      url('ClarityCity-RegularItalic.ttf') format('truetype'),
-      url('ClarityCity-RegularItalic.svg#ClarityCity-RegularItalic') format('svg');
+  src:url('../fonts/ClarityCity-RegularItalic.woff2') format('woff2'),
+      url('../fonts/ClarityCity-RegularItalic.ttf') format('truetype');
   font-weight: normal;
   font-style: italic;
   font-display: swap;
@@ -222,12 +177,8 @@
 
 @font-face {
   font-family: 'Clarity City';
-  src: url('ClarityCity-Regular.eot');
-  src: url('ClarityCity-Regular.eot?#iefix') format('embedded-opentype'),
-      url('ClarityCity-Regular.woff2') format('woff2'),
-      url('ClarityCity-Regular.woff') format('woff'),
-      url('ClarityCity-Regular.ttf') format('truetype'),
-      url('ClarityCity-Regular.svg#ClarityCity-Regular') format('svg');
+  src:url('../fonts/ClarityCity-Regular.woff2') format('woff2'),
+      url('../fonts/ClarityCity-Regular.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
