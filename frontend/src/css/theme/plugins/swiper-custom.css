@@ -1,0 +1,202 @@
+.swiper--pagination .swiper-pagination-bullet-active {
+  background: #222;
+}
+.swiper--pagination .swiper-pagination-bullet {
+  margin: 0 6px !important;
+}
+.swiper_button {
+  background: transparent;
+  border: none;
+}
+.swiper-pagination-bullet {
+  transform: scale(0.8);
+  transition: transform 0.3s;
+}
+.swiper--pagination .swiper-pagination-bullet-active {
+  transform: scale(1);
+}
+.arrowY-center-position {
+  position: absolute;
+  width: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 9;
+}
+.arrowY-center-position .swiper_button {
+  background-color: #fff;
+  box-shadow: 0px 10px 35px rgba(5, 16, 54, 0.1);
+  border: none;
+  border-radius: 50%;
+  color: #051036;
+  display: inline-block;
+  height: 50px;
+  line-height: 50px;
+  width: 50px;
+  transition: all 0.3s ease;
+}
+.arrowY-center-position .swiper_button:hover {
+  background-color: #eb6753;
+  color: #fff;
+}
+.arrowY-center-position .swiper_button.swiper-button-disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
+.arrowY-center-position .swiper_button._prev {
+  margin-left: -12px;
+}
+.arrowY-center-position .swiper_button._next {
+  margin-right: -12px;
+}
+@media (max-width: 767px) {
+  .arrowY-center-position .swiper_button {
+    width: 38px;
+    height: 38px;
+    line-height: 38px;
+ }
+}
+.arrow-with-border .swiper_button {
+  background-color: #fff;
+  box-shadow: 0px 10px 35px rgba(5, 16, 54, 0.1);
+  border: 1px solid #181a20;
+  border-radius: 50%;
+  color: #051036;
+  display: inline-block;
+  height: 50px;
+  line-height: 50px;
+  width: 50px;
+  transition: all 0.3s ease;
+}
+.arrow-with-border .swiper_button:hover {
+  background-color: #eb6753;
+  color: #fff;
+}
+.arrow-with-border .swiper_button.swiper-button-disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
+.arrow-with-border .swiper_button._prev {
+  margin-left: -12px;
+}
+.arrow-with-border .swiper_button._next {
+  margin-right: -12px;
+}
+@media (max-width: 767px) {
+  .arrow-with-border .swiper_button {
+    width: 38px;
+    height: 38px;
+    line-height: 38px;
+ }
+}
+.arrow-with-border.arrow-pos {
+  position: absolute;
+  left: 47%;
+  bottom: 30px;
+  z-index: 2;
+}
+@media (max-width: 768px) {
+  .arrow-with-border.arrow-pos {
+    left: 80%;
+ }
+}
+@media (max-width: 576px) {
+  .arrow-with-border.arrow-pos {
+    left: 73%;
+ }
+}
+.arrow-with-border.arrow-pos .swiper_button._prev, .arrow-with-border.arrow-pos .swiper_button_.next {
+  margin: 0;
+}
+.arrow-with-border.arrow-pos .swiper_button._next {
+  margin-left: 10px;
+}
+.dark_nav .swiper_button {
+  color: #fff;
+}
+.dark_nav .swiper--pagination .swiper-pagination-bullet {
+  background: #fff;
+  opacity: 0.5;
+}
+.dark_nav .swiper--pagination .swiper-pagination-bullet-active {
+  background: #fff;
+  opacity: 1;
+}
+.dark_nav .swiper-button-disabled {
+  color: #aaa;
+}
+.home7-main-slider .swiper-scrollbar-drag {
+  height: 3px;
+  background: #fff;
+  top: -3px;
+}
+.home7-main-slider .custom-scroll {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.3);
+  position: relative;
+  top: -1px;
+}
+.d-position {
+  position: absolute;
+  top: 50%;
+  z-index: 9;
+  left: 30px;
+  transform: translateY(-50%);
+}
+@media (max-width: 1200px) {
+  .d-position {
+    top: auto;
+    bottom: 0;
+    display: block !important;
+ }
+  .d-position .swiper_button {
+    margin-left: 12px;
+ }
+}
+.d-position .swiper_button {
+  background-color: transparent;
+  color: #fff;
+  border-color: #fff;
+}
+.d-position .swiper_button:hover {
+  background-color: #fff;
+  color: #000;
+}
+.d-position .swiper_button._prev {
+  margin-left: 0;
+  margin-bottom: 15px;
+}
+.d-position.end-pos {
+  right: 30%;
+  left: auto;
+}
+._dark .swiper-pagination-bullet {
+  background: #fff !important;
+  opacity: 0.8;
+  transform: scale(0.8);
+  transition: transform 0.3s;
+}
+._dark .swiper--pagination .swiper-pagination-bullet-active {
+  opacity: 1;
+  transform: scale(1);
+}
+._dark .swiper_button {
+  color: #fff;
+}
+.ps-v4-hero-slider-2 .arrowY-center-position .swiper_button._next {
+  margin-right: 100px;
+}
+.ps-v4-hero-slider-2 .arrowY-center-position .swiper_button._prev {
+  margin-left: 100px;
+}
+.ps-v4-hero-slider-2 .arrowY-center-position .swiper_button {
+  background: transparent;
+  color: #fff;
+  border: 1px solid #fff;
+}
+.ps-v4-hero-slider-2 .arrowY-center-position .swiper_button:hover {
+  background: #fff;
+  color: #000;
+}
