@@ -7,6 +7,144 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+
+  html,
+  body {
+    scroll-behavior: auto !important;
+  }
+
+  body {
+    background-color: #fff;
+    font-family: var(--body-font-family);
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--headings-color);
+    line-height: 26px;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a,
+  .btn {
+    color: var(--headings-color);
+    text-decoration: none;
+    outline: none;
+    -webkit-transition: all ease 0.4s;
+    -o-transition: all ease 0.4s;
+    transition: all ease 0.4s;
+  }
+
+  a:hover,
+  .btn:hover {
+    color: #eb6753;
+  }
+
+  a:active,
+  a:focus,
+  a:hover,
+  a:visited,
+  .btn:active,
+  .btn:focus,
+  .btn:hover,
+  .btn:visited {
+    text-decoration: none;
+    outline: none;
+  }
+
+  button,
+  .btn {
+    -webkit-transition: all ease 0.4s;
+    -o-transition: all ease 0.4s;
+    transition: all ease 0.4s;
+  }
+
+  iframe {
+    border: none;
+    width: 100%;
+  }
+
+  .h1,
+  h1,
+  .h2,
+  h2,
+  .h3,
+  h3,
+  .h4,
+  h4,
+  .h5,
+  h5,
+  .h6,
+  h6 {
+    font-family: var(--title-font-family);
+    color: var(--headings-color);
+    font-weight: 600;
+    line-height: 1.5;
+  }
+
+  p {
+    margin: 0 0 15px 0;
+    color: var(--headings-color);
+    line-height: 1.85;
+    font-weight: 400;
+  }
+
+  h1 a,
+  h2 a,
+  h3 a,
+  h4 a,
+  h5 a,
+  h6 a,
+  p a,
+  span a {
+    font-size: inherit;
+    font-family: inherit;
+    font-weight: inherit;
+    line-height: inherit;
+  }
+
+  .h1,
+  h1 {
+    font-size: 36px;
+  }
+
+  .h2,
+  h2 {
+    font-size: 30px;
+  }
+
+  .h3,
+  h3 {
+    font-size: 24px;
+  }
+
+  .h4,
+  h4 {
+    font-size: 20px;
+  }
+
+  .h5,
+  h5 {
+    font-size: 18px;
+  }
+
+  .h6,
+  h6 {
+    font-size: 15px;
+  }
+
+  li {
+    list-style-type: none;
+  }
+
+  @media (max-width: 575.98px) {
+
+    .h2,
+    h2 {
+      font-size: 20px;
+    }
+  }
+}
 
 #root {
   font-family: 'Clarity City';

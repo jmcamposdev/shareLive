@@ -51,7 +51,7 @@
 /*================================= Theme Based ==================================*/
 /* Variables */
 :root {
-  --title-font-family: "Poppins", sans-serif;
+  --title-font-family: "Clarity City", sans-serif;
   --body-font-family: "__DM_Sans_aac82c", "__DM_Sans_Fallback_aac82c";
   --icon-font-family: "Font Awesome 6 Pro";
   --icon-font-family2: "Flaticon";
@@ -211,6 +211,10 @@ li {
   background-color: var(--headings-color);
 }
 
+.footer-style1 .container {
+  max-width: 1230px;
+}
+
 .footer-style1.at-home2 {
   padding-top: 230px;
 }
@@ -316,6 +320,7 @@ li {
   font-weight: 400;
   height: 70px;
   padding-left: 30px;
+  width: 100%;
 }
 
 .mailchimp-style1 .form-control:placeholder {
