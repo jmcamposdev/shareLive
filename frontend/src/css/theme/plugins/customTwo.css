@@ -1,0 +1,19 @@
+body .menuActive {
+  text-decoration: none;
+  color: #eb6753 !important;
+}
+.listCustom.listing-type {
+  display: flex;
+}
+.listCustom.listing-type .list-content {
+  flex: 1 !important;
+}
+.listCustom.listing-type .list-content .topFive {
+  top: 5px;
+}
+.listCustom.listing-type .list-thumb {
+  flex: 1 !important;
+}
+.cursor {
+  cursor: pointer;
+}
