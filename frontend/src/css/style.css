@@ -1,12 +1,8 @@
+@import "./tailwind.css";
 @import "./theme/plugins/swiper-custom.css";
 @import "./theme/style.css";
 @import "./theme/plugins/custom-styles.css";
 @import "./theme/plugins/customTwo.css";
-
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 
 #root {
   font-family: 'Clarity City';

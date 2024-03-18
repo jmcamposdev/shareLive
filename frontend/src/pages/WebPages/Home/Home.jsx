@@ -1,12 +1,11 @@
-import Header from '../../../components/Header/Header'
+import WebLayout from '../../../layout/WebLayout'
 
 function Home () {
   return (
-    <div>
-      <Header />
+    <WebLayout>
       <h1>Home</h1>
       <p>Welcome to the home page!</p>
-    </div>
+    </WebLayout>
   )
 }
 export default Home

@@ -3,7 +3,6 @@ import React, { useEffect, useState } from 'react'
 import LoginSignupModal from '../common/login-signup-modal'
 import LogoWhite from '../../assets/logos/logo-white.png'
 import LogoDark from '../../assets/logos/logo-dark.png'
-import UserCircleIcon from '../../assets/vectors/userCircle.svg'
 
 import MainMenu from '../common/MainMenu'
 
@@ -70,12 +69,7 @@ const Header = () => {
                     data-bs-target='#loginSignupModal'
                     role='button'
                   >
-                    <svg className='me-2' width='18' height='17' viewBox='0 0 18 17' fill='none' xmlns='http://www.w3.org/2000/svg' stroke={navbar ? 'black' : 'white'}>
-                      <path d='M9.09698 9.12405C9.04098 9.11605 8.96898 9.11605 8.90498 9.12405C7.49698 9.07605 6.37695 7.92405 6.37695 6.50803C6.37695 5.06003 7.54498 3.88403 9.00098 3.88403C10.449 3.88403 11.625 5.06003 11.625 6.50803C11.617 7.92405 10.505 9.07605 9.09698 9.12405Z' stroke='current-color' stroke-linecap='round' stroke-linejoin='round' />
-                      <path d='M14.3914 14.404C12.9674 15.708 11.0794 16.5 8.99941 16.5C6.91942 16.5 5.03142 15.708 3.60742 14.404C3.68742 13.652 4.16742 12.916 5.02342 12.34C7.21542 10.884 10.7994 10.884 12.9754 12.34C13.8314 12.916 14.3114 13.652 14.3914 14.404Z' stroke='current-color' stroke-linecap='round' stroke-linejoin='round' />
-                      <path d='M9 16.5C13.4182 16.5 17 12.9182 17 8.5C17 4.08172 13.4182 0.5 9 0.5C4.58172 0.5 1 4.08172 1 8.5C1 12.9182 4.58172 16.5 9 16.5Z' stroke='current-color' stroke-linecap='round' stroke-linejoin='round' />
-                    </svg>
-                    {' '}
+                    <i className='far fa-user-circle fz16 me-2' />{' '}
                     <span className='hidden xl:block'>Login / Register</span>
                   </a>
                   <Link

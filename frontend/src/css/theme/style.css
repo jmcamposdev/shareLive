@@ -1,10 +1,10 @@
 @charset "UTF-8";
-@import url(./plugins/fontawesome.css);
-@import url(./plugins/ace-responsive-menu.css);
-@import url(./plugins/dashbord_navitaion.css);
-@import url(./plugins/flaticon.css);
-@import url(./plugins/menu.css);
-@import url(./plugins/ud-custom-spacing.css);
+@import "./plugins/fontawesome.css";
+@import "./plugins/ace-responsive-menu.css";
+@import "./plugins/dashbord_navitaion.css";
+@import "./plugins/flaticon.css";
+@import "./plugins/menu.css";
+@import "./plugins/ud-custom-spacing.css";
 
 /* Project/Template Name: Homez - Real Estate Nextjs Template Template Url: Author: ib-themes Author Url: https://themeforest.net/user/ib-themes/portfolio Version: 1.0.0 Description: Zeomart - Multi-Vendor & Marketplace HTML Template Tag: advanced search, agency, agent, classified, directory, house, listing, property, real estate, real estate agency, real estate agent, realestate, realtor, rental ********/
 /* CSS Document */
@@ -51,7 +51,7 @@
 /*================================= Theme Based ==================================*/
 /* Variables */
 :root {
-  --title-font-family: "Poppins", sans-serif;
+  --title-font-family: "Clarity City", sans-serif;
   --body-font-family: "__DM_Sans_aac82c", "__DM_Sans_Fallback_aac82c";
   --icon-font-family: "Font Awesome 6 Pro";
   --icon-font-family2: "Flaticon";
@@ -211,6 +211,10 @@ li {
   background-color: var(--headings-color);
 }
 
+.footer-style1 .container {
+  max-width: 1230px;
+}
+
 .footer-style1.at-home2 {
   padding-top: 230px;
 }
@@ -316,6 +320,7 @@ li {
   font-weight: 400;
   height: 70px;
   padding-left: 30px;
+  width: 100%;
 }
 
 .mailchimp-style1 .form-control:placeholder {
