@@ -19,9 +19,9 @@ const AppWidget = () => {
   return (
     <div className='app-widget'>
       <h5 className='title text-white mb10'>Apps</h5>
-      <div className='flex flex-wrap  mb-4 lg:mb-12'>
+      <div className='flex flex-wrap  mb-4 lg:mb-12 gap-6'>
         {appList.map((app, index) => (
-          <div className='col-auto' key={index}>
+          <div className='col-auto widget-container' key={index}>
             <a href={app.link} target='_blank' rel='noopener noreferrer'>
               <div className='app-info flex items-center mb10'>
                 <div className='flex-shrink-0'>

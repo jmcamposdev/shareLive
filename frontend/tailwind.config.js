@@ -9,16 +9,24 @@ export default {
     fontFamily: {
       clarityCity: ['Clarity City', 'sans-serif']
     },
-    // container: {
-    //   // default breakpoints but with 40px removed
-    //   screens: {
-    //     sm: '600px',
-    //     md: '728px',
-    //     lg: '984px',
-    //     xl: '1240px',
-    //     '2xl': '1496px'
-    //   }
-    // },
+    screens: {
+      xs: '100%',
+      sm: '576px',
+      md: '768px',
+      lg: '992px',
+      xl: '1200px',
+      '2xl': '1400px'
+    },
+    container: {
+      center: true,
+      padding: '1rem',
+      maxWidth: {
+        sm: '540px',
+        md: '720px',
+        lg: '960px',
+        xl: '1140px'
+      }
+    },
     extend: {}
   },
   plugins: []
