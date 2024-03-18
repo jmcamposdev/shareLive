@@ -1,0 +1,17 @@
+{
+  "cSpell.words": [
+    "boxdark",
+    "heroicons",
+    "lucide",
+    "satoshi",
+    "Secundaria",
+    "signin",
+    "strokedark",
+    "tabler",
+    "Zawee"
+  ],
+  "github.copilot.chat.localeOverride": "en",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  }
+}
