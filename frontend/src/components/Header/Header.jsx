@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom'
 import React, { useEffect, useState } from 'react'
-import LoginSignupModal from '../common/login-signup-modal'
 import LogoWhite from '../../assets/logos/logo-white.png'
 import LogoDark from '../../assets/logos/logo-dark.png'
 
@@ -88,22 +87,6 @@ const Header = () => {
         </nav>
       </header>
       {/* End Header */}
-
-      {/* Signup Modal */}
-      <div className='signup-modal'>
-        <div
-          className='modal opacity-0'
-          id='loginSignupModal'
-          tabIndex={-1}
-          aria-labelledby='loginSignupModalLabel'
-          aria-hidden='true'
-        >
-          <div className='modal-dialog  modal-dialog-scrollable modal-dialog-centered'>
-            <LoginSignupModal />
-          </div>
-        </div>
-      </div>
-      {/* End Signup Modal */}
     </>
   )
 }

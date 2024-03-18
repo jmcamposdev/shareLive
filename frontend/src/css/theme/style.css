@@ -133,6 +133,7 @@ h6 {
   color: var(--headings-color);
   font-weight: 600;
   line-height: 1.5;
+  margin-bottom: .5rem;
 }
 
 p {
@@ -211,10 +212,6 @@ li {
   background-color: var(--headings-color);
 }
 
-.footer-style1 .container {
-  max-width: 1230px;
-}
-
 .footer-style1.at-home2 {
   padding-top: 230px;
 }
@@ -263,6 +260,9 @@ li {
   -webkit-transition: all 0.4s ease;
   -o-transition: all 0.4s ease;
   transition: all 0.4s ease;
+}
+
+.app-widget .widget-container {
 }
 
 .app-widget .app-info:hover {

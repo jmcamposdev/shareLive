@@ -15,7 +15,7 @@ const ContactMeta = () => {
   ]
 
   return (
-    <div className='flex flex-wrap  mb-4 lg:mb-12'>
+    <div className='flex flex-wrap  mb-4 lg:mb-12 gap-6'>
       {contactInfoList.map((contact, index) => (
         <div className='col-auto' key={index}>
           <div className='contact-info'>

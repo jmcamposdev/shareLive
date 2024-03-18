@@ -12,7 +12,7 @@ const Footer = () => {
     <>
       <div className='container mx-auto sm:px-4'>
         <div className='flex flex-wrap '>
-          <div className='lg:w-2/5 pr-4 pl-4'>
+          <div className='w-full lg:w-2/5 pr-4 pl-4'>
             <div className='footer-widget mb-4 lg:mb-12'>
               <Link className='footer-logo' href='/'>
                 <img
@@ -33,7 +33,7 @@ const Footer = () => {
           </div>
           {/* End .col-lg-5 */}
 
-          <div className='lg:w-3/5 pr-4 pl-4'>
+          <div className='w-full lg:w-3/5 pr-4 pl-4'>
             <div className='footer-widget mb-4 lg:mb-12'>
               <Subscribe />
               <div className='flex flex-wrap  justify-between'>
