@@ -4,6 +4,7 @@ import AboutUs from './pages/WebPages/AboutUs/AboutUs'
 import NotFound from './pages/WebPages/404/404'
 import './css/style.css'
 import './css/clarityCity.css'
+import '../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js'
 
 function App () {
   return (
