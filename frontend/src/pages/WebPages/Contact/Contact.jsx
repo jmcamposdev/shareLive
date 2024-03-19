@@ -18,68 +18,70 @@ function Contact () {
         </section>
         <section>
           <div className='container mx-auto sm:px-4'>
-            <div className='flex flex-wrap  flex items-end'>
+            <div className='flex flex-wrap items-end'>
               <div className='lg:w-2/5 pr-4 pl-4 relative'>
-                <div className='home8-contact-form default-box-shadow1 bdrs12 bdr1 p30 mb30-md bgc-white'>
-                  <h4 className='form-title mb25'>
+                <div className='home8-contact-form default-box-shadow1 rounded-[12px] border-[1px] border-solid border-[#DDDDDD] p-[30px] bg-white'>
+                  <h4 className='form-title mb-[25px]'>
                     Have questions? Get in touch!
                   </h4>
-                  <form className='form-style1'>
-                    <div className='flex flex-wrap '>
-                      <div className='lg:w-full pr-4 pl-4'>
-                        <div className='mb20'>
-                          <label className='heading-color ff-heading fw600 mb10'>
+                  <form className='relative '>
+                    <div className='flex flex-wrap'>
+                      <div className='w-full pr-4 pl-4 flex-[0_0_auto]'>
+                        <div className='mb-[20px]'>
+                          <label className='text-[#181A20] font-[600] mb-[10px]'>
                             First Name
                           </label>
                           <input
                             type='text'
-                            className='block appearance-none w-full py-1 px-2 mb-1 text-base leading-normal bg-white text-gray-800 border border-gray-200 rounded'
-                            placeholder='Your Name'
+                            className='rounded-[8px] border-[1px] border-solid border-[#DDDDDD] shadow-none text-[14px] h-[55px] outline-none pl-[15px] w-full block font-[400] text-[#212529] leading-[21px] bg-clip-padding appearance-none'
+                            placeholder='Your First Name'
                             required
                           />
                         </div>
                       </div>
                       {/* End .col-lg-12 */}
 
-                      <div className='lg:w-full pr-4 pl-4'>
-                        <div className='mb20'>
-                          <label className='heading-color ff-heading fw600 mb10'>
+                      <div className='w-full pr-4 pl-4 flex-[0_0_auto]'>
+                        <div className='mb-[20px]'>
+                          <label className='text-[#181A20] font-[600] mb-[10px]'>
                             Last Name
                           </label>
                           <input
                             type='text'
-                            className='block appearance-none w-full py-1 px-2 mb-1 text-base leading-normal bg-white text-gray-800 border border-gray-200 rounded'
-                            placeholder='Your Name'
+                            className='rounded-[8px] border-[1px] border-solid border-[#DDDDDD] shadow-none text-[14px] h-[55px] outline-none pl-[15px] w-full block font-[400] text-[#212529] leading-[21px] bg-clip-padding appearance-none'
+                            placeholder='Your Last Name'
                             required
                           />
                         </div>
                       </div>
                       {/* End .col-lg-12 */}
 
-                      <div className='md:w-full pr-4 pl-4'>
-                        <div className='mb20'>
-                          <label className='heading-color ff-heading fw600 mb10'>
+                      <div className='w-full pr-4 pl-4 flex-[0_0_auto]'>
+                        <div className='mb-[20px]'>
+                          <label className='text-[#181A20] font-[600] mb-[10px]'>
                             Email
                           </label>
                           <input
-                            type='email'
-                            className='block appearance-none w-full py-1 px-2 mb-1 text-base leading-normal bg-white text-gray-800 border border-gray-200 rounded'
-                            placeholder='Your Name'
+                            type='text'
+                            className='rounded-[8px] border-[1px] border-solid border-[#DDDDDD] shadow-none text-[14px] h-[55px] outline-none pl-[15px] w-full block font-[400] text-[#212529] leading-[21px] bg-clip-padding appearance-none'
+                            placeholder='Your Email'
                             required
                           />
                         </div>
                       </div>
                       {/* End .col-lg-12 */}
 
-                      <div className='md:w-full pr-4 pl-4'>
-                        <div className='mb10'>
-                          <label className='heading-color ff-heading fw600 mb10'>
+                      <div className='w-full pr-4 pl-4 flex-[0_0_auto]'>
+                        <div className='mb-[10px]'>
+                          <label className='text-[#181A20] font-[600] mb-[10px] inline-block'>
                             Textarea
                           </label>
                           <textarea
                             cols={30}
                             rows={4}
                             placeholder='There are many variations of passages.'
+                            className='rounded-[8px] border-[1px] border-solid border-[#DDDDDD] w-full h-auto scroll-py-[25px] scroll-px-[20px] resize-y m-0'
+                            style={{ fontSize: 'inherit', lineHeight: 'inherit' }}
                             defaultValue=''
                             required
                           />
@@ -87,8 +89,8 @@ function Contact () {
                       </div>
                       {/* End .col-lg-12 */}
 
-                      <div className='md:w-full pr-4 pl-4'>
-                        <div className='d-grid'>
+                      <div className='w-full pr-4 pl-4'>
+                        <div className='grid'>
                           <button type='submit' className='ud-btn btn-thm'>
                             Submit
                             <i className='fal fa-arrow-right-long' />
@@ -101,9 +103,9 @@ function Contact () {
               </div>
               {/* End .col */}
 
-              <div className='col-lg-5 offset-lg-2'>
-                <h2 className='mb30 text-capitalize'>
-                  We’d love to hear <br className='d-none d-lg-block' />
+              <div className='lg:w-2/5 pr-4 pl-4 lg:ml-[16.66666667%] md:mt-[3rem]'>
+                <h2 className='mb-[30px] capitalize'>
+                  We’d love to hear <br className='hidden lg:block' />
                   from you.
                 </h2>
                 <p className='text'>
