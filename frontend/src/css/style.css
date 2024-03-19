@@ -1,3 +1,4 @@
+@import '../../node_modules/bootstrap/dist/css/bootstrap.css';
 @import "./tailwind.css";
 @import "./theme/plugins/swiper-custom.css";
 @import "./theme/style.css";
@@ -15,4 +16,8 @@
   outline: none !important;
   border: none;
   border-bottom: 1px solid black;
+}
+
+.ps-menu-label {
+  text-transform: capitalize;
 }
