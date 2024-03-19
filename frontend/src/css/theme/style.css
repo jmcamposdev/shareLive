@@ -3701,14 +3701,14 @@ li {
 
 /*Home 2 Banner Content*/
 .home2-hero-banner {
-  background-image: url(../images/home/home-2.jpg);
+  background-image: url(../../assets/img/hero/home-hero.jpg);
   background-position: center center;
   background-repeat: no-repeat;
   height: 650px;
   max-width: 1600px;
   position: absolute;
   top: 200px;
-  width: 100%;
+  width: calc(100% - 32px);
 }
 
 @media (max-width: 991.98px) {
@@ -3721,7 +3721,7 @@ li {
   color: #fff;
   font-size: 46px;
   font-family: var(--title-font-family);
-  font-weight: 600;
+  font-weight: 700;
 }
 
 @media (max-width: 767.98px) {
@@ -7384,6 +7384,7 @@ textarea:focus {
   padding: 0;
   text-align: center;
   width: 40px;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23000'%3e%3cpath d='M.293.293a1 1 0 0 1 1.414 0L8 6.586 14.293.293a1 1 0 1 1 1.414 1.414L9.414 8l6.293 6.293a1 1 0 0 1-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 0 1-1.414-1.414L6.586 8 .293 1.707a1 1 0 0 1 0-1.414z'/%3e%3c/svg%3e");
 }
 
 .advance-feature-modal .btn-close:hover,
