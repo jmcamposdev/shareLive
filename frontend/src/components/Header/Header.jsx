@@ -62,7 +62,7 @@ const Header = () => {
               <div className='col-auto'>
                 <div className='flex items-center'>
                   <form className='flex items-center justify-center gap-2'>
-                    <input className={`search_input_header border-b px-3 ${navbar ? 'border-black' : 'border-white'}`} type='text' name='search' id='search' placeholder='Search' />
+                    <input className={`search_input_header border-b px-3 bg-transparent ${navbar ? 'border-black text-black' : 'border-white text-white'}`} type='text' name='search' id='search' placeholder='Search' />
                     <button type='submit' className='flex items-center justify-center'>
                       <span className='flaticon-search text-[16px]' />
                     </button>
