@@ -20,9 +20,7 @@ function WebLayout ({ children }) {
       {/* End All Content */}
 
       {/* Start Our Footer */}
-      <section className='footer-style1 at-home2 pb-0'>
-        <Footer />
-      </section>
+      <Footer />
       {/* End Our Footer */}
     </div>
   )
