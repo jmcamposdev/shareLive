@@ -137,8 +137,8 @@ function Contact () {
               </div>
             </div>
             {/* End .row */}
-            <div className='row'>
-              <div className='sm:w-1/2 lg:w-1/3 pr-4 pl-4 wow fadeInLeft' dataWowDelay='0ms' style={{ visibility: 'visible', animationDelay: '0ms', animationName: 'fadeInLeft' }}>
+            <div className='flex flex-wrap mt-0 justify-center items-center'>
+              <div className='sm:w-1/2 lg:w-1/3 pr-4 pl-4 grow wow fadeInLeft' dataWowDelay='0ms' style={{ visibility: 'visible', animationDelay: '0ms', animationName: 'fadeInLeft' }}>
                 <div className='iconbox-style8 text-center'>
                   <div className='icon'>
                     <img src={Paris} alt='Paris' style={{ height: '120px', width: '120px', display: 'inline' }} />
@@ -153,7 +153,7 @@ function Contact () {
                   </div>
                 </div>
               </div>
-              <div className='sm:w-1/2 pr-4 pl-4 lg:w-1/3 pr-4 pl-4'>
+              <div className='sm:w-1/2 pr-4 pl-4 lg:w-1/3 pr-4 pl-4 grow'>
                 <div className='iconbox-style8 text-center active'>
                   <div className='icon'>
                     <img src={London} alt='London' style={{ height: '120px', width: '120px', display: 'inline' }} />
@@ -168,7 +168,7 @@ function Contact () {
                   </div>
                 </div>
               </div>
-              <div className='sm:w-1/2 pr-4 pl-4 lg:w-1/3 pr-4 pl-4'>
+              <div className='sm:w-1/2 pr-4 pl-4 lg:w-1/3 pr-4 pl-4 sm:grow-0 grow'>
                 <div className='iconbox-style8 text-center'>
                   <div className='icon'>
                     <img src={NewYork} alt='New York' style={{ height: '120px', width: '120px', display: 'inline' }} />
