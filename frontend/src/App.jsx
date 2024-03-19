@@ -1,9 +1,9 @@
-import './css/style.css'
-import './css/clarityCity.css'
 import { Route, Routes } from 'react-router-dom'
 import Home from './pages/WebPages/Home/Home'
 import AboutUs from './pages/WebPages/AboutUs/AboutUs'
 import NotFound from './pages/WebPages/404/404'
+import './css/style.css'
+import './css/clarityCity.css'
 
 function App () {
   return (

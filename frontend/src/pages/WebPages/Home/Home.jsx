@@ -1,9 +1,11 @@
+import WebLayout from '../../../layout/WebLayout'
+
 function Home () {
   return (
-    <div>
+    <WebLayout>
       <h1>Home</h1>
       <p>Welcome to the home page!</p>
-    </div>
+    </WebLayout>
   )
 }
 export default Home
