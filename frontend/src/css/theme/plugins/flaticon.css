@@ -1,14 +1,14 @@
 @font-face {
   font-family: "flaticon";
-  src: url("../fonts/flaticon_realton60b2.ttf?f661cb9e50c384c329b01fbbf2c550a1")
+  src: url("../../../fonts/webfonts/flaticon_realton60b2.ttf?f661cb9e50c384c329b01fbbf2c550a1")
       format("truetype"),
-    url("../fonts/flaticon_realton60b2.woff?f661cb9e50c384c329b01fbbf2c550a1")
+    url("../../../fonts/webfonts/flaticon_realton60b2.woff?f661cb9e50c384c329b01fbbf2c550a1")
       format("woff"),
-    url("../fonts/flaticon_realton60b2.woff2?f661cb9e50c384c329b01fbbf2c550a1")
+    url("../../../fonts/webfonts/flaticon_realton60b2.woff2?f661cb9e50c384c329b01fbbf2c550a1")
       format("woff2"),
-    url("../fonts/flaticon_realton60b2.eot?f661cb9e50c384c329b01fbbf2c550a1#iefix")
+    url("../../../fonts/webfonts/flaticon_realton60b2.eot?f661cb9e50c384c329b01fbbf2c550a1#iefix")
       format("embedded-opentype"),
-    url("../fonts/flaticon_realton60b2.svg?f661cb9e50c384c329b01fbbf2c550a1#flaticon_realton")
+    url("../../../fonts/webfonts/flaticon_realton60b2.svg?f661cb9e50c384c329b01fbbf2c550a1#flaticon_realton")
       format("svg");}
 i[class^="flaticon-"]:before,
 i[class*=" flaticon-"]:before,
