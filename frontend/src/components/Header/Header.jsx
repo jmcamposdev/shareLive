@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import React, { useEffect, useState } from 'react'
 import LogoWhite from '../../assets/logos/logo-white.png'
 import LogoDark from '../../assets/logos/logo-dark.png'
-
+import DarkModeSwitcher from '../common/darkModeSwitcher/DarkModeSwitcher'
 import MainMenu from '../common/MainMenu'
 
 const Header = () => {
@@ -58,7 +58,7 @@ const Header = () => {
                 </div>
               </div>
               {/* End .col-auto */}
-
+              <DarkModeSwitcher />
               <div className='col-auto'>
                 <div className='flex items-center'>
                   <form className='flex items-center justify-center gap-2'>

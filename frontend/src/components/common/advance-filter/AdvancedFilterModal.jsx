@@ -1,4 +1,4 @@
-import Select from 'react-select'
+// import Select from 'react-select'
 import PriceRange from './PriceRange'
 import Bedroom from './Bedroom'
 import Bathroom from './Bathroom'
@@ -74,7 +74,7 @@ const AdvanceFilterModal = () => {
               <div className='widget-wrapper'>
                 <h6 className='list-title'>Type</h6>
                 <div className='form-style2 relative flex items-stretch w-full'>
-                  <Select
+                  {/* <Select
                     defaultValue={[catOptions[1]]}
                     name='colors'
                     options={catOptions}
@@ -82,7 +82,7 @@ const AdvanceFilterModal = () => {
                     className='select-custom'
                     classNamePrefix='select'
                     required
-                  />
+  /> */}
                 </div>
               </div>
             </div>
@@ -132,7 +132,7 @@ const AdvanceFilterModal = () => {
               <div className='widget-wrapper'>
                 <h6 className='list-title'>Location</h6>
                 <div className='form-style2 relative flex items-stretch w-full'>
-                  <Select
+                  {/* <Select
                     defaultValue={[locationOptions[0]]}
                     name='colors'
                     styles={customStyles}
@@ -140,7 +140,7 @@ const AdvanceFilterModal = () => {
                     className='select-custom'
                     classNamePrefix='select'
                     required
-                  />
+/> */}
                 </div>
               </div>
             </div>
