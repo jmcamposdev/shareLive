@@ -5819,6 +5819,10 @@ section {
   .iconbox-style5 {
     right: -10px;
   }
+
+  main {
+    padding-top: 65px;
+  }
 }
 
 .iconbox-style5 .icon {
