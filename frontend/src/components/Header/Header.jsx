@@ -58,7 +58,7 @@ const Header = () => {
                 </div>
               </div>
               {/* End .col-auto */}
-              <DarkModeSwitcher />
+
               <div className='col-auto'>
                 <div className='flex items-center'>
                   <form className='flex items-center justify-center gap-2'>
@@ -84,6 +84,7 @@ const Header = () => {
                     <i className='far fa-user-circle fz16 me-2' />{' '}
                     <span className='hidden xl:block'>Login / Register</span>
                   </a>
+                  <DarkModeSwitcher />
                 </div>
               </div>
               {/* End .col-auto */}

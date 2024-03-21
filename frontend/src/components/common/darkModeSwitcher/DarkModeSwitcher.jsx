@@ -4,7 +4,7 @@ const DarkModeSwitcher = ({ importedColorMode, importedSetColorMode }) => {
   const [colorMode, setColorMode] = useColorMode()
 
   return (
-    <div>
+    <div className='mx-2 xl:mx-6'>
       <label
 
         className={`relative m-0 block h-7.5 rounded-full h-7 bg-amber-200 dark:bg-sky-900 transition-all w-16 ${
