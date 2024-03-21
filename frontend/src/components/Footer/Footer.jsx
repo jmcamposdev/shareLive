@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import ContactMeta from './ContactMeta'
 import AppWidget from './AppWidget'
 import Social from './Social'
@@ -9,10 +9,11 @@ import TopBanner from './TopBanner/TopBanner'
 import LogoWhite from '../../assets/logos/logo-white.png'
 
 const Footer = () => {
+  const isHomePage = useLocation().pathname === '/'
   return (
     <>
-      <TopBanner />
-      <section className='footer-style1 at-home2 pb-0'>
+      {isHomePage && <TopBanner />}
+      <section className={`footer-style1 ${isHomePage ? 'at-home2' : ''} pb-0`}>
         <div className='container mx-auto sm:px-4'>
           <div className='flex flex-wrap '>
             <div className='w-full lg:w-2/5 pr-4 pl-4'>
