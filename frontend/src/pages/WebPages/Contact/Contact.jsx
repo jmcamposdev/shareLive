@@ -11,7 +11,7 @@ import PageIntroGrey from '../../../components/common/PageIntroGrey/PageIntroGre
 
 const title = 'Contact'
 const description = 'Contact us and let us help you find your next student home!'
-const backgroundImage = '../../../assets/img/contact/ContactHeader.png'
+const backgroundImage = '/src/assets/img/contact/ContactHeader.png'
 
 function Contact () {
   return (
