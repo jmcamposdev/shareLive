@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import React, { useEffect, useState } from 'react'
 import LogoWhite from '../../assets/logos/logo-white.png'
 import LogoDark from '../../assets/logos/logo-dark.png'
-
+import DarkModeSwitcher from '../common/darkModeSwitcher/DarkModeSwitcher'
 import MainMenu from '../common/MainMenu'
 
 const Header = () => {
@@ -84,6 +84,7 @@ const Header = () => {
                     <i className='far fa-user-circle fz16 me-2' />{' '}
                     <span className='hidden xl:block'>Login / Register</span>
                   </a>
+                  <DarkModeSwitcher />
                 </div>
               </div>
               {/* End .col-auto */}
