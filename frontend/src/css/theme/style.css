@@ -131,7 +131,7 @@ h5,
 h6 {
   font-family: var(--title-font-family);
   color: var(--headings-color);
-  font-weight: 600;
+  font-weight: 700;
   line-height: 1.5;
   margin-bottom: .5rem;
 }
@@ -5766,7 +5766,7 @@ section {
   border-radius: 50%;
   color: var(--headings-color);
   display: block;
-  font-size: 30px;
+  font-size: 22px;
   height: 70px;
   line-height: 75px;
   margin-bottom: 15px;
@@ -5793,6 +5793,10 @@ section {
 
 .iconbox-style4:hover .icon {
   background-color: rgba(255, 255, 255, 0.1);
+}
+
+.iconbox-style4:hover .img__wrapper {
+  background-color: #ffffff1a;
 }
 
 .iconbox-style5 {
