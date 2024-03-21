@@ -27,7 +27,12 @@ export default {
         xl: '1140px'
       }
     },
-    extend: {}
+    extend: {
+      colors: {
+        midnight: '#181a20',
+        fff: '#f7f7f7'
+      }
+    }
   },
   plugins: []
 }
