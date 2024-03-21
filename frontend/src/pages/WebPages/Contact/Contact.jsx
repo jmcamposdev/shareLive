@@ -7,11 +7,17 @@ import London from '../../../assets/vectors/london.svg'
 import NewYork from '../../../assets/vectors/newYork.svg'
 
 import NeedHelpBox from '../../../components/common/needHelpBox/NeedHelpBox'
+import PageIntroGrey from '../../../components/common/PageIntroGrey/PageIntroGrey'
+
+const title = 'Contact'
+const description = 'Contact us and let us help you find your next student home!'
+const backgroundImage = '../../../assets/img/contact/ContactHeader.png'
 
 function Contact () {
   return (
     <div>
       <WebLayout>
+        <PageIntroGrey title={title} description={description} backgroundImage={backgroundImage} />
         <section className='p-0'>
           <iframe
             className='home8-map contact-page'
