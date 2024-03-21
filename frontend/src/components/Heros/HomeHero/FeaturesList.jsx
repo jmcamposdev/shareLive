@@ -33,7 +33,7 @@ const FeaturesList = () => {
                 <SwiperSlide key={type.id}>
                   <div className='item'>
                     <div className='iconbox-style4'>
-                      <span class={`icon ${type.icon}`} />
+                      <span className={`icon ${type.icon}`} />
                       <div className='iconbox-content'>
                         <h6 className='title'>{type.title}</h6>
                         <p className='text mb-0'>{type.text}</p>
