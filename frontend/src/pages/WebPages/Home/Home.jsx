@@ -6,7 +6,7 @@ function Home () {
   return (
     <WebLayout>
       <HomeHero />
-      <PageIntro />
+      <PageIntro title='titulo' description='descripcion' backgroundImage='http://localhost:5174/src/assets/img/hero/home-hero.jpg' />
       <div style={{ height: '100vh' }} />
       <h1>Home</h1>
       <p>Welcome to the home page!</p>

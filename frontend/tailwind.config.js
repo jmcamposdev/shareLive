@@ -30,7 +30,8 @@ export default {
     extend: {
       colors: {
         midnight: '#181a20',
-        fff: '#f7f7f7'
+        f7f7f7: '#f7f7f7',
+        fff: '#fff'
       }
     }
   },
