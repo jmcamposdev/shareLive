@@ -1,7 +1,12 @@
 import WebLayout from '../../../layout/WebLayout'
+
+import vector from '../../../assets/vectors/verticalMesh.svg'
+
 import Paris from '../../../assets/vectors/paris.svg'
 import London from '../../../assets/vectors/london.svg'
 import NewYork from '../../../assets/vectors/newYork.svg'
+
+import NeedHelpBox from '../../../components/common/needHelpBox/NeedHelpBox'
 
 function Contact () {
   return (
@@ -120,6 +125,8 @@ function Contact () {
         </section>
         {/* End Our Contact Form */}
 
+        <img className='absolute top-[750px] scale-x-[-1]' src={vector} />
+
         {/* Visit our Office */}
         <section className='pt0 pb90 pb10-md'>
           <div className='container'>
@@ -155,7 +162,7 @@ function Contact () {
                   </div>
                 </div>
               </div>
-              <div className='sm:w-1/2 pr-4 pl-4 lg:w-1/3 pr-4 pl-4 grow'>
+              <div className='sm:w-1/2 pr-4 pl-4 lg:w-1/3 grow'>
                 <div className='iconbox-style8 text-center active'>
                   <div className='icon'>
                     <img src={London} alt='London' style={{ height: '120px', width: '120px', display: 'inline' }} />
@@ -170,7 +177,7 @@ function Contact () {
                   </div>
                 </div>
               </div>
-              <div className='sm:w-1/2 pr-4 pl-4 lg:w-1/3 pr-4 pl-4 sm:grow-0 grow'>
+              <div className='sm:w-1/2 lg:w-1/3 pr-4 pl-4 sm:grow-0 grow'>
                 <div className='iconbox-style8 text-center'>
                   <div className='icon'>
                     <img src={NewYork} alt='New York' style={{ height: '120px', width: '120px', display: 'inline' }} />
@@ -192,7 +199,7 @@ function Contact () {
         {/* End Visit our Office */}
 
         {/* Our CTA */}
-        {/* <CallToActions /> */}
+        <NeedHelpBox />
         {/* Our CTA */}
       </WebLayout>
     </div>
