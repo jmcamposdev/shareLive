@@ -5,7 +5,7 @@ import RoomPagination from '../common/RoomSlider/RoomPagination'
 
 const RoomsNearYou = () => {
   return (
-    <section className='pt0 pb60 pb30-md bgc-white'>
+    <section className='pt0 pb120 pb30-md bgc-white'>
       <div className='container mx-auto sm:px-4'>
         <div className='flex flex-wrap justify-between  items-center' data-aos='fade-up'>
           <div className='lg:w-3/4 w-auto pr-4 pl-4'>
