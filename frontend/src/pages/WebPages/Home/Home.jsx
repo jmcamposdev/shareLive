@@ -1,4 +1,5 @@
 import HomeHero from '../../../components/Heros/HomeHero/HomeHero'
+import Statistics from '../../../components/Home/Statistics/Statistics'
 import RoomsNearYou from '../../../components/RoomsNearYou/RoomsNearYou'
 import WebLayout from '../../../layout/WebLayout'
 
@@ -7,9 +8,7 @@ function Home () {
     <WebLayout>
       <HomeHero />
       <RoomsNearYou />
-      <div style={{ height: '100vh' }} />
-      <h1>Home</h1>
-      <p>Welcome to the home page!</p>
+      <Statistics />
     </WebLayout>
   )
 }
