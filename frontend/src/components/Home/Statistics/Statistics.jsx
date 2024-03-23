@@ -7,7 +7,7 @@ const Statistics = () => {
         <img src={StatisticsImage} alt='' />
         <div className='lg:absolute  bg-white right-0 px-12 py-14 w-full lg:max-w-2xl shadow-lg rounded-3xl gap-6 lg:gap-0'>
           <h2 className='text-[40px] font-semibold'>We serve costumers all over the world</h2>
-          <p className='max-w-lg'>Lorem ipsum dolor sit amet consectetur adipiscing eli mattis sit phasellus mollis sit aliquam sit nullam neque ultrices.</p>
+          <p className='max-w-lg mb-6'>Lorem ipsum dolor sit amet consectetur adipiscing eli mattis sit phasellus mollis sit aliquam sit nullam neque ultrices.</p>
           <div className='statistics flex flex-wrap justify-between mb-6'>
             <div>
               <h3 className='text-[55px] font-semibold leading-none'>150<span className='text-orangePrimary'>K</span></h3>
