@@ -1198,6 +1198,7 @@ li {
   -webkit-transition: all 0.4s ease;
   -o-transition: all 0.4s ease;
   transition: all 0.4s ease;
+  aspect-ratio: 3 / 2;
 }
 
 .listing-style1 .list-agent {
@@ -1245,7 +1246,8 @@ li {
 }
 
 .listing-style1 .list-price {
-  background-color: #fff;
+  background-color: #ffffffb5;
+  backdrop-filter: blur(2px);
   border-radius: 6px;
   bottom: 20px;
   color: var(--headings-color);
@@ -1287,7 +1289,7 @@ li {
 }
 
 .listing-style1 .list-title {
-  margin-bottom: 2px;
+  margin-bottom: 5px;
 }
 
 .listing-style1 .list-title a {
@@ -1333,10 +1335,6 @@ li {
 .listing-style1 hr {
   background-color: #ddd;
   opacity: 1;
-}
-
-.listing-style1:hover .list-title {
-  text-decoration: underline;
 }
 
 .listing-style1:hover .list-tag,
