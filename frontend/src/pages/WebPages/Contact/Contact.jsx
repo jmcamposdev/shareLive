@@ -44,7 +44,7 @@ function Contact () {
                           </label>
                           <input
                             type='text'
-                            className='rounded-[8px] border-[1px] border-solid border-[#DDDDDD] shadow-none text-[14px] h-[55px] outline-none pl-[15px] w-full block font-[400] text-[#212529] leading-[21px] bg-clip-padding appearance-none'
+                            className='rounded-[8px] border-[1px] border-solid border-[#DDDDDD] shadow-none text-[14px] h-[55px] pl-[15px] w-full block font-[400] text-[#212529] leading-[21px] bg-clip-padding appearance-none'
                             placeholder='Your First Name'
                             required
                           />
@@ -59,7 +59,7 @@ function Contact () {
                           </label>
                           <input
                             type='text'
-                            className='rounded-[8px] border-[1px] border-solid border-[#DDDDDD] shadow-none text-[14px] h-[55px] outline-none pl-[15px] w-full block font-[400] text-[#212529] leading-[21px] bg-clip-padding appearance-none'
+                            className='rounded-[8px] border-[1px] border-solid border-[#DDDDDD] shadow-none text-[14px] h-[55px] pl-[15px] w-full block font-[400] text-[#212529] leading-[21px] bg-clip-padding appearance-none'
                             placeholder='Your Last Name'
                             required
                           />
@@ -74,7 +74,7 @@ function Contact () {
                           </label>
                           <input
                             type='text'
-                            className='rounded-[8px] border-[1px] border-solid border-[#DDDDDD] shadow-none text-[14px] h-[55px] outline-none pl-[15px] w-full block font-[400] text-[#212529] leading-[21px] bg-clip-padding appearance-none'
+                            className='rounded-[8px] border-[1px] border-solid border-[#DDDDDD] shadow-none text-[14px] h-[55px] pl-[15px] w-full block font-[400] text-[#212529] leading-[21px] bg-clip-padding appearance-none'
                             placeholder='Your Email'
                             required
                           />
@@ -131,7 +131,7 @@ function Contact () {
         </section>
         {/* End Our Contact Form */}
 
-        <img className='absolute top-[750px] scale-x-[-1]' src={vector} />
+        <img className='absolute top-[1450px] scale-x-[-1]' src={vector} />
 
         {/* Visit our Office */}
         <section className='pt0 pb90 pb10-md'>
