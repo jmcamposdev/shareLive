@@ -31,7 +31,8 @@ export default {
       colors: {
         midnight: '#181a20',
         f7f7f7: '#f7f7f7',
-        fff: '#fff'
+        fff: '#fff',
+        orangePrimary: '#eb6753'
       }
     }
   },
