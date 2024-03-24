@@ -4,7 +4,7 @@ import CityCard from './CityCard/CityCard'
 
 const PopularCities = () => {
   return (
-    <section className='pt120 pb60 pb30-md bgc-white'>
+    <section className='pt90 pb90 bgc-white'>
       <div className='container mx-auto sm:px-4'>
         <div className='flex flex-wrap justify-between  items-center' data-aos='fade-up'>
           <div className='lg:w-3/4 w-auto pr-4 pl-4'>

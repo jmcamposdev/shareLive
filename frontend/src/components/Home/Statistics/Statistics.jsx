@@ -2,7 +2,7 @@ import StatisticsImage from '../../../assets/img/home/statistics.png'
 
 const Statistics = () => {
   return (
-    <section className='pt120 pb120 pb30-md bgc-white'>
+    <section className='pt90 pb90 bgc-white'>
       <div className='container mx-auto sm:px-4 relative flex items-center justify-between flex-col lg:flex-row gap-6 lg:gap-0'>
         <img src={StatisticsImage} alt='' />
         <div className='lg:absolute  bg-white right-0 px-12 py-14 w-full lg:max-w-2xl shadow-lg rounded-3xl gap-6 lg:gap-0'>
