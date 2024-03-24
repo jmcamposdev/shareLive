@@ -26,7 +26,7 @@ const Header = () => {
   return (
     <>
       <header
-        className={`header-nav nav-homepage-style at-home2  main-menu ${
+        className={`header-nav nav-homepage-style at-home2  main-menu !z-50 ${
           navbar ? 'sticky slideInDown animated' : ''
         }`}
       >
