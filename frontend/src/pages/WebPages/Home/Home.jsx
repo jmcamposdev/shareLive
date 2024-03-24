@@ -1,4 +1,5 @@
 import HomeHero from '../../../components/Heros/HomeHero/HomeHero'
+import DreamRoom from '../../../components/Home/DreamRoom/DreamRoom'
 import FunFact from '../../../components/Home/FunFact/FunFact'
 import PopularCities from '../../../components/Home/PopularCities/PopularCities'
 import Statistics from '../../../components/Home/Statistics/Statistics'
@@ -17,6 +18,7 @@ function Home () {
       <FunFact />
       <WhyChoose />
       <Testimonials />
+      <DreamRoom />
     </WebLayout>
   )
 }

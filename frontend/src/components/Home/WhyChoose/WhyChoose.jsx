@@ -38,7 +38,6 @@ const WhyChoose = () => {
               <img
                 width={591}
                 height={685}
-                priority
                 className='w-full h-full cover'
                 src={WhyChooseImg}
                 alt='why chosse'
