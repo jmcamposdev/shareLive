@@ -1,0 +1,15 @@
+.city-card:hover .city-card-img {
+  transform: scale(1.05);
+}  
+
+.city-title {
+  writing-mode: tb;
+  transform: rotate(180deg);
+  text-orientation: inherit;
+}
+
+.city-line {
+  width: 2px;
+  height: 70px;
+  background-color: #EE4C34;
+}
