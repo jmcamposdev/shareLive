@@ -18,7 +18,7 @@ const AboutIntro = () => {
 
           <div className='md:w-1/2 xl:w-1/2 pr-4 pl-4'>
             <div className='relative wow fadeInRight' data-wow-delay='300ms' style={{ visibility: 'visible', animationDelay: '300ms', animationName: 'fadeInRight' }}>
-              <img src={ThreeBlobs} alt='Three blobs, one is a pattern, the other is a gradient and the last one is the imgae of a hosue' className='scale-90' />
+              <img src={ThreeBlobs} alt='Three blobs, one is a pattern, the other is a gradient and the last one is the imgae of a hosue' className='max-w-[490px]' />
             </div>
           </div>
         </div>
