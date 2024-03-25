@@ -8,7 +8,7 @@ const PageIntro = ({ title, description, backgroundImage }) => {
       <div className='h-[230px] absolute bottom-0 w-full bg-f7f7f7' />
       <div
         style={{ backgroundImage: `url('${backgroundImage}')` }}
-        className='bg-center bg-cover bg-no-repeat h-[400px] min-h-[400px] w-[1600px] mx-3 shrink rounded-xl mb-24 z-10 flex justify-center items-center flex-column'
+        className='bg-center bg-cover bg-no-repeat h-[400px] min-h-[400px] w-[1600px] mx-3 shrink rounded-xl mb-24 z-[5] flex justify-center items-center flex-column'
       >
         <h2 className='text-fff text-[46px] font-bold hero-title text-center' data-aos='fade-up' data-aos-delay='150'>{title}</h2>
         <p className='text-fff hero-text fz15 font-normal text-center' data-aos='fade-up' data-aos-delay='250'>{description}</p>
