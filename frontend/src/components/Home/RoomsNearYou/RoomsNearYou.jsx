@@ -1,7 +1,7 @@
-import roomsData from '../../data/roomsItems'
+import roomsData from '../../../data/roomsItems'
 import { Link } from 'react-router-dom'
-import RoomSlider from '../common/RoomSlider/RoomSlider'
-import RoomPagination from '../common/RoomSlider/RoomPagination'
+import RoomSlider from '../../common/RoomSlider/RoomSlider'
+import RoomPagination from '../../common/RoomSlider/RoomPagination'
 
 const RoomsNearYou = () => {
   return (
