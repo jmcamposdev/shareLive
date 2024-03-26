@@ -1,11 +1,16 @@
+import LeftHalfBlob from '../../../assets/img/aboutUs/leftHalfBlob.png'
+import RightHalfBlob from '../../../assets/img/aboutUs/rightHalfBlob.png'
+
 const FaqIntro = () => {
   return (
-    <section className='our-about pb90'>
+    <section className='our-about pb90 relative'>
+      <img className='hidden absolute max-w-[450px] -z-10 left-0 top-[14rem] lg:block' src={LeftHalfBlob} alt='' />
+      <img className='hidden absolute max-w-[380px] -z-10 right-0 top-[38rem] lg:block' src={RightHalfBlob} alt='' />
       <div className='container mx-auto sm:px-4'>
         <div className='flex flex-wrap  aos-init aos-animate' data-aos='fade-up' data-aos-delay='300'>
           <div className='lg:w-1/2 pr-4 pl-4'>
             <p className='text-xl mb-1.5 font-medium text-orangePrimary'>Frequently Asked Questions</p>
-            <h2>We're on a Mission to Change <br className='hidden lg:block' /> View of Real Estate Field.</h2>
+            <h2>Changing the landscape: Our <br className='hidden lg:block' /> Mission in Room Rentals.</h2>
           </div>
           <div className='lg:w-1/2 pr-4 pl-4'>
             <p className='text mb25'>At ShareLive, we <span className='font-semibold'>understand</span> that when looking for a new student home, many questions arise. Don't worry, we are here to <span className='font-semibold'>help</span> you clarify any concerns you may have. In our Frequently Asked Questions (FAQ) section, we have compiled the most <span className='font-semibold'>common queries</span> from our user community and provided detailed and clear answers. </p>
