@@ -8,20 +8,20 @@ const FaqIntro = () => {
             <h2>We're on a Mission to Change <br className='hidden lg:block' /> View of Real Estate Field.</h2>
           </div>
           <div className='lg:w-1/2 pr-4 pl-4'>
-            <p className='text mb25'>At ShareLive, we understand that when looking for a new student home, many questions arise. Don't worry, we are here to help you clarify any concerns you may have. In our Frequently Asked Questions (FAQ) section, we have compiled the most common queries from our user community and provided detailed and clear answers. </p>
-            <p className='text mb55'>At ShareLive, we understand that when looking for a new student home, many questions arise. Don't worry, we are here to help you clarify any concerns you may have.</p>
+            <p className='text mb25'>At ShareLive, we <span className='font-semibold'>understand</span> that when looking for a new student home, many questions arise. Don't worry, we are here to <span className='font-semibold'>help</span> you clarify any concerns you may have. In our Frequently Asked Questions (FAQ) section, we have compiled the most <span className='font-semibold'>common queries</span> from our user community and provided detailed and clear answers. </p>
+            <p className='text mb55'>At ShareLive, our commitment to your <span className='font-semibold'>comfort</span> and satisfaction extends beyond just providing housing solutions. We strive to offer comprehensive support throughout your journey in finding the <span className='font-semibold'>perfect</span> student home.</p>
             <div className='flex flex-wrap '>
               <div className='sm:w-1/2 pr-4 pl-4'>
                 <div className='why-chose-list style3'>
                   <div className='list-one mb30 group'>
                     <span className='list-icon flex-shrink-0 mb20 items-center justify-center' style={{ display: 'flex' }}>
                       <svg fill='none' width='30' height='30' viewBox='0 0 16 14' xmlns='http://www.w3.org/2000/svg'>
-                        <path className='stroke-black group-hover:stroke-white' style={{ transition: 'all 0.4s ease' }} d='M8.9101 1.51106L7.84998 2.57717L6.78986 1.52004C6.12216 0.938605 5.25866 0.632268 4.37381 0.66292C3.48896 0.693572 2.64872 1.05893 2.02285 1.68518C1.39699 2.31143 1.03214 3.15188 1.00202 4.03675C0.971909 4.92162 1.27877 5.78493 1.86061 6.45229L2.92073 7.5124L5.39135 9.98302L7.84998 12.4596L10.3206 9.98901L12.7912 7.51839L13.8393 6.45229C14.4713 5.79231 14.8197 4.91106 14.8098 3.99735C14.7999 3.08363 14.4325 2.21014 13.7864 1.56401C13.1403 0.917876 12.2668 0.550508 11.3531 0.540611C10.4393 0.530713 9.55809 0.879075 8.89812 1.51106H8.9101Z' stroke-width='0.8' />
+                        <path className='stroke-black group-hover:stroke-white' style={{ transition: 'all 0.4s ease' }} d='M8.9101 1.51106L7.84998 2.57717L6.78986 1.52004C6.12216 0.938605 5.25866 0.632268 4.37381 0.66292C3.48896 0.693572 2.64872 1.05893 2.02285 1.68518C1.39699 2.31143 1.03214 3.15188 1.00202 4.03675C0.971909 4.92162 1.27877 5.78493 1.86061 6.45229L2.92073 7.5124L5.39135 9.98302L7.84998 12.4596L10.3206 9.98901L12.7912 7.51839L13.8393 6.45229C14.4713 5.79231 14.8197 4.91106 14.8098 3.99735C14.7999 3.08363 14.4325 2.21014 13.7864 1.56401C13.1403 0.917876 12.2668 0.550508 11.3531 0.540611C10.4393 0.530713 9.55809 0.879075 8.89812 1.51106H8.9101Z' strokeWidth='0.8' />
                       </svg>
                     </span>
                     <div className='list-content flex-grow-1'>
-                      <h6 className='mb-1'>Modern Villa</h6>
-                      <p className='text mb-0 fz14'>Nullam sollicitudin blandit <br className='hidden sm:block' /> Nullam maximus.</p>
+                      <h6 className='mb-1'>Heartfelt Guidance</h6>
+                      <p className='text mb-0 fz14'>Guided by ShareLive's Care <br className='hidden sm:block' /> with love.</p>
                     </div>
                   </div>
                 </div>
@@ -35,8 +35,8 @@ const FaqIntro = () => {
                       </svg>
                     </span>
                     <div className='list-content flex-grow-1'>
-                      <h6 className='mb-1'>Secure Payment</h6>
-                      <p className='text mb-0 fz14'>Nullam sollicitudin blandit <br className='hidden sm:block' /> Nullam maximus.</p>
+                      <h6 className='mb-1'>More Questions</h6>
+                      <p className='text mb-0 fz14'>Answers Await with ShareLive <br className='hidden sm:block' /> we are here.</p>
                     </div>
                   </div>
                 </div>
