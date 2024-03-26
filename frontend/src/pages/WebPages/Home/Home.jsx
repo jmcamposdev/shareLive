@@ -5,7 +5,7 @@ import PopularCities from '../../../components/Home/PopularCities/PopularCities'
 import Statistics from '../../../components/Home/Statistics/Statistics'
 import Testimonials from '../../../components/Home/Testimonials/Testimonials'
 import WhyChoose from '../../../components/Home/WhyChoose/WhyChoose'
-import RoomsNearYou from '../../../components/RoomsNearYou/RoomsNearYou'
+import RoomsNearYou from '../../../components/Home/RoomsNearYou/RoomsNearYou'
 import WebLayout from '../../../layout/WebLayout'
 
 function Home () {

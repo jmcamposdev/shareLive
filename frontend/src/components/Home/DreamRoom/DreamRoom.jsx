@@ -3,7 +3,6 @@ import GreyCircleImage from '../../../assets/img/home/dreamRoom/greyCircle.png'
 import CircleLine from '../../../assets/vectors/circleLine-2.svg'
 import DreamImage from '../../../assets/img/home/dreamRoom/dreamRoom-3.png'
 import VerticalMeshImage from '../../../assets/vectors/verticalMesh.svg'
-import HorizontalMeshImage from '../../../assets/vectors/horizontalMesh.svg'
 import { Link } from 'react-router-dom'
 
 const DreamRoom = () => {
