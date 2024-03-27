@@ -1,3 +1,5 @@
+import { useContext } from 'react'
+import { RoomContext } from '../../../context/roomContext'
 import Bathroom from './Bathroom/Bathroom'
 import Bedroom from './Bedroom/Bedroom'
 import Location from './Location/Location'
@@ -7,6 +9,7 @@ import SearchBox from './SearchBox/SearchBox'
 import SquareFeet from './SquareFeet/SquareFeet'
 
 const ListingSidebar = () => {
+  const { resetFilters } = useContext(RoomContext)
   return (
     <div className='list-sidebar-style1'>
       <div className='widget-wrapper'>
@@ -97,7 +100,7 @@ const ListingSidebar = () => {
       {/* End .widget-wrapper */}
 
       <div className='reset-area d-flex align-items-center justify-content-between'>
-        <div className='reset-button cursor' href='#'>
+        <div className='reset-button cursor' href='#' onClick={resetFilters}>
           <span className='flaticon-turn-back' />
           <u>Reset all filters</u>
         </div>
