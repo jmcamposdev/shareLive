@@ -1,11 +1,10 @@
-const SearchBox = ({ filterFunctions }) => {
+const SearchBox = () => {
   return (
     <div className='search_area'>
       <input
         type='text'
         className='form-control'
         placeholder='What are you looking for?'
-        onChange={(e) => filterFunctions?.setSearchQuery(e.target.value)}
       />
       <label>
         <span className='flaticon-search' />

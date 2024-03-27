@@ -1,4 +1,4 @@
-const OtherFeatures = ({ filterFunctions }) => {
+const OtherFeatures = () => {
   const featuresLeftColumn = [
     { label: 'Attic' },
     { label: 'Basketball court', defaultChecked: true },
@@ -25,8 +25,7 @@ const OtherFeatures = ({ filterFunctions }) => {
             <label className='custom_checkbox' key={index}>
               {feature.label}
               <input
-                checked={filterFunctions?.categories.includes(feature.label)}
-                type='checkbox' onChange={() => filterFunctions?.handlecategories(feature.label)}
+                type='checkbox'
               />
               <span className='checkmark' />
             </label>
@@ -41,7 +40,9 @@ const OtherFeatures = ({ filterFunctions }) => {
             <label className='custom_checkbox' key={index}>
               {feature.label}
 
-              <input type='checkbox' onChange={() => filterFunctions?.handlecategories(feature.label)} defaultChecked={feature.defaultChecked} />
+              <input
+                type='checkbox'
+              />
               <span className='checkmark' />
             </label>
           ))}

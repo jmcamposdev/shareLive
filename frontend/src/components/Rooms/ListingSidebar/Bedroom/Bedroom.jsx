@@ -1,4 +1,4 @@
-const Bedroom = ({ filterFunctions }) => {
+const Bedroom = () => {
   const options = [
     { id: 'any', label: 'any', value: 0, defaultChecked: true },
     { id: 'oneplus', label: '1+', value: 1 },
@@ -15,8 +15,6 @@ const Bedroom = ({ filterFunctions }) => {
           <input
             id={option.id}
             type='radio'
-            onChange={(e) => filterFunctions?.handlebedrooms(option.value)}
-            checked={filterFunctions?.bedrooms === option.value}
           />
           <label htmlFor={option.id}>{option.label}</label>
         </div>
