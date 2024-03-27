@@ -18,7 +18,8 @@ export const RoomProvider = ({ roomsData, children }) => {
     sqft: {
       min: 0,
       max: 0
-    }
+    },
+    amenities: []
   })
 
   /**
@@ -77,8 +78,8 @@ export const RoomProvider = ({ roomsData, children }) => {
    * ---------------------------------------------
    */
   useEffect(() => {
-    const { price, bedrooms, bathrooms, location, sqft } = filters
-    if (price.min === 0 && price.max === 0 && bedrooms === 0 && bathrooms === 0 && location === 'all' && sqft.min === 0 && sqft.max === 0) {
+    const { price, bedrooms, bathrooms, location, sqft, amenities } = filters
+    if (price.min === 0 && price.max === 0 && bedrooms === 0 && bathrooms === 0 && location === 'all' && sqft.min === 0 && sqft.max === 0 && amenities.length === 0) {
       setRooms([...roomsData])
       return
     }
@@ -96,8 +97,18 @@ export const RoomProvider = ({ roomsData, children }) => {
       if (location !== 'all' && isValid) { // Filter by location
         isValid = room.state === location
       }
-      if (sqft.min !== 0 && sqft.max !== 0 && isValid) { // Filter by square meters
-        isValid = room.size >= sqft.min && room.size <= sqft.max
+      if ((sqft.min !== 0 || sqft.max !== 0) && isValid) { // Filter by square meters
+        // If is defined only min or max, then filter by only one value
+        if (sqft.min !== 0 && sqft.max === 0) {
+          isValid = room.size >= sqft.min
+        } else if (sqft.min === 0 && sqft.max !== 0) {
+          isValid = room.size <= sqft.max
+        } else {
+          isValid = room.size >= sqft.min && room.size <= sqft.max
+        }
+      }
+      if (amenities.length > 0 && isValid) { // Filter by amenities
+        isValid = amenities.every((amenity) => room.amenities.includes(amenity))
       }
       return isValid
     })
@@ -119,6 +130,9 @@ export const RoomProvider = ({ roomsData, children }) => {
   const filterBySquareMeters = (min, max) => {
     setFilters({ ...filters, sqft: { min, max } })
   }
+  const filterByAmenities = (amenities) => {
+    setFilters({ ...filters, amenities })
+  }
   const resetFilters = () => {
     setFilters({
       price: {
@@ -131,7 +145,8 @@ export const RoomProvider = ({ roomsData, children }) => {
       sqft: {
         min: 0,
         max: 0
-      }
+      },
+      amenities: []
     })
   }
 
@@ -150,7 +165,8 @@ export const RoomProvider = ({ roomsData, children }) => {
         bedrooms: filterByBedrooms,
         bathrooms: filterByBathrooms,
         location: filterByLocation,
-        sqft: filterBySquareMeters
+        sqft: filterBySquareMeters,
+        amenities: filterByAmenities
       },
       resetFilters,
       filters
