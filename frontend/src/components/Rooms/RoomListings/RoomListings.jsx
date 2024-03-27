@@ -9,9 +9,14 @@ const RoomListings = () => {
   const { isGridView } = gridView
   return (
     <div className={`row ${isGridView ? 'grid grid-cols-1 md:grid-cols-2' : ''}`}>
-      {rooms.map((room) => (
+      {
+      rooms.length === 0 && <h4 className='text-center'>No rooms found</h4>
+      }
+      {
+      rooms.map((room) => (
         isGridView ? <RoomSimple key={room.id} room={room} /> : <RoomDetailed key={room.id} room={room} />
-      ))}
+      ))
+}
     </div>
   )
 }
