@@ -1,45 +1,25 @@
 import Bathroom from './Bathroom/Bathroom'
 import Bedroom from './Bedroom/Bedroom'
-import ListingStatus from './ListingStatus/ListingStatus'
 import Location from './Location/Location'
 import OtherFeatures from './OtherFeatures/OtherFeatures'
 import PriceRange from './PriceRange/PriceRange'
-import PropertyType from './PropertyType/PropertyType'
 import SearchBox from './SearchBox/SearchBox'
 import SquareFeet from './SquareFeet/SquareFeet'
-import YearBuilt from './YearBuilt/YearBuilt'
 
-const ListingSidebar = ({ filterFunctions }) => {
+const ListingSidebar = () => {
   return (
     <div className='list-sidebar-style1'>
       <div className='widget-wrapper'>
         <h6 className='list-title'>Find your home</h6>
-        <SearchBox filterFunctions={filterFunctions} />
+        <SearchBox />
       </div>
-      {/* End .widget-wrapper */}
-
-      <div className='widget-wrapper'>
-        <h6 className='list-title'>Listing Status</h6>
-        <div className='radio-element'>
-          <ListingStatus filterFunctions={filterFunctions} />
-        </div>
-      </div>
-      {/* End .widget-wrapper */}
-
-      <div className='widget-wrapper'>
-        <h6 className='list-title'>Property Type</h6>
-        <div className='checkbox-style1'>
-          <PropertyType filterFunctions={filterFunctions} />
-        </div>
-      </div>
-
       {/* End .widget-wrapper */}
 
       <div className='widget-wrapper'>
         <h6 className='list-title'>Price Range</h6>
         {/* Range Slider Desktop Version */}
         <div className='range-slider-style1'>
-          <PriceRange filterFunctions={filterFunctions} />
+          <PriceRange />
         </div>
       </div>
       {/* End .widget-wrapper */}
@@ -47,7 +27,7 @@ const ListingSidebar = ({ filterFunctions }) => {
       <div className='widget-wrapper'>
         <h6 className='list-title'>Bedrooms</h6>
         <div className='d-flex'>
-          <Bedroom filterFunctions={filterFunctions} />
+          <Bedroom />
         </div>
       </div>
       {/* End .widget-wrapper */}
@@ -55,7 +35,7 @@ const ListingSidebar = ({ filterFunctions }) => {
       <div className='widget-wrapper'>
         <h6 className='list-title'>Bathrooms</h6>
         <div className='d-flex'>
-          <Bathroom filterFunctions={filterFunctions} />
+          <Bathroom />
         </div>
       </div>
       {/* End .widget-wrapper */}
@@ -63,20 +43,14 @@ const ListingSidebar = ({ filterFunctions }) => {
       <div className='widget-wrapper advance-feature-modal'>
         <h6 className='list-title'>Location</h6>
         <div className='form-style2 input-group'>
-          <Location filterFunctions={filterFunctions} />
+          <Location />
         </div>
       </div>
       {/* End .widget-wrapper */}
 
       <div className='widget-wrapper'>
         <h6 className='list-title'>Square Feet</h6>
-        <SquareFeet filterFunctions={filterFunctions} />
-      </div>
-      {/* End .widget-wrapper */}
-
-      <div className='widget-wrapper'>
-        <h6 className='list-title'>Year Built</h6>
-        <YearBuilt filterFunctions={filterFunctions} />
+        <SquareFeet />
       </div>
       {/* End .widget-wrapper */}
 
@@ -103,7 +77,7 @@ const ListingSidebar = ({ filterFunctions }) => {
                 data-bs-parent='#accordionExample'
               >
                 <div className='accordion-body p-0 mt15'>
-                  <OtherFeatures filterFunctions={filterFunctions} />
+                  <OtherFeatures />
                 </div>
               </div>
             </div>
@@ -123,7 +97,7 @@ const ListingSidebar = ({ filterFunctions }) => {
       {/* End .widget-wrapper */}
 
       <div className='reset-area d-flex align-items-center justify-content-between'>
-        <div onClick={() => filterFunctions.resetFilter()} className='reset-button cursor' href='#'>
+        <div className='reset-button cursor' href='#'>
           <span className='flaticon-turn-back' />
           <u>Reset all filters</u>
         </div>
