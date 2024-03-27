@@ -27,10 +27,10 @@ export default [
     floor: 3,
     structureType: 'Apartment',
     amenities: [
-      'Air conditioning',
-      'Balcony',
-      'Heating',
-      'Internet',
+      'Air Conditioning',
+      'TV',
+      'Washer',
+      'Dryer',
       'Washing machine'
     ],
     createdAt: '2024-03-27T15:05:48.261Z'
@@ -60,11 +60,9 @@ export default [
     floor: 5,
     structureType: 'Apartment',
     amenities: [
-      'Air conditioning',
-      'Terrace',
-      'Heating',
-      'Internet',
-      'Elevator'
+      'Dryer',
+      'Microwave',
+      'DishWasher'
     ],
     createdAt: '2023-03-27T15:05:48.261Z'
   },
@@ -93,11 +91,8 @@ export default [
     floor: 1,
     structureType: 'House',
     amenities: [
-      'Air conditioning',
-      'Swimming pool',
-      'Heating',
-      'Internet',
-      'Garden'
+      'Washer',
+      'Refrigerator'
     ],
     createdAt: '2022-03-27T15:05:48.261Z'
   },
@@ -126,11 +121,9 @@ export default [
     floor: 3,
     structureType: 'Apartment',
     amenities: [
-      'Air conditioning',
-      'Balcony',
-      'Heating',
-      'Internet',
-      'Washing machine'
+      'Furnace',
+      'Washer',
+      'Dryer'
     ],
     createdAt: '2024-03-17T15:05:48.261Z'
   },
@@ -159,11 +152,10 @@ export default [
     floor: 5,
     structureType: 'Apartment',
     amenities: [
-      'Air conditioning',
-      'Terrace',
-      'Heating',
-      'Internet',
-      'Elevator'
+      'Air Conditioning',
+      'TV',
+      'WIFI',
+      'Washer'
     ],
     createdAt: '2022-03-27T15:05:48.261Z'
   },
@@ -192,11 +184,9 @@ export default [
     floor: 1,
     structureType: 'House',
     amenities: [
-      'Air conditioning',
-      'Swimming pool',
-      'Heating',
-      'Internet',
-      'Garden'
+      'Electric Heater',
+      'Elevator',
+      'TV'
     ],
     createdAt: '2024-03-27T12:05:48.261Z'
   }
