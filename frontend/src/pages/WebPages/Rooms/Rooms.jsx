@@ -4,13 +4,11 @@ import WebLayout from '../../../layout/WebLayout'
 import RoomBackgroundImage from '../../../assets/img/rooms/rooms-background.png'
 import ListingSidebar from '../../../components/Rooms/ListingSidebar/ListingSidebar'
 import TopFilterBar from '../../../components/Rooms/TopFilterBar/TopFilterBar'
-import { useState } from 'react'
+
 import RoomListings from '../../../components/Rooms/RoomListings/RoomListings'
 import { RoomProvider } from '../../../context/roomContext'
 
 const Rooms = () => {
-  const [isGridView, setIsGridView] = useState(true)
-
   return (
     <RoomProvider roomsData={roomData}>
       <WebLayout>
@@ -50,11 +48,7 @@ const Rooms = () => {
 
               <div className='col-lg-8'>
                 <div className='row align-items-center mb20'>
-                  <TopFilterBar
-                    onListClick={() => setIsGridView(false)}
-                    onGridClick={() => setIsGridView(true)}
-                    isGridView={isGridView}
-                  />
+                  <TopFilterBar />
                 </div>
                 {/* End TopFilterBar */}
 
