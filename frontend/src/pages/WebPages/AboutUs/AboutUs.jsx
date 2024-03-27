@@ -5,6 +5,7 @@ import AboutIntro from '../../../components/about/AboutIntro/AboutIntro'
 import FaqIntro from '../../../components/about/FaqIntro/FaqIntro'
 import Faq from '../../../components/about/Faq/Faq'
 import Footer from '../../../components/Footer/Footer'
+import InstagramIntro from '../../../components/about/InstagramIntro/InstagramIntro'
 
 function AboutUs () {
   return (
@@ -14,6 +15,7 @@ function AboutUs () {
       <AboutIntro />
       <FaqIntro />
       <Faq />
+      <InstagramIntro />
       <Footer />
     </>
   )

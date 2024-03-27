@@ -34,7 +34,8 @@ export default {
         f7f7f7: '#f7f7f7',
         fff: '#fff',
         orangePrimary: '#eb6753',
-        orangePrimaryLight: '#FDEBE9'
+        orangePrimaryLight: '#FDEBE9',
+        orangePrimaryLightHover: '#ED7765'
       }
     }
   },
