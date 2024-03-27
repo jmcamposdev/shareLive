@@ -1,15 +1,17 @@
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 import InputRange from 'react-input-range'
 import 'react-input-range/lib/css/index.css'
+import { RoomContext } from '../../../../context/roomContext'
 
-const PriceRange = ({ filterFunctions }) => {
+const PriceRange = () => {
+  const { filters, filterBy } = useContext(RoomContext)
+  const { min, max } = filters.price
   const [price, setPrice] = useState({ value: { min: 20, max: 70987 } })
 
   // price range handler
   const handleOnChange = (value) => {
     setPrice({ value })
-
-    filterFunctions?.handlepriceRange([value.min || 0, value.max])
+    filterBy.price(value.min, value.max)
   }
 
   return (
@@ -17,9 +19,9 @@ const PriceRange = ({ filterFunctions }) => {
       <div className='range-wrapper'>
         <InputRange
           formatLabel={() => ''}
-          maxValue={100000}
+          maxValue={1500}
           minValue={0}
-          value={{ min: filterFunctions?.priceRange[0], max: filterFunctions?.priceRange[1] }}
+          value={{ min, max }}
           onChange={(value) => handleOnChange(value)}
           id='slider'
         />

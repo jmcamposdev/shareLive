@@ -1,4 +1,9 @@
-const Bedroom = ({ filterFunctions }) => {
+import { useContext } from 'react'
+import { RoomContext } from '../../../../context/roomContext'
+
+const Bedroom = () => {
+  const { filters, filterBy } = useContext(RoomContext)
+  const { bedrooms } = filters
   const options = [
     { id: 'any', label: 'any', value: 0, defaultChecked: true },
     { id: 'oneplus', label: '1+', value: 1 },
@@ -15,8 +20,8 @@ const Bedroom = ({ filterFunctions }) => {
           <input
             id={option.id}
             type='radio'
-            onChange={(e) => filterFunctions?.handlebedrooms(option.value)}
-            checked={filterFunctions?.bedrooms === option.value}
+            onChange={() => filterBy.bedrooms(option.value)}
+            checked={bedrooms === option.value}
           />
           <label htmlFor={option.id}>{option.label}</label>
         </div>
