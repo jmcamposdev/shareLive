@@ -4,6 +4,7 @@ export default [
     ownerId: 1,
     title: 'Teatinos Room',
     description: 'Room for rent in Teatinos, Málaga',
+    excerpt: 'Room for rent in Teatinos, Málaga, this is the excerpt,Room for rent in Teatinos, Málaga, this is the excerpt,Room for rent in Teatinos, Málaga',
     price: 300,
     propertyStatus: 'Nearly new',
     images: [
@@ -31,7 +32,8 @@ export default [
       'Heating',
       'Internet',
       'Washing machine'
-    ]
+    ],
+    createdAt: '2024-03-27T15:05:48.261Z'
   },
   {
     id: 2,
@@ -63,7 +65,8 @@ export default [
       'Heating',
       'Internet',
       'Elevator'
-    ]
+    ],
+    createdAt: '2023-03-27T15:05:48.261Z'
   },
   {
     id: 3,
@@ -95,7 +98,8 @@ export default [
       'Heating',
       'Internet',
       'Garden'
-    ]
+    ],
+    createdAt: '2022-03-27T15:05:48.261Z'
   },
   {
     id: 4,
@@ -127,7 +131,8 @@ export default [
       'Heating',
       'Internet',
       'Washing machine'
-    ]
+    ],
+    createdAt: '2024-03-17T15:05:48.261Z'
   },
   {
     id: 5,
@@ -159,7 +164,8 @@ export default [
       'Heating',
       'Internet',
       'Elevator'
-    ]
+    ],
+    createdAt: '2022-03-27T15:05:48.261Z'
   },
   {
     id: 6,
@@ -191,6 +197,7 @@ export default [
       'Heating',
       'Internet',
       'Garden'
-    ]
+    ],
+    createdAt: '2024-03-27T12:05:48.261Z'
   }
 ]
