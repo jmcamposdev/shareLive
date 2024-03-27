@@ -1,10 +1,25 @@
-import { createContext, useState } from 'react'
+import { createContext, useEffect, useState } from 'react'
+import { ORDER_BY_HIGH_PRICE, ORDER_BY_LOW_PRICE, ORDER_BY_NEWEST } from '../constants/rooms.constants'
 
 export const RoomContext = createContext()
 
 export const RoomProvider = ({ roomsData, children }) => {
   const [rooms, setRooms] = useState(roomsData)
   const [isGridView, setIsGridView] = useState(false)
+  const [orderBy, setOrderBy] = useState(ORDER_BY_NEWEST)
+  const [filters, setFilters] = useState({
+    price: {
+      min: 0,
+      max: 0
+    },
+    bedrooms: 0,
+    bathrooms: 0,
+    location: 'all',
+    sqft: {
+      min: 0,
+      max: 0
+    }
+  })
 
   /**
    * ---------------------------------------------
@@ -23,6 +38,26 @@ export const RoomProvider = ({ roomsData, children }) => {
    * Order Rooms Function
    * ---------------------------------------------
    */
+  useEffect(() => {
+    switch (orderBy) {
+      case ORDER_BY_NEWEST:
+        orderByNewest()
+        break
+      case ORDER_BY_LOW_PRICE:
+        orderByLowPrice()
+        break
+      case ORDER_BY_HIGH_PRICE:
+        orderByHighPrice()
+        break
+      default:
+        break
+    }
+  }, [orderBy])
+
+  const orderRoomsBy = (order) => {
+    setOrderBy(order)
+  }
+
   const orderByNewest = () => {
     const orderedRooms = rooms.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
     setRooms([...orderedRooms])
@@ -36,6 +71,70 @@ export const RoomProvider = ({ roomsData, children }) => {
     setRooms([...orderedRooms])
   }
 
+  /**
+   * ---------------------------------------------
+   * Filter Rooms Function
+   * ---------------------------------------------
+   */
+  useEffect(() => {
+    const { price, bedrooms, bathrooms, location, sqft } = filters
+    if (price.min === 0 && price.max === 0 && bedrooms === 0 && bathrooms === 0 && location === 'all' && sqft.min === 0 && sqft.max === 0) {
+      setRooms([...roomsData])
+      return
+    }
+    const filteredRooms = roomsData.filter((room) => {
+      let isValid = true
+      if (price.min !== 0 || price.max !== 0) { // Filter by price
+        isValid = room.price >= price.min && room.price <= price.max
+      }
+      if (bedrooms !== 0 && isValid) { // Filter by bedrooms
+        isValid = room.bedrooms >= bedrooms
+      }
+      if (bathrooms !== 0 && isValid) { // Filter by bathrooms
+        isValid = room.bathrooms >= bathrooms
+      }
+      if (location !== 'all' && isValid) { // Filter by location
+        isValid = room.state === location
+      }
+      if (sqft.min !== 0 && sqft.max !== 0 && isValid) { // Filter by square meters
+        isValid = room.size >= sqft.min && room.size <= sqft.max
+      }
+      return isValid
+    })
+    setRooms([...filteredRooms])
+  }, [filters])
+
+  const filterByPriceRange = (min, max) => {
+    setFilters({ ...filters, price: { min, max } })
+  }
+  const filterByBedrooms = (bedrooms) => {
+    setFilters({ ...filters, bedrooms })
+  }
+  const filterByBathrooms = (bathrooms) => {
+    setFilters({ ...filters, bathrooms })
+  }
+  const filterByLocation = (location) => {
+    setFilters({ ...filters, location })
+  }
+  const filterBySquareMeters = (min, max) => {
+    setFilters({ ...filters, sqft: { min, max } })
+  }
+  const resetFilters = () => {
+    setFilters({
+      price: {
+        min: 0,
+        max: 0
+      },
+      bedrooms: 0,
+      bathrooms: 0,
+      location: 'all',
+      sqft: {
+        min: 0,
+        max: 0
+      }
+    })
+  }
+
   return (
     <RoomContext.Provider value={{
       rooms,
@@ -45,11 +144,16 @@ export const RoomProvider = ({ roomsData, children }) => {
         onGridClick,
         onListClick
       },
-      orderBy: {
-        newest: orderByNewest,
-        lowPrice: orderByLowPrice,
-        highPrice: orderByHighPrice
-      }
+      orderBy: orderRoomsBy,
+      filterBy: {
+        price: filterByPriceRange,
+        bedrooms: filterByBedrooms,
+        bathrooms: filterByBathrooms,
+        location: filterByLocation,
+        sqft: filterBySquareMeters
+      },
+      resetFilters,
+      filters
     }}
     >
       {children}
