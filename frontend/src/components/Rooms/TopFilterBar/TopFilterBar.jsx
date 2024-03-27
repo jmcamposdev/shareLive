@@ -1,9 +1,6 @@
 import React, { useContext } from 'react'
 import { RoomContext } from '../../../context/roomContext'
-
-const ORDER_BY_NEWEST = 'ORDER_BY_NEWEST'
-const ORDER_BY_LOW_PRICE = 'ORDER_BY_LOW_PRICE'
-const ORDER_BY_HIGH_PRICE = 'ORDER_BY_HIGH_PRICE'
+import { ORDER_BY_HIGH_PRICE, ORDER_BY_LOW_PRICE, ORDER_BY_NEWEST } from '../../../constants/rooms.constants'
 
 const TopFilterBar = () => {
   // Get the rooms from the context
@@ -13,13 +10,13 @@ const TopFilterBar = () => {
   const handleOrderSelect = (e) => {
     switch (e.target.value) {
       case ORDER_BY_NEWEST:
-        orderBy.newest()
+        orderBy(ORDER_BY_NEWEST)
         break
       case ORDER_BY_LOW_PRICE:
-        orderBy.lowPrice()
+        orderBy(ORDER_BY_LOW_PRICE)
         break
       case ORDER_BY_HIGH_PRICE:
-        orderBy.highPrice()
+        orderBy(ORDER_BY_HIGH_PRICE)
         break
       default:
         break
