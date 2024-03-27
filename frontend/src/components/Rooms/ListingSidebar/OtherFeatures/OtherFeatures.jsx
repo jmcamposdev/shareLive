@@ -1,21 +1,37 @@
+import { useContext } from 'react'
+import { RoomContext } from '../../../../context/roomContext'
+
 const OtherFeatures = () => {
+  const { filters, filterBy } = useContext(RoomContext)
+  const { amenities } = filters
   const featuresLeftColumn = [
-    { label: 'Attic' },
-    { label: 'Basketball court', defaultChecked: true },
-    { label: 'Air Conditioning', defaultChecked: true },
-    { label: 'Lawn', defaultChecked: true },
-    { label: 'TV Cable' },
-    { label: 'Dryer' }
+    { label: 'Washer' },
+    { label: 'Dryer' },
+    { label: 'Microwave' },
+    { label: 'DishWasher' },
+    { label: 'Refrigerator' },
+    { label: 'Furnace' }
   ]
 
   const featuresRightColumn = [
-    { label: 'Outdoor Shower' },
-    { label: 'Washer' },
-    { label: 'Lake view' },
-    { label: 'Wine cellar' },
-    { label: 'Front yard' },
-    { label: 'Refrigerator' }
+    { label: 'Air Conditioning' },
+    { label: 'TV' },
+    { label: 'WIFI' },
+    { label: 'Garage' },
+    { label: 'Elevator' },
+    { label: 'Electric Heater' }
   ]
+
+  const handleSelectAmenities = (e) => {
+    // Get the text of the parent label
+    const isChecked = e.target.checked
+    const feature = e.target.parentElement.textContent
+    if (isChecked) {
+      filterBy.amenities([...amenities, feature])
+    } else {
+      filterBy.amenities(amenities.filter((item) => item !== feature))
+    }
+  }
 
   return (
     <div className='row'>
@@ -26,6 +42,8 @@ const OtherFeatures = () => {
               {feature.label}
               <input
                 type='checkbox'
+                onChange={handleSelectAmenities}
+                checked={amenities.includes(feature.label)}
               />
               <span className='checkmark' />
             </label>
@@ -39,9 +57,10 @@ const OtherFeatures = () => {
           {featuresRightColumn.map((feature, index) => (
             <label className='custom_checkbox' key={index}>
               {feature.label}
-
               <input
                 type='checkbox'
+                onChange={handleSelectAmenities}
+                checked={amenities.includes(feature.label)}
               />
               <span className='checkmark' />
             </label>
