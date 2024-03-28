@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import HouseImg from '../../../assets/vectors/housesIllustration.svg'
+import HouseImg from '../../../../assets/vectors/housesIllustration.svg'
 
 const TopBanner = () => {
   return (

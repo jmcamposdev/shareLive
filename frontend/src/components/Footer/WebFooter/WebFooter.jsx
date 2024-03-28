@@ -6,9 +6,9 @@ import Subscribe from './Subscribe'
 import MenuWidget from './MenuWidget'
 import Copyright from './Copyright'
 import TopBanner from './TopBanner/TopBanner'
-import LogoWhite from '../../assets/logos/logo-white.png'
+import LogoWhite from '../../../assets/logos/logo-white.png'
 
-const Footer = () => {
+const WebFooter = () => {
   const isHomePage = useLocation().pathname === '/'
   return (
     <>
@@ -56,4 +56,4 @@ const Footer = () => {
   )
 }
 
-export default Footer
+export default WebFooter
