@@ -4,6 +4,7 @@ import AboutIntro from '../../../components/about/AboutIntro/AboutIntro'
 import FaqIntro from '../../../components/about/FaqIntro/FaqIntro'
 import Faq from '../../../components/about/Faq/Faq'
 import InstagramIntro from '../../../components/about/InstagramIntro/InstagramIntro'
+import InstagramGallery from '../../../components/about/InstagramGallery/InstagramGallery'
 import WebLayout from '../../../layout/WebLayout'
 
 function AboutUs () {
@@ -14,6 +15,7 @@ function AboutUs () {
       <FaqIntro />
       <Faq />
       <InstagramIntro />
+      <InstagramGallery />
     </WebLayout>
 
   )

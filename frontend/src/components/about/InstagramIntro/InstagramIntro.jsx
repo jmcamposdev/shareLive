@@ -1,4 +1,3 @@
-import WhyChooseImg from '../../../assets/img/home/why-chose.png'
 import InstaIntro1 from '../../../assets/img/aboutUs/instaIntro1.jpg'
 import InstaIntro2 from '../../../assets/img/aboutUs/instaIntro2.jpg'
 import OrangeCircleImg from '../../../assets/vectors/orangePatternCircle.svg'
@@ -6,7 +5,8 @@ import { Link } from 'react-router-dom'
 
 const WhyChoose = () => {
   return (
-    <section className='pb90 dark:bg-lightmidnight'>
+    <section className='pb90 relative overflow-hidden'>
+      <div className='absolute w-full h-[250%] dark:bg-lightmidnight bg-f7f7f7 -z-[10] top-[-50%]' />
       <div className='container mx-auto sm:px-4'>
         <div
           className='flex flex-wrap  md:items-center justify-between'
@@ -36,7 +36,7 @@ const WhyChoose = () => {
             <img className='rounded-2xl h-fit grow shrink min-w-0' src={InstaIntro1} alt='' />
             <img className='rounded-2xl h-fit grow shrink min-w-0' src={InstaIntro2} alt='' />
             <img
-              className='absolute top-[33%] left-[38%] z-[-1] spin-right'
+              className='absolute top-[-5%] left-[42%] z-[-1] spin-right'
               src={OrangeCircleImg}
               alt='Orange Circle'
             />
