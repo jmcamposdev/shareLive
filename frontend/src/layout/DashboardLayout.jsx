@@ -1,4 +1,4 @@
-import SidebarDashboard from '../components/Dashboard/SidebarDashboard/SidebarDashboard'
+import SidebarDashboard from '../components/common/Dashboard/SidebarDashboard/SidebarDashboard'
 import DashboardFooter from '../components/Footer/DashboardFooter/DashboardFooter'
 import DashboardHeader from '../components/Header/DashboardHeader'
 import MobileMenu from '../components/common/mobile-menu/MobileMenu'
