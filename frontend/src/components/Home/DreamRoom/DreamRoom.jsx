@@ -50,7 +50,7 @@ const DreamRoom = () => {
                       $250 / month
                     </h6>
                     <p className='list-text'>
-                      <i class='fa-solid fa-location-dot pr-3' />
+                      <i className='fa-solid fa-location-dot pr-3' />
                       Málaga, Spain
                     </p>
                     <div className='list-meta d-flex align-items-center'>
