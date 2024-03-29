@@ -1,4 +1,4 @@
-import Footer from '../components/Footer/Footer'
+import WebFooter from '../components/Footer/WebFooter/WebFooter'
 import Header from '../components/Header/Header'
 import MobileMenu from '../components/common/mobile-menu/MobileMenu'
 
@@ -20,7 +20,7 @@ function WebLayout ({ children }) {
       {/* End All Content */}
 
       {/* Start Our Footer */}
-      <Footer />
+      <WebFooter />
       {/* End Our Footer */}
     </div>
   )
