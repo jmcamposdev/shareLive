@@ -19,7 +19,7 @@ const SidebarDashboard = () => {
             {section.items.map((item, itemIndex) => (
               <div key={itemIndex} className='sidebar_list_item'>
                 <Link
-                  href={item.href}
+                  to={item.href}
                   className={`items-center   ${pathname === item.href ? '-is-active' : ''} ${item.className}`}
                 >
                   {item.icon}
