@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react'
 import WebLayout from '../../../layout/WebLayout'
 import LogoWhite from '../../../assets/logos/logo-white.png'
 import LogoDark from '../../../assets/logos/logo-dark.png'
-import LoginImg from '../../../assets/vectors/loginRegisterImg.svg'
+import LoginImg from '../../../assets/vectors/register.svg'
 
-const Login = () => {
+const Register = () => {
   // Variable to know if the user scrolled the page
   const [isScrolled, setIsScrolled] = useState(false)
   useEffect(() => {
@@ -69,9 +69,18 @@ const Login = () => {
                       src={LogoWhite}
                     />
                   </a>
-                  <h2 className='dark:text-white'>Sign in</h2>
+                  <h2 className='dark:text-white'>Create Account</h2>
                 </div>
                 <form className='form-style1'>
+                  <div className='mb25'>
+                    <label className='form-label fw600 dark-color dark:text-white'>Username</label>
+                    <input
+                      className='form-control block appearance-none w-full py-1 px-2 mb-1 text-base leading-normal bg-white text-gray-800 border border-gray-200 rounded dark:bg-lightmidnight'
+                      placeholder='Enter Username'
+                      required=''
+                      type='text'
+                    />
+                  </div>
                   <div className='mb25'>
                     <label className='form-label fw600 dark-color dark:text-white'>Email</label>
                     <input
@@ -81,26 +90,35 @@ const Login = () => {
                       type='email'
                     />
                   </div>
-                  <div className='mb15'>
+                  <div className='mb25'>
                     <label className='form-label fw600 dark-color dark:text-white'>Password</label>
                     <input
                       className='dark:bg-lightmidnight form-control block appearance-none w-full py-1 px-2 mb-1 text-base leading-normal bg-white text-gray-800 border border-gray-200 rounded'
                       placeholder='Enter Password'
                       required=''
-                      type='text'
+                      type='password'
+                    />
+                  </div>
+                  <div className='mb15'>
+                    <label className='form-label fw600 dark-color dark:text-white'>Re-Enter Password</label>
+                    <input
+                      className='dark:bg-lightmidnight form-control block appearance-none w-full py-1 px-2 mb-1 text-base leading-normal bg-white text-gray-800 border border-gray-200 rounded'
+                      placeholder='Re-Enter Password'
+                      required=''
+                      type='password'
                     />
                   </div>
                   <div className='checkbox-style1 block sm:flex items-center justify-between mb10'>
                     {/* Coloca onChange directamente en el input */}
-                    <label className='custom_checkbox fz14 ff-heading dark:text-white'>Remember me
+                    <label className='custom_checkbox fz14 ff-heading dark:text-white'>I agree to the <a className='fz14 ff-heading dark:text-white font-bold' href='#'>Terms & Conditions</a>
                       <input id='checkbox' type='checkbox' checked={isChecked} onChange={handleCheckboxChange} />
                       <span className='checkmark dark:border-white' />
                     </label>
-                    <a className='fz14 ff-heading dark:text-white' href='#'>Lost your password?</a>
+
                   </div>
                   <div className='d-grid mb20'>
                     <button className='ud-btn btn-thm dark:text-white' type='submit'>
-                      Sign in <i className='fal fa-arrow-right-long' />
+                      Create Account <i className='fal fa-arrow-right-long' />
                     </button>
                   </div>
                   <div className='hr_content h-[33px] relative mb20'>
@@ -122,9 +140,7 @@ const Login = () => {
                       <i className='fab fa-apple' /> Continue Apple
                     </button>
                   </div>
-                  <p className='dark-color text-center mb0 mt10 dark:text-white'>
-                    Not signed up? <a className='dark-color fw600 dark:text-white' href='/register'>Create an account</a>
-                  </p>
+                  <p className='dark:text-white dark-color text-center mb0 mt10'>Already Have an Account? <a class='dark:text-white dark-color fw600' href='/login'>Login</a></p>
                 </form>
               </div>
             </div>
@@ -135,4 +151,4 @@ const Login = () => {
   )
 }
 
-export default Login
+export default Register
