@@ -94,6 +94,11 @@ html {
   background-color: #eb6753;
   color: #fff;
 }
+.mobilie_header_nav  {
+  position: fixed;
+  width: 100%;
+  z-index: 9999999;
+}
 .mobilie_header_nav .hsidebar-header {
   background: rgba(235, 103, 83, 0.07);
 }

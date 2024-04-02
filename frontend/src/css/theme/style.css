@@ -643,6 +643,8 @@ li {
 .dashboard_sidebar_list .sidebar_list_item a.-is-active {
   background-color: #181a20;
   color: #fff;
+  fill: #fff;
+  stroke: #fff;
 }
 
 .dashboard_sidebar_list .sidebar_list_item a {
@@ -661,10 +663,30 @@ li {
   -webkit-transition: all 0.3s ease 0s;
   -o-transition: all 0.3s ease 0s;
   transition: all 0.3s ease 0s;
+  fill: black;
+  stroke: black;
+}
+
+.dashboard_sidebar_list .sidebar_list_item .logout-btn {
+  background-color: #FFF5F8;
+  color: #F1416C;
+}
+
+.dashboard_sidebar_list .sidebar_list_item .logout-btn:hover {
+  background-color: #fbe2ea;
+  color: #F1416C;
 }
 
 .dashboard_sidebar_list .sidebar_list_item a i {
   font-size: 20px;
+}
+
+.dashboard_sidebar_list .sidebar_list_item a svg {
+  fill: inherit;
+  stroke: inherit;
+  width: 20px;
+  height: 20px;
+  margin-right: 15px;
 }
 
 .dashboard {
@@ -1198,6 +1220,7 @@ li {
   -webkit-transition: all 0.4s ease;
   -o-transition: all 0.4s ease;
   transition: all 0.4s ease;
+  aspect-ratio: 3 / 2;
 }
 
 .listing-style1 .list-agent {
@@ -1245,7 +1268,8 @@ li {
 }
 
 .listing-style1 .list-price {
-  background-color: #fff;
+  background-color: #ffffffb5;
+  backdrop-filter: blur(2px);
   border-radius: 6px;
   bottom: 20px;
   color: var(--headings-color);
@@ -1287,7 +1311,7 @@ li {
 }
 
 .listing-style1 .list-title {
-  margin-bottom: 2px;
+  margin-bottom: 5px;
 }
 
 .listing-style1 .list-title a {
@@ -1333,10 +1357,6 @@ li {
 .listing-style1 hr {
   background-color: #ddd;
   opacity: 1;
-}
-
-.listing-style1:hover .list-title {
-  text-decoration: underline;
 }
 
 .listing-style1:hover .list-tag,
@@ -5806,10 +5826,10 @@ section {
   -webkit-box-shadow: 0px 10px 40px rgba(24, 26, 32, 0.05);
   -o-box-shadow: 0px 10px 40px rgba(24, 26, 32, 0.05);
   box-shadow: 0px 10px 40px rgba(24, 26, 32, 0.05);
-  max-width: 210px;
+  max-width: 212px;
   padding: 20px;
   position: absolute;
-  right: -50px;
+  left: -50px;
   -webkit-transition: all 0.4s ease;
   -o-transition: all 0.4s ease;
   transition: all 0.4s ease;
@@ -5818,6 +5838,10 @@ section {
 @media (max-width: 991.98px) {
   .iconbox-style5 {
     right: -10px;
+  }
+
+  main {
+    padding-top: 65px;
   }
 }
 

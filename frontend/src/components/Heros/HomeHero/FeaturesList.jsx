@@ -1,4 +1,4 @@
-import heroFeatures from '../../../data/heroFeatures.jsx'
+import heroFeatures from '../../../data/heroFeatures'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import SwiperCore from 'swiper'
 import '../../../../node_modules/swiper/swiper-bundle.min.css'
