@@ -7,7 +7,7 @@ import Insta6 from '../../../assets/img/aboutUs/insta6.jpg'
 
 const InstagramGallery = () => {
   return (
-    <section className='pb120 relative flex flex-col'>
+    <section className='pb120 relative flex flex-col overflow-hidden'>
       <div className='absolute w-full h-[250%] dark:bg-lightmidnight bg-f7f7f7 -z-[10] top-[-50%]' />
 
       <svg className='-z-[10] absolute top-0 scale-x-[-1] w-[22%] min-w-[200px]' viewBox='0 0 142 316' fill='none' xmlns='http://www.w3.org/2000/svg'>

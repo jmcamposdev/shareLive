@@ -6,6 +6,7 @@ import Register from './pages/WebPages/Register/Register.jsx'
 import NotFound from './pages/WebPages/404/404'
 import './css/style.css'
 import './css/clarityCity.css'
+import UserSingle from './pages/WebPages/UserSingle/UserSingle.jsx'
 import '../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js'
 import Rooms from './pages/WebPages/Rooms/Rooms.jsx'
 import DashboardHome from './pages/Dashboard/DashboardHome/DashboardHome.jsx'
@@ -19,6 +20,10 @@ function App () {
       <Route path='rooms' element={<Rooms />} />
       <Route path='login' element={<Login />} />
       <Route path='register' element={<Register />} />
+
+      {/* Routes for Dinamic pages like user, room */}
+      <Route path='user' element={<UserSingle />} />
+
       {/* Routes for the Dashboard */}
       <Route path='dashboard' element={<DashboardHome />} />
 
