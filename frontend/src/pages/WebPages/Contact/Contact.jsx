@@ -20,7 +20,7 @@ function Contact () {
         <FormContact />
         {/* End Our Contact Form */}
 
-        <img className='absolute top-[1450px] scale-x-[-1]' src={vector} />
+        <img className='absolute top-[1450px] scale-x-[-1] dark:z-[1]' src={vector} />
 
         {/* Start Visit Our Office */}
         <OurOffice />
