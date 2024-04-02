@@ -1,6 +1,6 @@
 import WebLayout from '../../../layout/WebLayout'
 
-import PropertyGallery from '../../../components/common/SingleRoom/PropertyGallery'
+// import PropertyGallery from '../../../components/common/SingleRoom/PropertyGallery'
 
 const Single = ({ params }) => {
   return (
@@ -11,7 +11,7 @@ const Single = ({ params }) => {
         <section className='pt60 pb90 bgc-f7'>
           <div className='container mx-auto sm:px-4'>
             <div className='flex flex-wrap  mb30 mt30'>
-              <PropertyGallery id={params.id} />
+              {/* <PropertyGallery id={params.id} /> */}
             </div>
             {/* End .row */}
 
