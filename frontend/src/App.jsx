@@ -19,6 +19,9 @@ function App () {
       <Route path='about' element={<AboutUs />} />
       <Route path='rooms' element={<Rooms />} />
 
+      <Route path='contact' element={<Contact />} />
+      <Route path='single' element={<Single />} />
+
       {/* Routes for the Dashboard */}
       <Route path='dashboard' element={<DashboardHome />} />
       <Route path='dashboard/rooms' element={<DshSearchRooms />} />
