@@ -30,6 +30,18 @@ export default [
         reviewContent: 'This room is cozy and comfortable. The bed is soft, sheets clean. The bathroom is small but functional with good shower pressure. Loved the decor, especially the wall painting. Great natural light from the window. Overall, a lovely stay.',
         helpful: 4,
         notHelpful: 1
+      },
+      {
+        id: '2',
+        reviewId: '2',
+        reviewRate: 1,
+        reviewerAvatar: 'users/user-1.jpg',
+        reviewerFirstName: 'name1',
+        reviewerLastName: 'Lname1',
+        reviewDate: '2024-03-27T15:05:48.261Z',
+        reviewContent: 'This room is cozy and comfortable. The bed is soft, sheets clean. The bathroom is small but functional with good shower pressure. Loved the decor, especially the wall painting. Great natural light from the window. Overall, a lovely stay.',
+        helpful: 4,
+        notHelpful: 1
       }
     ],
     favouriteRoomsIds: [

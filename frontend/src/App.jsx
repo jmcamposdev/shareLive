@@ -13,6 +13,7 @@ import '../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js'
 import Rooms from './pages/WebPages/Rooms/Rooms.jsx'
 import DashboardHome from './pages/Dashboard/DashboardHome/DashboardHome.jsx'
 import DshSearchRooms from './pages/Dashboard/DshSearchRooms/DshSearchRooms.jsx'
+import usersItems from './data/usersItems.js'
 
 function App () {
   return (
@@ -29,7 +30,7 @@ function App () {
       <Route path='register' element={<Register />} />
 
       {/* Routes for Dinamic pages like user, room */}
-      <Route path='user' element={<UserSingle />} />
+      <Route path='user' element={<UserSingle user={usersItems[0]} />} />
 
       {/* Routes for the Dashboard */}
       <Route path='dashboard' element={<DashboardHome />} />
