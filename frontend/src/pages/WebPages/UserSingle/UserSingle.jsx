@@ -2,6 +2,10 @@ import WebLayout from '../../../layout/WebLayout'
 import RoomSimple from '../../../components/common/Room/RoomSimple'
 import RoomData from '../../../data/roomsItems'
 import { getImageURL } from '../../../utils/image-util'
+import Bounce1 from '../../../assets/img/users/bounce.png'
+import Bounce2 from '../../../assets/img/users/bounce2.png'
+import CircleOrange from '../../../assets/img/users/circleOrange.png'
+
 const UserSingle = ({ user }) => {
   // Getting the reviews made of the user
   const reviewsUser = user.reviews
@@ -12,7 +16,7 @@ const UserSingle = ({ user }) => {
   return (
     <WebLayout>
       {/* <RoomSimple room={RoomData[0]} /> */}
-      <section className='agent-single pt-52'>
+      <section className='agent-single pt-[150px]'>
         <div className='cta-agent bgc-thm-light mx-auto maxw1600 pt60 pb60 bdrs12 relative mx20-lg'>
           <div className='container mx-auto sm:px-4'>
             <div className='flex flex-wrap  items-center'>
@@ -46,9 +50,9 @@ const UserSingle = ({ user }) => {
                   </div>
                 </div>
                 <div className='img-box-11 relative hidden xl:block'>
-                  <img alt='agents' loading='lazy' width='120' height='120' decoding='async' data-nimg='1' className='img-1 spin-right text-transparent' srcset='/_next/image?url=%2Fimages%2Fabout%2Felement-3.png&amp;w=128&amp;q=75 1x, /_next/image?url=%2Fimages%2Fabout%2Felement-3.png&amp;w=256&amp;q=75 2x' src='/_next/image?url=%2Fimages%2Fabout%2Felement-3.png&amp;w=256&amp;q=75' />
-                  <img alt='agents' loading='lazy' width='41' height='11' decoding='async' data-nimg='1' className='img-2 bounce-x text-transparent' srcset='/_next/image?url=%2Fimages%2Fabout%2Felement-5.png&amp;w=48&amp;q=75 1x, /_next/image?url=%2Fimages%2Fabout%2Felement-5.png&amp;w=96&amp;q=75 2x' src='/_next/image?url=%2Fimages%2Fabout%2Felement-5.png&amp;w=96&amp;q=75' />
-                  <img alt='agents' loading='lazy' width='57' height='49' decoding='async' data-nimg='1' className='img-3 bounce-y text-transparent' srcset='/_next/image?url=%2Fimages%2Fabout%2Felement-7.png&amp;w=64&amp;q=75 1x, /_next/image?url=%2Fimages%2Fabout%2Felement-7.png&amp;w=128&amp;q=75 2x' src='/_next/image?url=%2Fimages%2Fabout%2Felement-7.png&amp;w=128&amp;q=75' />
+                  <img alt='agents' loading='lazy' width='120' height='120' decoding='async' data-nimg='1' className='img-1 spin-right text-transparent' src={CircleOrange} />
+                  <img alt='agents' loading='lazy' width='41' height='11' decoding='async' data-nimg='1' className='img-2 bounce-x text-transparent' src={Bounce2} />
+                  <img alt='agents' loading='lazy' width='57' height='49' decoding='async' data-nimg='1' className='img-3 bounce-y text-transparent' src={Bounce1} />
 
                 </div>
               </div>
@@ -315,19 +319,19 @@ const UserSingle = ({ user }) => {
                 <h4 className='form-title mb25'>Contact Form</h4>
                 <form className='form-style1'>
                   <div className='flex flex-wrap '>
-                    <div className='lg:w-full pr-4 pl-4'>
-                      <div className='mb20'><input className='block appearance-none w-full py-1 px-2 mb-1 text-base leading-normal bg-white text-gray-800 border border-gray-200 rounded' placeholder='Your Name' required='' type='text' /></div>
+                    <div className='lg:w-full'>
+                      <div className='mb20'><input className='form-control block appearance-none w-full py-1 px-2 mb-1 text-base leading-normal bg-white text-gray-800 border border-gray-200 rounded' placeholder='Your Name' required='' type='text' /></div>
                     </div>
-                    <div className='lg:w-full pr-4 pl-4'>
-                      <div className='mb20'><input className='block appearance-none w-full py-1 px-2 mb-1 text-base leading-normal bg-white text-gray-800 border border-gray-200 rounded' placeholder='Phone' required='' type='text' /></div>
+                    <div className='lg:w-full'>
+                      <div className='mb20'><input className='form-control block appearance-none w-full py-1 px-2 mb-1 text-base leading-normal bg-white text-gray-800 border border-gray-200 rounded' placeholder='Phone' required='' type='text' /></div>
                     </div>
-                    <div className='md:w-full pr-4 pl-4'>
-                      <div className='mb20'><input className='block appearance-none w-full py-1 px-2 mb-1 text-base leading-normal bg-white text-gray-800 border border-gray-200 rounded' placeholder='Email' required='' type='email' /></div>
+                    <div className='md:w-full'>
+                      <div className='mb20'><input className='form-control block appearance-none w-full py-1 px-2 mb-1 text-base leading-normal bg-white text-gray-800 border border-gray-200 rounded' placeholder='Email' required='' type='email' /></div>
                     </div>
-                    <div className='md:w-full pr-4 pl-4'>
+                    <div className='md:w-full'>
                       <div className='mb10'><textarea cols='30' rows='4' placeholder='There are many variations of passages.' required='' /></div>
                     </div>
-                    <div className='md:w-full pr-4 pl-4'>
+                    <div className='md:w-full'>
                       <div className='d-grid'><button type='submit' className='ud-btn btn-thm mb15'>Send Message<i className='fal fa-arrow-right-long' /></button><a className='ud-btn btn-white2' href='/contact'>Call<i className='fal fa-arrow-right-long' /></a></div>
                     </div>
                   </div>
