@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 import WebLayout from '../../../layout/WebLayout'
 import RoomSimple from '../../../components/common/Room/RoomSimple'
 import RoomData from '../../../data/roomsItems'
@@ -22,6 +23,11 @@ const UserSingle = ({ user }) => {
     reviewsMssg='No reviews yet ...'
   }
   
+  const [isExpanded, setIsExpanded] = useState(false);
+
+  const toggleAccordion = () => {
+    setIsExpanded(!isExpanded);
+  };
 
   return (
     <WebLayout>
@@ -80,19 +86,24 @@ const UserSingle = ({ user }) => {
                 <div className='lg:w-full pr-4 pl-4'>
                   <div className='agent-single-details mt30 pb30 bdrb1'>
                     <h6 className='fz17 mb30'>About Agents</h6>
-                    <p className='text'>This 3-bed with a loft, 2-bath home in the gated community of The Hideout has it all. From the open floor plan to the abundance of light from the windows, this home is perfect for entertaining. The living room and dining room have vaulted ceilings and a beautiful fireplace. You will love spending time on the deck taking in the beautiful views. In the kitchen, you'll find stainless steel appliances and a tile backsplash, as well as a breakfast bar.</p>
-                    <div className='agent-single-accordion'>
-                      <div className='accordion accordion-flush' id='accordionFlushExample'>
-                        <div className='accordion-item'>
-                          <div id='flush-collapseOne' className='accordion-collapse hidden' aria-labelledby='flush-headingOne' data-bs-parent='#accordionFlushExample'>
-                            <div className='accordion-body p-0'>
-                              <p className='text'>Placeholder content for this accordion, which is intended to demonstrate the class. This is the first item's accordion body you get groundbreaking performance and amazing battery life. Add to that a stunning Liquid Retina XDR display, the best camera and audio ever in a Mac notebook, and all the ports you need.</p>
+                    <p className='text'>{user.description}</p>
+                    
+                    {user.extraDescription.length > 0 ? (
+                      <div className='agent-single-accordion'>
+                        <div className='accordion accordion-flush' id='accordionFlushExample'>
+                          <div className='accordion-item'>
+                            <div id='flush-collapseOne' className='accordion-collapse collapse' aria-labelledby='flush-headingOne' data-bs-parent='#accordionFlushExample'>
+                              <div className='accordion-body p-0'>
+                                <p className='text'>{user.extraDescription}</p>
+                              </div>
                             </div>
+                            <h2 className='accordion-header' id='flush-headingOne'>
+                              <button className='accordion-button p-0 collapsed' type='button' data-bs-toggle='collapse' data-bs-target='#flush-collapseOne' onClick={toggleAccordion} aria-expanded={isExpanded} aria-controls='flush-collapseOne'>{isExpanded ? 'Show less' : 'Show more'}</button>
+                            </h2>
                           </div>
-                          <h2 className='accordion-header' id='flush-headingOne'><button className='accordion-button p-0 collapsed' type='button' data-bs-toggle='collapse' data-bs-target='#flush-collapseOne' aria-expanded='false' aria-controls='flush-collapseOne'>Show more</button></h2>
                         </div>
                       </div>
-                    </div>
+                    ) : null}
                   </div>
                 </div>
               </div>
