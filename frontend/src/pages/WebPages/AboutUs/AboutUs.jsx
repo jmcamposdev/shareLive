@@ -4,7 +4,7 @@ import IntroImg from '../../../assets/img/aboutUs/introImg.jpg'
 import AboutIntro from '../../../components/about/AboutIntro/AboutIntro'
 import FaqIntro from '../../../components/about/FaqIntro/FaqIntro'
 import Faq from '../../../components/about/Faq/Faq'
-import Footer from '../../../components/Footer/Footer'
+import Footer from '../../../components/Footer/WebFooter/WebFooter'
 
 function AboutUs () {
   return (
