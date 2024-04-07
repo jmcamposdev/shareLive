@@ -8,10 +8,20 @@ import CircleOrange from '../../../assets/img/users/circleOrange.png'
 
 const UserSingle = ({ user }) => {
   // Getting the reviews made of the user
-  const reviewsUser = user.reviews
-  const reviewQuantity = reviewsUser.length
-  const totalRatingSum = reviewsUser.reduce((acc, review) => acc + review.reviewRate, 0)
-  const avgReview = (totalRatingSum / reviewQuantity).toFixed(1)
+
+  
+  const reviewQuantity = user.reviews.length
+  let reviewsMssg = ''
+  //If there is at least 1 review
+  if (reviewQuantity) {
+    const totalRatingSum = user.reviews.reduce((acc, review) => acc + review.reviewRate, 0)
+    const avgReview = (totalRatingSum / reviewQuantity).toFixed(1)
+    reviewsMssg=`${avgReview} • ${reviewQuantity} Reviews`
+  } else {
+  //if not the message display the ausence of reviews
+    reviewsMssg='No reviews yet ...'
+  }
+  
 
   return (
     <WebLayout>
@@ -28,7 +38,11 @@ const UserSingle = ({ user }) => {
                   <div className='single-contant ml30 ml0-xs'>
                     <h2 className='title mb-0'>{`${user.firstName} ${user.lastName}`}</h2>
                     {/* <p className='fz15'>Renter in <b>`${user.zone}`</b></p> */}
-                    <div className='agent-meta mb15 md:flex items-center'><a className='text fz15 pe-2 bdrr1' href='#'><i className='fas fa-star fz10 review-color2 pr10' />{`${avgReview} • ${reviewQuantity} Reviews`}</a><a className='text fz15 pe-2 ps-2 bdrr1' href='#'><i className='flaticon-call pe-1' />{user.phone}</a><a className='text fz15 ps-2' href='#'><i className='flaticon-smartphone pe-1' />{user.mobilePhone}</a></div>
+                    <div className='agent-meta mb15 md:flex items-center'>
+                      <a className='text fz15 pe-2 bdrr1' href='#'>
+                        <i className='fas fa-star fz10 review-color2 pr10' />{reviewsMssg}
+                      </a>
+                      <a className='text fz15 pe-2 ps-2 bdrr1' href='#'><i className='flaticon-call pe-1' />{user.phone}</a><a className='text fz15 ps-2' href='#'><i className='flaticon-smartphone pe-1' />{user.mobilePhone}</a></div>
                     <div className='agent-social'>
                       <a className='mr20' href={`https://${user.socials.facebook}`}>
                         <i className='fab fa-facebook-f' />
