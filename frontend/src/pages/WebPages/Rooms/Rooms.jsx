@@ -7,10 +7,15 @@ import TopFilterBar from '../../../components/Rooms/TopFilterBar/TopFilterBar'
 
 import RoomListings from '../../../components/Rooms/RoomListings/RoomListings'
 import { RoomProvider } from '../../../context/roomContext'
+import { useLocation } from 'react-router-dom'
 
 const Rooms = () => {
+  const location = useLocation()
+  const queryParams = new URLSearchParams(location.search)
+  const dataString = queryParams.get('data')
+  const urlFilters = JSON.parse(dataString)
   return (
-    <RoomProvider roomsData={roomData}>
+    <RoomProvider roomsData={roomData} defaultFilters={urlFilters}>
       <WebLayout>
         <PageIntro title='Rooms' description='Find the perfect room for your stay' backgroundImage={RoomBackgroundImage} />
 

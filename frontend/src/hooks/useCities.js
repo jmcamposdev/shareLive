@@ -19,7 +19,7 @@ const useCities = ({ searchValue }) => {
         const citiesData = await RadarService.getAutocomplete(searchValue)
         // Save the cities in the state
         setCities(citiesData.addresses || [])
-        console.log(citiesData.addresses || [])
+        // Set the loading state to false
         setCitiesLoading(false)
       } catch (error) {
         // If there's an error, set the error message

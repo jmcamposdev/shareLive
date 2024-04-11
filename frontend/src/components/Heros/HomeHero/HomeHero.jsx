@@ -1,10 +1,11 @@
+import { RoomProvider } from '../../../context/roomContext'
 import AdvanceFilterModal from '../../common/advance-filter/AdvancedFilterModal'
 import FeaturesList from './FeaturesList'
 import HeroContent from './HeroContent'
 
 const HomeHero = () => {
   return (
-    <>
+    <RoomProvider>
       <section className='home-banner-style2 p0'>
         <div className='home-style2'>
           <div className='container mx-auto sm:px-4 maxw1600'>
@@ -42,7 +43,7 @@ const HomeHero = () => {
         </div>
       </section>
       <FeaturesList />
-    </>
+    </RoomProvider>
   )
 }
 

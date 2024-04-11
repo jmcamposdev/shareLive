@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 
-const DebounceInput = ({ onDebouncedValueChange, value, className, inputName, placeholder, debounceTime = 300 }) => {
+const DebounceInput = ({ onDebouncedValueChange, onFocus, onFocusOut, value, className, inputName, placeholder, debounceTime = 300 }) => {
   const [inputValue, setInputValue] = React.useState('')
 
   const handleInputChange = (event) => {
@@ -28,6 +28,8 @@ const DebounceInput = ({ onDebouncedValueChange, value, className, inputName, pl
       type='text'
       value={inputValue}
       onChange={handleInputChange}
+      onFocus={onFocus}
+      onBlur={onFocusOut}
     />
   )
 }

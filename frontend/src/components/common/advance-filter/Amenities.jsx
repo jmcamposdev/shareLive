@@ -1,29 +1,37 @@
-const Amenities = () => {
-  const amenities = [
-    [
-      { label: 'Attic' },
-      { label: 'Basketball court', defaultChecked: true },
-      { label: 'Air Conditioning', defaultChecked: true },
-      { label: 'Lawn', defaultChecked: true }
-    ],
-    [
-      { label: 'TV Cable' },
-      { label: 'Dryer' },
-      { label: 'Outdoor Shower' },
-      { label: 'Washer' }
-    ],
-    [
-      { label: 'Lake view' },
-      { label: 'Wine cellar' },
-      { label: 'Front yard' },
-      { label: 'Refrigerator' }
-    ]
-  ]
+import { useContext, useEffect, useState } from 'react'
+import { RoomContext } from '../../../context/roomContext'
+
+const Amenities = ({ numColumns }) => {
+  const [slicedAmenities, setSlicedAmenities] = useState([])
+  const { filters, filterBy } = useContext(RoomContext)
+  const { amenities } = filters
+
+  const handleAmenities = (e) => {
+    const updatedAmenities = amenities.map((amenity) => {
+      if (amenity.label === e.target.value) {
+        return { ...amenity, checked: e.target.checked }
+      }
+      return amenity
+    })
+    filterBy.amenities(updatedAmenities)
+  }
+
+  useEffect(() => {
+    const dataperColumn = Math.ceil(amenities.length / numColumns)
+    const tempAmenities = []
+    for (let i = 0; i < numColumns; i++) {
+      tempAmenities.push(amenities.slice(i * dataperColumn, (i + 1) * dataperColumn))
+    }
+    setSlicedAmenities(tempAmenities)
+  }, [amenities, numColumns])
 
   return (
     <>
-      {amenities.map((column, columnIndex) => (
-        <div className='sm:w-1/3 pr-4 pl-4' key={columnIndex}>
+      {slicedAmenities.map((column, columnIndex) => (
+        <div
+          className='flex-grow pr-4 pl-4'
+          key={columnIndex}
+        >
           <div className='widget-wrapper mb20'>
             <div className='checkbox-style1'>
               {column.map((amenity, amenityIndex) => (
@@ -31,7 +39,9 @@ const Amenities = () => {
                   {amenity.label}
                   <input
                     type='checkbox'
-                    defaultChecked={amenity.defaultChecked}
+                    defaultChecked={amenity.checked}
+                    value={amenity.label}
+                    onChange={handleAmenities}
                   />
                   <span className='checkmark' />
                 </label>
