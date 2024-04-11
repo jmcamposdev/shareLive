@@ -16,11 +16,11 @@ const RoomSimple = ({ room }) => {
             {room.images.length}
           </div>
         </div>
-        <div className='list-content'>
+        <div className='list-content dark:bg-midnight'>
           <h6 className='list-title'>
-            <Link href='/sigle-v2' className='hover:!text-orangePrimary'>{room.title}</Link>
+            <Link href='/sigle-v2' className='hover:!text-orangePrimary dark:text-white'>{room.title}</Link>
           </h6>
-          <h6 className='list-title'>
+          <h6 className='list-title dark:text-white'>
             {room.price}€ / <span className='font-normal'>month</span>
           </h6>
           <p className='list-text'>

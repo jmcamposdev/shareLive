@@ -36,7 +36,10 @@ export default {
         orangePrimary: '#eb6753',
         orangePrimaryLight: '#FDEBE9',
         orangePrimaryLightHover: '#ED7765'
-      }
+      },
+      spacing: {
+        'calc-half-minus-30': 'calc(50% - 30px)',
+      },
     }
   },
   plugins: []

@@ -14,6 +14,7 @@ import Rooms from './pages/WebPages/Rooms/Rooms.jsx'
 import DashboardHome from './pages/Dashboard/DashboardHome/DashboardHome.jsx'
 import DshSearchRooms from './pages/Dashboard/DshSearchRooms/DshSearchRooms.jsx'
 import usersItems from './data/usersItems.js'
+import RoomItems from './data/roomsItems.js'
 
 function App () {
   return (
@@ -30,7 +31,7 @@ function App () {
       <Route path='register' element={<Register />} />
 
       {/* Routes for Dinamic pages like user, room */}
-      <Route path='user' element={<UserSingle user={usersItems[0]} />} />
+      <Route path='user' element={<UserSingle user={usersItems[0]} rooms={RoomItems} />} />
 
       {/* Routes for the Dashboard */}
       <Route path='dashboard' element={<DashboardHome />} />
