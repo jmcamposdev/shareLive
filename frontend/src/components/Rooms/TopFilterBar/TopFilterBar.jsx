@@ -56,18 +56,18 @@ const TopFilterBar = () => {
               <option value={ORDER_BY_HIGH_PRICE}>Price High</option>
             </select>
           </div>
-          <div
+          <button
             className={`pl15 pr15 bdrl1 bdrr1 d-none d-md-block cursor ${isGridView ? 'menuActive' : '#'}`}
             onClick={onGridClick}
           >
             Grid
-          </div>
-          <div
+          </button>
+          <button
             className={`pl15 d-none d-md-block  cursor ${!isGridView ? 'menuActive' : '#'}`}
             onClick={onListClick}
           >
             List
-          </div>
+          </button>
         </div>
       </div>
       {/* End .col-sm-6 */}
