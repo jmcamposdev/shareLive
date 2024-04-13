@@ -3,7 +3,6 @@ import RoomService from '../services/roomService'
 
 const useRooms = () => {
   const [rooms, setRooms] = useState([])
-  console.log(rooms)
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
