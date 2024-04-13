@@ -36,6 +36,10 @@ export const RoomProvider = ({ roomsData = [], defaultFilters, children }) => {
     ]
   })
 
+  useEffect(() => {
+    setRooms(roomsData)
+  }, [roomsData])
+
   /**
    * ---------------------------------------------
    * Grid View and List View Handler
@@ -74,15 +78,18 @@ export const RoomProvider = ({ roomsData = [], defaultFilters, children }) => {
   }
 
   const orderByNewest = () => {
-    const orderedRooms = rooms.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
+    const roomsCopy = [...rooms]
+    const orderedRooms = roomsCopy.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
     setRooms([...orderedRooms])
   }
   const orderByLowPrice = () => {
-    const orderedRooms = rooms.sort((a, b) => a.price - b.price)
+    const roomsCopy = [...rooms]
+    const orderedRooms = roomsCopy.sort((a, b) => a.price - b.price)
     setRooms([...orderedRooms])
   }
   const orderByHighPrice = () => {
-    const orderedRooms = rooms.sort((a, b) => b.price - a.price)
+    const roomsCopy = [...rooms]
+    const orderedRooms = roomsCopy.sort((a, b) => b.price - a.price)
     setRooms([...orderedRooms])
   }
 
@@ -93,7 +100,7 @@ export const RoomProvider = ({ roomsData = [], defaultFilters, children }) => {
    */
   useEffect(() => {
     const { price, bedrooms, bathrooms, structureType, location, sqft, amenities } = filters
-    if (price.min === 0 && price.max === 0 && bedrooms === 0 && bathrooms === 0 && location === 'all' && sqft.min === 0 && sqft.max === 0 && amenities.length === 0) {
+    if (price.min === 0 && price.max === 0 && bedrooms === 0 && bathrooms === 0 && location === 'all' && sqft.min === 0 && sqft.max === 0 && structureType === 'all' && amenities.every((amenity) => !amenity.checked)) {
       setRooms([...roomsData])
       return
     }
@@ -124,8 +131,13 @@ export const RoomProvider = ({ roomsData = [], defaultFilters, children }) => {
           isValid = room.size >= sqft.min && room.size <= sqft.max
         }
       }
-      if (amenities.length > 0 && isValid) { // Filter by amenities
-        isValid = amenities.every((amenity) => room.amenities.includes(amenity))
+      if (amenities.some((amenity) => amenity.checked) && isValid) { // Filter by amenities
+        isValid = amenities.every((amenity) => {
+          if (amenity.checked) {
+            return room.amenities.includes(amenity.label)
+          }
+          return true
+        })
       }
       return isValid
     })
