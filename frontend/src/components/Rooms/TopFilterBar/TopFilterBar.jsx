@@ -1,10 +1,14 @@
 import React, { useContext } from 'react'
 import { RoomContext } from '../../../context/roomContext'
 import { ORDER_BY_HIGH_PRICE, ORDER_BY_LOW_PRICE, ORDER_BY_NEWEST } from '../../../constants/rooms.constants'
+import { PaginationContext } from '../../../context/PaginationContext'
+import LoadingSkeleton from '../../common/Loading/LoadingSkeleton'
 
 const TopFilterBar = () => {
+  // Get the paginacion context currentPage, totalPages
+  const { currentPage, totalPages } = useContext(PaginationContext)
   // Get the rooms from the context
-  const { gridView, orderBy } = useContext(RoomContext)
+  const { gridView, orderBy, loading } = useContext(RoomContext)
   const { isGridView, onListClick, onGridClick } = gridView
 
   const handleOrderSelect = (e) => {
@@ -26,9 +30,15 @@ const TopFilterBar = () => {
     <>
       <div className='sm:w-1/2 pr-4 pl-4'>
         <div className='text-center text-sm-start'>
-          <p className='pagination_page_count mb-0 text-left'>
-            Showing 1 – of 2 results
-          </p>
+          {
+            loading
+              ? (
+                <LoadingSkeleton className='w-40 h-4' />
+                )
+              : (
+                <p className='pagination_page_count mb-0 text-left'>Showing {currentPage} of {totalPages} pages</p>
+                )
+          }
         </div>
       </div>
       {/* End .col-sm-6 */}

@@ -3,7 +3,7 @@ import { ORDER_BY_HIGH_PRICE, ORDER_BY_LOW_PRICE, ORDER_BY_NEWEST } from '../con
 
 export const RoomContext = createContext()
 
-export const RoomProvider = ({ roomsData = [], defaultFilters, children }) => {
+export const RoomProvider = ({ roomsData = [], defaultFilters, loading, children }) => {
   const [rooms, setRooms] = useState(roomsData || [])
   const [isGridView, setIsGridView] = useState(false)
   const [orderBy, setOrderBy] = useState(ORDER_BY_NEWEST)
@@ -215,7 +215,8 @@ export const RoomProvider = ({ roomsData = [], defaultFilters, children }) => {
       amenities: filterByAmenities
     },
     resetFilters,
-    filters
+    filters,
+    loading
   }), [rooms, setRooms, isGridView, onGridClick, onListClick, orderRoomsBy, filterByPriceRange, filterByBedrooms, filterByBathrooms, filterByLocation, filterBySquareMeters, filterByAmenities, filterByStructureType, resetFilters, filters])
 
   return (

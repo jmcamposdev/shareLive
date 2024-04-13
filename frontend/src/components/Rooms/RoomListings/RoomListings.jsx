@@ -1,22 +1,56 @@
-import RoomSimple from '../../common/Room/RoomSimple'
-import RoomDetailed from '../../common/Room/RoomDetailed'
+import RoomSimple from '../../common/Room/RoomSimple/RoomSimple'
+import RoomDetailed from '../../common/Room/RoomDetailed/RoomDetailed'
+import { PaginationContext } from '../../../context/PaginationContext'
 import { useContext } from 'react'
 import { RoomContext } from '../../../context/roomContext'
+import RoomSimpleSkeleton from '../../common/Room/RoomSimple/RoomSimpleSkeleton'
 
-const RoomListings = () => {
-  // Get the rooms from the context
-  const { rooms, gridView } = useContext(RoomContext)
-  const { isGridView } = gridView
+const RoomListings = ({ rooms, isGridView }) => {
+  const { loading } = useContext(RoomContext)
+  const { pageData, itemsPerPage } = useContext(PaginationContext)
+  const roomsData = pageData || rooms
+
+  const renderLoading = () => {
+    if (!loading) return null
+
+    if (isGridView) {
+      return (
+        <>
+          {
+            Array.from({ length: itemsPerPage }).map((_, index) => (
+              <RoomSimple key={index} loading />
+            ))
+          }
+        </>
+      )
+    }
+
+    return (
+      <>
+        {
+          Array.from({ length: itemsPerPage }).map((_, index) => (
+            <RoomDetailed key={index} loading />
+          ))
+        }
+      </>
+    )
+  }
+
   return (
     <div className={`row ${isGridView ? 'grid grid-cols-1 md:grid-cols-2' : ''}`}>
+      {renderLoading()}
+
       {
-      rooms.length === 0 && <h4 className='text-center'>No rooms found</h4>
+        roomsData.length === 0
+          ? (
+            <h4 className='text-center'>No rooms found</h4>
+            )
+          : (
+              roomsData.map((room) => (
+                isGridView ? <RoomSimple key={room._id} room={room} /> : <RoomDetailed key={room._id} room={room} />
+              ))
+            )
       }
-      {
-      rooms.map((room) => (
-        isGridView ? <RoomSimple key={room.id} room={room} /> : <RoomDetailed key={room.id} room={room} />
-      ))
-}
     </div>
   )
 }

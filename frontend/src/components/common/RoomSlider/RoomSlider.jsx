@@ -1,6 +1,6 @@
 import { Autoplay, Pagination, Navigation } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
-import RoomSimple from '../Room/RoomSimple'
+import RoomSimple from '../Room/RoomSimple/RoomSimple'
 
 const RoomSlider = ({ rooms }) => {
   return (
