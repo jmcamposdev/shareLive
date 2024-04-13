@@ -1,9 +1,9 @@
+import PropTypes from 'prop-types'
 import RoomSimple from '../../common/Room/RoomSimple/RoomSimple'
 import RoomDetailed from '../../common/Room/RoomDetailed/RoomDetailed'
 import { PaginationContext } from '../../../context/PaginationContext'
 import { useContext } from 'react'
 import { RoomContext } from '../../../context/roomContext'
-import RoomSimpleSkeleton from '../../common/Room/RoomSimple/RoomSimpleSkeleton'
 
 const RoomListings = ({ rooms, isGridView }) => {
   const { loading } = useContext(RoomContext)
@@ -18,7 +18,7 @@ const RoomListings = ({ rooms, isGridView }) => {
         <>
           {
             Array.from({ length: itemsPerPage }).map((_, index) => (
-              <RoomSimple key={index} loading />
+              <RoomSimple key={_} loading />
             ))
           }
         </>
@@ -29,7 +29,7 @@ const RoomListings = ({ rooms, isGridView }) => {
       <>
         {
           Array.from({ length: itemsPerPage }).map((_, index) => (
-            <RoomDetailed key={index} loading />
+            <RoomDetailed key={_} loading />
           ))
         }
       </>
@@ -53,6 +53,11 @@ const RoomListings = ({ rooms, isGridView }) => {
       }
     </div>
   )
+}
+
+RoomListings.propTypes = {
+  rooms: PropTypes.array.isRequired,
+  isGridView: PropTypes.bool.isRequired
 }
 
 export default RoomListings
