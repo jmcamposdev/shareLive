@@ -1,21 +1,23 @@
 import roomData from '../../../data/roomsItems'
 import PageIntro from '../../../components/common/PageIntroGrey/PageIntroGrey'
 import WebLayout from '../../../layout/WebLayout'
-import RoomBackgroundImage from '../../../assets/img/rooms/rooms-background.png'
+import RoomBackgroundImage from '../../../assets/img/rooms/rooms-background.jpg'
 import ListingSidebar from '../../../components/Rooms/ListingSidebar/ListingSidebar'
 import TopFilterBar from '../../../components/Rooms/TopFilterBar/TopFilterBar'
 
 import RoomListings from '../../../components/Rooms/RoomListings/RoomListings'
 import { RoomProvider } from '../../../context/roomContext'
 import { useLocation } from 'react-router-dom'
+import useRooms from '../../../hooks/useRooms'
 
 const Rooms = () => {
   const location = useLocation()
+  const { rooms, loadingRooms } = useRooms()
   const queryParams = new URLSearchParams(location.search)
   const dataString = queryParams.get('data')
   const urlFilters = JSON.parse(dataString)
   return (
-    <RoomProvider roomsData={roomData} defaultFilters={urlFilters}>
+    <RoomProvider roomsData={rooms} defaultFilters={urlFilters}>
       <WebLayout>
         <PageIntro title='Rooms' description='Find the perfect room for your stay' backgroundImage={RoomBackgroundImage} />
 
@@ -57,7 +59,18 @@ const Rooms = () => {
                 </div>
                 {/* End TopFilterBar */}
 
-                <RoomListings />
+                {
+                loadingRooms
+                  ? (
+                    <div className='row'>
+                      <h3>Loading...</h3>
+                    </div>
+                    )
+                  : (
+                    <RoomListings />
+                    )
+                }
+
                 {/* End .row */}
 
                 <div className='row'>
