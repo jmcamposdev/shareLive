@@ -14,10 +14,10 @@ const RoomDetailedSkeleton = () => {
           <h6 className='list-title'>
             <Link href='/sigle-v2' className='hover:!text-orangePrimary'><LoadingSkeleton className='w-52 h-6' /></Link>
           </h6>
-          <p className='list-text flex items-center'>
+          <div className='list-text flex items-center'>
             <i className='fa-solid fa-location-dot pr-3' />
             <LoadingSkeleton className='w-40 h-4' />
-          </p>
+          </div>
           <div className='list-meta d-flex align-items-center'>
             <a href='#' className='text-[#717171] flex justify-center items-center'>
               <span className='flaticon-bed text-[#717171]' /> <LoadingSkeleton className='w-5 h-4 mr-1' /> bed
@@ -29,11 +29,11 @@ const RoomDetailedSkeleton = () => {
               <span className='flaticon-expand text-[#717171]' /> <LoadingSkeleton className='w-5 h-4 mr-1' /> sqft
             </a>
           </div>
-          <p className='list-text2 flex flex-col gap-1 mt-3'>
+          <div className='list-text2 flex flex-col gap-1 mt-3 mb-4'>
             <LoadingSkeleton className='w-full h-4' />
             <LoadingSkeleton className='w-full h-4' />
             <LoadingSkeleton className='w-full h-4' />
-          </p>
+          </div>
           <hr className='mt-auto mb-3 text-[#C5C6C7]' />
           <div className='flex justify-between'>
             <a href='/' className='ud-btn btn-thm !text-[12px] !px-4 !py-1'>
