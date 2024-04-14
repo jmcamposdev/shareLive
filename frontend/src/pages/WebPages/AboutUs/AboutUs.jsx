@@ -3,7 +3,6 @@ import IntroImg from '../../../assets/img/aboutUs/introImg.jpg'
 import AboutIntro from '../../../components/about/AboutIntro/AboutIntro'
 import FaqIntro from '../../../components/about/FaqIntro/FaqIntro'
 import Faq from '../../../components/about/Faq/Faq'
-import Footer from '../../../components/Footer/Footer'
 import InstagramIntro from '../../../components/about/InstagramIntro/InstagramIntro'
 import InstagramGallery from '../../../components/about/InstagramGallery/InstagramGallery'
 import WebLayout from '../../../layout/WebLayout'
@@ -15,7 +14,6 @@ function AboutUs () {
       <AboutIntro />
       <FaqIntro />
       <Faq />
-      <Footer />
       <InstagramIntro />
       <InstagramGallery />
     </WebLayout>
