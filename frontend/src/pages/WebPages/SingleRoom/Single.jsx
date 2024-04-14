@@ -7,13 +7,14 @@ import FeaturesAminites from '../../../components/common/SingleRoom/FeaturesAmin
 import Address from '../../../components/common/SingleRoom/Address'
 import WalkScore from '../../../components/common/SingleRoom/WalkScore'
 import NearbySimilarProperty from '../../../components/common/SingleRoom/NearbySimilarProperty'
-import ScheduleTour from '../../../components/common/SingleRoom/ScheduleTour'
+// import ScheduleTour from '../../../components/common/SingleRoom/ScheduleTour'
 import ContactWithAgent from '../../../components/common/SingleRoom/ContactWithAgent'
 import PropertyHeader from '../../../components/common/SingleRoom/PropertyHeader'
+import ContactFormSingle from '../../../components/common/contactFormSingle/ContactFormSingle'
 
 // import PropertyGallery from '../../../components/common/SingleRoom/PropertyGallery'
 
-const Single = ({ params }) => {
+const Single = ({room, rooms, users}) => {
   const [isScrolled, setIsScrolled] = useState(false)
   useEffect(() => {
     const handleScroll = () => {
@@ -39,7 +40,7 @@ const Single = ({ params }) => {
             {/* End .row */}
 
             <div className='flex flex-wrap'>
-              <PropertyHeader id={1} /> {/* params.id */}
+              <PropertyHeader title={room.title} address={room.address} price={room.price} /> {/* params.id */}
             </div>
             {/* End .row */}
 
@@ -92,7 +93,8 @@ const Single = ({ params }) => {
                 <div className='column'>
                   <div className='default-box-shadow1 bdrs12 bdr1 p30 mb30-md bgc-white relative'>
                     <h4 className='form-title mb5'>Schedule a tour</h4>
-                    <ScheduleTour id={1} />
+                    {/* <ScheduleTour id={1} /> */}
+                    {/* <ContactFormSingle title={'Schedule a tour'} /> */}
                   </div>
                   {/* End .Schedule a tour */}
 

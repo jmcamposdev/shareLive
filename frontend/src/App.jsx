@@ -26,7 +26,7 @@ function App () {
       <Route path='contact' element={<Contact />} />
 
       {/* Single room */}
-      <Route path='single' element={<Single />} />
+      <Route path='single' element={<Single room={RoomItems[0]} rooms={RoomItems} users={usersItems} />} />
       <Route path='login' element={<Login />} />
       <Route path='register' element={<Register />} />
 
