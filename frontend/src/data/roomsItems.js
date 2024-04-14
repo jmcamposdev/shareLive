@@ -34,6 +34,11 @@ export default [
       'Dryer',
       'Washing machine'
     ],
+    score: {
+      walk: 57,
+      transit: 27,
+      bike: 45
+    },
     createdAt: '2024-03-27T15:05:48.261Z'
   },
   {
@@ -66,6 +71,11 @@ export default [
       'Microwave',
       'DishWasher'
     ],
+    score: {
+      walk: 60,
+      transit: 15,
+      bike: 80
+    },
     createdAt: '2023-03-27T15:05:48.261Z'
   },
   {
@@ -97,6 +107,11 @@ export default [
       'Washer',
       'Refrigerator'
     ],
+    score: {
+      walk: 75,
+      transit: 65,
+      bike: 41
+    },
     createdAt: '2022-03-27T15:05:48.261Z'
   },
   {
@@ -129,6 +144,11 @@ export default [
       'Washer',
       'Dryer'
     ],
+    score: {
+      walk: 47,
+      transit: 58,
+      bike: 45
+    },
     createdAt: '2024-03-17T15:05:48.261Z'
   },
   {
@@ -162,6 +182,11 @@ export default [
       'WIFI',
       'Washer'
     ],
+    score: {
+      walk: 14,
+      transit: 45,
+      bike: 36
+    },
     createdAt: '2022-03-27T15:05:48.261Z'
   },
   {
@@ -194,6 +219,11 @@ export default [
       'Elevator',
       'TV'
     ],
+    score: {
+      walk: 68,
+      transit: 30,
+      bike: 25
+    },
     createdAt: '2024-03-27T12:05:48.261Z'
   }
 ]
