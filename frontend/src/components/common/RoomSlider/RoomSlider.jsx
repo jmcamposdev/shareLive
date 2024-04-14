@@ -1,8 +1,8 @@
 import { Autoplay, Pagination, Navigation } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
-import RoomSimple from '../Room/RoomSimple'
+import RoomSimple from '../Room/RoomSimple/RoomSimple'
 
-const RoomSlider = ({ rooms }) => {
+const RoomSlider = ({ rooms, loading }) => {
   return (
     <div className='flex flex-wrap '>
       <div className='w-full pr-4 pl-4' data-aos='fade-up' data-aos-delay='200'>
@@ -38,11 +38,35 @@ const RoomSlider = ({ rooms }) => {
               }
             }}
           >
-            {rooms.map((room) => (
-              <SwiperSlide key={room.id}>
-                <RoomSimple room={room} />
-              </SwiperSlide>
-            ))}
+            {loading
+              ? (
+                <>
+                  <SwiperSlide>
+                    <RoomSimple loading />
+                  </SwiperSlide>
+                  <SwiperSlide>
+                    <RoomSimple loading />
+                  </SwiperSlide>
+                  <SwiperSlide>
+                    <RoomSimple loading />
+                  </SwiperSlide>
+                  <SwiperSlide>
+                    <RoomSimple loading />
+                  </SwiperSlide>
+                  <SwiperSlide>
+                    <RoomSimple loading />
+                  </SwiperSlide>
+                </>
+
+                )
+              : (
+                  rooms.map((room) => (
+                    <SwiperSlide key={room.id}>
+                      <RoomSimple room={room} />
+                    </SwiperSlide>
+                  ))
+
+                )}
           </Swiper>
         </div>
       </div>
