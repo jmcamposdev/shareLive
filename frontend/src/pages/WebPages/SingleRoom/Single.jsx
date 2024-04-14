@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 
 import WebLayout from "../../../layout/WebLayout";
-import PropertyGallery from "../../../components/common/SingleRoom/PropertyGallery";
+// import PropertyGallery from "../../../components/common/SingleRoom/PropertyGallery";
 import OverView from "../../../components/common/SingleRoom/Overview";
 import Description from "../../../components/common/SingleRoom/Description";
 import FeaturesAminites from "../../../components/common/SingleRoom/FeaturesAminites";
@@ -39,7 +39,7 @@ const Single = ({ room, users }) => {
           />
           <div className="container">
             <div className="flex flex-wrap mb-[30px] mt-[30px]">
-              <PropertyGallery images={room.images} />
+              {/* <PropertyGallery images={room.images} /> */}
             </div>
             {/* End .row */}
 
