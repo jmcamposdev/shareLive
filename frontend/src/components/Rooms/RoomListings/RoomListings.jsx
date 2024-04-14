@@ -56,7 +56,7 @@ const RoomListings = ({ rooms, isGridView }) => {
 }
 
 RoomListings.propTypes = {
-  rooms: PropTypes.array.isRequired,
+  rooms: PropTypes.array,
   isGridView: PropTypes.bool.isRequired
 }
 
