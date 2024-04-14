@@ -30,13 +30,13 @@ const RoomSimple = ({ room, loading = false }) => {
             {room.city !== room.state ? room.city : ''} {room.state}, {room.country}
           </p>
           <div className='list-meta d-flex align-items-center'>
-            <a href='#' className='text-[#717171]'>
+            <a className='text-[#717171]'>
               <span className='flaticon-bed text-[#717171]' /> {room.bedrooms} bed
             </a>
-            <a href='#' className='text-[#717171]'>
+            <a className='text-[#717171]'>
               <span className='flaticon-shower text-[#717171]' /> {room.bathrooms} bath
             </a>
-            <a href='#' className='text-[#717171]'>
+            <a className='text-[#717171]'>
               <span className='flaticon-expand text-[#717171]' /> {room.squareMeters} sqft
             </a>
           </div>
