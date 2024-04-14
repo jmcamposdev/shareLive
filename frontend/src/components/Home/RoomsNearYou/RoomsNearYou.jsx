@@ -2,29 +2,14 @@ import roomsData from '../../../data/roomsItems'
 import { Link } from 'react-router-dom'
 import RoomSlider from '../../common/RoomSlider/RoomSlider'
 import RoomPagination from '../../common/RoomSlider/RoomPagination'
-import { useEffect, useState } from 'react'
-import RoomService from '../../../services/roomService'
 import { useLocation } from '../../../context/LocationContext'
+import useRooms from '../../../hooks/useRooms'
+import { roomsNearYouFilter } from '../../../utils/roomsNearYour.utils'
 
 const RoomsNearYou = () => {
   const location = useLocation()
-  const [rooms, setRooms] = useState([])
-
-  useEffect(() => {
-    const fetchRooms = async () => {
-      try {
-        // Fetch the formations from the server
-        const roomsData = await RoomService.getAllRooms()
-        // Save the formations in the state
-        setRooms(roomsData)
-      } catch (error) {
-        // If there's an error, set the error message
-        // toast.showError(error.message)
-      }
-    }
-
-    fetchRooms()
-  }, [])
+  const { rooms, loading } = useRooms()
+  const filteredRooms = roomsNearYouFilter(rooms, location)
 
   return (
     <section className='pt0 pb90 bgc-white'>
@@ -48,7 +33,7 @@ const RoomsNearYou = () => {
           </div>
         </div>
         {/* End header */}
-        <RoomSlider rooms={roomsData} />
+        <RoomSlider rooms={filteredRooms} loading={loading} />
       </div>
 
       <RoomPagination />
