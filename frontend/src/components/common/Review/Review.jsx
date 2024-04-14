@@ -39,7 +39,7 @@ const Review = ({ review, className }) => {
           </ul>
             */}
 
-      <div className='review_cansel_btns flex'><a href='#'><i className='fas fa-thumbs-up text-gray-500' />Helpful ({review.helpful})</a><a href='#'><i className='fas fa-thumbs-down text-gray-500' />Not helpful ({review.notHelpful})</a></div>
+      <div className='review_cansel_btns flex '><a href='#' className='hover:dark:text-white'><i className='fas fa-thumbs-up text-gray-500 ' />Helpful ({review.helpful})</a><a href='#' className='hover:dark:text-white'><i className='fas fa-thumbs-down text-gray-500' />Not helpful ({review.notHelpful})</a></div>
     </div>
   )
 }

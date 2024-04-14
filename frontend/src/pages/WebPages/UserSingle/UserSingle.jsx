@@ -228,23 +228,23 @@ const UserSingle = ({ user, rooms }) => {
                     </div>
                   </div>
                   <div className='bsp_reveiw_wrt'>
-                    <h6 className='fz17'>Leave A Review</h6>
+                    <h6 className='fz17 dark:text-white'>Leave A Review</h6>
                     <form className='comments_form mt30'>
                       <div className='flex flex-wrap '>
                         <div className='md:w-full'>
-                          <div className='mb-4'><label className='fw600 ff-heading mb-2'>Email</label><input className='block appearance-none w-full py-1 px-2 mb-1 text-base leading-normal bg-white text-gray-800 border border-gray-200 rounded form-control' placeholder='ibthemes21@gmail.com' required='' type='email' /></div>
+                          <div className='mb-4'><label className='fw600 ff-heading mb-2 dark:text-white'>Email</label><input className='block appearance-none w-full py-1 px-2 mb-1 text-base leading-normal bg-white text-gray-800 border border-gray-200 dark:!border-gray-100/40 rounded form-control dark:!bg-midnight dark:border-gray-200/40 placeholder:text-gray-200/40 dark:text-white focus:outline-white' placeholder='Your Email Here' required='' type='email' /></div>
                         </div>
                         <div className='md:w-1/2 pr-4'>
-                          <div className='mb-4'><label className='fw600 ff-heading mb-2'>Title</label><input className='block appearance-none w-full py-1 px-2 mb-1 text-base leading-normal bg-white text-gray-800 border border-gray-200 rounded form-control' placeholder='Enter Title' required='' type='text' /></div>
+                          <div className='mb-4'><label className='fw600 ff-heading mb-2 dark:text-white'>Title</label><input className='block appearance-none w-full py-1 px-2 mb-1 text-base leading-normal bg-white text-gray-800 border border-gray-200 rounded form-control bg-white text-gray-800 border border-gray-200 dark:!border-gray-100/40 rounded form-control dark:!bg-midnight dark:border-gray-200/40 placeholder:text-gray-200/40 dark:text-white focus:outline-white' placeholder='Enter Title' required='' type='text' /></div>
                         </div>
 
                         <div className='md:w-1/2 pl-4'>
                           <input className='absolute w-0 h-0' id='rating' type='number' min='1' max='5' value={5} />
                           <div className='mb-4 relative'>
-                            <label className='fw600 ff-heading mb-2'>Rating</label>
-                            <div className=' relative block appearance-none w-full py-1 px-2 mb-1 text-base leading-normal bg-white text-gray-800 border border-gray-200 rounded form-control'>
-                              <div onClick={openRating} className='absolute w-full h-full top-0 left-0 flex justify-between items-center py-2 px-4 pr-6'>
-                                <p id='displayRate' className='m-0 p-0 text-slate-500'>Five Stars</p>
+                            <label className='fw600 ff-heading mb-2 dark:text-white'>Rating</label>
+                            <div className='dark:!border-gray-100/40 bg-white rounded-lg dark:text-white  relative block appearance-none w-full py-1 px-2 mb-1 text-base leading-normal bg-white text-gray-800 border border-gray-200 rounded form-control dark:!bg-red'>
+                              <div onClick={openRating} className='dark:text-white rounded-lg !border-0 dark:bg-midnight absolute w-full h-full top-0 left-0 flex justify-between items-center py-2 px-4 pr-6 '>
+                                <p id='displayRate' className='m-0 p-0 text-slate-500 dark:text-white '>Five Stars</p>
                                 <div className='h-full border-l border-slate-300 absolute right-[17%]' />
                                 <div id='chevron' style={{ transform: 'rotate(180deg)', transition: 'all 400ms ease' }} className=' fa-solid fa-chevron-down' />
                               </div>
@@ -262,7 +262,7 @@ const UserSingle = ({ user, rooms }) => {
                         </div>
 
                         <div className='md:w-full'>
-                          <div className='mb-4'><label className='fw600 ff-heading mb-2'>Review</label><textarea className='pt15' rows='6' placeholder='Write a Review' required='' /></div>
+                          <div className='mb-4'><label className='fw600 ff-heading mb-2 dark:text-white'>Review</label><textarea className='pt15' rows='6' placeholder='Write a Review' required='' /></div>
                           <button type='submit' className='ud-btn btn-white2'>Submit Review<i className='fal fa-arrow-right-long' /></button>
                         </div>
                       </div>

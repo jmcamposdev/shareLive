@@ -5,7 +5,6 @@ export default [
     avatar: 'users/user-1.jpg',
     username: 'joe',
     email: 'joe@gmail.com',
-    name: 'Joe',
     phone: '+34 978 345 342',
     firstName: 'Joe',
     lastName: 'Biden',

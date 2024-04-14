@@ -1,44 +1,14 @@
-import Select from 'react-select'
 import PriceRange from './PriceRange'
-import Bedroom from './Bedroom'
-import Bathroom from './Bathroom'
 import Amenities from './Amenities'
+import Bedroom from '../../Rooms/ListingSidebar/Bedroom/Bedroom'
+import Bathroom from '../../Rooms/ListingSidebar/Bathroom/Bathroom'
+import { useContext } from 'react'
+import { RoomContext } from '../../../context/roomContext'
+import StructureType from './StructureType'
+import SquareFeet from '../../Rooms/ListingSidebar/SquareFeet/SquareFeet'
 
 const AdvanceFilterModal = () => {
-  const catOptions = [
-    { value: 'Banking', label: 'Apartments' },
-    { value: 'Bungalow', label: 'Bungalow' },
-    { value: 'Houses', label: 'Houses' },
-    { value: 'Loft', label: 'Loft' },
-    { value: 'Office', label: 'Office' },
-    { value: 'Townhome', label: 'Townhome' },
-    { value: 'Villa', label: 'Villa' }
-  ]
-  const locationOptions = [
-    { value: 'All Cities', label: 'All Cities' },
-    { value: 'California', label: 'California' },
-    { value: 'Los Angeles', label: 'Los Angeles' },
-    { value: 'New Jersey', label: 'New Jersey' },
-    { value: 'New York', label: 'New York' },
-    { value: 'San Diego', label: 'San Diego' },
-    { value: 'San Francisco', label: 'San Francisco' },
-    { value: 'Texas', label: 'Texas' }
-  ]
-
-  const customStyles = {
-    option: (styles, { isFocused, isSelected, isHovered }) => {
-      return {
-        ...styles,
-        backgroundColor: isSelected
-          ? '#eb6753'
-          : isHovered
-            ? '#eb675312'
-            : isFocused
-              ? '#eb675312'
-              : undefined
-      }
-    }
-  }
+  const { resetFilters } = useContext(RoomContext)
 
   return (
     <div className='modal-dialog modal-dialog-centered modal-lg'>
@@ -70,33 +40,11 @@ const AdvanceFilterModal = () => {
           {/* End .row */}
 
           <div className='flex flex-wrap '>
-            <div className='sm:w-1/2 pr-4 pl-4'>
+            <div className='sm:w-full pr-4 pl-4'>
               <div className='widget-wrapper'>
-                <h6 className='list-title'>Type</h6>
+                <h6 className='list-title'>Structure Type</h6>
                 <div className='form-style2 relative flex items-stretch w-full'>
-                  <Select
-                    defaultValue={[catOptions[1]]}
-                    name='colors'
-                    options={catOptions}
-                    styles={customStyles}
-                    className='select-custom'
-                    classNamePrefix='select'
-                    required
-                  />
-                </div>
-              </div>
-            </div>
-            {/* End .col-6 */}
-
-            <div className='sm:w-1/2 pr-4 pl-4'>
-              <div className='widget-wrapper'>
-                <h6 className='list-title'>Property ID</h6>
-                <div className='form-style2'>
-                  <input
-                    type='text'
-                    className='form-control'
-                    placeholder='RT04949213'
-                  />
+                  <StructureType />
                 </div>
               </div>
             </div>
@@ -128,46 +76,10 @@ const AdvanceFilterModal = () => {
           {/* End .row */}
 
           <div className='flex flex-wrap '>
-            <div className='sm:w-1/2 pr-4 pl-4'>
-              <div className='widget-wrapper'>
-                <h6 className='list-title'>Location</h6>
-                <div className='form-style2 relative flex items-stretch w-full'>
-                  <Select
-                    defaultValue={[locationOptions[0]]}
-                    name='colors'
-                    styles={customStyles}
-                    options={locationOptions}
-                    className='select-custom'
-                    classNamePrefix='select'
-                    required
-                  />
-                </div>
-              </div>
-            </div>
-            {/* End .col-md-6 */}
-
-            <div className='sm:w-1/2 pr-4 pl-4'>
+            <div className='sm:w-full pr-4 pl-4'>
               <div className='widget-wrapper'>
                 <h6 className='list-title'>Square Feet</h6>
-                <div className='space-area'>
-                  <div className='flex items-center justify-between gap-3'>
-                    <div className='form-style1'>
-                      <input
-                        type='text'
-                        className='form-control'
-                        placeholder='Min.'
-                      />
-                    </div>
-                    <span className='dark-color'>-</span>
-                    <div className='form-style1'>
-                      <input
-                        type='text'
-                        className='form-control'
-                        placeholder='Max'
-                      />
-                    </div>
-                  </div>
-                </div>
+                <SquareFeet />
               </div>
             </div>
             {/* End .col-md-6 */}
@@ -180,13 +92,16 @@ const AdvanceFilterModal = () => {
                 <h6 className='list-title mb10'>Amenities</h6>
               </div>
             </div>
-            <Amenities />
+            <Amenities numColumns={3} />
           </div>
         </div>
         {/* End modal body */}
 
         <div className='modal-footer justify-between'>
-          <button className='reset-button'>
+          <button
+            className='reset-button'
+            onClick={() => resetFilters()}
+          >
             <span className='flaticon-turn-back' />
             <u>Reset all filters</u>
           </button>

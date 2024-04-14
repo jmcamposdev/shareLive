@@ -1,14 +1,16 @@
 import { Link } from 'react-router-dom'
-import { getImageURL } from '../../../utils/image-util'
+import RoomSimpleSkeleton from './RoomSimpleSkeleton'
 
-const RoomSimple = ({ room }) => {
+const RoomSimple = ({ room, loading = false }) => {
+  if (loading) return <RoomSimpleSkeleton />
+
   return (
     <div className='item'>
       <div className='listing-style1 mb-0'>
         <div className='list-thumb'>
           <img
             className='cover'
-            src={getImageURL(room.images[0])}
+            src={room.images[0]}
             alt={room.title}
           />
           <div className='list-price'>
@@ -35,7 +37,7 @@ const RoomSimple = ({ room }) => {
               <span className='flaticon-shower text-[#717171]' /> {room.bathrooms} bath
             </a>
             <a href='#' className='text-[#717171]'>
-              <span className='flaticon-expand text-[#717171]' /> {room.size} sqft
+              <span className='flaticon-expand text-[#717171]' /> {room.squareMeters} sqft
             </a>
           </div>
         </div>

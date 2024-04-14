@@ -4,10 +4,10 @@ const NeedHelpBox = () => {
   return (
     <section className='our-cta pt-0  dark:bg-lightmidnight'>
       <div className='cta-banner bgc-f7 mx-auto maxw1600 pt120 pb120 pt60-md pb60-md bdrs12 relative mx20-lg dark:bg-midnight'>
-        <div class='img-box-5 !right-[-215px] !top-[-176px]'>
+        <div className='img-box-5 !right-[-215px] !top-[-176px]'>
           <img className='img-1 spin-right' src={circulo} alt='' />
         </div>
-        <div class='img-box-6 !left-[-211px] !bottom-[-185px]'>
+        <div className='img-box-6 !left-[-211px] !bottom-[-185px]'>
           <img className='img-1 spin-left' src={circulo} alt='' />
         </div>
         <div className='container mx-auto sm:px-4 '>

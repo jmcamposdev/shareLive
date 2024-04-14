@@ -3,9 +3,10 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import SwiperCore from 'swiper'
 import '../../../../node_modules/swiper/swiper-bundle.min.css'
 SwiperCore.use()
+
 const FeaturesList = () => {
   return (
-    <section className='pb90 pb30-md'>
+    <section className='pb90 pb30-md !z-0'>
       <div className='container'>
         <div className='row justify-content-center' data-aos='fade'>
           <div className='col-lg-12'>

@@ -1,14 +1,16 @@
 import { Link } from 'react-router-dom'
-import { getImageURL } from '../../../utils/image-util'
+import RoomDetailedSkeleton from './RoomDetailedSkeleton'
 
-const RoomDetailed = ({ room }) => {
+const RoomDetailed = ({ room, loading = false }) => {
+  if (loading) return <RoomDetailedSkeleton />
+
   return (
     <div className='item'>
       <div className='listing-style1 listCustom listing-type flex-col md:flex-row'>
         <div className='list-thumb'>
           <img
             className='cover'
-            src={getImageURL(room.images[0])}
+            src={room.images[0]}
             alt={room.title}
           />
           <div className='list-price'>{room.price}€ / <span>mo</span></div>
@@ -29,7 +31,7 @@ const RoomDetailed = ({ room }) => {
               <span className='flaticon-shower text-[#717171]' /> {room.bathrooms} bath
             </a>
             <a href='#' className='text-[#717171]'>
-              <span className='flaticon-expand text-[#717171]' /> {room.size} sqft
+              <span className='flaticon-expand text-[#717171]' /> {room.squareMeters} sqft
             </a>
           </div>
           <p className='list-text2'>

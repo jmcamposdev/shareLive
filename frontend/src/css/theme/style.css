@@ -3843,6 +3843,15 @@ li {
   width: 55px;
 }
 
+.list-results::-webkit-scrollbar {
+  width: 4px;
+}
+
+.list-results::-webkit-scrollbar-thumb {
+  background-color: #EB6753;
+  border-radius: 20px;
+}
+
 /*Home 3 Banner Content*/
 .home-banner-style3 {
   background-image: url(../images/home/home-3.jpg);
@@ -5131,7 +5140,7 @@ section {
 
 /* Custom Search Sugguestions Code Start */
 .advance-search-field .box-search .icon {
-  bottom: 13px;
+  bottom: 11px;
   color: var(--headings-color);
   font-size: 15px;
   left: 20px;
