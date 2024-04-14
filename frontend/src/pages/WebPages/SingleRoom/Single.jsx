@@ -1,4 +1,13 @@
 import WebLayout from '../../../layout/WebLayout'
+import OverView from '../../../components/common/SingleRoom/Overview'
+import Description from '../../../components/common/SingleRoom/Description'
+import FeaturesAminites from '../../../components/common/SingleRoom/FeaturesAminites'
+import Address from '../../../components/common/SingleRoom/Address'
+import WalkScore from '../../../components/common/SingleRoom/WalkScore'
+import NearbySimilarProperty from '../../../components/common/SingleRoom/NearbySimilarProperty'
+import ScheduleTour from '../../../components/common/SingleRoom/ScheduleTour'
+import ContactWithAgent from '../../../components/common/SingleRoom/ContactWithAgent'
+import PropertyHeader from '../../../components/common/SingleRoom/PropertyHeader'
 
 // import PropertyGallery from '../../../components/common/SingleRoom/PropertyGallery'
 
@@ -16,7 +25,7 @@ const Single = ({ params }) => {
             {/* End .row */}
 
             <div className='flex flex-wrap '>
-              {/* <PropertyHeader id={params.id} /> */}
+              <PropertyHeader id={1} /> {/* params.id */}
             </div>
             {/* End .row */}
 
@@ -25,19 +34,22 @@ const Single = ({ params }) => {
                 <div className='ps-widget bgc-white bdrs12 default-box-shadow2 p30 mb30 overflow-hidden relative'>
                   <h4 className='title fz17 mb30'>Overview</h4>
                   <div className='flex flex-wrap '>
-                    {/* <OverView /> */}
+                    <OverView id={1} />
                   </div>
                 </div>
                 {/* End .ps-widget */}
 
                 <div className='ps-widget bgc-white bdrs12 default-box-shadow2 p30 mb30 overflow-hidden relative'>
                   <h4 className='title fz17 mb30'>Property Description</h4>
-                  {/* <ProperytyDescriptions /> */}
+                  <Description id={1} />
                   {/* End property description */}
+                </div>
+                {/* End .ps-widget */}
 
-                  <h4 className='title fz17 mb30 mt50'>Property Details</h4>
+                <div className='ps-widget bgc-white bdrs12 default-box-shadow2 p30 mb30 overflow-hidden relative'>
+                  <h4 className='title fz17 mb30'>Features &amp; Amenities</h4>
                   <div className='flex flex-wrap '>
-                    {/* <PropertyDetails /> */}
+                    <FeaturesAminites id={1} />
                   </div>
                 </div>
                 {/* End .ps-widget */}
@@ -45,59 +57,7 @@ const Single = ({ params }) => {
                 <div className='ps-widget bgc-white bdrs12 default-box-shadow2 p30 mb30 overflow-hidden relative'>
                   <h4 className='title fz17 mb30 mt30'>Address</h4>
                   <div className='flex flex-wrap '>
-                    {/* <PropertyAddress /> */}
-                  </div>
-                </div>
-                {/* End .ps-widget */}
-
-                <div className='ps-widget bgc-white bdrs12 default-box-shadow2 p30 mb30 overflow-hidden relative'>
-                  <h4 className='title fz17 mb30'>Features &amp; Amenities</h4>
-                  <div className='flex flex-wrap '>
-                    {/* <PropertyFeaturesAminites /> */}
-                  </div>
-                </div>
-                {/* End .ps-widget */}
-
-                <div className='ps-widget bgc-white bdrs12 default-box-shadow2 p30 mb30 overflow-hidden relative'>
-                  <h4 className='title fz17 mb30'>Energy Class</h4>
-                  <div className='flex flex-wrap '>
-                    {/* <EnergyClass /> */}
-                  </div>
-                </div>
-                {/* End .ps-widget */}
-
-                <div className='ps-widget bgc-white bdrs12 default-box-shadow2 p30 mb30 overflow-hidden relative'>
-                  <h4 className='title fz17 mb30'>Floor Plans</h4>
-                  <div className='flex flex-wrap '>
-                    <div className='md:w-full pr-4 pl-4'>
-                      <div className='accordion-style1 style2'>
-                        {/* <FloorPlans /> */}
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                {/* End .ps-widget */}
-
-                <div className='ps-widget bgc-white bdrs12 default-box-shadow2 p30 mb30 '>
-                  <h4 className='title fz17 mb30'>Video</h4>
-                  <div className='flex flex-wrap '>
-                    {/* <PropertyVideo /> */}
-                  </div>
-                </div>
-                {/* End .ps-widget */}
-
-                <div className='ps-widget bgc-white bdrs12 default-box-shadow2 p30 mb30 overflow-hidden relative'>
-                  <h4 className='title fz17 mb30'>360° Virtual Tour</h4>
-                  <div className='flex flex-wrap '>
-                    {/* <VirtualTour360 /> */}
-                  </div>
-                </div>
-                {/* End .ps-widget */}
-
-                <div className='ps-widget bgc-white bdrs12 default-box-shadow2 p30 mb30 overflow-hidden relative'>
-                  <h4 className='title fz17 mb30'>What&apos;s Nearby?</h4>
-                  <div className='flex flex-wrap '>
-                    {/* <PropertyNearby /> */}
+                    <Address id={1} />
                   </div>
                 </div>
                 {/* End .ps-widget */}
@@ -106,56 +66,8 @@ const Single = ({ params }) => {
                   <h4 className='title fz17 mb30'>Walkscore</h4>
                   <div className='flex flex-wrap '>
                     <div className='md:w-full pr-4 pl-4'>
-                      <h4 className='fw400 mb20'>
-                        10425 Tabor St Los Angeles CA 90034 USA
-                      </h4>
-                      {/* <WalkScore /> */}
+                      <WalkScore id={1} />
                     </div>
-                  </div>
-                </div>
-                {/* End .ps-widget */}
-
-                <div className='ps-widget bgc-white bdrs12 default-box-shadow2 p30 mb30 overflow-hidden relative'>
-                  <h4 className='title fz17 mb30'>Mortgage Calculator</h4>
-                  <div className='flex flex-wrap '>
-                    {/* <MortgageCalculator /> */}
-                  </div>
-                </div>
-                {/* End .ps-widget */}
-
-                <div className='ps-widget bgc-white bdrs12 default-box-shadow2 p30 mb30 overflow-hidden relative'>
-                  <div className='flex flex-wrap '>
-                    {/* <PropertyViews /> */}
-                  </div>
-                </div>
-                {/* End .ps-widget */}
-
-                <div className='ps-widget bgc-white bdrs12 default-box-shadow2 p30 mb30 overflow-hidden relative'>
-                  <h4 className='title fz17 mb30'>Home Value</h4>
-                  <div className='flex flex-wrap '>
-                    {/* <HomeValueChart /> */}
-                  </div>
-                </div>
-                {/* End .ps-widget */}
-
-                <div className='ps-widget bgc-white bdrs12 default-box-shadow2 p30 mb30 overflow-hidden relative'>
-                  <h4 className='title fz17 mb30'>Get More Information</h4>
-                  {/* <InfoWithForm /> */}
-                </div>
-                {/* End .ps-widget */}
-
-                <div className='ps-widget bgc-white bdrs12 default-box-shadow2 p30 mb30 overflow-hidden relative'>
-                  <div className='flex flex-wrap '>
-                    {/* <AllComments /> */}
-                    {/* <AllReviews /> */}
-                  </div>
-                </div>
-                {/* End .ps-widget */}
-
-                <div className='ps-widget bgc-white bdrs12 default-box-shadow2 p30 mb30 overflow-hidden relative'>
-                  <h4 className='title fz17 mb30'>Leave A Review</h4>
-                  <div className='flex flex-wrap '>
-                    {/* <ReviewBoxForm /> */}
                   </div>
                 </div>
                 {/* End .ps-widget */}
@@ -166,15 +78,14 @@ const Single = ({ params }) => {
                 <div className='column'>
                   <div className='default-box-shadow1 bdrs12 bdr1 p30 mb30-md bgc-white relative'>
                     <h4 className='form-title mb5'>Schedule a tour</h4>
-                    <p className='text'>Choose your preferred day</p>
-                    {/* <ScheduleTour /> */}
+                    <ScheduleTour id={1} />
                   </div>
                   {/* End .Schedule a tour */}
 
                   <div className='agen-personal-info relative bgc-white default-box-shadow1 bdrs12 p30 mt30'>
                     <div className='widget-wrapper mb-0'>
                       <h6 className='title fz17 mb30'>Get More Information</h6>
-                      {/* <ContactWithAgent /> */}
+                      <ContactWithAgent id={1} />
                     </div>
                   </div>
                 </div>
@@ -182,48 +93,12 @@ const Single = ({ params }) => {
             </div>
             {/* End .row */}
 
-            <div className='flex flex-wrap  mt30 items-center justify-between'>
-              <div className='col-auto'>
-                <div className='main-title'>
-                  <h2 className='title'>Discover Our Featured Listings</h2>
-                  <p className='paragraph'>
-                    Aliquam lacinia diam quis lacus euismod
-                  </p>
-                </div>
-              </div>
-              {/* End header */}
-
-              <div className='col-auto mb30'>
-                <div className='flex flex-wrap  items-center justify-center'>
-                  <div className='col-auto'>
-                    <button className='featured-prev__active swiper_button'>
-                      <i className='far fa-arrow-left-long' />
-                    </button>
-                  </div>
-                  {/* End prev */}
-
-                  <div className='col-auto'>
-                    <div className='flex list-reset pl-0 rounded swiper--pagination featured-pagination__active' />
-                  </div>
-                  {/* End pagination */}
-
-                  <div className='col-auto'>
-                    <button className='featured-next__active swiper_button'>
-                      <i className='far fa-arrow-right-long' />
-                    </button>
-                  </div>
-                  {/* End Next */}
-                </div>
-                {/* End .col for navigation and pagination */}
-              </div>
-              {/* End .col for navigation and pagination */}
-            </div>
             {/* End .row */}
 
             <div className='flex flex-wrap '>
               <div className='lg:w-full pr-4 pl-4'>
                 <div className='property-city-slider'>
-                  {/* <NearbySimilarProperty /> */}
+                  <NearbySimilarProperty />
                 </div>
               </div>
             </div>
