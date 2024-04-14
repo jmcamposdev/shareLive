@@ -152,6 +152,9 @@ html {
 .select-custom.pl-0 .select__control {
   padding-left: 7px;
 }
+.select-custom .select__single-value {
+  text-transform: capitalize;
+}
 .reset-button {
   outline: none;
   background: transparent;

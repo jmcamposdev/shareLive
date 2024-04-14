@@ -2,8 +2,15 @@ import roomsData from '../../../data/roomsItems'
 import { Link } from 'react-router-dom'
 import RoomSlider from '../../common/RoomSlider/RoomSlider'
 import RoomPagination from '../../common/RoomSlider/RoomPagination'
+import { useLocation } from '../../../context/LocationContext'
+import useRooms from '../../../hooks/useRooms'
+import { roomsNearYouFilter } from '../../../utils/roomsNearYour.utils'
 
 const RoomsNearYou = () => {
+  const location = useLocation()
+  const { rooms, loading } = useRooms()
+  const filteredRooms = roomsNearYouFilter(rooms, location)
+
   return (
     <section className='pt0 pb90 bgc-white'>
       <div className='container mx-auto sm:px-4'>
@@ -26,7 +33,7 @@ const RoomsNearYou = () => {
           </div>
         </div>
         {/* End header */}
-        <RoomSlider rooms={roomsData} />
+        <RoomSlider rooms={filteredRooms} loading={loading} />
       </div>
 
       <RoomPagination />

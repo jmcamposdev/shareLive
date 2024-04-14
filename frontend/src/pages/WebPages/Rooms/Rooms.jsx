@@ -1,16 +1,20 @@
-import roomData from '../../../data/roomsItems'
 import PageIntro from '../../../components/common/PageIntroGrey/PageIntroGrey'
 import WebLayout from '../../../layout/WebLayout'
-import RoomBackgroundImage from '../../../assets/img/rooms/rooms-background.png'
+import RoomBackgroundImage from '../../../assets/img/rooms/rooms-background.jpg'
 import ListingSidebar from '../../../components/Rooms/ListingSidebar/ListingSidebar'
-import TopFilterBar from '../../../components/Rooms/TopFilterBar/TopFilterBar'
-
-import RoomListings from '../../../components/Rooms/RoomListings/RoomListings'
 import { RoomProvider } from '../../../context/roomContext'
+import { useLocation } from 'react-router-dom'
+import useRooms from '../../../hooks/useRooms'
+import RoomsSidebar from '../../../components/Rooms/RoomsSidebar/RoomsSidebar'
 
 const Rooms = () => {
+  const location = useLocation()
+  const { rooms, loading } = useRooms()
+  const queryParams = new URLSearchParams(location.search)
+  const dataString = queryParams.get('data')
+  const urlFilters = JSON.parse(dataString)
   return (
-    <RoomProvider roomsData={roomData}>
+    <RoomProvider roomsData={rooms} defaultFilters={urlFilters} loading={loading}>
       <WebLayout>
         <PageIntro title='Rooms' description='Find the perfect room for your stay' backgroundImage={RoomBackgroundImage} />
 
@@ -46,23 +50,8 @@ const Rooms = () => {
               </div>
               {/* End mobile filter sidebar */}
 
-              <div className='col-lg-8'>
-                <div className='row align-items-center mb20'>
-                  <TopFilterBar />
-                </div>
-                {/* End TopFilterBar */}
-
-                <RoomListings />
-                {/* End .row */}
-
-                <div className='row'>
-                  {/* <PaginationTwo
-                  pageCapacity={6}
-                  data={sortedFilteredData}
-                  pageNumber={pageNumber}
-                  setPageNumber={setPageNumber}
-                /> */}
-                </div>
+              <div className='col-lg-8' id='roomsListing'>
+                <RoomsSidebar />
                 {/* End .row */}
               </div>
               {/* End .col-lg-8 */}

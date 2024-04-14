@@ -1,5 +1,4 @@
 import { formatDate } from '../../../../utils/formatDate'
-import { getImageURL } from '../../../../utils/image-util'
 
 const searchRoomsColumns = [
   {
@@ -9,7 +8,7 @@ const searchRoomsColumns = [
       return (
         <div className='listing-style1 dashboard-style d-xxl-flex align-items-center !mb-0'>
           <div className='list-thumb'>
-            <img className='w-full h-full' src={getImageURL(room.images[0])} alt='property' />
+            <img className='w-full h-full' src={room.images[0]} alt='property' />
           </div>
           <div className='list-content py-0 p-0 mt-2 mt-xxl-0 ps-xxl-4'>
             <div className='h6 list-title'>

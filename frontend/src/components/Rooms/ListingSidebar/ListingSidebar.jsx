@@ -2,11 +2,11 @@ import { useContext } from 'react'
 import { RoomContext } from '../../../context/roomContext'
 import Bathroom from './Bathroom/Bathroom'
 import Bedroom from './Bedroom/Bedroom'
-import Location from './Location/Location'
-import OtherFeatures from './OtherFeatures/OtherFeatures'
 import PriceRange from './PriceRange/PriceRange'
 import SearchBox from './SearchBox/SearchBox'
 import SquareFeet from './SquareFeet/SquareFeet'
+import StructureType from '../../common/advance-filter/StructureType'
+import Amenities from '../../common/advance-filter/Amenities'
 
 const ListingSidebar = () => {
   const { resetFilters } = useContext(RoomContext)
@@ -44,9 +44,9 @@ const ListingSidebar = () => {
       {/* End .widget-wrapper */}
 
       <div className='widget-wrapper advance-feature-modal'>
-        <h6 className='list-title'>Location</h6>
-        <div className='form-style2 input-group'>
-          <Location />
+        <h6 className='list-title'>Structure Type</h6>
+        <div className='form-style2 relative flex items-stretch w-full'>
+          <StructureType />
         </div>
       </div>
       {/* End .widget-wrapper */}
@@ -80,7 +80,7 @@ const ListingSidebar = () => {
                 data-bs-parent='#accordionExample'
               >
                 <div className='accordion-body p-0 mt15'>
-                  <OtherFeatures />
+                  <Amenities numColumns={2} />
                 </div>
               </div>
             </div>
