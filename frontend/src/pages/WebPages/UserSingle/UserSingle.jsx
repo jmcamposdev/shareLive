@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import WebLayout from '../../../layout/WebLayout'
-import RoomSimple from '../../../components/common/Room/RoomSimple'
+import RoomSimple from '../../../components/common/Room/RoomSimple/RoomSimple'
 import Review from '../../../components/common/Review/Review'
 import { getImageURL } from '../../../utils/image-util'
 import Bounce1 from '../../../assets/img/users/bounce.png'

@@ -19,13 +19,13 @@ const RoomDetailedSkeleton = () => {
             <LoadingSkeleton className='w-40 h-4' />
           </div>
           <div className='list-meta d-flex align-items-center'>
-            <a href='#' className='text-[#717171] flex justify-center items-center'>
+            <a className='text-[#717171] flex justify-center items-center'>
               <span className='flaticon-bed text-[#717171]' /> <LoadingSkeleton className='w-5 h-4 mr-1' /> bed
             </a>
-            <a href='#' className='text-[#717171] flex justify-center items-center'>
+            <a className='text-[#717171] flex justify-center items-center'>
               <span className='flaticon-shower text-[#717171]' /> <LoadingSkeleton className='w-5 h-4 mr-1' /> bath
             </a>
-            <a href='#' className='text-[#717171] flex justify-center items-center'>
+            <a className='text-[#717171] flex justify-center items-center'>
               <span className='flaticon-expand text-[#717171]' /> <LoadingSkeleton className='w-5 h-4 mr-1' /> sqft
             </a>
           </div>

@@ -36,14 +36,14 @@ const Header = () => {
               <div className='col-auto'>
                 <div className='flex items-center justify-between'>
                   <div className='logos mr40'>
-                    <Link className='header-logo logo1' href='/'>
+                    <Link className='header-logo logo1' to='/'>
                       <img
                         style={{ height: '44px', maxWidth: 'fit-content' }}
                         src={LogoWhite}
                         alt='Header Logo'
                       />
                     </Link>
-                    <Link className='header-logo logo2' href='/'>
+                    <Link className='header-logo logo2' to='/'>
                       <img
                         style={{ height: '44px', maxWidth: 'fit-content' }}
                         src={LogoDark}
