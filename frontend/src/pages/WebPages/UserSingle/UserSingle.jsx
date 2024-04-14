@@ -1,12 +1,14 @@
 import React, { useState } from 'react'
 import WebLayout from '../../../layout/WebLayout'
 import RoomSimple from '../../../components/common/Room/RoomSimple'
-import RoomData from '../../../data/roomsItems'
 import Review from '../../../components/common/Review/Review'
 import { getImageURL } from '../../../utils/image-util'
 import Bounce1 from '../../../assets/img/users/bounce.png'
 import Bounce2 from '../../../assets/img/users/bounce2.png'
 import CircleOrange from '../../../assets/img/users/circleOrange.png'
+import Bounce1Dark from '../../../assets/img/users/bounceDark.png'
+import Bounce2Dark from '../../../assets/img/users/bounce2Dark.png'
+import CircleOrangeDark from '../../../assets/img/users/circleOrangeDark.png'
 
 const UserSingle = ({ user, rooms }) => {
   // Getting the reviews made of the user
@@ -38,17 +40,48 @@ const UserSingle = ({ user, rooms }) => {
   const userRooms = allRooms.filter(room => userIds.includes(room.id))
   const userReviews = user.reviews
 
+  // Funtion to open and close the rating window
+  const openRating = () => {
+    const ratingList = document.getElementById('ratingList')
+    const chevron = document.getElementById('chevron')
+    // if its closed then the opacity is set to one to make it visible
+    // and a max height is set so an animation can be played
+    // the chevron is rotated to indicate its opened
+    if (ratingList.style.opacity === '0') {
+      ratingList.style.maxHeight = '153px'
+      ratingList.style.opacity = '1'
+      chevron.style.transform = ''
+    } else {
+      // else the window is closed
+      ratingList.style.maxHeight = '0'
+      ratingList.style.opacity = '0'
+      chevron.style.transform = 'rotate(180deg)'
+    }
+  }
+
+  const setRating = e => {
+    // if a rating option is clicked then
+    // the window closes
+    openRating()
+    // i get the value picked by the user inside the li with the aria-value
+    const rating = e.target.innerHTML
+    // i didsplay the value on the fake option tag
+    document.getElementById('displayRate').innerHTML = rating
+    // i set the value of a hidden input with the picked value
+    document.getElementById('rating').value = e.target.getAttribute('aria-value')
+  }
+
   return (
     <WebLayout>
       {/* <RoomSimple room={RoomData[0]} /> */}
       <section className='agent-single pt-[150px] dark:bg-lightmidnight'>
-        <div className='dark:bg-orangePrimary/60 cta-agent bgc-thm-light mx-auto maxw1600 pt60 pb60 bdrs12 relative mx20-lg'>
+        <div className='dark:bg-[#181a20] cta-agent bgc-thm-light mx-auto maxw1600 pt60 pb60 bdrs12 relative mx20-lg'>
           <div className='container mx-auto sm:px-4'>
             <div className='flex flex-wrap  items-center'>
               <div className='xl:w-3/5 pr-4 pl-4'>
                 <div className='agent-single sm:flex items-center'>
                   <div className='single-img mb30-sm'>
-                    <img alt='agents' loading='lazy' width='172' height='172' decoding='async' data-nimg='1' className='text-transparent rounded-full object-cover' src={getImageURL(user.avatar)} />
+                    <img alt='agents' loading='lazy' width='172' height='172' decoding='async' data-nimg='1' className='text-transparent rounded-full object-cover z-20 relative' src={getImageURL(user.avatar)} />
                   </div>
                   <div className='single-contant ml30 ml0-xs'>
                     <h2 className='title mb-0 dark:text-white'>{`${user.firstName} ${user.lastName}`}</h2>
@@ -95,9 +128,12 @@ const UserSingle = ({ user, rooms }) => {
                   </div>
                 </div>
                 <div className='img-box-11 relative hidden xl:block'>
-                  <img alt='agents' loading='lazy' width='120' height='120' decoding='async' data-nimg='1' className='img-1 spin-right text-transparent' src={CircleOrange} />
-                  <img alt='agents' loading='lazy' width='41' height='11' decoding='async' data-nimg='1' className='img-2 bounce-x text-transparent' src={Bounce2} />
-                  <img alt='agents' loading='lazy' width='57' height='49' decoding='async' data-nimg='1' className='img-3 bounce-y text-transparent' src={Bounce1} />
+                  <img alt='agents' loading='lazy' width='120' height='120' decoding='async' data-nimg='1' className='img-1 spin-right text-transparent dark:hidden' src={CircleOrange} />
+                  <img alt='agents' loading='lazy' width='120' height='120' decoding='async' data-nimg='1' className='img-1 spin-right text-transparent hidden dark:block !z-10' src={CircleOrangeDark} />
+                  <img alt='agents' loading='lazy' width='41' height='11' decoding='async' data-nimg='1' className='img-2 bounce-x text-transparent dark:hidden' src={Bounce2} />
+                  <img alt='agents' loading='lazy' width='41' height='11' decoding='async' data-nimg='1' className='img-2 bounce-x text-transparent hidden dark:block' src={Bounce2Dark} />
+                  <img alt='agents' loading='lazy' width='57' height='49' decoding='async' data-nimg='1' className='img-3 bounce-y text-transparent dark:hidden' src={Bounce1} />
+                  <img alt='agents' loading='lazy' width='57' height='49' decoding='async' data-nimg='1' className='img-3 bounce-y text-transparent hidden dark:block' src={Bounce1Dark} />
 
                 </div>
               </div>
@@ -145,7 +181,7 @@ const UserSingle = ({ user, rooms }) => {
                       <div className='flex flex-wrap gap-[30px]'>
 
                         {allRooms.map(room => (
-                          <div className='w-full md:w-calc-half-minus-30'>
+                          <div key={room.id} className='w-full md:w-calc-half-minus-30'>
                             <RoomSimple key={room.id} room={room} />
                           </div>
                         ))}
@@ -195,38 +231,37 @@ const UserSingle = ({ user, rooms }) => {
                     <h6 className='fz17'>Leave A Review</h6>
                     <form className='comments_form mt30'>
                       <div className='flex flex-wrap '>
-                        <div className='md:w-full pr-4 pl-4'>
-                          <div className='mb-4'><label className='fw600 ff-heading mb-2'>Email</label><input className='block appearance-none w-full py-1 px-2 mb-1 text-base leading-normal bg-white text-gray-800 border border-gray-200 rounded' placeholder='ibthemes21@gmail.com' required='' type='email' /></div>
+                        <div className='md:w-full'>
+                          <div className='mb-4'><label className='fw600 ff-heading mb-2'>Email</label><input className='block appearance-none w-full py-1 px-2 mb-1 text-base leading-normal bg-white text-gray-800 border border-gray-200 rounded form-control' placeholder='ibthemes21@gmail.com' required='' type='email' /></div>
                         </div>
-                        <div className='md:w-1/2 pr-4 pl-4'>
-                          <div className='mb-4'><label className='fw600 ff-heading mb-2'>Title</label><input className='block appearance-none w-full py-1 px-2 mb-1 text-base leading-normal bg-white text-gray-800 border border-gray-200 rounded' placeholder='Enter Title' required='' type='text' /></div>
+                        <div className='md:w-1/2 pr-4'>
+                          <div className='mb-4'><label className='fw600 ff-heading mb-2'>Title</label><input className='block appearance-none w-full py-1 px-2 mb-1 text-base leading-normal bg-white text-gray-800 border border-gray-200 rounded form-control' placeholder='Enter Title' required='' type='text' /></div>
                         </div>
-                        <div className='md:w-1/2 pr-4 pl-4'>
-                          <div className='widget-wrapper sideborder-dropdown mb-4'>
+
+                        <div className='md:w-1/2 pl-4'>
+                          <input className='absolute w-0 h-0' id='rating' type='number' min='1' max='5' value={5} />
+                          <div className='mb-4 relative'>
                             <label className='fw600 ff-heading mb-2'>Rating</label>
-                            <div className='form-style2 relative flex items-stretch w-full'>
-                              <div className='custom-react_select css-b62m3t-container'>
-                                <span id='react-select-4-live-region' className='css-7pg0cj-a11yText' /><span aria-live='polite' aria-atomic='false' aria-relevant='additions text' className='css-7pg0cj-a11yText' />
-                                <div className='select__control css-13cymwt-control'>
-                                  <div className='select__value-container select__value-container--has-value css-hlgwow'>
-                                    <div className='select__single-value css-1dimb5e-singleValue'>Five Star</div>
-                                    <div className='select__input-container css-19bb58m' data-value=''><input className='select__input text-inherit bg-center opacity-100 w-full col-span-1 row-span-1 font-inherit min-w-2 border-0 m-0 outline-none p-0' autocapitalize='none' autocomplete='off' autocorrect='off' id='react-select-4-input' spellcheck='false' tabindex='0' aria-autocomplete='list' aria-expanded='false' aria-haspopup='true' aria-required='true' role='combobox' type='text' value='' /></div>
-                                  </div>
-                                  <div className='select__indicators css-1wy0on6'>
-                                    <span className='select__indicator-separator css-1u9des2-indicatorSeparator' />
-                                    <div className='select__indicator select__dropdown-indicator css-1xc3v61-indicatorContainer' aria-hidden='true'>
-                                      <svg height='20' width='20' viewBox='0 0 20 20' aria-hidden='true' focusable='false' className='css-8mmkcg'>
-                                        <path d='M4.516 7.548c0.436-0.446 1.043-0.481 1.576 0l3.908 3.747 3.908-3.747c0.533-0.481 1.141-0.446 1.574 0 0.436 0.445 0.408 1.197 0 1.615-0.406 0.418-4.695 4.502-4.695 4.502-0.217 0.223-0.502 0.335-0.787 0.335s-0.57-0.112-0.789-0.335c0 0-4.287-4.084-4.695-4.502s-0.436-1.17 0-1.615z' />
-                                      </svg>
-                                    </div>
-                                  </div>
-                                </div>
-                                <input type='hidden' value='Five Star' name='colors' />
+                            <div className=' relative block appearance-none w-full py-1 px-2 mb-1 text-base leading-normal bg-white text-gray-800 border border-gray-200 rounded form-control'>
+                              <div onClick={openRating} className='absolute w-full h-full top-0 left-0 flex justify-between items-center py-2 px-4 pr-6'>
+                                <p id='displayRate' className='m-0 p-0 text-slate-500'>Five Stars</p>
+                                <div className='h-full border-l border-slate-300 absolute right-[17%]' />
+                                <div id='chevron' style={{ transform: 'rotate(180deg)', transition: 'all 400ms ease' }} className=' fa-solid fa-chevron-down' />
                               </div>
+                              <ul id='ratingList' style={{ maxHeight: '0', opacity: '0', transition: 'all 400ms ease' }} className='border border-slate-500 block m-0 p-0 w-full absolute left-0 top-[110%] rounded-lg overflow-auto max-h-[170px] bg-white dark:bg-midnight'>
+                                <li aria-value={1} onClick={setRating} style={{ transition: 'all 400ms ease' }} className='hover:!bg-orangePrimary/50 hover:cursor-pointer w-full py-3 px-4 bg-white text-gray-800 mt-2'>One Star</li>
+                                <li aria-value={2} onClick={setRating} style={{ transition: 'all 400ms ease' }} className='hover:!bg-orangePrimary/50 hover:cursor-pointer w-full py-3 px-4 bg-white text-gray-800 mt-1'>Two Stars</li>
+                                <li aria-value={3} onClick={setRating} style={{ transition: 'all 400ms ease' }} className='hover:!bg-orangePrimary/50 hover:cursor-pointer w-full py-3 px-4 bg-white text-gray-800 mt-1'>Three Stars</li>
+                                <li aria-value={4} onClick={setRating} style={{ transition: 'all 400ms ease' }} className='hover:!bg-orangePrimary/50 hover:cursor-pointer w-full py-3 px-4 bg-white text-gray-800  mt-1'>Four Stars</li>
+                                <li aria-value={5} onClick={setRating} style={{ transition: 'all 400ms ease' }} className='hover:!bg-orangePrimary/50 hover:cursor-pointer w-full py-3 px-4 bg-white text-gray-800  mt-1 mb-2'>Five Stars</li>
+
+                              </ul>
+
                             </div>
                           </div>
                         </div>
-                        <div className='md:w-full pr-4 pl-4'>
+
+                        <div className='md:w-full'>
                           <div className='mb-4'><label className='fw600 ff-heading mb-2'>Review</label><textarea className='pt15' rows='6' placeholder='Write a Review' required='' /></div>
                           <button type='submit' className='ud-btn btn-white2'>Submit Review<i className='fal fa-arrow-right-long' /></button>
                         </div>
@@ -237,7 +272,7 @@ const UserSingle = ({ user, rooms }) => {
               </div>
             </div>
             <div className='lg:w-1/3 pr-4 pl-4'>
-              <div className='agent-single-form home8-contact-form default-box-shadow1 bdrs12 bdr1 p30 mb30-md bgc-white relative dark:bg-midnight dark:border-0  '>
+              <div className='agent-single-form home8-contact-form default-box-shadow1 bdrs12 bdr1 p30 mb30-md bgc-white relative dark:bg-midnight dark:border-slate-400/20  '>
                 <h4 className='form-title mb25 dark:text-white'>Contact Form</h4>
                 <form className='form-style1'>
                   <div className='flex flex-wrap '>
