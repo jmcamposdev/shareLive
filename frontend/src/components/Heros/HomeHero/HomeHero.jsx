@@ -5,7 +5,7 @@ import HeroContent from './HeroContent'
 
 const HomeHero = () => {
   return (
-    <RoomProvider>
+    <RoomProvider roomsData={[]}>
       <section className='home-banner-style2 p0'>
         <div className='home-style2'>
           <div className='container mx-auto sm:px-4 maxw1600'>
