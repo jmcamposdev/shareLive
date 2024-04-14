@@ -1,3 +1,5 @@
+import React, { useState, useEffect } from 'react'
+
 import WebLayout from '../../../layout/WebLayout'
 import OverView from '../../../components/common/SingleRoom/Overview'
 import Description from '../../../components/common/SingleRoom/Description'
@@ -12,24 +14,36 @@ import PropertyHeader from '../../../components/common/SingleRoom/PropertyHeader
 // import PropertyGallery from '../../../components/common/SingleRoom/PropertyGallery'
 
 const Single = ({ params }) => {
+  const [isScrolled, setIsScrolled] = useState(false)
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = window.scrollY || document.documentElement.scrollTop
+      setIsScrolled(scrollTop > 0)
+    }
+
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
   return (
     <>
       <WebLayout>
 
         {/* Property All Single V1 */}
-        <section className='pt60 pb90 bgc-f7'>
-          <div className='container mx-auto sm:px-4'>
-            <div className='flex flex-wrap  mb30 mt30'>
+        <section className='pt-[60px] pb-[90px] bg-[#F7F7F7]'>
+          <div className={`hidden lg:block absolute h-[87px] w-full top-0 ${!isScrolled ? 'bg-midnight' : 'bg-transparent'}`} />
+          <div className='container'>
+            <div className='flex flex-wrap mb-[30px] mt-[30px]'>
               {/* <PropertyGallery id={params.id} /> */}
             </div>
             {/* End .row */}
 
-            <div className='flex flex-wrap '>
+            <div className='flex flex-wrap'>
               <PropertyHeader id={1} /> {/* params.id */}
             </div>
             {/* End .row */}
 
-            <div className='flex flex-wrap  wrap'>
+            <div className='flex flex-wrap'>
               <div className='lg:w-2/3 pr-4 pl-4'>
                 <div className='ps-widget bgc-white bdrs12 default-box-shadow2 p30 mb30 overflow-hidden relative'>
                   <h4 className='title fz17 mb30'>Overview</h4>

@@ -39,12 +39,12 @@ const OverView = ({ id }) => {
   return (
     <>
       {overviewData.map((item, index) => (
-        <div key={index} className={`col-sm-6 col-lg-4 ${item.xs ? 'mb-2.5' : 'mb-6'}`}>
+        <div key={index} className={`col-sm-6 col-lg-4 ${index < 3 ? 'mb25' : ''}`}>
           <div className='overview-element flex items-center'>
             <span className={`icon ${item.icon}`} />
-            <div className='ml-3'>
+            <div className='ml15'>
               <h6 className='mb-0'>{item.label}</h6>
-              <p className='text mb-0 text-base'>{item.value}</p>
+              <p className='text mb-0 fz15'>{item.value}</p>
             </div>
           </div>
         </div>
