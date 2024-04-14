@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import useMenuLinks from '../../hooks/useMenuLinks'
 
 const MainMenu = () => {
@@ -8,14 +9,14 @@ const MainMenu = () => {
         menuLinks.map((page, index) => {
           return (
             <li key={index} className='visible_list dropitem'>
-              <a
-                href={page.link}
+              <Link
+                to={page.link}
                 className='list-item'
               >
                 <span className={page.active ? 'title menuActive' : 'title'}>
                   {page.name}
                 </span>
-              </a>
+              </Link>
             </li>
           )
         })
