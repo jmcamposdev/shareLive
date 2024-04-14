@@ -10,6 +10,7 @@ import Bounce1Dark from '../../../assets/img/users/bounceDark.png'
 import Bounce2Dark from '../../../assets/img/users/bounce2Dark.png'
 import CircleOrangeDark from '../../../assets/img/users/circleOrangeDark.png'
 import ContactFormSingle from '../../../components/common/contactFormSingle/ContactFormSingle'
+import DescriptionSingle from '../../../components/common/descriptionSingle/DescriptionSingle'
 
 const UserSingle = ({ user, rooms }) => {
   // Getting the reviews made of the user
@@ -145,6 +146,9 @@ const UserSingle = ({ user, rooms }) => {
           <div className='flex flex-wrap  wow fadeInUp' data-aos-delay='300'>
             <div className='lg:w-2/3 pr-4 pl-4 pr40 pr20-lg'>
               <div className='flex flex-wrap '>
+                <DescriptionSingle title={`About ${user.firstName}`} description={user.description} extraDescription={user.extraDescription} />
+
+                {/* }
                 <div className='lg:w-full pr-4 pl-4'>
                   <div className='agent-single-details mt30 pb30 bdrb1'>
                     <h6 className='fz17 mb30 dark:text-white'>About {user.firstName}</h6>
@@ -170,6 +174,8 @@ const UserSingle = ({ user, rooms }) => {
                       : null}
                   </div>
                 </div>
+                      */}
+
               </div>
               <div className='flex flex-wrap  items-center mt20'>
                 <div className='sm:w-1/3 pr-4 pl-4'>
