@@ -1,32 +1,30 @@
+import React from 'react'
+
 import useColorMode from '../../../hooks/useColorMode'
 
-const DarkModeSwitcher = ({ importedColorMode, importedSetColorMode }) => {
+const DarkModeSwitcher = () => {
   const [colorMode, setColorMode] = useColorMode()
+
+  const toggleColorMode = () => {
+    setColorMode(colorMode === 'light' ? 'dark' : 'light')
+  }
 
   return (
     <div className='mx-2 xl:mx-6'>
       <label
-
-        className={`relative m-0 block h-7.5 rounded-full h-7 bg-amber-200 dark:bg-sky-900 transition-all w-16 ${
-          (colorMode === 'dark' || importedColorMode === 'dark') ? 'bg-primary' : 'bg-stroke'
+        className={`relative m-0 block h-7.5 rounded-full h-7 bg-orangePrimary/80 dark:!bg-lightmidnight transition-all w-16 ${
+          colorMode === 'dark' ? 'bg-primary' : 'bg-stroke'
         }`}
       >
         <input
           type='checkbox'
-          onChange={() => {
-            if (typeof importedSetColorMode === 'function') {
-              importedSetColorMode(importedColorMode === 'light' ? 'dark' : 'light')
-              setColorMode(colorMode === 'light' ? 'dark' : 'light')
-            } else if (typeof setColorMode === 'function') {
-              setColorMode(colorMode === 'light' ? 'dark' : 'light')
-            }
-          }}
+          onChange={toggleColorMode}
           className='dur absolute top-0 z-50 m-0 h-full cursor-pointer opacity-0 w-full'
           aria-label='Toggle Dark Mode'
         />
         <span
-          className={`scale-125 absolute top-1/2 left-[3px] flex h-6 w-6 -translate-y-1/2 translate-x-0 items-center justify-center rounded-full bg-amber-400 dark:bg-sky-600 shadow-switcher duration-75 ease-linear ${
-            (colorMode === 'dark' || importedColorMode === 'dark') && '!right-[3px] !translate-x-[150%]'
+          className={`border border-gray-50 dark:bg-midnight scale-[1.25] dark:scale-[1.23] absolute top-1/2 left-[3px] flex h-6 w-6 -translate-y-1/2 translate-x-0 items-center justify-center rounded-full bg-orangePrimary/50 shadow-switcher duration-75 ease-linear ${
+            colorMode === 'dark' && '!right-[3px] !translate-x-[150%]'
           }`}
         >
           <span className='dark:hidden'>
