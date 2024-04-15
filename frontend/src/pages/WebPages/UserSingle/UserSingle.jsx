@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import WebLayout from '../../../layout/WebLayout'
 import RoomSimple from '../../../components/common/Room/RoomSimple/RoomSimple'
 import Review from '../../../components/common/Review/Review'
@@ -73,10 +73,23 @@ const UserSingle = ({ user, rooms }) => {
     document.getElementById('rating').value = e.target.getAttribute('aria-value')
   }
 
+  // Variable to know if the user scrolled the page
+  const [isScrolled, setIsScrolled] = useState(false)
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = window.scrollY || document.documentElement.scrollTop
+      setIsScrolled(scrollTop > 0)
+    }
+
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
   return (
     <WebLayout>
-      {/* <RoomSimple room={RoomData[0]} /> */}
-      <section className='agent-single pt-[150px] dark:bg-lightmidnight'>
+
+      <section className='agent-single pt-[150px] dark:bg-lightmidnight realtive'>
+        <div className={`lg:block absolute h-[87px] w-full top-0 ${!isScrolled ? 'bg-midnight' : 'bg-transparent'}`} />
         <div className='dark:bg-[#181a20] cta-agent bgc-thm-light mx-auto maxw1600 pt60 pb60 bdrs12 relative mx20-lg'>
           <div className='container mx-auto sm:px-4'>
             <div className='flex flex-wrap  items-center'>
@@ -249,18 +262,18 @@ const UserSingle = ({ user, rooms }) => {
                           <input className='absolute w-0 h-0' id='rating' type='number' min='1' max='5' value={5} />
                           <div className='mb-4 relative'>
                             <label className='fw600 ff-heading mb-2 dark:text-white'>Rating</label>
-                            <div className='dark:!border-gray-100/40 bg-white rounded-lg dark:text-white  relative block appearance-none w-full py-1 px-2 mb-1 text-base leading-normal bg-white text-gray-800 border border-gray-200 rounded form-control dark:!bg-red'>
+                            <div className='dark:!border-gray-100/40 bg-white dark:!bg-midnight rounded-lg dark:text-white  relative block appearance-none w-full py-1 px-2 mb-1 text-base leading-normal bg-white text-gray-800 border border-gray-200 rounded form-control'>
                               <div onClick={openRating} className='dark:text-white rounded-lg !border-0 dark:bg-midnight absolute w-full h-full top-0 left-0 flex justify-between items-center py-2 px-4 pr-6 '>
                                 <p id='displayRate' className='m-0 p-0 text-slate-500 dark:text-white '>Five Stars</p>
                                 <div className='h-full border-l border-slate-300 absolute right-[17%]' />
                                 <div id='chevron' style={{ transform: 'rotate(180deg)', transition: 'all 400ms ease' }} className=' fa-solid fa-chevron-down' />
                               </div>
-                              <ul id='ratingList' style={{ maxHeight: '0', opacity: '0', transition: 'all 400ms ease' }} className='border border-slate-500 block m-0 p-0 w-full absolute left-0 top-[110%] rounded-lg overflow-auto max-h-[170px] bg-white dark:bg-midnight'>
-                                <li aria-value={1} onClick={setRating} style={{ transition: 'all 400ms ease' }} className='hover:!bg-orangePrimary/50 hover:cursor-pointer w-full py-3 px-4 bg-white text-gray-800 mt-2'>One Star</li>
-                                <li aria-value={2} onClick={setRating} style={{ transition: 'all 400ms ease' }} className='hover:!bg-orangePrimary/50 hover:cursor-pointer w-full py-3 px-4 bg-white text-gray-800 mt-1'>Two Stars</li>
-                                <li aria-value={3} onClick={setRating} style={{ transition: 'all 400ms ease' }} className='hover:!bg-orangePrimary/50 hover:cursor-pointer w-full py-3 px-4 bg-white text-gray-800 mt-1'>Three Stars</li>
-                                <li aria-value={4} onClick={setRating} style={{ transition: 'all 400ms ease' }} className='hover:!bg-orangePrimary/50 hover:cursor-pointer w-full py-3 px-4 bg-white text-gray-800  mt-1'>Four Stars</li>
-                                <li aria-value={5} onClick={setRating} style={{ transition: 'all 400ms ease' }} className='hover:!bg-orangePrimary/50 hover:cursor-pointer w-full py-3 px-4 bg-white text-gray-800  mt-1 mb-2'>Five Stars</li>
+                              <ul id='ratingList' style={{ maxHeight: '0', opacity: '0', transition: 'all 400ms ease' }} className='border border-slate-500 block m-0 p-0 w-full absolute left-0 top-[110%] rounded-lg overflow-auto max-h-[170px] bg-white dark:!bg-midnight dark:!border-gray-100/40'>
+                                <li aria-value={1} onClick={setRating} style={{ transition: 'all 400ms ease' }} className='hover:!bg-orangePrimary/50 hover:cursor-pointer w-full py-3 px-4 bg-white dark:!bg-midnight text-gray-800 mt-2 dark:text-white hover:dark:!bg-lightmidnight'>One Star</li>
+                                <li aria-value={2} onClick={setRating} style={{ transition: 'all 400ms ease' }} className='hover:!bg-orangePrimary/50 hover:cursor-pointer w-full py-3 px-4 bg-white dark:!bg-midnight text-gray-800 mt-1 dark:text-white hover:dark:!bg-lightmidnight'>Two Stars</li>
+                                <li aria-value={3} onClick={setRating} style={{ transition: 'all 400ms ease' }} className='hover:!bg-orangePrimary/50 hover:cursor-pointer w-full py-3 px-4 bg-white dark:!bg-midnight text-gray-800 mt-1 dark:text-white hover:dark:!bg-lightmidnight'>Three Stars</li>
+                                <li aria-value={4} onClick={setRating} style={{ transition: 'all 400ms ease' }} className='hover:!bg-orangePrimary/50 hover:cursor-pointer w-full py-3 px-4 bg-white dark:!bg-midnight text-gray-800  mt-1 dark:text-white hover:dark:!bg-lightmidnight'>Four Stars</li>
+                                <li aria-value={5} onClick={setRating} style={{ transition: 'all 400ms ease' }} className='hover:!bg-orangePrimary/50 hover:cursor-pointer w-full py-3 px-4 bg-white dark:!bg-midnight text-gray-800  mt-1 mb-2 dark:text-white hover:dark:!bg-lightmidnight'>Five Stars</li>
 
                               </ul>
 
@@ -269,7 +282,7 @@ const UserSingle = ({ user, rooms }) => {
                         </div>
 
                         <div className='md:w-full'>
-                          <div className='mb-4'><label className='fw600 ff-heading mb-2 dark:text-white'>Review</label><textarea className='pt15' rows='6' placeholder='Write a Review' required='' /></div>
+                          <div className='mb-4'><label className='fw600 ff-heading mb-2 dark:text-white '>Review</label><textarea className='pt15 dark:!bg-midnight dark:!border-gray-100/40' rows='6' placeholder='Write a Review' required='' /></div>
                           <button type='submit' className='ud-btn btn-white2'>Submit Review<i className='fal fa-arrow-right-long' /></button>
                         </div>
                       </div>
