@@ -12,9 +12,23 @@
   transform: scale(0.8);
   transition: transform 0.3s;
 }
+
+.dark .swiper-pagination-bullet {
+  transform: scale(0.8);
+  transition: transform 0.3s;
+  background-color: white;
+  opacity: 0.8;
+}
+
 .swiper--pagination .swiper-pagination-bullet-active {
   transform: scale(1);
 }
+
+.dark .swiper--pagination .swiper-pagination-bullet-active {
+  background-color: #eb6753;
+}
+
+
 .arrowY-center-position {
   position: absolute;
   width: 100%;
