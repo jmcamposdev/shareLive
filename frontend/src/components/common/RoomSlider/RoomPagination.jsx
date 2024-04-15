@@ -4,7 +4,7 @@ const RoomPagination = () => {
       <div className='flex flex-wrap  items-center justify-center'>
         <div className='px-3'>
           <button className='rooms_prev__active swiper_button'>
-            <i className='far fa-arrow-left-long' />
+            <i className='far fa-arrow-left-long dark:text-white' />
           </button>
         </div>
         {/* End prev */}
@@ -16,7 +16,7 @@ const RoomPagination = () => {
 
         <div className='px-3'>
           <button className='rooms_next__active swiper_button'>
-            <i className='far fa-arrow-right-long' />
+            <i className='far fa-arrow-right-long dark:text-white' />
           </button>
         </div>
         {/* End Next */}
