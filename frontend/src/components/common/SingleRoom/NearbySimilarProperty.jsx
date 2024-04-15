@@ -14,9 +14,9 @@ const NearbySimilarProperty = ({ rooms }) => {
         <div className='flex flex-wrap justify-between' data-aos='fade-up'>
           <div className='lg:w-3/4 w-auto pr-4 pl-4'>
             <div className='main-title2'>
-              <h2 className='title'>Discover Rooms Near You </h2>
+              <h2 className='title'>Nearby Similar Rooms</h2>
               <p className='paragraph'>
-                Explore our rooms in your area
+                Explore similar rooms
               </p>
             </div>
           </div>
