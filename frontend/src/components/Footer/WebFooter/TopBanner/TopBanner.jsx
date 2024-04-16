@@ -3,7 +3,8 @@ import HouseImg from '../../../../assets/vectors/housesIllustration.svg'
 
 const TopBanner = () => {
   return (
-    <section className='our-cta2 p0 px20'>
+    <section className='our-cta2 p0 px20 relative'>
+      <div className='absolute w-full h-full hidden dak:block top-0 left-0 dark:bg-lightmidnight dark:block' />
       <div className='cta-banner2 bgc-thm maxw1600 mx-auto pt100 pt50-md pb85 pb50-md px30-md bdrs12 position-relative overflow-hidden'>
         <div
           className='cta-style2 d-none d-lg-block'

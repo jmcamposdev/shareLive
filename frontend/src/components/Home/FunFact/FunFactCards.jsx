@@ -9,7 +9,7 @@ const FunFactCards = ({ funFacts }) => {
     <>
       <div className='sm:w-1/2 pr-4 pl-4 flex-grow'>
         {firstTwoFacts.map((fact, index) => (
-          <div className='funfact-style1 text-center rounded-md dark:bg-midnight' key={index}>
+          <div className='funfact-style1 text-center rounded-md dark:bg-lightmidnight' key={index}>
             <ul className='ps-0 mb-0 flex justify-center'>
               <li>
                 <div className='timer title mb15 dark:!text-white'>
@@ -23,7 +23,7 @@ const FunFactCards = ({ funFacts }) => {
       </div>
       <div className='sm:w-1/2 pr-4 pl-4 flex-grow'>
         {remainingFacts.map((fact, index) => (
-          <div className='funfact-style1 text-center rounded-md dark:bg-midnight' key={index}>
+          <div className='funfact-style1 text-center rounded-md dark:bg-lightmidnight' key={index}>
             <ul className='ps-0 mb-0 flex justify-center'>
               <li>
                 <div className='timer title mb15 dark:text-white'>
