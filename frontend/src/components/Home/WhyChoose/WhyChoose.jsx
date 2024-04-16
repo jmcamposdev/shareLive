@@ -6,7 +6,8 @@ import WhyChooseFeatures from './WhyChooseFeatures/WhyChooseFeatures'
 
 const WhyChoose = () => {
   return (
-    <section className='pb90 mt90 mb90'>
+    <section className='pb90 mt90 mb90 relative'>
+      <div style={{ height: 'calc(100% + 90px)' }} className='absolute top-0 left-0 w-full -z-10 hidden dark:block dark:bg-lightmidnight' />
       <div className='container mx-auto sm:px-4'>
         <div
           className='flex flex-wrap  md:items-center justify-between'
@@ -19,8 +20,8 @@ const WhyChoose = () => {
             data-aos-delay='300'
           >
             <div className='main-title2'>
-              <h2 className='title'>Why Choose Us</h2>
-              <p className='paragraph fz15'>
+              <h2 className='title dark:text-white'>Why Choose Us</h2>
+              <p className='paragraph fz15 dark:text-white'>
                 At ShareLive, we are committed to providing a unique experience for students, simplifying the process of finding and booking accommodation
               </p>
             </div>
@@ -43,16 +44,16 @@ const WhyChoose = () => {
                 alt='why chosse'
               />
               <img
-                className='absolute top-[50%] right-[-45px] z-[-1]'
+                className='absolute top-[50%] right-[-45px] z-[-1] spin-right'
                 src={OrangeCircleImg}
                 alt='Orange Circle'
               />
               <Link href='/single-v1/5'>
-                <div className='iconbox-style5 flex items-center shadow-lg'>
-                  <span className='icon flaticon-home flex-shrink-0' />
+                <div className='iconbox-style5 flex items-center shadow-lg dark:bg-midnight/90 hover:!bg-orangePrimary/90'>
+                  <span className='icon flaticon-home flex-shrink-0 dark:hover:!bg-orangePrimaryLightHover' />
                   <div className='iconbox-content flex-shrink-1 ms-2'>
-                    <p className='text mb-0'>Total Rent</p>
-                    <h4 className='title mb-0'>4,382 Unit</h4>
+                    <p className='text mb-0 dark:text-white'>Total Rent</p>
+                    <h4 className='title mb-0 dark:text-white'>4,382 Unit</h4>
                   </div>
                 </div>
               </Link>
