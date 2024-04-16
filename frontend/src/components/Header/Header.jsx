@@ -69,21 +69,18 @@ const Header = () => {
                   </form>
                   <Link
                     className='ud-btn add-property menu-btn bdrs60 mx-2 xl:mx-6'
-                    href='/dashboard-add-property'
+                    to='/dashboard-add-property'
                   >
                     Add Property
                     <i className='fal fa-arrow-right-long' />
                   </Link>
-                  <a
-                    href='#'
+                  <Link
+                    to='/login'
                     className='login-info flex items-center'
-                    data-bs-toggle='modal'
-                    data-bs-target='#loginSignupModal'
-                    role='button'
                   >
                     <i className='far fa-user-circle fz16 me-2' />{' '}
                     <span className='hidden xl:block'>Login / Register</span>
-                  </a>
+                  </Link>
                   <DarkModeSwitcher />
                 </div>
               </div>
