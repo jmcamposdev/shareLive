@@ -8,6 +8,9 @@ const api = {
 
     if (!response.ok) {
       console.log(data)
+      if (data.errors) {
+        throw new Error(data.errors[0].message)
+      }
       throw new Error(data.message || 'Error de la API')
     }
 
