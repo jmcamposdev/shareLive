@@ -5,11 +5,14 @@ export const signIn = async (req, res) => {
   // Extract the user from the request
   const { user } = req
 
+  // Populate the user's roles
+  await user.populate('roles')
+
   // Generate a token
   const token = await User.generateToken(user)
 
   // Send the token
-  res.json({ token })
+  res.json({ token, user })
 }
 
 export const signUp = async (req, res) => {
@@ -31,9 +34,12 @@ export const signUp = async (req, res) => {
   // Save the user in the database
   await newUser.save()
 
+  // Populate the user's roles
+  await newUser.populate('roles')
+
   // Generate a token
   const token = await User.generateToken(newUser)
 
   // Send the token
-  res.json({ token })
+  res.json({ token, user: newUser })
 }
