@@ -13,7 +13,7 @@ const MainMenu = () => {
                 to={page.link}
                 className='list-item'
               >
-                <span className={page.active ? 'title menuActive' : 'title'}>
+                <span className={page.active ? 'title menuActive' : 'title dark:text-white'}>
                   {page.name}
                 </span>
               </Link>
