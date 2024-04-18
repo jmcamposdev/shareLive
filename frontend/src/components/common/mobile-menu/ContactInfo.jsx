@@ -24,12 +24,12 @@ const ContactInfo = () => {
             <p className='info-title dark-color dark:text-white'>{info.title}</p>
             {info.phone && (
               <h6 className='info-phone dark-color'>
-                <a className='dark:text-white' href={info.phoneHref}>{info.phone}</a>
+                <a className='dark:text-white dark:hover:text-orangePrimary' href={info.phoneHref}>{info.phone}</a>
               </h6>
             )}
             {info.email && (
               <h6 className='info-mail dark-color'>
-                <a className='dark:text-white' href={info.emailHref}>{info.email}</a>
+                <a className='dark:text-white dark:hover:text-orangePrimary' href={info.emailHref}>{info.email}</a>
               </h6>
             )}
           </div>

@@ -10,7 +10,7 @@ const SquareFeet = () => {
         <div className='form-style1'>
           <input
             type='number'
-            className='form-control filterInput'
+            className='form-control filterInput dark:placeholder:text-white'
             placeholder='Min.'
             id='minFeet'
             value={sqft.min || ''}
@@ -22,7 +22,7 @@ const SquareFeet = () => {
           <input
             type='number'
             id='maxFeet'
-            className='form-control filterInput'
+            className='form-control filterInput dark:placeholder:text-white'
             placeholder='Max'
             value={sqft.max || ''}
             onChange={(e) => filterBy.sqft(sqft.min, parseInt(e.target.value) || null)}

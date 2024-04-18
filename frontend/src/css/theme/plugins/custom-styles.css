@@ -139,12 +139,32 @@ html {
   outline: none;
   padding-left: 15px;
 }
+.dark .select-custom .select__control {
+  background-color:#212328;
+  color:white
+}
+
+.dark .select__menu{
+  background-color: #212328 ;
+}
+.dark .select__menu * {
+  color:white
+}
+
+.dark .select__input-container{
+  color:white
+}
 .select-custom .select__control:hover {
   border-color: #ddd;
 }
 .select-custom .select__control.select__control--menu-is-open {
   border-color: transparent;
   border: 2px solid #000 !important;
+}
+
+.dark .select-custom .select__control.select__control--menu-is-open {
+  border-color: transparent;
+  border: 2px solid white !important;
 }
 .select-custom .select__indicator-separator {
   background-color: #ddd;
@@ -175,8 +195,21 @@ html {
   -o-box-shadow: 0px 0px 5px 0px rgba(19, 19, 28, 0.2);
   box-shadow: 0px 0px 5px 0px rgba(19, 19, 28, 0.2);
 }
+.dark .range-wrapper .input-range__slider {
+  background-color: #212328;
+  border-color: white;
+  background-image: url(../../../assets/vectors/range-slider-range-bg-line-06761f47dark.svg);
+}
 .range-wrapper .input-range__track--active {
   background-color: var(--headings-color);
+  border-radius: 30px;
+}
+
+.dark .input-range__track--background{
+  background-color: #212328;
+}
+.dark .range-wrapper .input-range__track--active {
+  background-color: white;
   border-radius: 30px;
 }
 .range-wrapper .input-range {
@@ -216,6 +249,10 @@ html {
 }
 .advance-content-style3.at-home5 .select__value-container {
   padding: 0;
+}
+
+.dark .select__value-container > div{
+  color:white
 }
 header.nav-homepage-style.sticky.at-home3 .sidemenu-btn .img-1 {
   display: block;

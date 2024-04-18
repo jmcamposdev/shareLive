@@ -11,15 +11,15 @@ import Amenities from '../../common/advance-filter/Amenities'
 const ListingSidebar = () => {
   const { resetFilters } = useContext(RoomContext)
   return (
-    <div className='list-sidebar-style1'>
+    <div className='list-sidebar-style1 dark:bg-midnight'>
       <div className='widget-wrapper'>
-        <h6 className='list-title'>Find your home</h6>
+        <h6 className='list-title dark:text-white'>Find your home</h6>
         <SearchBox />
       </div>
       {/* End .widget-wrapper */}
 
       <div className='widget-wrapper'>
-        <h6 className='list-title'>Price Range</h6>
+        <h6 className='list-title dark:text-white'>Price Range</h6>
         {/* Range Slider Desktop Version */}
         <div className='range-slider-style1'>
           <PriceRange />
@@ -28,7 +28,7 @@ const ListingSidebar = () => {
       {/* End .widget-wrapper */}
 
       <div className='widget-wrapper'>
-        <h6 className='list-title'>Bedrooms</h6>
+        <h6 className='list-title dark:text-white'>Bedrooms</h6>
         <div className='d-flex'>
           <Bedroom />
         </div>
@@ -36,7 +36,7 @@ const ListingSidebar = () => {
       {/* End .widget-wrapper */}
 
       <div className='widget-wrapper'>
-        <h6 className='list-title'>Bathrooms</h6>
+        <h6 className='list-title dark:text-white'>Bathrooms</h6>
         <div className='d-flex'>
           <Bathroom />
         </div>
@@ -44,7 +44,7 @@ const ListingSidebar = () => {
       {/* End .widget-wrapper */}
 
       <div className='widget-wrapper advance-feature-modal'>
-        <h6 className='list-title'>Structure Type</h6>
+        <h6 className='list-title dark:text-white'>Structure Type</h6>
         <div className='form-style2 relative flex items-stretch w-full'>
           <StructureType />
         </div>
@@ -52,7 +52,7 @@ const ListingSidebar = () => {
       {/* End .widget-wrapper */}
 
       <div className='widget-wrapper'>
-        <h6 className='list-title'>Square Feet</h6>
+        <h6 className='list-title dark:text-white'>Square Feet</h6>
         <SquareFeet />
       </div>
       {/* End .widget-wrapper */}
