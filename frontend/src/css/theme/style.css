@@ -7884,6 +7884,14 @@ textarea:focus {
   width: 16px;
 }
 
+input+.checkmark::after{
+  opacity: 0;
+}
+input:checked+.checkmark::after{
+
+  opacity: 1;
+}
+
 .custom_checkbox .checkmark:after {
   content: "";
   position: absolute;

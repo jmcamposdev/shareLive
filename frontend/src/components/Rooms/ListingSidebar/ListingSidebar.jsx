@@ -60,26 +60,26 @@ const ListingSidebar = () => {
       <div className='widget-wrapper'>
         <div className='feature-accordion'>
           <div className='accordion' id='accordionExample'>
-            <div className='accordion-item border-none'>
+            <div className='accordion-item border-none dark:bg-lightmidnight'>
               <h2 className='accordion-header' id='headingOne'>
                 <button
-                  className='accordion-button border-none p-0 after-none feature-button'
+                  className='accordion-button border-none p-0 after-none feature-button dark:text-white dark:bg-lightmidnight'
                   type='button'
                   data-bs-toggle='collapse'
                   data-bs-target='#collapseOne'
                   aria-expanded='true'
                   aria-controls='collapseOne'
                 >
-                  <span className='flaticon-settings' /> Other Features
+                  <span className='flaticon-settings dark:text-white bg-transparent' /> Other Features
                 </button>
               </h2>
               <div
                 id='collapseOne'
-                className='accordion-collapse collapse'
+                className='accordion-collapse collapse dark:bg-lightmidnight'
                 aria-labelledby='headingOne'
                 data-bs-parent='#accordionExample'
               >
-                <div className='accordion-body p-0 mt15'>
+                <div className='accordion-body p-0 mt15 dark:bg-lightmidnight'>
                   <Amenities numColumns={2} />
                 </div>
               </div>
@@ -100,11 +100,11 @@ const ListingSidebar = () => {
       {/* End .widget-wrapper */}
 
       <div className='reset-area d-flex align-items-center justify-content-between'>
-        <div className='reset-button cursor' href='#' onClick={resetFilters}>
+        <div className='reset-button cursor dark:text-white' href='#' onClick={resetFilters}>
           <span className='flaticon-turn-back' />
           <u>Reset all filters</u>
         </div>
-        <a className='reset-button' href='#'>
+        <a className='reset-button dark:text-white' href='#'>
           <span className='flaticon-favourite' />
           <u>Save Search</u>
         </a>
