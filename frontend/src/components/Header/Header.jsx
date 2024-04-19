@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import React, { useEffect, useState } from 'react'
 import LogoWhite from '../../assets/logos/logo-white.png'
+import LogoWhite2 from '../../assets/logos/logo-white-2.png'
 import LogoDark from '../../assets/logos/logo-dark.png'
 import DarkModeSwitcher from '../common/darkModeSwitcher/DarkModeSwitcher'
 import MainMenu from '../common/MainMenu'
@@ -26,7 +27,7 @@ const Header = () => {
   return (
     <>
       <header
-        className={`header-nav nav-homepage-style at-home2  main-menu !z-50 ${
+        className={`header-nav nav-homepage-style at-home2  main-menu !z-50 dark:!bg-midnight/90 ${
           navbar ? 'sticky slideInDown animated' : ''
         }`}
       >
@@ -36,7 +37,7 @@ const Header = () => {
               <div className='col-auto'>
                 <div className='flex items-center justify-between'>
                   <div className='logos mr40'>
-                    <Link className='header-logo logo1' to='/'>
+                    <Link className='header-logo logo1 relative' to='/'>
                       <img
                         style={{ height: '44px', maxWidth: 'fit-content' }}
                         src={LogoWhite}
@@ -48,6 +49,12 @@ const Header = () => {
                         style={{ height: '44px', maxWidth: 'fit-content' }}
                         src={LogoDark}
                         alt='Header Logo'
+                      />
+                      <img
+                        style={{ height: '44px', maxWidth: 'fit-content' }}
+                        src={LogoWhite2}
+                        alt='Header Logo'
+                        className='absolute bottom-[1px] left-[16px] hidden dark:block'
                       />
                     </Link>
                   </div>
@@ -62,13 +69,13 @@ const Header = () => {
               <div className='col-auto'>
                 <div className='flex items-center'>
                   <form className='flex items-center justify-center gap-2'>
-                    <input className={`search_input_header border-b px-3 bg-transparent ${navbar ? 'border-black text-black' : 'border-white text-white'}`} type='text' name='search' id='search' placeholder='Search' />
+                    <input className={`search_input_header border-b px-3 bg-transparent dark:!text-white dark:!border-white ${navbar ? 'border-black text-black' : 'border-white text-white'}`} type='text' name='search' id='search' placeholder='Search' />
                     <button type='submit' className='flex items-center justify-center'>
-                      <span className='flaticon-search text-[16px]' />
+                      <span className='flaticon-search text-[16px] dark:!text-white' />
                     </button>
                   </form>
                   <Link
-                    className='ud-btn add-property menu-btn bdrs60 mx-2 xl:mx-6'
+                    className='ud-btn add-property menu-btn bdrs60 mx-2 xl:mx-6 dark:!text-white dark:!border-white '
                     to='/dashboard-add-property'
                   >
                     Add Property
@@ -78,8 +85,8 @@ const Header = () => {
                     to='/login'
                     className='login-info flex items-center'
                   >
-                    <i className='far fa-user-circle fz16 me-2' />{' '}
-                    <span className='hidden xl:block'>Login / Register</span>
+                    <i className='far fa-user-circle fz16 me-2 dark:!text-white' />{' '}
+                    <span className='hidden xl:block dark:!text-white'>Login / Register</span>
                   </Link>
                   <DarkModeSwitcher />
                 </div>

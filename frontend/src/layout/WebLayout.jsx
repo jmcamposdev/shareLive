@@ -5,7 +5,7 @@ import Chevron from '../components/common/chevron/Chevron'
 
 function WebLayout ({ children }) {
   return (
-    <div className='dark:bg-lightmidnight'>
+    <div>
       {/* Main Header Nav */}
       <Header />
       {/* End Main Header Nav */}

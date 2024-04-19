@@ -7,7 +7,9 @@ const HomeHero = () => {
   return (
     <RoomProvider roomsData={[]}>
       <section className='home-banner-style2 p0'>
-        <div className='home-style2'>
+        <div className='home-style2 relative'>
+          <div className='absolute hidden dark:block w-full h-[200%] bottom-[-150%] dark:bg-lightmidnight left-0' />
+
           <div className='container mx-auto sm:px-4 maxw1600'>
             <div className='home2-hero-banner bdrs12' />
             <div className='flex flex-wrap '>

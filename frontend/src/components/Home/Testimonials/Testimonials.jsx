@@ -3,7 +3,8 @@ import TestimonialsList from './TestimonialsList/TestimonialsList'
 
 const Testimonials = () => {
   return (
-    <section className='our-testimonial bgc-dark mb90'>
+    <section className='our-testimonial bgc-dark mb90 relative'>
+      <div className='absolute w-full h-full hidden dark:block top-[90px] -z-10 left-0 dark:bg-lightmidnight' />
       <div className='container'>
         <div className='row'>
           <div
