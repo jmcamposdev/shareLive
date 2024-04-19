@@ -201,7 +201,7 @@ const UserSingle = ({ user, rooms }) => {
                       <div className='flex flex-wrap gap-[30px]'>
 
                         {allRooms.map(room => (
-                          <div key={room.id} className='w-full md:w-calc-half-minus-30'>
+                          <div style={{ borderRadius: '12px' }} key={room.id} className='w-full md:w-calc-half-minus-30'>
                             <RoomSimple key={room.id} room={room} />
                           </div>
                         ))}
