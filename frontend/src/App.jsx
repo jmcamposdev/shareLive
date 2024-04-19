@@ -18,6 +18,8 @@ import RoomItems from './data/roomsItems.js'
 import { ToastContainer } from 'react-toastify'
 import { useEffect, useState } from 'react'
 import AuthProvider from './context/AuthContext.jsx'
+import RequireAuth from './features/auth/RequireAuth.jsx'
+import { ROLES } from './constants/roles.constants.js'
 
 function App () {
   const [isDarkMode, setIsDarkMode] = useState(false)
@@ -55,8 +57,10 @@ function App () {
         <Route path='user' element={<UserSingle user={usersItems[0]} rooms={RoomItems} />} />
 
         {/* Routes for the Dashboard */}
-        <Route path='dashboard' element={<DashboardHome />} />
-        <Route path='dashboard/rooms' element={<DshSearchRooms />} />
+        <Route element={<RequireAuth allowedRoles={[ROLES.SUPER_ADMIN, ROLES.ADMIN, ROLES.USER]} />}>
+          <Route path='dashboard' element={<DashboardHome />} />
+          <Route path='dashboard/rooms' element={<DshSearchRooms />} />
+        </Route>
 
         <Route path='*' element={<NotFound />} />
       </Routes>
