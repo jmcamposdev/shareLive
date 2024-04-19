@@ -1,10 +1,37 @@
 import React, { useState, useEffect } from 'react'
+import { Formik, Form, Field, ErrorMessage } from 'formik'
+import * as Yup from 'yup'
 import WebLayout from '../../../layout/WebLayout'
 import LogoWhite from '../../../assets/logos/logo-white.png'
 import LogoDark from '../../../assets/logos/logo-dark.png'
 import LoginImg from '../../../assets/vectors/loginRegisterImg.svg'
+import useAlertToast from '../../../hooks/useToast'
+import AuthService from '../../../services/authService'
+import { Link } from 'react-router-dom'
+import { useAuth } from '../../../context/AuthContext'
 
 const Login = () => {
+  const { setToken, updateUserData } = useAuth()
+  const { toast } = useAlertToast()
+
+  // Validation schema for the form
+  const validationSchema = Yup.object().shape({
+    email: Yup.string().email('Invalid email format').required('Email is required'),
+    password: Yup.string().required('Password is required')
+  })
+
+  const onSubmit = async (values) => {
+    const { email, password } = values
+    try {
+      const res = await AuthService.signIn(email, password)
+      setToken(res.token)
+      updateUserData(res.user)
+      toast.showSuccess('Logged in successfully')
+    } catch (error) {
+      toast.showError(error.message)
+    }
+  }
+
   // Variable to know if the user scrolled the page
   const [isScrolled, setIsScrolled] = useState(false)
   useEffect(() => {
@@ -16,14 +43,6 @@ const Login = () => {
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
-
-  // Use state to handle the state of the remember me checkbox
-  const [isChecked, setIsChecked] = useState(false)
-
-  // function to change the state of the checkbox
-  const handleCheckboxChange = () => {
-    setIsChecked(!isChecked) // Inverts the actual state
-  }
 
   return (
     <WebLayout>
@@ -71,61 +90,74 @@ const Login = () => {
                   </a>
                   <h2 className='dark:text-white'>Sign in</h2>
                 </div>
-                <form className='form-style1'>
-                  <div className='mb25'>
-                    <label className='form-label fw600 dark-color dark:text-white'>Email</label>
-                    <input
-                      className='form-control block appearance-none w-full py-1 px-2 mb-1 text-base leading-normal bg-white text-gray-800 border border-gray-200 rounded dark:bg-lightmidnight'
-                      placeholder='Enter Email'
-                      required=''
-                      type='email'
-                    />
-                  </div>
-                  <div className='mb15'>
-                    <label className='form-label fw600 dark-color dark:text-white'>Password</label>
-                    <input
-                      className='dark:bg-lightmidnight form-control block appearance-none w-full py-1 px-2 mb-1 text-base leading-normal bg-white text-gray-800 border border-gray-200 rounded'
-                      placeholder='Enter Password'
-                      required=''
-                      type='text'
-                    />
-                  </div>
-                  <div className='checkbox-style1 block sm:flex items-center justify-between mb10'>
-                    {/* Coloca onChange directamente en el input */}
-                    <label className='custom_checkbox fz14 ff-heading dark:text-white'>Remember me
-                      <input id='checkbox' type='checkbox' checked={isChecked} onChange={handleCheckboxChange} />
-                      <span className='checkmark dark:border-white' />
-                    </label>
-                    <a className='fz14 ff-heading dark:text-white' href='#'>Lost your password?</a>
-                  </div>
-                  <div className='d-grid mb20'>
-                    <button className='ud-btn btn-thm dark:text-white' type='submit'>
-                      Sign in <i className='fal fa-arrow-right-long' />
-                    </button>
-                  </div>
-                  <div className='hr_content h-[33px] relative mb20'>
-                    <hr className='absolute top-[45%] w-full dark:text-white' />
-                    <span className='hr_top_text dark:text-white dark:bg-midnight'>OR</span>
-                  </div>
-                  <div className='d-grid mb10'>
-                    <button className='ud-btn btn-white' type='button'>
-                      <i className='fab fa-google' /> Continue Google
-                    </button>
-                  </div>
-                  <div className='d-grid mb10'>
-                    <button className='ud-btn btn-fb' type='button'>
-                      <i className='fab fa-facebook-f' /> Continue Facebook
-                    </button>
-                  </div>
-                  <div className='d-grid mb20'>
-                    <button className='ud-btn btn-apple bg-black' type='button'>
-                      <i className='fab fa-apple' /> Continue Apple
-                    </button>
-                  </div>
-                  <p className='dark-color text-center mb0 mt10 dark:text-white'>
-                    Not signed up? <a className='dark-color fw600 dark:text-white' href='/register'>Create an account</a>
-                  </p>
-                </form>
+                <Formik
+                  initialValues={{ email: '', password: '', rememberMe: false }}
+                  validationSchema={validationSchema}
+                  onSubmit={onSubmit}
+                >
+                  <Form className='form-style1'>
+                    <div className='mb25'>
+                      <label htmlFor='email' className='form-label fw600 dark-color dark:text-white'>Email</label>
+                      <Field
+                        autoComplete='email'
+                        id='email'
+                        name='email'
+                        className='form-control block appearance-none w-full py-1 px-2 mb-1 text-base leading-normal bg-white text-gray-800 border border-gray-200 rounded dark:bg-lightmidnight'
+                        placeholder='Enter Email'
+                        required=''
+                        type='email'
+                      />
+                      <ErrorMessage name='email' component='div' className='text-red-500' />
+                    </div>
+                    <div className='mb15'>
+                      <label htmlFor='password' className='form-label fw600 dark-color dark:text-white'>Password</label>
+                      <Field
+                        name='password'
+                        id='password'
+                        className='dark:bg-lightmidnight form-control block appearance-none w-full py-1 px-2 mb-1 text-base leading-normal bg-white text-gray-800 border border-gray-200 rounded'
+                        placeholder='Enter Password'
+                        required=''
+                        type='text'
+                      />
+                      <ErrorMessage name='password' component='div' className='text-red-500' />
+                    </div>
+                    <div className='checkbox-style1 block sm:flex items-center justify-between mb10'>
+                      {/* Coloca onChange directamente en el input */}
+                      <label className='custom_checkbox fz14 ff-heading dark:text-white'>Remember me
+                        <Field type='checkbox' name='rememberMe' className='hidden' />
+                        <span className='checkmark dark:border-white' />
+                      </label>
+                      <a className='fz14 ff-heading dark:text-white' href='#'>Lost your password?</a>
+                    </div>
+                    <div className='d-grid mb20'>
+                      <button className='ud-btn btn-thm dark:text-white' type='submit'>
+                        Sign in <i className='fal fa-arrow-right-long' />
+                      </button>
+                    </div>
+                    <div className='hr_content h-[33px] relative mb20'>
+                      <hr className='absolute top-[45%] w-full dark:text-white' />
+                      <span className='hr_top_text dark:text-white dark:bg-midnight'>OR</span>
+                    </div>
+                    <div className='d-grid mb10'>
+                      <button className='ud-btn btn-white' type='button'>
+                        <i className='fab fa-google' /> Continue Google
+                      </button>
+                    </div>
+                    <div className='d-grid mb10'>
+                      <button className='ud-btn btn-fb' type='button'>
+                        <i className='fab fa-facebook-f' /> Continue Facebook
+                      </button>
+                    </div>
+                    <div className='d-grid mb20'>
+                      <button className='ud-btn btn-apple bg-black' type='button'>
+                        <i className='fab fa-apple' /> Continue Apple
+                      </button>
+                    </div>
+                    <p className='dark-color text-center mb0 mt10 dark:text-white'>
+                      Not signed up? <Link className='dark-color fw600 dark:text-white' to='/register'>Create an account</Link>
+                    </p>
+                  </Form>
+                </Formik>
               </div>
             </div>
           </div>
