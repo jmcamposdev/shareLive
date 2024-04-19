@@ -1,4 +1,5 @@
 import { createContext, useContext, useEffect, useMemo, useState } from 'react'
+import { ROLES } from '../constants/roles.constants'
 
 const AuthContext = createContext()
 
@@ -47,6 +48,7 @@ const AuthProvider = ({ children }) => {
       setToken,
       user: user ? JSON.parse(user) : null,
       updateUserData,
+      role: user ? JSON.parse(user).roles[0].name : ROLES.GUEST,
       isAdministrator: isAdministrator()
     }),
     [token, user]
