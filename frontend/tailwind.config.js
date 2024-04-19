@@ -35,7 +35,8 @@ export default {
         fff: '#fff',
         orangePrimary: '#eb6753',
         orangePrimaryLight: '#FDEBE9',
-        orangePrimaryLightHover: '#ED7765'
+        orangePrimaryLightHover: '#ED7765',
+        borderColor: '#dddddd'
       },
       spacing: {
         'calc-half-minus-30': 'calc(50% - 30px)'

@@ -141,7 +141,8 @@ html {
 }
 .dark .select-custom .select__control {
   background-color:#212328;
-  color:white
+  color:white;
+  border-color: rgb(221 221 221 / 0.2);
 }
 
 .dark .select__menu{

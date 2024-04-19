@@ -57,13 +57,13 @@ const ListingSidebar = () => {
       </div>
       {/* End .widget-wrapper */}
 
-      <div className='widget-wrapper'>
-        <div className='feature-accordion'>
-          <div className='accordion' id='accordionExample'>
-            <div className='accordion-item border-none dark:bg-lightmidnight'>
-              <h2 className='accordion-header' id='headingOne'>
+      <div className='widget-wrapper '>
+        <div className='feature-accordion rounded-md dark:!border-borderColor/20 dark:border dark:bg-lightmidnight'>
+          <div className='accordion' id='accordionExample '>
+            <div className='accordion-item border-none dark:bg-lightmidnight '>
+              <h2 className='accordion-header ' id='headingOne'>
                 <button
-                  className='accordion-button border-none p-0 after-none feature-button dark:text-white dark:bg-lightmidnight'
+                  className='accordion-button border-none p-0 after-none feature-button dark:text-white dark:bg-lightmidnight '
                   type='button'
                   data-bs-toggle='collapse'
                   data-bs-target='#collapseOne'

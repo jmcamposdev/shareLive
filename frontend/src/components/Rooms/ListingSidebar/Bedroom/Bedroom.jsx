@@ -23,7 +23,7 @@ const Bedroom = () => {
             onChange={() => filterBy.bedrooms(option.value)}
             checked={bedrooms === option.value}
           />
-          <label htmlFor={option.id}>{option.label}</label>
+          <label className='dark:!outline-borderColor/40' htmlFor={option.id}>{option.label}</label>
         </div>
       ))}
     </>
