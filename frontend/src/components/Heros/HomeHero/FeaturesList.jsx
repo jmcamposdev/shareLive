@@ -32,12 +32,12 @@ const FeaturesList = () => {
             >
               {heroFeatures.map((type) => (
                 <SwiperSlide key={type.id}>
-                  <div className='item'>
-                    <div className='iconbox-style4'>
-                      <span className={`icon ${type.icon}`} />
+                  <div className='item group'>
+                    <div className='iconbox-style4 dark:bg-midnight hover:!bg-orangePrimaryLightHover'>
+                      <span className={`icon ${type.icon} dark:text-white dark:bg-lightmidnight group-hover:dark:!bg-orangePrimary`} />
                       <div className='iconbox-content'>
-                        <h6 className='title'>{type.title}</h6>
-                        <p className='text mb-0'>{type.text}</p>
+                        <h6 className='title dark:text-white'>{type.title}</h6>
+                        <p className='text mb-0 dark:text-white'>{type.text}</p>
                       </div>
                     </div>
                   </div>

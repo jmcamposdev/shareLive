@@ -1,6 +1,7 @@
 import WebFooter from '../components/Footer/WebFooter/WebFooter'
 import Header from '../components/Header/Header'
 import MobileMenu from '../components/common/mobile-menu/MobileMenu'
+import Chevron from '../components/common/chevron/Chevron'
 
 function WebLayout ({ children }) {
   return (
@@ -22,6 +23,7 @@ function WebLayout ({ children }) {
       {/* Start Our Footer */}
       <WebFooter />
       {/* End Our Footer */}
+      <Chevron />
     </div>
   )
 }

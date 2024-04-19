@@ -13,6 +13,10 @@ const useColorMode = () => {
       : bodyClass.remove(className)
   }, [colorMode])
 
+  const favicon = document.getElementById('favicon')
+  const faviconPath = colorMode === 'light' ? 'favicon.ico' : 'faviconDark.ico'
+  favicon.href = faviconPath
+
   return [colorMode, setColorMode]
 }
 

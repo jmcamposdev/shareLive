@@ -8,10 +8,12 @@ import { handleJsonSyntaxError } from './middlewares/index.js'
 
 // Import routes
 import roomsRoutes from './routes/rooms.routes.js'
+import authRoutes from './routes/auth.routes.js'
 import connectDB from './database/db.js'
 
 // Fake data
 import { fakeRooms } from './faker/rooms.faker.js'
+import { initialSetup } from './libs/initialSetup.js'
 
 // InitialSetup
 // Create Express app
@@ -30,11 +32,14 @@ connectDB()
 // Fake data
 fakeRooms(10)
 
+initialSetup()
+
 // Routes
 const apiV1Routes = Router()
 
 // Mounting routes
 apiV1Routes.use(roomsRoutes)
+apiV1Routes.use(authRoutes)
 
 // Mount API v1 routes
 app.use('/api/v1', apiV1Routes)
