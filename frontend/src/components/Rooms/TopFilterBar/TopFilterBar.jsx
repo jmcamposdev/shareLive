@@ -46,14 +46,27 @@ const TopFilterBar = () => {
       <div className='sm:w-1/2 pr-4 pl-4'>
         <div className='page_control_shorting flex items-center justify-center sm:justify-end'>
           <div className='pcs_dropdown pr10 flex items-center'>
-            <span style={{ minWidth: '60px' }}>Sort by</span>
+
+            <div className='relative flex gap-7'>
+              <span className='dark:!text-white' style={{ minWidth: '60px' }}>Sort by</span>
+              <div className=' flex gap-8 relative'>
+                <p className='mb-0 dark:text-white'>Newest</p>
+                <i className=' fa-solid fa-chevron-down text-sm dark:text-white' />
+                <ul className='absolute top-[120%] right-[-10px] z-10 bg-white dark:!bg-midnight w-[180px] rounded-md'>
+                  <li className='dark:text-white py-3 px-4 mt-2 hover:bg-orangePrimary/20 dark:hover:bg-lightmidnight hover:cursor-pointer'>Newest</li>
+                  <li className='dark:text-white py-3 px-4 mt-2 hover:bg-orangePrimary/20 dark:hover:bg-lightmidnight hover:cursor-pointer'>Price Low</li>
+                  <li className='dark:text-white py-3 px-4 my-2 hover:bg-orangePrimary/20 dark:hover:bg-lightmidnight hover:cursor-pointer'>Price High</li>
+                </ul>
+              </div>
+
+            </div>
             <select
               className='form-select'
               onChange={handleOrderSelect}
             >
-              <option value={ORDER_BY_NEWEST}>Newest</option>
-              <option value={ORDER_BY_LOW_PRICE}>Price Low</option>
-              <option value={ORDER_BY_HIGH_PRICE}>Price High</option>
+              <option className='' value={ORDER_BY_NEWEST}>Newest</option>
+              <option className='' value={ORDER_BY_LOW_PRICE}>Price Low</option>
+              <option className='' value={ORDER_BY_HIGH_PRICE}>Price High</option>
             </select>
           </div>
           <button
