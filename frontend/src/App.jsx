@@ -21,7 +21,7 @@ import AuthProvider from './context/AuthContext.jsx'
 import RequireAuth from './features/auth/RequireAuth.jsx'
 import { ROLES } from './constants/roles.constants.js'
 
-function App () {
+function App() {
   const [isDarkMode, setIsDarkMode] = useState(false)
 
   // Add event listener de body class change to know if the dark mode is activated
@@ -38,7 +38,7 @@ function App () {
       })
     }
   }
-  , [])
+    , [])
   return (
     <AuthProvider>
       <Routes>
@@ -49,7 +49,8 @@ function App () {
         <Route path='contact' element={<Contact />} />
 
         {/* Single room */}
-        <Route path='single' element={<Single />} />
+        <Route path='single' element={<Single room={RoomItems[0]} rooms={RoomItems} users={usersItems} />} />
+
         <Route path='login' element={<Login />} />
         <Route path='register' element={<Register />} />
 
