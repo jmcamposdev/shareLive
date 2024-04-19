@@ -15,30 +15,66 @@ import DashboardHome from './pages/Dashboard/DashboardHome/DashboardHome.jsx'
 import DshSearchRooms from './pages/Dashboard/DshSearchRooms/DshSearchRooms.jsx'
 import usersItems from './data/usersItems.js'
 import RoomItems from './data/roomsItems.js'
+import { ToastContainer } from 'react-toastify'
+import { useEffect, useState } from 'react'
+import AuthProvider from './context/AuthContext.jsx'
 
 function App () {
+  const [isDarkMode, setIsDarkMode] = useState(false)
+
+  // Add event listener de body class change to know if the dark mode is activated
+  useEffect(() => {
+    const body = document.querySelector('body')
+
+    body.addEventListener('change', () => {
+      setIsDarkMode(body.classList.contains('dark'))
+    })
+
+    return () => {
+      body.removeEventListener('change', () => {
+        setIsDarkMode(body.classList.contains('dark'))
+      })
+    }
+  }
+  , [])
   return (
-    <Routes>
-      {/* Routes for the web pages */}
-      <Route path='/' element={<Home />} />
-      <Route path='about' element={<AboutUs />} />
-      <Route path='rooms' element={<Rooms />} />
-      <Route path='contact' element={<Contact />} />
+    <AuthProvider>
+      <Routes>
+        {/* Routes for the web pages */}
+        <Route path='/' element={<Home />} />
+        <Route path='about' element={<AboutUs />} />
+        <Route path='rooms' element={<Rooms />} />
+        <Route path='contact' element={<Contact />} />
 
-      {/* Single room */}
-      <Route path='single' element={<Single />} />
-      <Route path='login' element={<Login />} />
-      <Route path='register' element={<Register />} />
+        {/* Single room */}
+        <Route path='single' element={<Single />} />
+        <Route path='login' element={<Login />} />
+        <Route path='register' element={<Register />} />
 
-      {/* Routes for Dinamic pages like user, room */}
-      <Route path='user' element={<UserSingle user={usersItems[0]} rooms={RoomItems} />} />
+        {/* Routes for Dinamic pages like user, room */}
+        <Route path='user' element={<UserSingle user={usersItems[0]} rooms={RoomItems} />} />
 
-      {/* Routes for the Dashboard */}
-      <Route path='dashboard' element={<DashboardHome />} />
-      <Route path='dashboard/rooms' element={<DshSearchRooms />} />
+        {/* Routes for the Dashboard */}
+        <Route path='dashboard' element={<DashboardHome />} />
+        <Route path='dashboard/rooms' element={<DshSearchRooms />} />
 
-      <Route path='*' element={<NotFound />} />
-    </Routes>
+        <Route path='*' element={<NotFound />} />
+      </Routes>
+      <ToastContainer
+        position='bottom-right'
+        autoClose={5000}
+        limit={5}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme={isDarkMode ? 'dark' : 'light'}
+        stacked
+      />
+    </AuthProvider>
   )
 }
 
