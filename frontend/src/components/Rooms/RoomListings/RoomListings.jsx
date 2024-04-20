@@ -18,7 +18,7 @@ const RoomListings = ({ rooms, isGridView }) => {
         <>
           {
             Array.from({ length: itemsPerPage }).map((_, index) => (
-              <RoomSimple key={_} loading />
+              <RoomSimple key={index} loading />
             ))
           }
         </>
@@ -29,7 +29,7 @@ const RoomListings = ({ rooms, isGridView }) => {
       <>
         {
           Array.from({ length: itemsPerPage }).map((_, index) => (
-            <RoomDetailed key={_} loading />
+            <RoomDetailed key={index} loading />
           ))
         }
       </>
