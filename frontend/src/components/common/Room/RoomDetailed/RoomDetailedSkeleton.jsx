@@ -4,11 +4,11 @@ import LoadingImg from '../../Loading/LoadingImg'
 
 const RoomDetailedSkeleton = () => {
   return (
-    <div className='item'>
-      <div className='listing-style1 listCustom listing-type flex-col md:flex-row'>
+    <div className='item dark:bg-midnight'>
+      <div className='listing-style1 listCustom listing-type flex-col md:flex-row dark:bg-midnight'>
         <div className='list-thumb'>
           <LoadingImg className='md:h-full h-60 ' />
-          <div className='list-price flex justify-center items-center gap-2'><LoadingSkeleton className='w-9 h-4' />€ / <span>mo</span></div>
+          <div className='list-price flex justify-center items-center gap-2 dark:bg-midnight/80 dark:text-white !font-medium'><LoadingSkeleton className='w-9 h-4' />€ <span className='font-light'>/</span> <span>mo</span></div>
         </div>
         <div className='list-content flex flex-col'>
           <h6 className='list-title'>
@@ -34,15 +34,15 @@ const RoomDetailedSkeleton = () => {
             <LoadingSkeleton className='w-full h-4' />
             <LoadingSkeleton className='w-full h-4' />
           </div>
-          <hr className='mt-auto mb-3 text-[#C5C6C7]' />
+          <hr className='mt-auto mb-3 text-[#C5C6C7] dark:!text-borderColor/20 dark:!bg-borderColor/20' />
           <div className='flex justify-between'>
             <a href='/' className='ud-btn btn-thm !text-[12px] !px-4 !py-1'>
               Explore
               <i className='fal fa-arrow-right-long !text-[12px]' />
             </a>
-            <div className='list-meta2 icons d-flex align-items-center'>
-              <a href='#'><span className='flaticon-fullscreen' /></a>
-              <a href='#'><span className='flaticon-like' /></a>
+            <div className='list-meta2 icons d-flex align-items-center gap-1'>
+              <a href='#' className='!bg-borderColor/30 hover:!bg-borderColor/50 dark:!bg-lightmidnight dark:hover:!bg-orangePrimary/10'><span className='flaticon-fullscreen dark:text-white' /></a>
+              <a href='#' className='!bg-borderColor/30 hover:!bg-borderColor/50 dark:!bg-lightmidnight dark:hover:!bg-orangePrimary/10'><span className='flaticon-like dark:text-white' /></a>
             </div>
           </div>
         </div>
