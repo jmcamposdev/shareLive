@@ -2,7 +2,6 @@ import { Route, Routes } from 'react-router-dom'
 import Home from './pages/WebPages/Home/Home'
 import AboutUs from './pages/WebPages/AboutUs/AboutUs'
 import Contact from './pages/WebPages/Contact/Contact'
-import Single from './pages/WebPages/SingleRoom/Single'
 import Login from './pages/WebPages/Login/Login.jsx'
 import Register from './pages/WebPages/Register/Register.jsx'
 import NotFound from './pages/WebPages/404/404'
@@ -20,8 +19,9 @@ import { useEffect, useState } from 'react'
 import AuthProvider from './context/AuthContext.jsx'
 import RequireAuth from './features/auth/RequireAuth.jsx'
 import { ROLES } from './constants/roles.constants.js'
+import SingleRoom from './pages/WebPages/SingleRoom/SingleRoom.jsx'
 
-function App() {
+function App () {
   const [isDarkMode, setIsDarkMode] = useState(false)
 
   // Add event listener de body class change to know if the dark mode is activated
@@ -38,7 +38,7 @@ function App() {
       })
     }
   }
-    , [])
+  , [])
   return (
     <AuthProvider>
       <Routes>
@@ -47,22 +47,18 @@ function App() {
         <Route path='about' element={<AboutUs />} />
         <Route path='rooms' element={<Rooms />} />
         <Route path='contact' element={<Contact />} />
-
-        {/* Single room */}
-        <Route path='single' element={<Single room={RoomItems[0]} rooms={RoomItems} users={usersItems} />} />
-
+        {/* Routes for Dinamic pages like user, room */}
+        <Route path='rooms/:id' element={<SingleRoom room={RoomItems[0]} rooms={RoomItems} users={usersItems} />} />
+        <Route path='users/:id' element={<UserSingle user={usersItems[0]} rooms={RoomItems} />} />
+        {/* Autentication */}
         <Route path='login' element={<Login />} />
         <Route path='register' element={<Register />} />
-
-        {/* Routes for Dinamic pages like user, room */}
-        <Route path='user' element={<UserSingle user={usersItems[0]} rooms={RoomItems} />} />
-
         {/* Routes for the Dashboard */}
         <Route element={<RequireAuth allowedRoles={[ROLES.SUPER_ADMIN, ROLES.ADMIN, ROLES.USER]} />}>
           <Route path='dashboard' element={<DashboardHome />} />
           <Route path='dashboard/rooms' element={<DshSearchRooms />} />
         </Route>
-
+        {/* 404 page */}
         <Route path='*' element={<NotFound />} />
       </Routes>
       <ToastContainer

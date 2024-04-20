@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 
 import WebLayout from '../../../layout/WebLayout'
-// import PropertyGallery from "../../../components/common/SingleRoom/PropertyGallery";
+import PropertyGallery from '../../../components/common/SingleRoom/PropertyGallery'
 import OverView from '../../../components/common/SingleRoom/Overview'
 import Description from '../../../components/common/SingleRoom/Description'
 import FeaturesAminites from '../../../components/common/SingleRoom/FeaturesAminites'
@@ -11,9 +11,12 @@ import NearbySimilarProperty from '../../../components/common/SingleRoom/NearbyS
 import ScheduleTour from '../../../components/common/SingleRoom/ScheduleTour'
 import ContactWithAgent from '../../../components/common/SingleRoom/ContactWithAgent'
 import PropertyHeader from '../../../components/common/SingleRoom/PropertyHeader'
+import { useParams } from 'react-router-dom'
 // import ContactFormSingle from '../../../components/common/contactFormSingle/ContactFormSingle'
 
-const Single = ({ room, rooms, users }) => {
+const SingleRoom = ({ room, rooms, users }) => {
+  const { id } = useParams()
+  console.log(id)
   const owner = users.find((user) => user.userId === room.ownerId)
 
   const [isScrolled, setIsScrolled] = useState(false)
@@ -38,7 +41,7 @@ const Single = ({ room, rooms, users }) => {
           />
           <div className='container'>
             <div className='flex flex-wrap mb-[30px] mt-[30px]'>
-              {/* <PropertyGallery images={room.images} /> */}
+              <PropertyGallery images={room.images} />
             </div>
             {/* End .row */}
 
@@ -152,4 +155,4 @@ const Single = ({ room, rooms, users }) => {
     </>
   )
 }
-export default Single
+export default SingleRoom
