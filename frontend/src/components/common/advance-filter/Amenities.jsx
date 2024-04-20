@@ -29,7 +29,7 @@ const Amenities = ({ numColumns }) => {
     <>
       {slicedAmenities.map((column, columnIndex) => (
         <div
-          className='flex-grow pr-4 pl-4 dark:bg-lightmidnight'
+          className='flex-grow pr-4 pl-4  '
           key={columnIndex}
         >
           <div className='widget-wrapper mb20'>
