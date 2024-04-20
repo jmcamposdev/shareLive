@@ -1,9 +1,9 @@
 import { useContext, useEffect, useState } from 'react'
-import { RoomContext } from '../../../context/roomContext'
+import { RoomSearchContext } from '../../../context/RoomSearchContext'
 
 const Amenities = ({ numColumns }) => {
   const [slicedAmenities, setSlicedAmenities] = useState([])
-  const { filters, filterBy } = useContext(RoomContext)
+  const { filters, filterBy } = useContext(RoomSearchContext)
   const { amenities } = filters
 
   const handleAmenities = (e) => {

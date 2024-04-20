@@ -1,10 +1,10 @@
 import { useContext, useState } from 'react'
 import InputRange from 'react-input-range'
 import 'react-input-range/lib/css/index.css'
-import { RoomContext } from '../../../../context/roomContext'
+import { RoomSearchContext } from '../../../../context/RoomSearchContext'
 
 const PriceRange = () => {
-  const { filters, filterBy } = useContext(RoomContext)
+  const { filters, filterBy } = useContext(RoomSearchContext)
   const { min, max } = filters.price
   const [price, setPrice] = useState({ value: { min: 20, max: 2000 } })
 

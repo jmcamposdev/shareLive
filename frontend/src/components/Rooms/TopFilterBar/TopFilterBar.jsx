@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { RoomContext } from '../../../context/roomContext'
+import { RoomSearchContext } from '../../../context/RoomSearchContext'
 import { ORDER_BY_HIGH_PRICE, ORDER_BY_LOW_PRICE, ORDER_BY_NEWEST } from '../../../constants/rooms.constants'
 import { PaginationContext } from '../../../context/PaginationContext'
 import LoadingSkeleton from '../../common/Loading/LoadingSkeleton'
@@ -8,7 +8,7 @@ const TopFilterBar = () => {
   // Get the paginacion context currentPage, totalPages
   const { currentPage, totalPages } = useContext(PaginationContext)
   // Get the rooms from the context
-  const { gridView, orderBy, loading } = useContext(RoomContext)
+  const { gridView, orderBy, loading } = useContext(RoomSearchContext)
   const { isGridView, onListClick, onGridClick } = gridView
 
   const handleOrderSelect = (e) => {

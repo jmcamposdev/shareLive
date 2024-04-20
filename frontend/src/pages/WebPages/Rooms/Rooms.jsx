@@ -2,7 +2,7 @@ import PageIntro from '../../../components/common/PageIntroGrey/PageIntroGrey'
 import WebLayout from '../../../layout/WebLayout'
 import RoomBackgroundImage from '../../../assets/img/rooms/rooms-background.jpg'
 import ListingSidebar from '../../../components/Rooms/ListingSidebar/ListingSidebar'
-import { RoomProvider } from '../../../context/roomContext'
+import { RoomSearchProvider } from '../../../context/RoomSearchContext'
 import { useLocation } from 'react-router-dom'
 import useRooms from '../../../hooks/useRooms'
 import RoomsSidebar from '../../../components/Rooms/RoomsSidebar/RoomsSidebar'
@@ -14,7 +14,7 @@ const Rooms = () => {
   const dataString = queryParams.get('data')
   const urlFilters = JSON.parse(dataString)
   return (
-    <RoomProvider roomsData={rooms} defaultFilters={urlFilters} loading={loading}>
+    <RoomSearchProvider roomsData={rooms} defaultFilters={urlFilters} loading={loading}>
       <WebLayout>
         <PageIntro title='Rooms' description='Find the perfect room for your stay' backgroundImage={RoomBackgroundImage} />
 
@@ -61,7 +61,7 @@ const Rooms = () => {
           {/* End .container */}
         </section>
       </WebLayout>
-    </RoomProvider>
+    </RoomSearchProvider>
   )
 }
 

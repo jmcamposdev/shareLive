@@ -1,14 +1,14 @@
 import { useContext } from 'react'
-import { RoomContext } from '../../../context/roomContext'
+import { RoomSearchContext } from '../../../context/RoomSearchContext'
 import { PaginationProvider } from '../../../context/PaginationContext'
 import TopFilterBar from '../TopFilterBar/TopFilterBar'
 import RoomListings from '../RoomListings/RoomListings'
 import Pagination from '../../common/pagination/Pagintacion'
 
 const RoomsSidebar = () => {
-  const { rooms } = useContext(RoomContext)
+  const { rooms } = useContext(RoomSearchContext)
   // Get the rooms from the context
-  const { gridView } = useContext(RoomContext)
+  const { gridView } = useContext(RoomSearchContext)
   const { isGridView } = gridView
   return (
     <PaginationProvider

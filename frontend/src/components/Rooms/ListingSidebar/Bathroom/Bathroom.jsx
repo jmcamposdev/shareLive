@@ -1,8 +1,8 @@
 import { useContext } from 'react'
-import { RoomContext } from '../../../../context/roomContext'
+import { RoomSearchContext } from '../../../../context/RoomSearchContext'
 
 const Bathroom = () => {
-  const { filters, filterBy } = useContext(RoomContext)
+  const { filters, filterBy } = useContext(RoomSearchContext)
   const { bathrooms } = filters
   const options = [
     { id: 'bathany', label: 'any', defaultChecked: true, value: 0 },

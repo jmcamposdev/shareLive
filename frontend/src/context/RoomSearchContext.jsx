@@ -2,9 +2,9 @@ import { createContext, useEffect, useMemo, useState } from 'react'
 import { ORDER_BY_HIGH_PRICE, ORDER_BY_LOW_PRICE, ORDER_BY_NEWEST } from '../constants/rooms.constants'
 import { toCamelCase } from '../utils/formatString'
 
-export const RoomContext = createContext()
+export const RoomSearchContext = createContext()
 
-export const RoomProvider = ({ roomsData = [], defaultFilters, loading, children }) => {
+export const RoomSearchProvider = ({ roomsData = [], defaultFilters, loading, children }) => {
   const [rooms, setRooms] = useState(roomsData)
   const [isGridView, setIsGridView] = useState(false)
   const [orderBy, setOrderBy] = useState(ORDER_BY_NEWEST)
@@ -221,10 +221,10 @@ export const RoomProvider = ({ roomsData = [], defaultFilters, loading, children
   }), [rooms, setRooms, isGridView, onGridClick, onListClick, orderRoomsBy, filterByPriceRange, filterByBedrooms, filterByBathrooms, filterByLocation, filterBySquareMeters, filterByAmenities, filterByStructureType, resetFilters, filters])
 
   return (
-    <RoomContext.Provider value={contextValue}>
+    <RoomSearchContext.Provider value={contextValue}>
       {children}
-    </RoomContext.Provider>
+    </RoomSearchContext.Provider>
   )
 }
 
-export const RoomConsumer = RoomContext.Consumer
+export const RoomConsumer = RoomSearchContext.Consumer

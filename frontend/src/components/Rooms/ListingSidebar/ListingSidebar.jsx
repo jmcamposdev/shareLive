@@ -1,5 +1,5 @@
 import { useContext } from 'react'
-import { RoomContext } from '../../../context/roomContext'
+import { RoomSearchContext } from '../../../context/RoomSearchContext'
 import Bathroom from './Bathroom/Bathroom'
 import Bedroom from './Bedroom/Bedroom'
 import PriceRange from './PriceRange/PriceRange'
@@ -9,7 +9,7 @@ import StructureType from '../../common/advance-filter/StructureType'
 import Amenities from '../../common/advance-filter/Amenities'
 
 const ListingSidebar = () => {
-  const { resetFilters } = useContext(RoomContext)
+  const { resetFilters } = useContext(RoomSearchContext)
   return (
     <div className='list-sidebar-style1'>
       <div className='widget-wrapper'>

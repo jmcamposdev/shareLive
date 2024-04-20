@@ -1,9 +1,9 @@
 import Select from 'react-select'
-import { RoomContext } from '../../../context/roomContext'
+import { RoomSearchContext } from '../../../context/RoomSearchContext'
 import { useContext } from 'react'
 
 const StructureType = () => {
-  const { filters, filterBy } = useContext(RoomContext)
+  const { filters, filterBy } = useContext(RoomSearchContext)
   const { structureType } = filters
 
   const customStyles = {
