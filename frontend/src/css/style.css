@@ -25,3 +25,11 @@
 .show {
   visibility: visible !important;
 }
+
+.back-link svg {
+  stroke: #181A20;
+}
+.back-link:hover svg {
+  transform: translateX(-5px);
+  stroke: #EB6753;
+}
