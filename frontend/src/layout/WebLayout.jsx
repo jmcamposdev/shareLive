@@ -5,8 +5,10 @@ import Chevron from '../components/common/chevron/Chevron'
 
 function WebLayout ({ children }) {
   return (
-    <div>
+    <div className='relative'>
+
       {/* Main Header Nav */}
+      <div className='w-full h-[70px] bg-midnight absolute' />
       <Header />
       {/* End Main Header Nav */}
 

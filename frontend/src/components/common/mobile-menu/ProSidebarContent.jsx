@@ -12,7 +12,7 @@ const ProSidebarContent = () => {
             key={index}
             component={
               <Link
-                className={link.active ? 'active' : ''}
+                className={`${link.active ? 'active' : 'dark:!text-white'} dark:bg-midnight hover:dark:!bg-lightmidnight`}
                 to={link.link}
               />
           }

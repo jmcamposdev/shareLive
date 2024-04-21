@@ -10,19 +10,19 @@ const DashboardFooter = () => {
   const currentYear = new Date().getFullYear()
 
   return (
-    <footer className='dashboard_footer pt30 pb10'>
+    <footer className='dashboard_footer pt30 pb10 dark:bg-midnight'>
       <div className='container'>
         <div className='row items-center justify-content-center justify-content-md-between'>
           <div className='col-auto'>
             <div className='copyright-widget'>
-              <p className='text'>
+              <p className='text dark:text-borderColor'>
                 © ShareLive {currentYear}{' '}
                 <a
                   href='https://themeforest.net/user/ib-themes'
                   target='_blank'
                   rel='noopener noreferrer'
                 >
-                  <span className='font-semibold'>JCC Designs</span>
+                  <span style={{ transition: 'all 400ms ease' }} className='font-semibold dark:text-white dark:hover:text-orangePrimary'>JCC Designs</span>
                 </a>{' '}
                 - All rights reserved
               </p>
@@ -31,10 +31,10 @@ const DashboardFooter = () => {
 
           <div className='col-auto'>
             <div className='footer_bottom_right_widgets text-center text-lg-end'>
-              <p>
+              <p className='dark:text-white'>
                 {footerLinks.map((link, index) => (
                   <React.Fragment key={index}>
-                    <a href={link.href}>{link.text}</a>
+                    <a className='dark:text-white dark:hover:text-orangePrimary' href={link.href}>{link.text}</a>
                     {index !== footerLinks.length - 1 && ' · '}
                   </React.Fragment>
                 ))}

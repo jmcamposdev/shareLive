@@ -7,8 +7,11 @@ import {
   getFilteredRowModel
 } from '@tanstack/react-table'
 import { useEffect, useState } from 'react'
+import TableSkeleton from './TableSkeleton'
 
-const Table = ({ data, columns, onEdit, onDelete, filterValue, onFilter }) => {
+const Table = ({ loading = false, data, columns, onEdit, onDelete, filterValue, onFilter }) => {
+  if (!loading) return <TableSkeleton />
+
   // Remove the Action column if exists to prevent unexpected actions
   columns = columns.filter(column => column.header !== 'Actions')
 
@@ -73,12 +76,12 @@ const Table = ({ data, columns, onEdit, onDelete, filterValue, onFilter }) => {
   }, [data, table.getRowModel().rows])
 
   return (
-    <section className='pt-0 packages_table table-responsive'>
+    <section className='pt-0 packages_table table-responsive dark:bg-midnight'>
       {/* Start of Search and Entries per page */}
       <div className=''>
         <div className='flex items-center font-medium'>
           <select
-            className='bg-transparent pl-2'
+            className='bg-transparent pl-2 dark:text-white'
             value={table.getState().pagination.pageSize}
             onChange={e => {
               table.setPageSize(Number(e.target.value))
@@ -90,7 +93,7 @@ const Table = ({ data, columns, onEdit, onDelete, filterValue, onFilter }) => {
               </option>
             ))}
           </select>
-          <p className='pl-2 text-black dark:text-white duration-300 ease-linear'>Entries Per Page</p>
+          <p className='pl-2 text-black dark:!text-white duration-300 ease-linear'>Entries Per Page</p>
         </div>
       </div>
       {/* End of Search and Entries per page */}
@@ -100,7 +103,7 @@ const Table = ({ data, columns, onEdit, onDelete, filterValue, onFilter }) => {
         <thead className='t-head'>
           {
             table.getHeaderGroups().map(headerGroup => (
-              <tr scope='row' key={headerGroup.id}>
+              <tr className='' scope='row' key={headerGroup.id}>
                 {
                   headerGroup.headers.map(header => {
                     return !header.column.columnDef.hidden
@@ -109,18 +112,18 @@ const Table = ({ data, columns, onEdit, onDelete, filterValue, onFilter }) => {
                           role='columnheader'
                           key={header.id}
                           onClick={header.column.getToggleSortingHandler()}
-                          className='cursor-pointer pt-9 pl-8 pr-2.5 pb-6 select-none'
+                          className='cursor-pointer pt-9 pl-8 pr-2.5 pb-6 select-none dark:bg-midnight'
                           colSpan='1'
                         >
                           <div className='flex items-center'>
-                            <span>{header.column.columnDef.header}</span>
+                            <span className='dark:text-white'>{header.column.columnDef.header}</span>
                             {/* Show the sorting icon */}
                             <div className='ml-2 inline-flex flex-col space-y-[2px]'>
                               <span className='inline-block'>
-                                <svg className={`fill-current ${header.column.getIsSorted() === 'asc' ? 'text-white' : ''}`} width='10' height='5' viewBox='0 0 10 5' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M5 0L0 5H10L5 0Z' fill='' /></svg>
+                                <svg className={`fill-current ${header.column.getIsSorted() === 'asc' ? 'fill-white dark:fill-midnight' : 'dark:fill-white fill-midnight'}`} width='10' height='5' viewBox='0 0 10 5' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M5 0L0 5H10L5 0Z' fill='' /></svg>
                               </span>
                               <span className='inline-block'>
-                                <svg className={`fill-current ${header.column.getIsSorted() === 'desc' ? 'text-white' : ''}`} width='10' height='5' viewBox='0 0 10 5' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M5 5L10 0L-4.37114e-07 8.74228e-07L5 5Z' fill='' /></svg>
+                                <svg className={`fill-current ${header.column.getIsSorted() === 'desc' ? 'fill-white dark:fill-midnight' : 'dark:fill-white fill-midnight'}`} width='10' height='5' viewBox='0 0 10 5' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M5 5L10 0L-4.37114e-07 8.74228e-07L5 5Z' fill='' /></svg>
                               </span>
                             </div>
                           </div>
@@ -133,21 +136,21 @@ const Table = ({ data, columns, onEdit, onDelete, filterValue, onFilter }) => {
             ))
           }
         </thead>
-        <tbody className='t-body'>
+        <tbody className='t-body '>
           {!showData && (
-            <tr role='row' className='border-b border-stroke dark:border-strokedark duration-300 ease-linear'>
+            <tr role='row' className='border-b border-stroke dark:border-strokedark duration-300 ease-linear dark:bg-midnight'>
               <td colSpan={columns.length} className='pl-8 py-5 pr-2 text-center'>
                 No data found
               </td>
             </tr>
           )}
           {showData && table.getRowModel().rows.map(row => (
-            <tr key={row.id}>
+            <tr className='dark:border-borderColor/20' key={row.id}>
               {row.getVisibleCells().map(cell => {
                 return !cell.column.columnDef.hidden
                   ? (
                     <td
-                      className='vam'
+                      className='vam dark:bg-midnight dark:!text-white'
                       key={cell.id}
                     >
                       {flexRender(cell.column.columnDef.cell, cell.getContext())}
@@ -162,8 +165,8 @@ const Table = ({ data, columns, onEdit, onDelete, filterValue, onFilter }) => {
       {/* End Table */}
 
       {/* Pagination Section */}
-      <div className='flex justify-between border-t border-stroke px-8 pt-5 dark:border-strokedark min-w-[700px] duration-300 ease-linear'>
-        <p className='font-medium'>
+      <div className='flex justify-between border-t border-stroke px-8 pt-5 dark:border-strokedark min-w-[700px] duration-300 ease-linear border-none'>
+        <p className='font-medium dark:text-white'>
           Showing {table.getState().pagination.pageIndex + 1} 0f {table.getPageCount()} pages
         </p>
         <div className='flex'>

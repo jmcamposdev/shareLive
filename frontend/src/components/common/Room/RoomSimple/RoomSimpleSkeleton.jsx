@@ -4,15 +4,15 @@ import LoadingSkeleton from '../../Loading/LoadingSkeleton'
 const RoomSimpleSkeleton = () => {
   return (
     <div className='item'>
-      <div className='listing-style1 mb-0'>
+      <div className='listing-style1 mb-0 dark:bg-midnight'>
         <div className='list-thumb'>
           <LoadingImg className='h-80' />
-          <div className='list-price flex justify-center items-center'>
-            <i className='fa-light fa-camera pr-3' />
+          <div className='list-price flex justify-center items-center dark:bg-midnight/80'>
+            <i className='fa-light fa-camera pr-3 dark:text-white' />
             <LoadingSkeleton className='w-5 h-4 d-inline-block' />
           </div>
         </div>
-        <div className='list-content'>
+        <div className='list-content dark:bg-midnight'>
           <h6 className='list-title'>
             <LoadingSkeleton className='w-52 h-6' />
           </h6>
