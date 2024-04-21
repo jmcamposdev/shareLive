@@ -10,7 +10,7 @@ import { useEffect, useState } from 'react'
 import TableSkeleton from './TableSkeleton'
 
 const Table = ({ loading = false, data, columns, onEdit, onDelete, filterValue, onFilter }) => {
-  if (loading) return <TableSkeleton />
+  if (!loading) return <TableSkeleton />
 
   // Remove the Action column if exists to prevent unexpected actions
   columns = columns.filter(column => column.header !== 'Actions')

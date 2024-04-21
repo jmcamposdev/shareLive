@@ -4,6 +4,7 @@ import LogoWhite from '../../assets/logos/logo-white.png'
 import LogoDark from '../../assets/logos/logo-dark.png'
 import userImage from '../../assets/img/dashboard/header/user-default.png'
 import DarkModeSwitcher from '../common/darkModeSwitcher/DarkModeSwitcher'
+import UserSettings from './UserSettings'
 
 const DashboardHeader = () => {
   const menuItems = [
@@ -95,43 +96,7 @@ const DashboardHeader = () => {
                   </li>
                   {/* End notification icon */}
 
-                  <li className='user_setting'>
-                    <div className='dropdown'>
-                      <a className='btn' href='#' data-bs-toggle='dropdown'>
-                        <img
-                          width={44}
-                          height={44}
-                          src={userImage}
-                          alt='user.png'
-                        />
-                      </a>
-                      <div className='dropdown-menu'>
-                        <div className='user_setting_content'>
-                          {menuItems.map((section, sectionIndex) => (
-                            <div key={sectionIndex}>
-                              <p
-                                className={`fz15 fw400 ff-heading ${
-                                    sectionIndex === 0 ? 'mb20' : 'mt30'
-                                  }`}
-                              >
-                                {section.title}
-                              </p>
-                              {section.items.map((item, itemIndex) => (
-                                <Link
-                                  key={itemIndex}
-                                  className='dropdown-item'
-                                  href={item.href}
-                                >
-                                  <i className={`${item.icon} mr10`} />
-                                  {item.text}
-                                </Link>
-                              ))}
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-                    </div>
-                  </li>
+                  <UserSettings />
                   {/* End avatar dropdown */}
 
                 </ul>
