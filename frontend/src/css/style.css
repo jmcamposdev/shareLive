@@ -9,9 +9,23 @@
   font-family: 'Clarity City';
 }
 
-.search_input_header {
+.dark .recharts-layer circle{
+  fill: #eb6753 !important;
+}
+
+.dark .search_input_header {
   outline: none;
 }
+
+.dark .recharts-default-tooltip p{
+  color: white;
+}
+
+.dark .recharts-default-tooltip{
+  background-color:  #181a20 !important;
+  border:  1px solid transparent !important;
+}
+
 .search_input_header:focus-visible {
   outline: none !important;
   border: none;

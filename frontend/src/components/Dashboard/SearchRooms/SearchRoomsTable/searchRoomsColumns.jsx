@@ -8,7 +8,8 @@ const searchRoomsColumns = [
       return (
         <div className='listing-style1 dashboard-style d-xxl-flex align-items-center !mb-0'>
           <div className='list-thumb'>
-            <img className='w-full h-full' src={room.images[0]} alt='property' />
+            {/* src={room.images[0]} */}
+            <img className='w-full h-full' src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqzvYKnJE5Gi-y_3xA87Y3QtZ-nnqntkkMrTGiGZzIUtMBFGjhUrKTL48QBjI_7kvD4cQ&usqp=CAU' alt='property' />
           </div>
           <div className='list-content py-0 p-0 mt-2 mt-xxl-0 ps-xxl-4'>
             <div className='h6 list-title'>

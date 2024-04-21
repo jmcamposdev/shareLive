@@ -7,8 +7,11 @@ import {
   getFilteredRowModel
 } from '@tanstack/react-table'
 import { useEffect, useState } from 'react'
+import TableSkeleton from './TableSkeleton'
 
-const Table = ({ data, columns, onEdit, onDelete, filterValue, onFilter }) => {
+const Table = ({ loading = true, data, columns, onEdit, onDelete, filterValue, onFilter }) => {
+  if (loading) return <TableSkeleton />
+
   // Remove the Action column if exists to prevent unexpected actions
   columns = columns.filter(column => column.header !== 'Actions')
 

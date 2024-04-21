@@ -49,8 +49,8 @@ const RecentActivities = () => {
           key={index}
           className='recent-activity d-sm-flex align-items-center mb20'
         >
-          <span className={`icon me-3 ${activity.icon} flex-shrink-0`} />
-          <p className='text mb-0 flex-grow-1'>
+          <span className={`icon me-3 ${activity.icon} dark:text-white flex-shrink-0 dark:bg-orangePrimary/10`} />
+          <p className='text mb-0 flex-grow-1 dark:text-white'>
             {activity.text.split(activity.highlight).map((part, i, array) =>
               i === array.length - 1
                 ? (
