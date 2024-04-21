@@ -19,7 +19,8 @@ import { useEffect, useState } from 'react'
 import AuthProvider from './context/AuthContext.jsx'
 import RequireAuth from './features/auth/RequireAuth.jsx'
 import { ROLES } from './constants/roles.constants.js'
-import SingleRoom from './pages/WebPages/SingleRoom/SingleRoom.jsx'
+import RoomSingle from './pages/WebPages/SingleRoom/RoomSingle.jsx'
+import { RoomSingleProvider } from './context/RoomSingleContext.jsx'
 
 function App () {
   const [isDarkMode, setIsDarkMode] = useState(false)
@@ -48,7 +49,13 @@ function App () {
         <Route path='rooms' element={<Rooms />} />
         <Route path='contact' element={<Contact />} />
         {/* Routes for Dinamic pages like user, room */}
-        <Route path='rooms/:id' element={<SingleRoom room={RoomItems[0]} rooms={RoomItems} users={usersItems} />} />
+        <Route
+          path='rooms/:id' element={
+            <RoomSingleProvider>
+              <RoomSingle room={RoomItems[0]} rooms={RoomItems} users={usersItems} />
+            </RoomSingleProvider>
+            }
+        />
         <Route path='users/:id' element={<UserSingle user={usersItems[0]} rooms={RoomItems} />} />
         {/* Autentication */}
         <Route path='login' element={<Login />} />
