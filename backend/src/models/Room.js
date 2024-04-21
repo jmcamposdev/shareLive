@@ -2,7 +2,7 @@ import moongose, { Schema } from 'mongoose'
 
 // Definición del esquema de Room
 const roomSchema = new Schema({
-  userId: { type: Schema.Types.ObjectId, ref: 'Usuario' }, // Referencia al ID del usuario propietario
+  user: { type: Schema.Types.ObjectId, ref: 'User' }, // Referencia al ID del usuario propietario
   title: { type: String, required: true },
   excerpt: { type: String, default: '' },
   description: { type: String, required: true },
@@ -23,6 +23,7 @@ const roomSchema = new Schema({
   yearBuilt: { type: Number, required: true },
   floor: { type: Number, required: true },
   structureType: { type: String, enum: ['Apartment', 'House', 'Penthouse', 'Duplex', 'Townhouse', 'Cottage'] },
+  garageNumber: { type: Number, default: 0 },
   amenities: {
     washer: { type: Boolean, default: false },
     dryer: { type: Boolean, default: false },
@@ -36,7 +37,8 @@ const roomSchema = new Schema({
     garage: { type: Boolean, default: false },
     elevator: { type: Boolean, default: false },
     electricHeater: { type: Boolean, default: false }
-  }
+  },
+  createdAt: { type: Date, default: Date.now }
 })
 
 // Creación del modelo Room
