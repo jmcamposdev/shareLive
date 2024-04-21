@@ -1,3 +1,5 @@
+import { removeDiacritics } from './formatString'
+
 export const roomsNearYouFilter = (rooms, location) => {
   if (!location) {
     return rooms
@@ -6,10 +8,10 @@ export const roomsNearYouFilter = (rooms, location) => {
   return rooms.filter(room => {
     let isValid = true
 
-    isValid = room.city === location.city
+    isValid = removeDiacritics(room.city) === removeDiacritics(location.city)
 
     if (!isValid) {
-      isValid = room.countryCode === location.country
+      isValid = removeDiacritics(room.countryCode) === removeDiacritics(location.country)
     }
 
     return isValid
