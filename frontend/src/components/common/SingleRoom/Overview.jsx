@@ -1,4 +1,4 @@
-const OverView = ({ bedroom, bath, yearbuilt, garage, size, propertytype }) => {
+const OverView = ({ bedroom, bath, yearbuilt, garage, squareMeters, propertytype }) => {
   return (
     <>
       <div className='col-sm-6 col-lg-4'>
@@ -42,7 +42,7 @@ const OverView = ({ bedroom, bath, yearbuilt, garage, size, propertytype }) => {
           <span className='icon flaticon-expand !leading-[55px]' />
           <div className='ml15'>
             <h6 className='mb-0'>Sqft</h6>
-            <p className='text mb-0 fz15'>{size}</p>
+            <p className='text mb-0 fz15'>{squareMeters}</p>
           </div>
         </div>
       </div>

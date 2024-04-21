@@ -92,12 +92,12 @@ const DreamRoom = () => {
                   <span className='!flex dreamRoom-check icon fa-regular fa-check mr-4 dark:!hidden' />
                   <svg className='mr-4 hidden dark:inline' xmlns='http://www.w3.org/2000/svg' width='50' height='51' viewBox='0 0 50 51' fill='none'>
                     <path opacity='0.15' d='M25 0.759521C38.8071 0.759521 50 11.9524 50 25.7595C50 39.5666 38.8071 50.7595 25 50.7595C11.1929 50.7595 0 39.5666 0 25.7595C0 11.9524 11.1929 0.759521 25 0.759521Z' fill='url(#paint0_radial_2412_727)' />
-                    <path d='M33 20.2595L22 31.2595L17 26.2595' stroke='#EB6753' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' />
+                    <path d='M33 20.2595L22 31.2595L17 26.2595' stroke='#EB6753' strokeWidth='2' strokeLinecap='round' strokeLinejoin='round' />
                     <defs>
                       <radialGradient id='paint0_radial_2412_727' cx='0' cy='0' r='1' gradientUnits='userSpaceOnUse' gradientTransform='translate(25 25.7595) rotate(90) scale(25)'>
-                        <stop stop-color='#EB6753' />
-                        <stop offset='0.495043' stop-color='#EB6753' stop-opacity='0.38' />
-                        <stop offset='1' stop-color='white' stop-opacity='0' />
+                        <stop stopColor='#EB6753' />
+                        <stop offset='0.495043' stopColor='#EB6753' stopOpacity='0.38' />
+                        <stop offset='1' stopColor='white' stopOpacity='0' />
                       </radialGradient>
                     </defs>
                   </svg>
@@ -107,12 +107,12 @@ const DreamRoom = () => {
                   <span className='!flex dreamRoom-check icon fa-regular fa-check mr-4 dark:!hidden' />
                   <svg className='mr-4 hidden dark:inline' xmlns='http://www.w3.org/2000/svg' width='50' height='51' viewBox='0 0 50 51' fill='none'>
                     <path opacity='0.15' d='M25 0.759521C38.8071 0.759521 50 11.9524 50 25.7595C50 39.5666 38.8071 50.7595 25 50.7595C11.1929 50.7595 0 39.5666 0 25.7595C0 11.9524 11.1929 0.759521 25 0.759521Z' fill='url(#paint0_radial_2412_727)' />
-                    <path d='M33 20.2595L22 31.2595L17 26.2595' stroke='#EB6753' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' />
+                    <path d='M33 20.2595L22 31.2595L17 26.2595' stroke='#EB6753' strokeWidth='2' strokeLinecap='round' strokeLinejoin='round' />
                     <defs>
                       <radialGradient id='paint0_radial_2412_727' cx='0' cy='0' r='1' gradientUnits='userSpaceOnUse' gradientTransform='translate(25 25.7595) rotate(90) scale(25)'>
-                        <stop stop-color='#EB6753' />
-                        <stop offset='0.495043' stop-color='#EB6753' stop-opacity='0.38' />
-                        <stop offset='1' stop-color='white' stop-opacity='0' />
+                        <stop stopColor='#EB6753' />
+                        <stop offset='0.495043' stopColor='#EB6753' stopOpacity='0.38' />
+                        <stop offset='1' stopColor='white' stopOpacity='0' />
                       </radialGradient>
                     </defs>
                   </svg>
@@ -123,12 +123,12 @@ const DreamRoom = () => {
                   <span className='!flex dreamRoom-check icon fa-regular fa-check mr-4 dark:!hidden' />
                   <svg className='mr-4 hidden dark:inline' xmlns='http://www.w3.org/2000/svg' width='50' height='51' viewBox='0 0 50 51' fill='none'>
                     <path opacity='0.15' d='M25 0.759521C38.8071 0.759521 50 11.9524 50 25.7595C50 39.5666 38.8071 50.7595 25 50.7595C11.1929 50.7595 0 39.5666 0 25.7595C0 11.9524 11.1929 0.759521 25 0.759521Z' fill='url(#paint0_radial_2412_727)' />
-                    <path d='M33 20.2595L22 31.2595L17 26.2595' stroke='#EB6753' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' />
+                    <path d='M33 20.2595L22 31.2595L17 26.2595' stroke='#EB6753' strokeWidth='2' strokeLinecap='round' strokeLinejoin='round' />
                     <defs>
                       <radialGradient id='paint0_radial_2412_727' cx='0' cy='0' r='1' gradientUnits='userSpaceOnUse' gradientTransform='translate(25 25.7595) rotate(90) scale(25)'>
-                        <stop stop-color='#EB6753' />
-                        <stop offset='0.495043' stop-color='#EB6753' stop-opacity='0.38' />
-                        <stop offset='1' stop-color='white' stop-opacity='0' />
+                        <stop stopColor='#EB6753' />
+                        <stop offset='0.495043' stopColor='#EB6753' stopOpacity='0.38' />
+                        <stop offset='1' stopColor='white' stopOpacity='0' />
                       </radialGradient>
                     </defs>
                   </svg>

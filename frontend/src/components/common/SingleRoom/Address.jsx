@@ -10,7 +10,7 @@ const PropertyAddress = ({
 }) => {
   return (
     <>
-      <div className='col-md-6 col-xl-4'>
+      <div className='col-md-6 col-xl-4 flex-1 mb-3 sm:mb-0'>
         <div className='d-flex justify-content-between'>
           <div className='pd-list'>
             <p className='fw600 mb10 ff-heading dark-color'>Address</p>
@@ -24,7 +24,7 @@ const PropertyAddress = ({
           </div>
         </div>
       </div>
-      <div className='col-md-6 col-xl-4 offset-xl-2'>
+      <div className='col-md-6 col-xl-4 flex-1'>
         <div className='d-flex justify-content-between'>
           <div className='pd-list'>
             <p className='fw600 mb10 ff-heading dark-color'>Zip/Postal Code</p>
@@ -41,7 +41,7 @@ const PropertyAddress = ({
 
       {/* End col */}
 
-      <div className='col-md-12'>
+      <div className='w-full'>
         <iframe
           className='position-relative bdrs12 mt30 h250'
           loading='lazy'
