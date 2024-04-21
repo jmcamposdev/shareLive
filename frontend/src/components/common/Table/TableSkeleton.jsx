@@ -7,7 +7,7 @@ const RoomSimpleSkeleton = () => {
       {/* Start of Search and Entries per page */}
       <div className=''>
         <div className='flex items-center font-medium'>
-          <LoadingSkeleton className='w-5 h-4 pl-2 w-36 mb-[15px]' />
+          <LoadingSkeleton className='h-4 pl-2 w-36 mb-[15px]' />
         </div>
       </div>
 

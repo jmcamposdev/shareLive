@@ -82,15 +82,15 @@ const DashboardHeader = () => {
                   </li>
                   {/* End Dark Mode Switcher */}
 
-                  <li className='hidden sm:block'>
+                  <li className='flex justify-center items-center'>
                     <Link className='text-center mr15 !flex justify-center items-center' href='/login'>
                       <span className='flaticon-email !flex dark:text-white' />
                     </Link>
                   </li>
                   {/* End email box */}
 
-                  <li className='hidden sm:block'>
-                    <a className='text-center mr20 notif !flex justify-center items-center dark:bg-lightmidnight' href='#'>
+                  <li className='!flex justify-center items-center'>
+                    <a className='text-center mr20 notif !flex justify-center items-center dark:bg-lightmidnight block' href='#'>
                       <span className='flaticon-bell !flex dark:text-white' />
                     </a>
                   </li>

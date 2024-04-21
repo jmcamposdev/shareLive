@@ -10,26 +10,12 @@ import UserSettings from '../../Header/UserSettings'
 
 const MobileMenu = () => {
   return (
-    <div className='mobilie_header_nav stylehome1 dark:!bg-midnight/90'>
+    <div className='mobilie_header_nav stylehome1 dark:!bg-midnight'>
       <div className='mobile-menu'>
         <div className='header innerpage-style bg-white dark:!bg-transparent !flex justify-center items-center'>
           <div className='menu_and_widgets w-full'>
             <div className='mobile_menu_bar flex justify-between items-center w-full'>
-              <a
-                className='menubar'
-                href='#'
-                data-bs-toggle='offcanvas'
-                data-bs-target='#mobileMenu'
-                aria-controls='mobileMenu'
-              >
-                <img
-                  width={25}
-                  height={9}
-                  className='dark:brightness-[2000%]'
-                  src={MobileDarkNavIcon}
-                  alt='mobile icon'
-                />
-              </a>
+              <UserSettings />
               <Link className='mobile_logo' href='/'>
                 <img
                   width={138}
@@ -46,67 +32,25 @@ const MobileMenu = () => {
                   className='hidden dark:block'
                 />
               </Link>
+
               <div className='flex gap-3 justify-center !align-center' style={{ alignItems: 'center' }}>
-                <UserSettings />
+                <li className='flex justify-center align-center'>
+                  <Link className='text-center !flex justify-center items-center !mr-2' href='/login'>
+                    <span className='flaticon-email !flex dark:text-white text-2xl' />
+                  </Link>
+                </li>
+                {/* End email box */}
+
+                <li className='!flex justify-center items-center'>
+                  <a className='text-center notif !flex justify-center items-center dark:bg-lightmidnight block !mr-2' href='#'>
+                    <span className='flaticon-bell !flex dark:text-white text-2xl' />
+                  </a>
+                </li>
                 <DarkModeSwitcher />
               </div>
 
             </div>
           </div>
-        </div>
-      </div>
-      {/* /.mobile-menu meta */}
-
-      <div
-        className='offcanvas offcanvas-start mobile_menu-canvas'
-        tabIndex='-1'
-        id='mobileMenu'
-        aria-labelledby='mobileMenuLabel'
-        data-bs-scroll='true'
-      >
-        <div className='rightside-hidden-bar dark:bg-midnight'>
-          <div className='hsidebar-header bg-orangePrimaryLightHover dark:!bg-midnight border-b dark:!border-slate-300'>
-            <div
-              className='sidebar-close-icon dark:!bg-white'
-              data-bs-dismiss='offcanvas'
-              aria-label='Close'
-            >
-              <span className='far fa-times dark:text-midnight' />
-            </div>
-            <h4 className='title dark:!text-white ' style={{ fontSize: 'clamp(1rem, 0.916rem + 0.445vw, 1.25rem)' }}>Dashboard Navigation</h4>
-          </div>
-          {/* End header */}
-
-          <div className='hsidebar-content !pb-0 '>
-            <div className='hiddenbar_navbar_content'>
-              <ProSidebarContent />
-              {/* End .hiddenbar_navbar_menu */}
-              {/* hiddenbar_footer */}
-            </div>
-          </div>
-
-          {/* Page navigation */}
-
-          <div className='hsidebar-header bg-orangePrimaryLightHover dark:!bg-midnight border-b dark:!border-slate-300'>
-            <div
-              className='sidebar-close-icon dark:!bg-white'
-              data-bs-dismiss='offcanvas'
-              aria-label='Close'
-            >
-              <span className='far fa-times dark:text-midnight' />
-            </div>
-            <h4 className='title dark:!text-white ' style={{ fontSize: 'clamp(1rem, 0.916rem + 0.445vw, 1.25rem)' }}>Dashboard Navigation</h4>
-          </div>
-          {/* End header */}
-
-          <div className='hsidebar-content '>
-            <div className='hiddenbar_navbar_content'>
-              <ProSidebarContent />
-              {/* End .hiddenbar_navbar_menu */}
-              {/* hiddenbar_footer */}
-            </div>
-          </div>
-          {/* End hsidebar-content */}
         </div>
       </div>
     </div>

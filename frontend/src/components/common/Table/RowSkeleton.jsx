@@ -7,7 +7,7 @@ const RoomSimpleSkeleton = () => {
       <td className='vam dark:bg-midnight'>
         <div className='listing-style1 dashboard-style d-xxl-flex align-items-center !mb-0 dark:bg-midnight'>
           <div className='list-thumb'>
-            <LoadingImg className='w-[110px] h-[90px]' />
+            <LoadingImg className='!w-[110px] !h-[90px]' />
           </div>
           <div className='list-content py-0 p-0 mt-2 mt-xxl-0 ps-xxl-4 w-[190px]'>
             <div className='h6 list-title mb-2'>
