@@ -17,7 +17,6 @@ function AboutUs () {
       <InstagramIntro />
       <InstagramGallery />
     </WebLayout>
-
   )
 }
 export default AboutUs
