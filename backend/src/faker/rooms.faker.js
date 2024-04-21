@@ -4,9 +4,10 @@ import mongoose from 'mongoose'
 // Función para generar un objeto de room falso
 const generateFakeRoom = () => {
   return {
+    user: '661eaaff1753b441a60f03d1',
     title: faker.lorem.words(),
     excerpt: faker.lorem.sentence(),
-    description: faker.lorem.paragraph(),
+    description: faker.lorem.paragraph(15),
     price: faker.number.int({ min: 10000, max: 1000000 }),
     propertyStatus: faker.helpers.arrayElement(['Nearly new', 'Very Good', 'Good', 'To renovation', 'Refurbished'], { min: 1, max: 1 }),
     images: [faker.image.url(), faker.image.url(), faker.image.url()], // Genera URLs de imágenes aleatorias
