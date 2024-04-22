@@ -4,9 +4,7 @@ import { Link } from 'react-router-dom'
 
 const ContactWithAgent = ({ user }) => {
   if (!user) return null
-  console.log(user)
   const avatarImage = user.avatar !== '' ? user.avatar : getImageURL('users/defaultAvatar.jpg')
-  console.log(avatarImage)
   // Calcular la media de las calificaciones
   const totalReviews = user.reviews.length
   const averageRating =
