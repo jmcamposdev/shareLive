@@ -29,13 +29,13 @@ const Amenities = ({ numColumns }) => {
     <>
       {slicedAmenities.map((column, columnIndex) => (
         <div
-          className='flex-grow pr-4 pl-4'
+          className='flex-grow pr-4 pl-4  '
           key={columnIndex}
         >
           <div className='widget-wrapper mb20'>
             <div className='checkbox-style1'>
               {column.map((amenity, amenityIndex) => (
-                <label className='custom_checkbox' key={amenityIndex}>
+                <label className='custom_checkbox dark:text-white' key={amenityIndex}>
                   {amenity.label}
                   <input
                     type='checkbox'
@@ -43,7 +43,7 @@ const Amenities = ({ numColumns }) => {
                     value={amenity.label}
                     onChange={handleAmenities}
                   />
-                  <span className='checkmark' />
+                  <span className='checkmark dark:border-white/60' />
                 </label>
               ))}
             </div>

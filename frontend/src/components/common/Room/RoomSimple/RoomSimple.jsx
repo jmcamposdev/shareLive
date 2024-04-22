@@ -7,8 +7,8 @@ const RoomSimple = ({ room, loading = false }) => {
   const linkUrl = `/rooms/${room._id}`
 
   return (
-    <div className='item'>
-      <div className='listing-style1 mb-0'>
+    <div style={{ borderRadius: '12px' }} className='item dark:bg-midnight'>
+      <div className='listing-style1 mb-0 dark:bg-midnight'>
         <div className='list-thumb'>
           <Link to={linkUrl}>
             <img
@@ -17,9 +17,9 @@ const RoomSimple = ({ room, loading = false }) => {
               alt={room.title}
             />
           </Link>
-          <div className='list-price'>
-            <i className='fa-light fa-camera pr-3' />
-            {room.images.length}
+          <div className='list-price dark:bg-midnight/80'>
+            <i className='fa-light fa-camera pr-3 dark:text-white' />
+            <span className='dark:text-white'>{room.images.length}</span>
           </div>
         </div>
         <div className='list-content dark:bg-midnight'>

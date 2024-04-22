@@ -15,14 +15,14 @@ const SearchRoomsTable = ({ rooms }) => {
             <div className='search_area'>
               <input
                 type='text'
-                className='form-control bdrs12'
+                className='form-control bdrs12 dark:bg-midnight dark:!border-borderColor/20 placeholder:text-borderColor/40 dark:text-white dark:outline-white'
                 placeholder='Search'
                 required=''
                 value={filter}
                 onChange={e => setFilter(e.target.value)}
               />
               <label>
-                <span className='flaticon-search' />
+                <span className='flaticon-search dark:text-white' />
               </label>
             </div>
           </div>

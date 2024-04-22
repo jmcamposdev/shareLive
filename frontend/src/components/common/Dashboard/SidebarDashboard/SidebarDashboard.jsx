@@ -5,12 +5,12 @@ const SidebarDashboard = () => {
   const { pathname } = useLocation()
 
   return (
-    <div className='dashboard__sidebar d-none d-lg-block'>
+    <div className='dashboard__sidebar d-none d-lg-block dark:bg-midnight'>
       <div className='dashboard_sidebar_list'>
         {sidebarLinksAdmin.map((section, sectionIndex) => (
           <div key={sectionIndex}>
             <p
-              className={`fz15 fw400 ff-heading ${
+              className={`fz15 fw400 ff-heading dark:text-white ${
                 sectionIndex === 0 ? 'mt-0' : 'mt30'
               }`}
             >
@@ -20,10 +20,10 @@ const SidebarDashboard = () => {
               <div key={itemIndex} className='sidebar_list_item'>
                 <Link
                   to={item.href}
-                  className={`items-center   ${pathname === item.href ? '-is-active' : ''} ${item.className}`}
+                  className={`items-center dark:!text-white  ${pathname === item.href ? '-is-active dark:!bg-lightmidnight' : 'dark:hover:!bg-lightmidnight '} ${item.className}`}
                 >
                   {item.icon}
-                  <span>{item.text}</span>
+                  <span className='dark:!text-white'>{item.text}</span>
                 </Link>
               </div>
             ))}

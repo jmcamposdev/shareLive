@@ -48,7 +48,7 @@ const Pagination = () => {
         className={currentPage === number ? 'active page-item' : 'page-item'}
         onClick={() => handlePageChange(number)}
       >
-        <span className='page-link pointer'>{number}</span>
+        <span className='page-link pointer dark:text-white'>{number}</span>
       </li>
     ))
   }
@@ -64,7 +64,7 @@ const Pagination = () => {
             onClick={() => handlePageChange(currentPage - 1)}
             disabled={currentPage === 1}
           >
-            <span className='fas fa-angle-left' />
+            <span className='fas fa-angle-left dark:text-white' />
           </span>
         </li>
 
@@ -74,11 +74,11 @@ const Pagination = () => {
         {/* Botón para la página siguiente */}
         <li className='page-item'>
           <span
-            className='page-link pointer'
+            className='page-link pointer dark:!text-white'
             onClick={() => handlePageChange(currentPage + 1)}
             disabled={currentPage === totalPages}
           >
-            <span className='fas fa-angle-right' />
+            <span className='fas fa-angle-right dark:text-white' />
           </span>
         </li>
       </ul>

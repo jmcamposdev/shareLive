@@ -11,11 +11,11 @@ const AdvanceFilterModal = () => {
   const { resetFilters } = useContext(RoomSearchContext)
 
   return (
-    <div className='modal-dialog modal-dialog-centered modal-lg'>
-      <div className='modal-content'>
+    <div className='modal-dialog modal-dialog-centered modal-lg t'>
+      <div className='modal-content dark:bg-midnight'>
         <div className='modal-header pl30 pr30'>
-          <h5 className='modal-title' id='exampleModalLabel'>
-            More Filter
+          <h5 className='modal-title dark:text-white' id='exampleModalLabel'>
+            More Filters
           </h5>
           <button
             type='button'
@@ -30,7 +30,7 @@ const AdvanceFilterModal = () => {
           <div className='flex flex-wrap '>
             <div className='w-full pr-4 pl-4'>
               <div className='widget-wrapper'>
-                <h6 className='list-title mb20'>Price Range</h6>
+                <h6 className='list-title mb20 dark:text-white'>Price Range</h6>
                 <div className='range-slider-style modal-version'>
                   <PriceRange />
                 </div>
@@ -42,7 +42,7 @@ const AdvanceFilterModal = () => {
           <div className='flex flex-wrap '>
             <div className='sm:w-full pr-4 pl-4'>
               <div className='widget-wrapper'>
-                <h6 className='list-title'>Structure Type</h6>
+                <h6 className='list-title dark:text-white'>Structure Type</h6>
                 <div className='form-style2 relative flex items-stretch w-full'>
                   <StructureType />
                 </div>
@@ -89,7 +89,7 @@ const AdvanceFilterModal = () => {
           <div className='flex flex-wrap '>
             <div className='w-full pr-4 pl-4'>
               <div className='widget-wrapper mb0'>
-                <h6 className='list-title mb10'>Amenities</h6>
+                <h6 className='list-title mb10 dark:text-white'>Amenities</h6>
               </div>
             </div>
             <Amenities numColumns={3} />
@@ -97,13 +97,13 @@ const AdvanceFilterModal = () => {
         </div>
         {/* End modal body */}
 
-        <div className='modal-footer justify-between'>
+        <div className='modal-footer justify-between '>
           <button
             className='reset-button'
             onClick={() => resetFilters()}
           >
-            <span className='flaticon-turn-back' />
-            <u>Reset all filters</u>
+            <span className='flaticon-turn-back dark:text-white' />
+            <u className='dark:text-white'>Reset all filters</u>
           </button>
           <div className='btn-area'>
             <button data-bs-dismiss='modal' type='submit' className='!flex !items-center !justify-center ud-btn btn-thm '>

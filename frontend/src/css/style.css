@@ -9,9 +9,75 @@
   font-family: 'Clarity City';
 }
 
-.search_input_header {
+.dark .recharts-layer circle{
+  fill: #eb6753 !important;
+}
+
+.dark .search_input_header {
   outline: none;
 }
+
+.dark .recharts-default-tooltip p{
+  color: white;
+}
+
+.dark .recharts-default-tooltip{
+  background-color:  #181a20 !important;
+  border:  1px solid transparent !important;
+}
+
+.dashboard-phone-link .fill-svg path{
+  fill: black;
+}
+.dashboard-phone-link:hover .fill-svg path{
+  fill: white;
+}
+
+.active-dashboard-phone-link .fill-svg path{
+  fill: white;
+}
+.dark .dashboard-phone-link .fill-svg{
+  fill: white;
+}
+.dark .dashboard-phone-link .fill-svg path{
+  fill: white;
+}
+.dark .dashboard-phone-link:hover .fill-svg path{
+  fill: white;
+}
+.dark .active-dashboard-phone-link .fill-svg path{
+  fill: white;
+}
+
+
+
+
+.dashboard-phone-link .stroke-svg path{
+  stroke: black;
+}
+.dashboard-phone-link:hover .stroke-svg path{
+  stroke: white;
+}
+
+.active-dashboard-phone-link .stroke-svg path{
+  stroke: white;
+}
+.dark .dashboard-phone-link .stroke-svg{
+  stroke: white;
+}
+.dark .dashboard-phone-link .stroke-svg path{
+  stroke: white;
+}
+.dark .dashboard-phone-link:hover .stroke-svg path{
+  stroke: white;
+}
+.dark .active-dashboard-phone-link .stroke-svg path{
+  stroke: white;
+}
+
+
+
+
 .search_input_header:focus-visible {
   outline: none !important;
   border: none;

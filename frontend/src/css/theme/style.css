@@ -609,9 +609,7 @@ li {
   margin-left: -195px !important;
   padding: 20px 30px;
   width: 280px;
-  -webkit-transform: translate(-35px, 66px) !important;
-  -ms-transform: translate(-35px, 66px) !important;
-  transform: translate(-35px, 66px) !important;
+  inset: none !important;
 }
 
 .user_setting .dropdown-menu .dropdown-item {
@@ -7884,6 +7882,14 @@ textarea:focus {
   width: 16px;
 }
 
+input+.checkmark::after{
+  opacity: 0;
+}
+input:checked+.checkmark::after{
+
+  opacity: 1;
+}
+
 .custom_checkbox .checkmark:after {
   content: "";
   position: absolute;
@@ -10880,13 +10886,33 @@ input:focus-visible {
   padding: 7px 12px;
 }
 
+.dark .selection label {
+  background-color: #212328;
+  color:white;
+  border: 2px solid transparent;
+  cursor: pointer;
+  display: inline-block;
+  font-family: var(--title-font-family);
+  font-weight: 600;
+  font-size: 13px;
+  outline: 1px solid #ddd;
+  margin-right: 1px;
+  padding: 7px 12px;
+}
+
 .selection input[type="radio"] {
   display: none;
 }
 
 .selection input[type="radio"]:checked~label {
   border: 2px solid #181a20;
-  outlinie: transparent;
+  outline: transparent;
+  z-index: 1;
+}
+
+.dark .selection input[type="radio"]:checked~label {
+  border: 2px solid #eb6753;
+  outline: transparent;
   z-index: 1;
 }
 
@@ -11841,6 +11867,13 @@ input:focus-visible {
   -webkit-box-shadow: 0px 6px 15px rgba(64, 79, 104, 0.05);
   -o-box-shadow: 0px 6px 15px rgba(64, 79, 104, 0.05);
   box-shadow: 0px 6px 15px rgba(64, 79, 104, 0.05);
+}
+
+.log-bg span{
+  color: #F1416C !important;
+}
+.log-bg:hover span{
+  color: #F1416C !important;
 }
 
 @media (max-width: 767.98px) {
