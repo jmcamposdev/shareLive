@@ -3,10 +3,10 @@ import RoomSimple from '../../common/Room/RoomSimple/RoomSimple'
 import RoomDetailed from '../../common/Room/RoomDetailed/RoomDetailed'
 import { PaginationContext } from '../../../context/PaginationContext'
 import { useContext } from 'react'
-import { RoomContext } from '../../../context/roomContext'
+import { RoomSearchContext } from '../../../context/RoomSearchContext'
 
 const RoomListings = ({ rooms, isGridView }) => {
-  const { loading } = useContext(RoomContext)
+  const { loading } = useContext(RoomSearchContext)
   const { pageData, itemsPerPage } = useContext(PaginationContext)
   const roomsData = pageData || rooms
 
@@ -18,7 +18,7 @@ const RoomListings = ({ rooms, isGridView }) => {
         <>
           {
             Array.from({ length: itemsPerPage }).map((_, index) => (
-              <RoomSimple key={_} loading />
+              <RoomSimple key={index} loading />
             ))
           }
         </>
@@ -29,7 +29,7 @@ const RoomListings = ({ rooms, isGridView }) => {
       <>
         {
           Array.from({ length: itemsPerPage }).map((_, index) => (
-            <RoomDetailed key={_} loading />
+            <RoomDetailed key={index} loading />
           ))
         }
       </>

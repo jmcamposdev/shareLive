@@ -1,11 +1,11 @@
-import { RoomProvider } from '../../../context/roomContext'
+import { RoomSearchProvider } from '../../../context/RoomSearchContext'
 import AdvanceFilterModal from '../../common/advance-filter/AdvancedFilterModal'
 import FeaturesList from './FeaturesList'
 import HeroContent from './HeroContent'
 
 const HomeHero = () => {
   return (
-    <RoomProvider roomsData={[]}>
+    <RoomSearchProvider roomsData={[]}>
       <section className='home-banner-style2 p0'>
         <div className='home-style2 relative'>
           <div className='absolute hidden dark:block w-full h-[200%] bottom-[-150%] dark:bg-lightmidnight left-0' />
@@ -45,7 +45,7 @@ const HomeHero = () => {
         </div>
       </section>
       <FeaturesList />
-    </RoomProvider>
+    </RoomSearchProvider>
   )
 }
 

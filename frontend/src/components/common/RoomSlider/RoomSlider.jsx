@@ -61,7 +61,7 @@ const RoomSlider = ({ rooms, loading }) => {
                 )
               : (
                   rooms.map((room) => (
-                    <SwiperSlide key={room.id}>
+                    <SwiperSlide key={room._id}>
                       <RoomSimple room={room} />
                     </SwiperSlide>
                   ))

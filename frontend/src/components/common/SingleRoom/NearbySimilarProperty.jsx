@@ -1,12 +1,13 @@
-import SingleRoomSlider from '../../common/SingleRoom/SingleRoomSlider'
-import SingleRoomPagination from '../../common/SingleRoom/SingleRoomPagination'
 import { useLocation } from '../../../context/LocationContext'
 import useRooms from '../../../hooks/useRooms'
 import { roomsNearYouFilter } from '../../../utils/roomsNearYour.utils'
+import RoomPagination from '../RoomSlider/RoomPagination'
+import RoomSlider from '../RoomSlider/RoomSlider'
 
-const NearbySimilarProperty = ({ rooms }) => {
+const NearbySimilarProperty = () => {
   const location = useLocation()
-  const { loading } = useRooms()
+  const { loading, rooms } = useRooms()
+
   const filteredRooms = roomsNearYouFilter(rooms, location)
   return (
     <>
@@ -22,11 +23,11 @@ const NearbySimilarProperty = ({ rooms }) => {
           </div>
           <div className='lg:w-1/4 w-auto pr-4 pl-4'>
             <div className='text-end sm:text-start mb-3'>
-              <SingleRoomPagination />
+              <RoomPagination />
             </div>
           </div>
         </div>
-        <SingleRoomSlider rooms={filteredRooms} loading={loading} />
+        <RoomSlider rooms={filteredRooms} loading={loading} />
       </div>
     </>
   )

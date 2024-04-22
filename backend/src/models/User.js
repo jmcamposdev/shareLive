@@ -39,7 +39,7 @@ const userSchema = new Schema({
   },
   favouriteRoomsIds: { type: [String], default: [] },
   ownerRoomsIds: { type: [String], default: [] },
-  joinDate: { type: Date, required: true },
+  joinDate: { type: Date, default: Date.now },
   roles: [
     {
       ref: 'Role',

@@ -23,24 +23,22 @@ const getRooms = (req, res) => {
  * @param {Object} req The request object
  * @param {Object} res The response object
  */
-const getRoom = (req, res) => {
-  const { id } = req.params
-  Room.findById(id)
-    .then((room) => {
-      if (!room) {
-        return res.status(404).json({
-          message: 'Room not found'
-        })
-      }
-
-      res.json(room)
-    })
-    .catch((error) => {
-      res.status(500).json({
-        message: 'An error occurred while getting a room',
-        error
+const getRoom = async (req, res) => {
+  try {
+    const { id } = req.params
+    const room = await Room.findById(id).populate('user')
+    if (!room) {
+      return res.status(404).json({
+        message: 'Room not found'
       })
+    }
+    res.json(room)
+  } catch (error) {
+    res.status(500).json({
+      message: 'An error occurred while getting a room',
+      error
     })
+  }
 }
 
 /**

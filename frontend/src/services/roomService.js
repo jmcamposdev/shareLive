@@ -11,6 +11,16 @@ const RoomService = {
     }
   },
 
+  getRoom: async (id) => {
+    try {
+      const room = await api.get(`rooms/${id}`)
+      return room
+    } catch (error) {
+      console.error('Error getting room:', error.message)
+      throw error
+    }
+  },
+
   createRoom: async (room) => {
     try {
       const newRoom = await api.post('rooms', room)

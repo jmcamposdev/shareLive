@@ -3,12 +3,12 @@ import Amenities from './Amenities'
 import Bedroom from '../../Rooms/ListingSidebar/Bedroom/Bedroom'
 import Bathroom from '../../Rooms/ListingSidebar/Bathroom/Bathroom'
 import { useContext } from 'react'
-import { RoomContext } from '../../../context/roomContext'
 import StructureType from './StructureType'
 import SquareFeet from '../../Rooms/ListingSidebar/SquareFeet/SquareFeet'
+import { RoomSearchContext } from '../../../context/RoomSearchContext'
 
 const AdvanceFilterModal = () => {
-  const { resetFilters } = useContext(RoomContext)
+  const { resetFilters } = useContext(RoomSearchContext)
 
   return (
     <div className='modal-dialog modal-dialog-centered modal-lg t'>

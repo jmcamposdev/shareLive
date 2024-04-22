@@ -2,12 +2,12 @@ import { useNavigate } from 'react-router-dom'
 import { useContext, useState } from 'react'
 import DebounceInput from '../../common/DebounceInput/DebounceInput'
 import useCities from '../../../hooks/useCities'
-import { RoomContext } from '../../../context/roomContext'
+import { RoomSearchContext } from '../../../context/RoomSearchContext'
 
 const HeroContent = () => {
   const navigate = useNavigate()
   const [visibleList, setVisibleList] = useState(false)
-  const { filterBy, filters } = useContext(RoomContext)
+  const { filterBy, filters } = useContext(RoomSearchContext)
   const [searchValue, setSearchValue] = useState('')
   const { cities, citiesLoading } = useCities({ searchValue })
 

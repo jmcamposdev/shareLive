@@ -1,8 +1,8 @@
 import { useContext } from 'react'
-import { RoomContext } from '../../../../context/roomContext'
+import { RoomSearchContext } from '../../../../context/RoomSearchContext'
 
 const SquareFeet = () => {
-  const { filters, filterBy } = useContext(RoomContext)
+  const { filters, filterBy } = useContext(RoomSearchContext)
   const { sqft } = filters
   return (
     <div className='space-area'>
