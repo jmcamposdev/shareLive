@@ -8,6 +8,7 @@ import { handleJsonSyntaxError } from './middlewares/index.js'
 
 // Import routes
 import roomsRoutes from './routes/rooms.routes.js'
+import usersRoutes from './routes/users.routes.js'
 import authRoutes from './routes/auth.routes.js'
 import connectDB from './database/db.js'
 
@@ -40,6 +41,7 @@ const apiV1Routes = Router()
 // Mounting routes
 apiV1Routes.use(roomsRoutes)
 apiV1Routes.use(authRoutes)
+apiV1Routes.use(usersRoutes)
 
 // Mount API v1 routes
 app.use('/api/v1', apiV1Routes)
