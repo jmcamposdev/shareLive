@@ -29,7 +29,7 @@ const PropertyFeaturesAminites = ({ amenities }) => {
               <div key={index} className='col-sm-6 col-md-4'>
                 <div className='pd-list'>
                   {column.map((amenity, i) => (
-                    <p key={i} className='text mb-0'>
+                    <p key={i} className='text mb-0 dark:text-white'>
                       <i className='fas fa-circle fz6 align-middle pe-2' />
                       {toNormalCase(amenity)}
                     </p>

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 
+import RoomSingleSkeleton from './RoomSingleSkeleton'
 import WebLayout from '../../../layout/WebLayout'
 import PropertyGallery from '../../../components/common/SingleRoom/PropertyGallery'
 import OverView from '../../../components/common/SingleRoom/Overview'
@@ -30,11 +31,13 @@ const RoomSingle = () => {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
+  if (loading) return <RoomSingleSkeleton />
+
   return (
     <>
       <WebLayout>
         {/* Property All Single V1 */}
-        <section className='pt-[87px] pb-[90px] bg-[#F7F7F7]'>
+        <section className='pt-[87px] pb-[90px] bg-[#F7F7F7] dark:bg-lightmidnight'>
           <div
             className={`hidden lg:block absolute h-[87px] w-full top-0 ${!isScrolled ? 'bg-midnight' : 'bg-transparent'
               }`}
@@ -43,9 +46,9 @@ const RoomSingle = () => {
             <div className='py-12 flex'>
               <Link
                 to='/rooms'
-                className='flex gap-3 items-center text-base back-link transition duration-300'
+                className='flex gap-3 items-center text-base back-link transition duration-300 dark:text-white dark:hover:text-orangePrimary'
               >
-                <svg className='transition duration-300' width='31' height='16' viewBox='0 0 31 16' fill='none' xmlns='http://www.w3.org/2000/svg'>
+                <svg className='transition duration-300 dark:stroke-white' width='31' height='16' viewBox='0 0 31 16' fill='none' xmlns='http://www.w3.org/2000/svg'>
                   <path d='M1 8.6001H31' stroke='inherit' strokeMiterlimit='10' />
                   <path d='M8.55556 16.1111L1 8.55556L8.55556 1' stroke='inherid' strokeMiterlimit='10' />
                 </svg>
@@ -69,8 +72,8 @@ const RoomSingle = () => {
 
             <div className='flex flex-wrap'>
               <div className='lg:w-2/3 pr-[12px] pl-[12px]'>
-                <div className='ps-widget bgc-white bdrs12 default-box-shadow2 p30 mb30 overflow-hidden relative'>
-                  <h4 className='title fz17 mb30'>Overview</h4>
+                <div className='ps-widget bgc-white bdrs12 default-box-shadow2 p30 mb30 overflow-hidden relative dark:bg-midnight'>
+                  <h4 className='title fz17 mb30 dark:text-white'>Overview</h4>
                   <div className='flex flex-wrap '>
                     <OverView
                       bedroom={room.bedrooms}
@@ -84,8 +87,8 @@ const RoomSingle = () => {
                 </div>
                 {/* End .ps-widget */}
 
-                <div className='ps-widget bgc-white bdrs12 default-box-shadow2 p30 mb30 overflow-hidden relative'>
-                  <h4 className='title fz17 mb30'>Property Description</h4>
+                <div className='ps-widget bgc-white bdrs12 default-box-shadow2 p30 mb30 overflow-hidden relative dark:bg-midnight'>
+                  <h4 className='title fz17 mb30 dark:text-white'>Property Description</h4>
                   <Description
                     description={room.description}
                     excerpt={room.excerpt}
@@ -94,16 +97,16 @@ const RoomSingle = () => {
                 </div>
                 {/* End .ps-widget */}
 
-                <div className='ps-widget bgc-white bdrs12 default-box-shadow2 p30 mb30 overflow-hidden relative'>
-                  <h4 className='title fz17 mb30'>Features &amp; Amenities</h4>
+                <div className='ps-widget bgc-white bdrs12 default-box-shadow2 p30 mb30 overflow-hidden relative dark:bg-midnight'>
+                  <h4 className='title fz17 mb30 dark:text-white'>Features &amp; Amenities</h4>
                   <div className='flex flex-wrap '>
                     <FeaturesAminites amenities={room.amenities} />
                   </div>
                 </div>
                 {/* End .ps-widget */}
 
-                <div className='ps-widget bgc-white bdrs12 default-box-shadow2 p30 mb30 overflow-hidden relative'>
-                  <h4 className='title fz17 mb30 mt30'>Address</h4>
+                <div className='ps-widget bgc-white bdrs12 default-box-shadow2 p30 mb30 overflow-hidden relative dark:bg-midnight'>
+                  <h4 className='title fz17 mb30 mt30 dark:text-white'>Address</h4>
                   <div className='flex flex-wrap gap-x-16'>
                     <Address
                       address={room.address}
@@ -119,9 +122,9 @@ const RoomSingle = () => {
                 </div>
                 {/* End .ps-widget */}
 
-                <div className='ps-widget bgc-white bdrs12 default-box-shadow2 p30 mb30 overflow-hidden relative'>
-                  <h4 className='title fz17 mb30'>Walkscore</h4>
-                  <div className='flex flex-wrap '>
+                <div className='ps-widget bgc-white bdrs12 default-box-shadow2 p30 mb30 overflow-hidden relative dark:bg-midnight'>
+                  <h4 className='title fz17 mb30 dark:text-white'>Walkscore</h4>
+                  <div className='flex flex-wrap dark:text-white'>
                     <WalkScore
                       address={room.address}
                       city={room.city}
@@ -138,16 +141,16 @@ const RoomSingle = () => {
 
               <div className='lg:w-1/3 pr-[12px] pl-[12px]'>
                 <div className='column'>
-                  <div className='default-box-shadow1 bdrs12 bdr1 p30 mb30-md bgc-white relative'>
-                    <h4 className='form-title mb-8'>Schedule a tour</h4>
+                  <div className='default-box-shadow1 bdrs12 bdr1 p30 mb30-md bgc-white relative dark:bg-midnight dark:border-borderColor/20'>
+                    <h4 className='form-title mb-8 dark:text-white'>Schedule a tour</h4>
                     <ScheduleTour id={1} />
                     {/* <ContactFormSingle title={'Schedule a tour'} /> */}
                   </div>
                   {/* End .Schedule a tour */}
 
-                  <div className='agen-personal-info default-box-shadow1 bdrs12 bdr1 p30 mb30-md bgc-white relative mt30'>
+                  <div className='agen-personal-info default-box-shadow1 bdrs12 bdr1 p30 mb30-md bgc-white relative mt30 dark:bg-midnight dark:border-borderColor/20'>
                     <div className='widget-wrapper !mb-0'>
-                      <h4 className='form-title mb-8'>Get More Information</h4>
+                      <h4 className='form-title mb-8 dark:text-white'>Get More Information</h4>
                       <ContactWithAgent user={room.user} />
                     </div>
                   </div>

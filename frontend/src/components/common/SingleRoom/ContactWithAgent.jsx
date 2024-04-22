@@ -10,7 +10,7 @@ const ContactWithAgent = ({ user }) => {
   const averageRating =
     totalReviews > 0
       ? user.reviews.reduce((acc, review) => acc + review.rating, 0) / totalReviews
-      : 0
+      : 'No Reviews'
 
   return (
     <>
@@ -25,20 +25,21 @@ const ContactWithAgent = ({ user }) => {
         </div>
         <div className='single-contant ml20 ml0-xs'>
           {/* Muestra el nombre del propietario */}
-          <h6 className='title mb-[10px]'>
+          <h6 className='title mb-[10px] dark:text-white'>
             {user.firstName} {user.lastName}
           </h6>
           <div className='agent-meta d-md-flex align-items-center'>
             {/* Muestra el número de teléfono del propietario */}
-            <a className='text fz15' href={`tel:${user.phone}`}>
-              <i className='flaticon-call pe-1' />
+            <a className='text fz15 dark:text-white dark:hover:text-orangePrimary' href={`tel:${user.phone}`}>
+              <i className='flaticon-call pe-1 ' />
               {user.phone || 'No phone'}
             </a>
           </div>
-          <span>
-            <i className='fas fa-star text-[#efcb0e] fz13' />
+          <span className='dark:text-white'>
+            <i className='fas fa-star text-[#efcb0e] dark:text-white fz13' />
             {'  '}
-            {averageRating.toFixed(1)} - {totalReviews} Reviews
+            {totalReviews > 0 ? `${averageRating.toFixed(1)} - ${totalReviews} Reviews ` : 'No Reviews Yet'}
+
           </span>
           {/* Puedes agregar aquí las reseñas del propietario si lo deseas */}
         </div>
