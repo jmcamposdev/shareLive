@@ -4,15 +4,19 @@ import RoomSimpleSkeleton from './RoomSimpleSkeleton'
 const RoomSimple = ({ room, loading = false }) => {
   if (loading) return <RoomSimpleSkeleton />
 
+  const linkUrl = `/rooms/${room._id}`
+
   return (
     <div className='item'>
       <div className='listing-style1 mb-0'>
         <div className='list-thumb'>
-          <img
-            className='cover'
-            src={room.images[0]}
-            alt={room.title}
-          />
+          <Link to={linkUrl}>
+            <img
+              className='cover'
+              src={room.images[0]}
+              alt={room.title}
+            />
+          </Link>
           <div className='list-price'>
             <i className='fa-light fa-camera pr-3' />
             {room.images.length}
@@ -20,7 +24,12 @@ const RoomSimple = ({ room, loading = false }) => {
         </div>
         <div className='list-content dark:bg-midnight'>
           <h6 className='list-title'>
-            <Link href='/sigle-v2' className='hover:!text-orangePrimary dark:text-white'>{room.title}</Link>
+            <Link
+              to={linkUrl}
+              className='hover:!text-orangePrimary dark:text-white'
+            >
+              {room.title}
+            </Link>
           </h6>
           <h6 className='list-title dark:text-white'>
             {room.price}€ / <span className='font-normal'>month</span>

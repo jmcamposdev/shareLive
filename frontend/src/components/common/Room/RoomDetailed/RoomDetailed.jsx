@@ -4,6 +4,8 @@ import RoomDetailedSkeleton from './RoomDetailedSkeleton'
 const RoomDetailed = ({ room, loading = false }) => {
   if (loading) return <RoomDetailedSkeleton />
 
+  const linkUrl = `/rooms/${room._id}`
+
   return (
     <div className='item'>
       <div className='listing-style1 listCustom listing-type flex-col md:flex-row'>
@@ -17,7 +19,12 @@ const RoomDetailed = ({ room, loading = false }) => {
         </div>
         <div className='list-content flex flex-col'>
           <h6 className='list-title'>
-            <Link href='/sigle-v2' className='hover:!text-orangePrimary'>{room.title}</Link>
+            <Link
+              to={linkUrl}
+              className='hover:!text-orangePrimary'
+            >
+              {room.title}
+            </Link>
           </h6>
           <p className='list-text'>
             <i className='fa-solid fa-location-dot pr-3' />
@@ -39,10 +46,13 @@ const RoomDetailed = ({ room, loading = false }) => {
           </p>
           <hr className='mt-auto mb-3 text-[#C5C6C7]' />
           <div className='flex justify-between'>
-            <a href='/' className='ud-btn btn-thm !text-[12px] !px-4 !py-1'>
+            <Link
+              to={linkUrl}
+              className='ud-btn btn-thm !text-[12px] !px-4 !py-1'
+            >
               Explore
               <i className='fal fa-arrow-right-long !text-[12px]' />
-            </a>
+            </Link>
             <div className='list-meta2 icons d-flex align-items-center'>
               <a href='#'><span className='flaticon-fullscreen' /></a>
               <a href='#'><span className='flaticon-like' /></a>
