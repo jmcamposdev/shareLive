@@ -10,11 +10,13 @@ const RoomDetailed = ({ room, loading = false }) => {
     <div className='item'>
       <div className='listing-style1 listCustom listing-type flex-col md:flex-row'>
         <div className='list-thumb'>
-          <img
-            className='cover'
-            src={room.images[0]}
-            alt={room.title}
-          />
+          <Link to={linkUrl}>
+            <img
+              className='cover'
+              src={room.images[0]}
+              alt={room.title}
+            />
+          </Link>
           <div className='list-price'>{room.price}€ / <span>mo</span></div>
         </div>
         <div className='list-content flex flex-col'>
