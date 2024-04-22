@@ -239,9 +239,9 @@ const PropertyGallery = ({ images }) => {
         {images.length === 2 && (
           <div className='flex gap-3 lg:h-[600px]'>
             <div className='w-1/2'>
-              <div className='sp-img-content mb15-md'>
+              <div className='sp-img-content mb15-md h-full'>
                 <div
-                  className='popup-img preview-img-2 sp-img !rounded-xl'
+                  className='popup-img preview-img-2 sp-img !rounded-xl h-full'
                 >
                   <Item
                     original={images[0]}
@@ -266,9 +266,9 @@ const PropertyGallery = ({ images }) => {
               </div>
             </div>
             <div className='w-1/2'>
-              <div className='sp-img-content mb15-md'>
+              <div className='sp-img-content mb15-md h-full'>
                 <div
-                  className='popup-img preview-img-3 sp-img !rounded-xl'
+                  className='popup-img preview-img-3 sp-img !rounded-xl h-full'
                 >
                   <Item
                     original={images[1]}
