@@ -3,13 +3,13 @@ const ProperytyDescriptions = ({ description, excerpt }) => {
     <>
       <div className='overview-element flex items-center'>
         <div>
-          <p className='text mb10 dark:text-white'>{excerpt}</p>
+          <p className='text mb10'>{excerpt}</p>
           <div className='agent-single-accordion'>
             <div
               className='accordion accordion-flush'
               id='accordionFlushExample'
             >
-              <div className='accordion-item dark:bg-midnight'>
+              <div className='accordion-item'>
                 <div
                   id='flush-collapseOne'
                   className='accordion-collapse collapse'
@@ -18,12 +18,12 @@ const ProperytyDescriptions = ({ description, excerpt }) => {
                   style={{}}
                 >
                   <div className='accordion-body p-0'>
-                    <p className='text dark:text-white'>{description}</p>
+                    <p className='text'>{description}</p>
                   </div>
                 </div>
-                <h2 className='accordion-header dark:text-white' id='flush-headingOne'>
+                <h2 className='accordion-header' id='flush-headingOne'>
                   <button
-                    className='accordion-button p-0 collapsed dark:text-white'
+                    className='accordion-button p-0 collapsed'
                     type='button'
                     data-bs-toggle='collapse'
                     data-bs-target='#flush-collapseOne'
