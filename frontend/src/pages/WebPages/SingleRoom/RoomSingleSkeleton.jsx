@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react'
 
+import LoadingSkeleton from '../../../components/common/Loading/LoadingSkeleton'
+
 import WebLayout from '../../../layout/WebLayout'
 import PropertyGallerySkeleton from '../../../components/common/SingleRoom/PropertyGallerySkeleton'// si si
 import OverViewSkeleton from '../../../components/common/SingleRoom/OverViewSkeleton'// si si
@@ -37,16 +39,11 @@ const RoomSingleSkeleton = () => {
         />
         <div className='container'>
           <div className='py-12 flex'>
-            <Link
-              to='/rooms'
+            <div
               className='flex gap-3 items-center text-base back-link transition duration-300 dark:text-white dark:hover:text-orangePrimary'
             >
-              <svg className='transition duration-300 dark:stroke-white' width='31' height='16' viewBox='0 0 31 16' fill='none' xmlns='http://www.w3.org/2000/svg'>
-                <path d='M1 8.6001H31' stroke='inherit' strokeMiterlimit='10' />
-                <path d='M8.55556 16.1111L1 8.55556L8.55556 1' stroke='inherid' strokeMiterlimit='10' />
-              </svg>
-              BACK
-            </Link>
+              <LoadingSkeleton className='w-20 h-6' />
+            </div>
           </div>
           <div className='flex flex-wrap mb-[30px]'>
             <PropertyGallerySkeleton />

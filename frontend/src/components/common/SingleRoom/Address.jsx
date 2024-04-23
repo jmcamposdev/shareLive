@@ -10,7 +10,7 @@ const PropertyAddress = ({
 }) => {
   return (
     <>
-      <div className='col-md-6 col-xl-4 flex-1 mb-3 sm:mb-0'>
+      <div className='w-full md:w-1/2 md:flex-1 mb-3 sm:mb-0'>
         <div className='d-flex justify-content-between'>
           <div className='pd-list'>
             <p className='fw600 mb10 ff-heading dark-color dark:text-white'>Address</p>

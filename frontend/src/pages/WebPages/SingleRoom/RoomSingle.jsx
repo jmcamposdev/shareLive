@@ -72,9 +72,9 @@ const RoomSingle = () => {
 
             <div className='flex flex-wrap'>
               <div className='lg:w-2/3 pr-[12px] pl-[12px]'>
-                <div className='ps-widget bgc-white bdrs12 default-box-shadow2 p30 mb30 overflow-hidden relative dark:bg-midnight'>
+                <div className=' ps-widget bgc-white bdrs12 default-box-shadow2 p30 mb30 overflow-hidden relative dark:bg-midnight'>
                   <h4 className='title fz17 mb30 dark:text-white'>Overview</h4>
-                  <div className='flex flex-wrap '>
+                  <div className='flex flex-wrap'>
                     <OverView
                       bedroom={room.bedrooms}
                       bath={room.bathrooms}
@@ -107,7 +107,7 @@ const RoomSingle = () => {
 
                 <div className='ps-widget bgc-white bdrs12 default-box-shadow2 p30 mb30 overflow-hidden relative dark:bg-midnight'>
                   <h4 className='title fz17 mb30 mt30 dark:text-white'>Address</h4>
-                  <div className='flex flex-wrap gap-x-16'>
+                  <div className='flex !flex-wrap gap-x-16'>
                     <Address
                       address={room.address}
                       city={room.city}
@@ -142,7 +142,7 @@ const RoomSingle = () => {
               <div className='lg:w-1/3 pr-[12px] pl-[12px]'>
                 <div className='column'>
                   <div className='default-box-shadow1 bdrs12 bdr1 p30 mb30-md bgc-white relative dark:bg-midnight dark:border-borderColor/20'>
-                    <h4 className='form-title mb-8 dark:text-white'>Schedule a tour</h4>
+                    <h4 className='form-title dark:text-white !mb-[32px]'>Schedule a tour</h4>
                     <ScheduleTour id={1} />
                     {/* <ContactFormSingle title={'Schedule a tour'} /> */}
                   </div>
@@ -150,7 +150,7 @@ const RoomSingle = () => {
 
                   <div className='agen-personal-info default-box-shadow1 bdrs12 bdr1 p30 mb30-md bgc-white relative mt30 dark:bg-midnight dark:border-borderColor/20'>
                     <div className='widget-wrapper !mb-0'>
-                      <h4 className='form-title mb-8 dark:text-white'>Get More Information</h4>
+                      <h4 className='form-title mb-[32px] dark:text-white'>Get More Information</h4>
                       <ContactWithAgent user={room.user} />
                     </div>
                   </div>

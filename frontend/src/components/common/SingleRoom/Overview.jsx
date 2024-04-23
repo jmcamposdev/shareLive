@@ -1,7 +1,7 @@
 const OverView = ({ bedroom, bath, yearbuilt, garage, squareMeters, propertytype }) => {
   return (
     <>
-      <div className='col-sm-6 col-lg-4'>
+      <div className='col-sm-6 col-lg-4 w-full sm:w-1/2'>
         <div className='overview-element mb25 d-flex align-items-center'>
           <span className='icon flaticon-bed !leading-[55px] dark:border-borderColor/20 dark:text-white' />
           <div className='ml15'>
@@ -10,7 +10,7 @@ const OverView = ({ bedroom, bath, yearbuilt, garage, squareMeters, propertytype
           </div>
         </div>
       </div>
-      <div className='col-sm-6 col-lg-4'>
+      <div className='col-sm-6 col-lg-4 w-full sm:w-1/2'>
         <div className='overview-element mb25 d-flex align-items-center'>
           <span className='icon flaticon-shower !leading-[55px] dark:border-borderColor/20 dark:text-white' />
           <div className='ml15'>
@@ -19,7 +19,7 @@ const OverView = ({ bedroom, bath, yearbuilt, garage, squareMeters, propertytype
           </div>
         </div>
       </div>
-      <div className='col-sm-6 col-lg-4'>
+      <div className='col-sm-6 col-lg-4 w-full sm:w-1/2'>
         <div className='overview-element mb25 d-flex align-items-center'>
           <span className='icon flaticon-event !leading-[55px] dark:border-borderColor/20 dark:text-white' />
           <div className='ml15'>
@@ -28,7 +28,7 @@ const OverView = ({ bedroom, bath, yearbuilt, garage, squareMeters, propertytype
           </div>
         </div>
       </div>
-      <div className='col-sm-6 col-lg-4'>
+      <div className='col-sm-6 col-lg-4 w-full sm:w-1/2'>
         <div className='overview-element mb25-xs d-flex align-items-center'>
           <span className='icon flaticon-garage !leading-[55px] dark:border-borderColor/20 dark:text-white' />
           <div className='ml15'>
@@ -37,7 +37,7 @@ const OverView = ({ bedroom, bath, yearbuilt, garage, squareMeters, propertytype
           </div>
         </div>
       </div>
-      <div className='col-sm-6 col-lg-4'>
+      <div className='col-sm-6 col-lg-4 w-full sm:w-1/2'>
         <div className='overview-element mb25-xs d-flex align-items-center'>
           <span className='icon flaticon-expand !leading-[55px] dark:border-borderColor/20 dark:text-white' />
           <div className='ml15'>
@@ -46,7 +46,7 @@ const OverView = ({ bedroom, bath, yearbuilt, garage, squareMeters, propertytype
           </div>
         </div>
       </div>
-      <div className='col-sm-6 col-lg-4'>
+      <div className='col-sm-6 col-lg-4 w-full sm:w-1/2'>
         <div className='overview-element d-flex align-items-center'>
           <span className='icon flaticon-home-1 !leading-[55px] dark:border-borderColor/20 dark:text-white' />
           <div className='ml15'>
