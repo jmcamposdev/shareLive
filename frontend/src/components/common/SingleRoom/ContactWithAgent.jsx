@@ -25,20 +25,20 @@ const ContactWithAgent = ({ user }) => {
         </div>
         <div className='single-contant ml20 ml0-xs'>
           {/* Muestra el nombre del propietario */}
-          <h6 className='title mb-[10px]'>
+          <h6 className='title mb-[10px] dark:text-white'>
             {user.firstName} {user.lastName}
           </h6>
           <div className='agent-meta d-md-flex align-items-center'>
             {/* Muestra el número de teléfono del propietario */}
-            <a className='text fz15' href={`tel:${user.phone}`}>
+            <a className='text fz15 dark:text-white dark:hover:text-[#eb6753]' href={`tel:${user.phone}`}>
               <i className='flaticon-call pe-1' />
               {user.phone || 'No phone'}
             </a>
           </div>
           <span>
-            <i className='fas fa-star text-[#efcb0e] fz13' />
+            <i className='fas fa-star text-[#efcb0e] fz13 ' />
             {'  '}
-            {averageRating.toFixed(1)} - {totalReviews} Reviews
+            <span className='dark:text-white'>{averageRating.toFixed(1)} - {totalReviews} Reviews</span>
           </span>
           {/* Puedes agregar aquí las reseñas del propietario si lo deseas */}
         </div>
@@ -47,7 +47,7 @@ const ContactWithAgent = ({ user }) => {
 
       <div className='d-grid'>
         {/* El enlace puede dirigirse a la página del agente o a un formulario de contacto */}
-        <Link to={`/agent-single/${user._id}`} className='ud-btn btn-white2'>
+        <Link to={`/agent-single/${user._id}`} className='ud-btn btn-white2 dark:text-white'>
           Contact Owner
           <i className='fal fa-arrow-right-long' />
         </Link>
