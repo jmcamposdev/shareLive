@@ -57,9 +57,11 @@ const RoomSingleSkeleton = () => {
           {/* End .row */}
 
           <div className='flex flex-wrap'>
-            <div className='lg:w-2/3 pr-[12px] pl-[12px]'>
+            <div className='w-full lg:w-2/3 pr-[12px] pl-[12px]'>
               <div className='ps-widget bgc-white bdrs12 default-box-shadow2 p30 mb30 overflow-hidden relative dark:bg-midnight'>
-                <h4 className='title fz17 mb30 dark:text-white'>Overview</h4>
+                <h4 className='title fz17 mb30 dark:text-white'>
+                  <LoadingSkeleton className='w-1/4 h-[25.5px]' />
+                </h4>
                 <div className='flex flex-wrap '>
                   <OverViewSkeleton />
                 </div>
@@ -67,14 +69,18 @@ const RoomSingleSkeleton = () => {
               {/* End .ps-widget */}
 
               <div className='ps-widget bgc-white bdrs12 default-box-shadow2 p30 mb30 overflow-hidden relative dark:bg-midnight'>
-                <h4 className='title fz17 mb30 dark:text-white'>Property Description</h4>
+                <h4 className='title fz17 mb30 dark:text-white'>
+                  <LoadingSkeleton className='h-[25.5px] w-2/5' />
+                </h4>
                 <DescriptionSkeleton />
                 {/* End property description */}
               </div>
               {/* End .ps-widget */}
 
               <div className='ps-widget bgc-white bdrs12 default-box-shadow2 p30 mb30 overflow-hidden relative dark:bg-midnight'>
-                <h4 className='title fz17 mb30 dark:text-white'>Features &amp; Amenities</h4>
+                <h4 className='title fz17 mb30 dark:text-white'>
+                  <LoadingSkeleton className='h-[25.5px] w-2/5' />
+                </h4>
                 <div className='flex flex-wrap '>
                   <FeaturesAminitesSkeleton />
                 </div>
@@ -82,7 +88,9 @@ const RoomSingleSkeleton = () => {
               {/* End .ps-widget */}
 
               <div className='ps-widget bgc-white bdrs12 default-box-shadow2 p30 mb30 overflow-hidden relative dark:bg-midnight'>
-                <h4 className='title fz17 mb30 mt30 dark:text-white'>Address</h4>
+                <h4 className='title fz17 mb30 mt30 dark:text-white'>
+                  <LoadingSkeleton className='h-[25.5px] w-1/5' />
+                </h4>
                 <div className='flex flex-wrap gap-x-16'>
                   <AddressSkeleton />
                 </div>
@@ -90,27 +98,35 @@ const RoomSingleSkeleton = () => {
               {/* End .ps-widget */}
 
               <div className='ps-widget bgc-white bdrs12 default-box-shadow2 p30 mb30 overflow-hidden relative dark:bg-midnight'>
-                <h4 className='title fz17 mb30 dark:text-white'>Walkscore</h4>
+                <h4 className='title fz17 mb30 dark:text-white'>
+                  <LoadingSkeleton className='h-[25.5px] w-2/5' />
+                </h4>
                 <div className='flex flex-wrap dark:text-white'>
-                  <WalkScoreSkeleton />
+                  <div className='col-md-12 flex flex-col sm:block justify-center items-center w-full'>
+                    <h4 className='fw400 mb20 dark:text-white w-full'>
+                      <LoadingSkeleton className='h-[25.5px] w-4/5' />
+                    </h4>
+                    <WalkScoreSkeleton />
+                  </div>
                 </div>
               </div>
               {/* End .ps-widget */}
             </div>
             {/* End .col-8 */}
 
-            <div className='lg:w-1/3 pr-[12px] pl-[12px]'>
+            <div className='w-full lg:w-1/3 pr-[12px] pl-[12px]'>
               <div className='column'>
                 <div className='default-box-shadow1 bdrs12 bdr1 p30 mb30-md bgc-white relative dark:bg-midnight dark:border-borderColor/20'>
-                  <h4 className='form-title mb-8 dark:text-white'>Schedule a tour</h4>
+                  <h4 className='form-title dark:text-white !mb-[32px]'><LoadingSkeleton className='h-[25.5px] w-36' /></h4>
                   <ScheduleTourSkeleton />
-                  {/* <ContactFormSingle title={'Schedule a tour'} /> */}
                 </div>
-                {/* End .Schedule a tour */}
+                {/* End Schedule a tour */}
 
                 <div className='agen-personal-info default-box-shadow1 bdrs12 bdr1 p30 mb30-md bgc-white relative mt30 dark:bg-midnight dark:border-borderColor/20'>
-                  <div className='widget-wrapper !mb-0'>
-                    <h4 className='form-title mb-8 dark:text-white'>Get More Information</h4>
+                  <div className='widget-wrapper'>
+                    <h4 className='form-title !mb-8 dark:text-white'>
+                      <LoadingSkeleton className='h-[25.5px] max-w-44' />
+                    </h4>
                     <ContactWithAgentSkeleton />
                   </div>
                 </div>

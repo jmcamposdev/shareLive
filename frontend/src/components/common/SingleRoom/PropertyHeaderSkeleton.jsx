@@ -13,15 +13,15 @@ const PropertyHeaderSkeleton = () => {
       </div>
       {/* End .col-lg--8 */}
 
-      <div className='flex-[0_0_auto] w-full md:w-1/3 px-[12px]'>
+      <div className='flex-[0_0_auto] w-full md:w-1/3 px-[12px] ml-auto'>
         <div className='single-property-content'>
           <div className='property-action lg:text-right'>
-            <div className='flex mb-[20px] mb10-md items-center justify-start lg:justify-end'>
+            <div className='flex mb-[20px] mb10-md items-center justify-start lg:justify-end w-fit ml-0 lg:ml-auto'>
               <LoadingSkeleton className='h-[35px] w-[35px] mr-[10px]' innerClasses='rounded-md' />
               <LoadingSkeleton className='h-[35px] w-[35px] mr-[10px]' innerClasses='rounded-md' />
             </div>
             <h3 className='price mb15 dark:text-white'>
-              <LoadingSkeleton className='h-7 w-3/5 ml-auto' />
+              <LoadingSkeleton className='h-7 w-3/5 lg:ml-auto mr-auto lg:mr-0' />
             </h3>
           </div>
         </div>

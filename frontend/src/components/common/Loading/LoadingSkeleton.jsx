@@ -9,7 +9,8 @@ const LoadingSkeleton = ({ className, innerClasses }) => {
 }
 
 LoadingSkeleton.propTypes = {
-  className: PropTypes.string
+  className: PropTypes.string,
+  innerClasses: PropTypes.string
 }
 
 export default LoadingSkeleton

@@ -7,30 +7,27 @@ const RoomSimpleSkeleton = () => {
       <div className='listing-style1 mb-0 dark:bg-midnight'>
         <div className='list-thumb'>
           <LoadingImg className='h-80' />
-          <div className='list-price flex justify-center items-center dark:bg-midnight/80'>
-            <i className='fa-light fa-camera pr-3 dark:text-white' />
-            <LoadingSkeleton className='w-5 h-4 d-inline-block' />
-          </div>
+          <LoadingSkeleton innerClasses='rounded-[6px]' className='absolute bottom-5 left-5 shadow-sm !p-0 w-[72px] h-[33px]' />
         </div>
         <div className='list-content dark:bg-midnight'>
           <h6 className='list-title'>
             <LoadingSkeleton className='w-52 h-6' />
           </h6>
           <h6 className='list-title flex gap-2 !mb-0'>
-            <LoadingSkeleton className='w-24 h-4' /> / <span className='font-normal'>month</span>
+            <LoadingSkeleton className='w-40 h-4' />
           </h6>
-          <div className='list-text flex items-center'>
-            <i className='fa-solid fa-location-dot pr-3' /> <LoadingSkeleton className='w-48 h-4' />
+          <div className='list-text flex items-center mt-[5px]'>
+            <LoadingSkeleton className='w-56 h-4' />
           </div>
-          <div className='list-meta d-flex align-items-center'>
-            <a className='text-[#717171] flex justify-center items-center'>
-              <span className='flaticon-bed text-[#717171]' /> <LoadingSkeleton className='w-5 h-4 mr-1' /> bed
+          <div className='list-meta d-flex align-items-center gap-1'>
+            <a className='text-[#717171] flex justify-center items-center !m-0'>
+              <LoadingSkeleton className='w-16 h-4 mr-1' />
             </a>
-            <a className='text-[#717171] flex justify-center items-center'>
-              <span className='flaticon-shower text-[#717171]' /> <LoadingSkeleton className='w-5 h-4 mr-1' /> bath
+            <a className='text-[#717171] flex justify-center items-center !m-0'>
+              <LoadingSkeleton className='w-16 h-4 mr-1' />
             </a>
-            <a className='text-[#717171] flex justify-center items-center'>
-              <span className='flaticon-expand text-[#717171]' /> <LoadingSkeleton className='w-5 h-4 mr-1' /> sqft
+            <a className='text-[#717171] flex justify-center items-center !m-0'>
+              <LoadingSkeleton className='w-16 h-4 mr-1' />
             </a>
           </div>
         </div>
