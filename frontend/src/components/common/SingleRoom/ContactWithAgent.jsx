@@ -5,16 +5,6 @@ import { getAvatarImage } from '../../../utils/user.utils'
 
 const ContactWithAgent = ({ user }) => {
   if (!user) return null
-<<<<<<< HEAD
-  const avatarImage = user.avatar !== '' ? user.avatar : getImageURL('users/defaultAvatar.jpg')
-  // Calcular la media de las calificaciones
-  const totalReviews = user.reviews.length
-  const averageRating =
-    totalReviews > 0
-      ? user.reviews.reduce((acc, review) => acc + review.rating, 0) / totalReviews
-      : 'No Reviews'
-=======
->>>>>>> 7d4e4983cb9875d27af3770a21e045d072f4c380
 
   return (
     <>
@@ -39,16 +29,7 @@ const ContactWithAgent = ({ user }) => {
               {user.phone || 'No phone'}
             </a>
           </div>
-<<<<<<< HEAD
-          <span className='dark:text-white'>
-            <i className='fas fa-star text-[#efcb0e] dark:text-white fz13' />
-            {'  '}
-            {totalReviews > 0 ? `${averageRating.toFixed(1)} - ${totalReviews} Reviews ` : 'No Reviews Yet'}
-
-          </span>
-=======
           <UserReviewsStats user={user} />
->>>>>>> 7d4e4983cb9875d27af3770a21e045d072f4c380
           {/* Puedes agregar aquí las reseñas del propietario si lo deseas */}
         </div>
       </div>
