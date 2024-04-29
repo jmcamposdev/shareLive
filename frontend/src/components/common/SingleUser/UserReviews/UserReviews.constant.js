@@ -1,0 +1,18 @@
+export const USER_REVIEWS_ORDER = {
+  NEWEST: 'NEWEST',
+  OLDEST: 'OLDEST',
+  HIGHEST_RATING: 'HIGHEST_RATING',
+  LOWEST_RATING: 'LOWEST_RATING'
+}
+
+export const USER_REVIEWS_ORDER_LABEL = {
+  NEWEST: 'Newest',
+  OLDEST: 'Oldest',
+  HIGHEST_RATING: 'Highest Rating',
+  LOWEST_RATING: 'Lowest Rating'
+}
+
+export const REVIEW_HELP_STATES = {
+  HELPFUL: 'HELPFUL',
+  NOT_HELPFUL: 'NOT_HELPFUL'
+}
