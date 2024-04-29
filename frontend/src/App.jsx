@@ -12,8 +12,6 @@ import '../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js'
 import Rooms from './pages/WebPages/Rooms/Rooms.jsx'
 import DashboardHome from './pages/Dashboard/DashboardHome/DashboardHome.jsx'
 import DshSearchRooms from './pages/Dashboard/DshSearchRooms/DshSearchRooms.jsx'
-import usersItems from './data/usersItems.js'
-import RoomItems from './data/roomsItems.js'
 import { ToastContainer } from 'react-toastify'
 import { useEffect, useState } from 'react'
 import AuthProvider from './context/AuthContext.jsx'
@@ -21,6 +19,7 @@ import RequireAuth from './features/auth/RequireAuth.jsx'
 import { ROLES } from './constants/roles.constants.js'
 import RoomSingle from './pages/WebPages/SingleRoom/RoomSingle.jsx'
 import { RoomSingleProvider } from './context/RoomSingleContext.jsx'
+import { UserSingleProvider } from './context/UserSingleContext.jsx'
 
 function App () {
   const [isDarkMode, setIsDarkMode] = useState(false)
@@ -52,11 +51,17 @@ function App () {
         <Route
           path='rooms/:id' element={
             <RoomSingleProvider>
-              <RoomSingle room={RoomItems[0]} rooms={RoomItems} users={usersItems} />
+              <RoomSingle />
             </RoomSingleProvider>
             }
         />
-        <Route path='users/:id' element={<UserSingle user={usersItems[0]} rooms={RoomItems} />} />
+        <Route
+          path='users/:id' element={
+            <UserSingleProvider>
+              <UserSingle />
+            </UserSingleProvider>
+        }
+        />
         {/* Autentication */}
         <Route path='login' element={<Login />} />
         <Route path='register' element={<Register />} />
