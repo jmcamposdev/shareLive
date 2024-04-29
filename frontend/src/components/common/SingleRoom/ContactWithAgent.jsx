@@ -19,13 +19,13 @@ const ContactWithAgent = ({ user }) => {
         </div>
         <div className='single-contant ml20 ml0-xs'>
           {/* Muestra el nombre del propietario */}
-          <h6 className='title mb-[10px]'>
+          <h6 className='title mb-[10px] dark:text-white'>
             {user.firstName} {user.lastName}
           </h6>
           <div className='agent-meta d-md-flex align-items-center'>
             {/* Muestra el número de teléfono del propietario */}
-            <a className='text fz15' href={`tel:${user.phone}`}>
-              <i className='flaticon-call pe-1' />
+            <a className='text fz15 dark:text-white dark:hover:text-orangePrimary' href={`tel:${user.phone}`}>
+              <i className='flaticon-call pe-1 ' />
               {user.phone || 'No phone'}
             </a>
           </div>

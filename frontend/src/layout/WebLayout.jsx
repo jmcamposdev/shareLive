@@ -5,28 +5,35 @@ import Chevron from '../components/common/chevron/Chevron'
 
 function WebLayout ({ children }) {
   return (
-    <div className='relative'>
+    <>
+      {/*
+        Background for the phone header, the mobile menu is opaque in dark mode and if this element
+        is not present the user can see the white background of the body
+      */}
+      <div className='fixed top-0 w-full h-[65px] bg-midnight lg:hidden' />
+      <div className='relative'>
 
-      {/* Main Header Nav */}
-      <div className='w-full h-[70px] bg-midnight absolute' />
-      <Header />
-      {/* End Main Header Nav */}
+        {/* Main Header Nav */}
+        <Header />
+        {/* End Main Header Nav */}
 
-      {/* Mobile Nav  */}
-      <MobileMenu />
-      {/* End Mobile Nav  */}
+        {/* Mobile Nav  */}
 
-      {/* All Content */}
-      <main>
-        {children}
-      </main>
-      {/* End All Content */}
+        <MobileMenu />
+        {/* End Mobile Nav  */}
 
-      {/* Start Our Footer */}
-      <WebFooter />
-      {/* End Our Footer */}
-      <Chevron />
-    </div>
+        {/* All Content */}
+        <main>
+          {children}
+        </main>
+        {/* End All Content */}
+
+        {/* Start Our Footer */}
+        <WebFooter />
+        {/* End Our Footer */}
+        <Chevron />
+      </div>
+    </>
   )
 }
 

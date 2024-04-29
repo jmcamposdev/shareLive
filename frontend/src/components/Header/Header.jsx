@@ -9,6 +9,18 @@ import MainMenu from '../common/MainMenu'
 const Header = () => {
   const [navbar, setNavbar] = useState(false)
 
+  // Variable to know if the user scrolled the page
+  const [isScrolled, setIsScrolled] = useState(false)
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = window.scrollY || document.documentElement.scrollTop
+      setIsScrolled(scrollTop > 0)
+    }
+
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
   const changeBackground = () => {
     if (window.scrollY >= 10) {
       setNavbar(true)
@@ -27,10 +39,12 @@ const Header = () => {
   return (
     <>
       <header
-        className={`header-nav nav-homepage-style at-home2  main-menu !z-50 dark:!bg-midnight/90 ${
+        className={`relative header-nav nav-homepage-style at-home2  main-menu !z-50 dark:!bg-midnight/90 ${
           navbar ? 'sticky slideInDown animated' : ''
         }`}
       >
+        {/* If the page is not scrolled the nav wil have this background color */}
+        <div className={`hidden lg:block absolute h-[87px] w-full top-0 ${!isScrolled ? 'bg-midnight' : 'bg-transparent'}`} />
         <nav className='posr'>
           <div className='container mx-auto sm:px-4 maxw1600 posr'>
             <div className='flex flex-wrap  items-center justify-between'>
@@ -68,12 +82,6 @@ const Header = () => {
 
               <div className='col-auto'>
                 <div className='flex items-center'>
-                  <form className='flex items-center justify-center gap-2'>
-                    <input className={`search_input_header border-b px-3 bg-transparent dark:!text-white dark:!border-white ${navbar ? 'border-black text-black' : 'border-white text-white'}`} type='text' name='search' id='search' placeholder='Search' />
-                    <button type='submit' className='flex items-center justify-center'>
-                      <span className='flaticon-search text-[16px] dark:!text-white' />
-                    </button>
-                  </form>
                   <Link
                     className='ud-btn add-property menu-btn bdrs60 mx-2 xl:mx-6 dark:!text-white dark:!border-white '
                     to='/dashboard-add-property'
@@ -85,7 +93,7 @@ const Header = () => {
                     to='/login'
                     className='login-info flex items-center'
                   >
-                    <i className='far fa-user-circle fz16 me-2 dark:!text-white' />{' '}
+                    <i className='ml-[8px] far fa-user-circle fz16 me-2 dark:!text-white' />{' '}
                     <span className='hidden xl:block dark:!text-white'>Login / Register</span>
                   </Link>
                   <DarkModeSwitcher />

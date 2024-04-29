@@ -1,4 +1,3 @@
-import React, { useState, useEffect } from 'react'
 import { Formik, Form, Field, ErrorMessage } from 'formik'
 import * as Yup from 'yup'
 import WebLayout from '../../../layout/WebLayout'
@@ -32,23 +31,9 @@ const Login = () => {
     }
   }
 
-  // Variable to know if the user scrolled the page
-  const [isScrolled, setIsScrolled] = useState(false)
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollTop = window.scrollY || document.documentElement.scrollTop
-      setIsScrolled(scrollTop > 0)
-    }
-
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
-
   return (
     <WebLayout>
       <section className='our-compare pt120 pb120 relative dark:bg-lightmidnight'>
-        {/* If the page is not scrolled the nav wil have this background color */}
-        <div className={`hidden lg:block absolute h-[87px] w-full top-0 ${!isScrolled ? 'bg-midnight' : 'bg-transparent'}`} />
         <img
           alt='logo'
           data-aos='fade-right'

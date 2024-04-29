@@ -1,9 +1,13 @@
-const ProperytyDescriptions = ({ description, excerpt }) => {
+import LoadingSkeleton from '../Loading/LoadingSkeleton'
+
+const DescriptionSkeleton = () => {
   return (
     <>
       <div className='overview-element flex items-center'>
-        <div>
-          <p className='text mb10 dark:text-white'>{excerpt}</p>
+        <div className='w-full'>
+          <p className='text mb10 dark:text-white w-4/5'>
+            <LoadingSkeleton className='w-full h-[18px]' />
+          </p>
           <div className='agent-single-accordion'>
             <div
               className='accordion accordion-flush'
@@ -18,7 +22,7 @@ const ProperytyDescriptions = ({ description, excerpt }) => {
                   style={{}}
                 >
                   <div className='accordion-body p-0 dark:bg-midnight'>
-                    <p className='text dark:text-white'>{description}</p>
+                    <p className='text dark:text-white' />
                   </div>
                 </div>
                 <h2 className='accordion-header' id='flush-headingOne'>
@@ -30,7 +34,7 @@ const ProperytyDescriptions = ({ description, excerpt }) => {
                     aria-expanded='false'
                     aria-controls='flush-collapseOne'
                   >
-                    Show more
+                    <LoadingSkeleton className='w-[80px] h-[20px]' />
                   </button>
                 </h2>
               </div>
@@ -42,4 +46,4 @@ const ProperytyDescriptions = ({ description, excerpt }) => {
   )
 }
 
-export default ProperytyDescriptions
+export default DescriptionSkeleton
