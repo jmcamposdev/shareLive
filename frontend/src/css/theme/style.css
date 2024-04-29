@@ -5008,7 +5008,7 @@ li {
   }
 }
 
-.review_cansel_btns a {
+.review_cansel_btns button {
   color: #717171;
   font-family: var(--title-font-family);
   line-height: 26px;
@@ -5016,11 +5016,11 @@ li {
   margin-right: 30px;
 }
 
-.review_cansel_btns a:last-child {
+.review_cansel_btns button:last-child {
   margin-right: 0;
 }
 
-.review_cansel_btns a:hover {
+.review_cansel_btns button:hover {
   color: var(--headings-color);
 }
 

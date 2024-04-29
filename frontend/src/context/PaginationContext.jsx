@@ -33,7 +33,6 @@ export const PaginationProvider = ({ presetData = [], defaultItemsPerPage = 5, a
 
   // Función para desplazarse al elemento #roomListing
   const scrollToRoomListing = () => {
-    console.log(anchor)
     const roomListingElement = document.getElementById(anchor)
     if (roomListingElement) {
       roomListingElement.scrollIntoView({ behavior: 'smooth', block: 'start' })

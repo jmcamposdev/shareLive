@@ -34,11 +34,12 @@ const AuthProvider = ({ children }) => {
   }
 
   const isAdministrator = () => {
+    let isAdministrator = false
     if (user) {
       const { roles } = JSON.parse(user)
-      return roles.some((role) => role.name === 'admin')
+      isAdministrator = roles.some((role) => role.name === 'admin')
     }
-    return false
+    return isAdministrator
   }
 
   // Memoized value of the authentication context
