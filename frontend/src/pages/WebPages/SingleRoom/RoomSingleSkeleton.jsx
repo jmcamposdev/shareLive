@@ -1,5 +1,3 @@
-import React, { useState, useEffect } from 'react'
-
 import LoadingSkeleton from '../../../components/common/Loading/LoadingSkeleton'
 
 import WebLayout from '../../../layout/WebLayout'
@@ -13,30 +11,13 @@ import NearbySimilarProperty from '../../../components/common/SingleRoom/NearbyS
 import ScheduleTourSkeleton from '../../../components/common/SingleRoom/ScheduleTourSkeleton'// si si
 import ContactWithAgentSkeleton from '../../../components/common/SingleRoom/ContactWithAgentSkeleton'// si si
 import PropertyHeaderSkeleton from '../../../components/common/SingleRoom/PropertyHeaderSkeleton' // si
-import { Link, useParams } from 'react-router-dom'
-import { useRoomSingle } from '../../../context/RoomSingleContext'
 // import ContactFormSingle from '../../../components/common/contactFormSingle/ContactFormSingle'
 
 const RoomSingleSkeleton = () => {
-  const [isScrolled, setIsScrolled] = useState(false)
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollTop = window.scrollY || document.documentElement.scrollTop
-      setIsScrolled(scrollTop > 0)
-    }
-
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
-
   return (
     <WebLayout>
       {/* Property All Single V1 */}
       <section className='pt-[87px] pb-[90px] bg-[#F7F7F7] dark:bg-lightmidnight'>
-        <div
-          className={`hidden lg:block absolute h-[87px] w-full top-0 ${!isScrolled ? 'bg-midnight' : 'bg-transparent'
-              }`}
-        />
         <div className='container'>
           <div className='py-12 flex'>
             <div

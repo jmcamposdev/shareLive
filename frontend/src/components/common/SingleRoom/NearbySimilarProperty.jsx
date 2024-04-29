@@ -12,6 +12,7 @@ const NearbySimilarProperty = ({ isUserLoading }) => {
   const filteredRooms = roomsNearYouFilter(rooms, location)
   return (
     <>
+<<<<<<< HEAD
       <div className='mx-auto row mt30 wow fadeInUp'>
         <div className='flex flex-wrap justify-between' data-aos='fade-up'>
           <div className='lg:w-3/4 w-full pr-4 pl-4'>
@@ -22,16 +23,49 @@ const NearbySimilarProperty = ({ isUserLoading }) => {
               <p className='paragraph dark:text-white'>
                 {loading || isUserLoading ? <LoadingSkeleton className='w-2/5 h-[18px] my-4' /> : 'Explore similar rooms'}
               </p>
+=======
+      {loading
+        ? (
+          <div className='mx-auto row mt30 wow fadeInUp'>
+            <div className='flex flex-wrap justify-between' data-aos='fade-up'>
+              <div className='lg:w-3/4 w-auto pr-4 pl-4'>
+                <div className='main-title2'>
+                  <h2 className='title'>Nearby Similar Rooms</h2>
+                  <p className='paragraph'>
+                    Explore similar rooms
+                  </p>
+                </div>
+              </div>
+              <div className='lg:w-1/4 w-auto pr-4 pl-4'>
+                <div className='text-end sm:text-start mb-3'>
+                  <h1>Loading...</h1>
+                </div>
+              </div>
+>>>>>>> 7d4e4983cb9875d27af3770a21e045d072f4c380
             </div>
+            <RoomSlider rooms={filteredRooms} loading={loading} />
           </div>
-          <div className='lg:w-1/4 w-auto pr-4 pl-4'>
-            <div className='text-end sm:text-start mb-3'>
-              <RoomPagination />
+          )
+        : (
+          <div className='mx-auto row mt30 wow fadeInUp'>
+            <div className='flex flex-wrap justify-between' data-aos='fade-up'>
+              <div className='lg:w-3/4 w-auto pr-4 pl-4'>
+                <div className='main-title2'>
+                  <h2 className='title'>Nearby Similar Rooms</h2>
+                  <p className='paragraph'>
+                    Explore similar rooms
+                  </p>
+                </div>
+              </div>
+              <div className='lg:w-1/4 w-auto pr-4 pl-4'>
+                <div className='text-end sm:text-start mb-3'>
+                  <RoomPagination />
+                </div>
+              </div>
             </div>
+            <RoomSlider rooms={filteredRooms} />
           </div>
-        </div>
-        <RoomSlider rooms={filteredRooms} loading={loading} />
-      </div>
+          )}
     </>
   )
 }

@@ -7,7 +7,7 @@ const RoomSimpleSkeleton = () => {
       <div className='listing-style1 mb-0 dark:bg-midnight'>
         <div className='list-thumb'>
           <LoadingImg className='h-80' />
-          <LoadingSkeleton innerClasses='rounded-[6px]' className='absolute bottom-5 left-5 shadow-sm !p-0 w-[72px] h-[33px]' />
+          <LoadingSkeleton innerClasses='shadow-sm !rounded-md' className='absolute bottom-5 left-5 !p-0 w-[72px] h-[33px]' />
         </div>
         <div className='list-content dark:bg-midnight'>
           <h6 className='list-title'>
