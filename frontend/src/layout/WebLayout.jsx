@@ -10,7 +10,7 @@ function WebLayout ({ children }) {
         Background for the phone header, the mobile menu is opaque in dark mode and if this element
         is not present the user can see the white background of the body
       */}
-      <div className='fixed top-0 w-full h-[300px] bg-midnight' />
+      <div className='fixed top-0 w-full h-[65px] bg-midnight lg:hidden' />
       <div className='relative'>
 
         {/* Main Header Nav */}

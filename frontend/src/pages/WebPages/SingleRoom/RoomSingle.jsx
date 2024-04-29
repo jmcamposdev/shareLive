@@ -143,7 +143,7 @@ const RoomSingle = () => {
 
           {/* End .row */}
 
-          <NearbySimilarProperty isUserLoading={loading} />
+          <NearbySimilarProperty />
           {/* End .row */}
         </div>
         {/* End .container */}
