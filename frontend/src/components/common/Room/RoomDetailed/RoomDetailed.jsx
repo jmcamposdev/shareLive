@@ -7,7 +7,7 @@ const RoomDetailed = ({ room, loading = false }) => {
   const linkUrl = `/rooms/${room._id}`
 
   return (
-    <div className='item dark:bg-midnight'>
+    <div className='item'>
       <div className='listing-style1 listCustom listing-type flex-col md:flex-row dark:bg-midnight'>
         <div className='list-thumb'>
           <Link to={linkUrl}>

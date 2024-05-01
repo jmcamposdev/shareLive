@@ -12,7 +12,6 @@ import ContactWithAgent from '../../../components/common/SingleRoom/ContactWithA
 import PropertyHeader from '../../../components/common/SingleRoom/PropertyHeader'
 import { Link, useParams } from 'react-router-dom'
 import { useRoomSingle } from '../../../context/RoomSingleContext'
-// import ContactFormSingle from '../../../components/common/contactFormSingle/ContactFormSingle'
 
 const RoomSingle = () => {
   const { id } = useParams()
@@ -23,7 +22,7 @@ const RoomSingle = () => {
   return (
     <WebLayout>
       {/* Property All Single V1 */}
-      <section className='pt-[87px] pb-[90px] bg-[#120e0e] dark:bg-lightmidnight'>
+      <section className='pt-[87px] pb-[90px] dark:bg-lightmidnight'>
         <div className='container'>
           <div className='py-12 flex'>
             <Link

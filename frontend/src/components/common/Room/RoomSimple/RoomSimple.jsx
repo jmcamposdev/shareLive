@@ -7,7 +7,7 @@ const RoomSimple = ({ room, loading = false }) => {
   const linkUrl = `/rooms/${room._id}`
 
   return (
-    <div className='item dark:bg-midnight rounded-xl h-full'>
+    <div className='item rounded-xl h-full'>
       <div className='listing-style1 mb-0 dark:bg-midnight' style={{ height: 'calc(100% - 30px)' }}>
         <div className='list-thumb h-[50%]'>
           <Link to={linkUrl}>

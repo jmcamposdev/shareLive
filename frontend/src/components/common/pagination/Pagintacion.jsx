@@ -7,12 +7,26 @@ const Pagination = () => {
     currentPage,
     setCurrentPage,
     totalPages,
-    itemsPerPage
+    itemsPerPage,
+    elementIdToScroll
   } = usePagination()
+
+  // Función para desplazarse al elemento #roomListing
+  const scrollToRoomListing = () => {
+    if (elementIdToScroll) {
+      setTimeout(() => {
+        const element = document.getElementById(elementIdToScroll)
+        const headerHeight = 90 // Adjust this value according to your header height
+        const scrollPosition = element.getBoundingClientRect().top + window.pageYOffset - headerHeight
+        window.scrollTo({ top: scrollPosition, behavior: 'smooth' })
+      }, 200)
+    }
+  }
 
   // Función para manejar el cambio de página
   const handlePageChange = (pageNumber) => {
     if (pageNumber < 1 || pageNumber > totalPages) return
+    scrollToRoomListing()
     setCurrentPage(pageNumber)
   }
 

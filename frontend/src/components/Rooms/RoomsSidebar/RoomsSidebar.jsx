@@ -14,7 +14,7 @@ const RoomsSidebar = () => {
     <PaginationProvider
       presetData={rooms}
       defaultItemsPerPage={6}
-      anchor='roomListings'
+      elementIdToScroll='roomsContent'
     >
       <div className='row align-items-center mb20'>
         <TopFilterBar />

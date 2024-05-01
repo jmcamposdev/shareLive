@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types'
+
 const FaqAccordion = ({ collapseNumber, question, answer }) => {
   return (
     <div className='border dark:!border-lightmidnight dark:bg-midnight accordion-item dark:bg-lightmidnight'>
@@ -14,6 +16,12 @@ const FaqAccordion = ({ collapseNumber, question, answer }) => {
       </div>
     </div>
   )
+}
+
+FaqAccordion.propTypes = {
+  collapseNumber: PropTypes.number.isRequired,
+  question: PropTypes.string.isRequired,
+  answer: PropTypes.string.isRequired
 }
 
 export default FaqAccordion

@@ -1,4 +1,5 @@
-import React, { createContext, useContext, useEffect, useState } from 'react'
+import PropTypes from 'prop-types'
+import { createContext, useContext, useEffect, useMemo, useState } from 'react'
 
 // Create the PaginationContext
 export const PaginationContext = createContext()
@@ -6,14 +7,14 @@ export const PaginationContext = createContext()
 export const usePagination = () => useContext(PaginationContext)
 
 // Create the PaginationContextProvider component
-export const PaginationProvider = ({ presetData = [], defaultItemsPerPage = 5, anchor, children }) => {
+export const PaginationProvider = ({ presetData = [], defaultItemsPerPage = 5, elementIdToScroll, children }) => {
   // State variables
   const [data, setData] = useState(presetData)
   const [pageData, setPageData] = useState([])
   const [itemsPerPage, setItemsPerPage] = useState(defaultItemsPerPage)
   const [currentPage, setCurrentPage] = useState(1)
   // Context value
-  const contextValue = {
+  const contextValue = useMemo(() => ({
     data,
     setData,
     itemsPerPage,
@@ -21,23 +22,9 @@ export const PaginationProvider = ({ presetData = [], defaultItemsPerPage = 5, a
     currentPage,
     setCurrentPage,
     totalPages: Math.ceil(data.length / itemsPerPage),
-    pageData
-  }
-
-  // Cada vez que cambia el currentPage redirect a un ancla en la página
-  useEffect(() => {
-    if (currentPage > 1) {
-      scrollToRoomListing()
-    }
-  }, [currentPage])
-
-  // Función para desplazarse al elemento #roomListing
-  const scrollToRoomListing = () => {
-    const roomListingElement = document.getElementById(anchor)
-    if (roomListingElement) {
-      roomListingElement.scrollIntoView({ behavior: 'smooth', block: 'start' })
-    }
-  }
+    pageData,
+    elementIdToScroll
+  }), [data, setData, itemsPerPage, setItemsPerPage, currentPage, setCurrentPage, pageData])
 
   useEffect(() => {
     contextValue.totalPages = Math.ceil(data.length / itemsPerPage)
@@ -59,4 +46,11 @@ export const PaginationProvider = ({ presetData = [], defaultItemsPerPage = 5, a
       {children}
     </PaginationContext.Provider>
   )
+}
+
+PaginationProvider.propTypes = {
+  presetData: PropTypes.array,
+  defaultItemsPerPage: PropTypes.number,
+  nodeRefToScroll: PropTypes.object,
+  children: PropTypes.node.isRequired
 }
