@@ -1,5 +1,5 @@
 import WebLayout from '../../../layout/WebLayout'
-import DescriptionSingle from '../../../components/common/descriptionSingle/DescriptionSingle'
+import DescriptionSingleSkeleton from '../../../components/common/descriptionSingle/DescriptionSingleSkeleton'
 import { useParams } from 'react-router-dom'
 import { useUserSingle } from '../../../context/UserSingleContext'
 import UserHeaderSingleSkeleton from './UserHeaderSingleSkeleton'
@@ -16,7 +16,7 @@ const UserSingleSkeleton = () => {
         <div className='container mx-auto sm:px-4'>
           <div className='flex flex-wrap  wow fadeInUp' data-aos-delay='300'>
             <div className='lg:w-2/3 pr-4 pl-4 pr40 pr20-lg'>
-              {/* <DescriptionSingle title='About Me' description={user.description} /> */}
+              <DescriptionSingleSkeleton />
               {/* <ReadMore id='text' text={user.description} amountOfWords={35} /> */}
               {/* <UserLatestRooms userName={user.name} rooms={userRooms} numToDisplay={ROOMS_TO_DISPLAY} />
               <UserReviews userSingle={user} /> */}
