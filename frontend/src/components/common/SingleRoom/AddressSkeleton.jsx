@@ -10,12 +10,12 @@ const AddressSkeleton = () => {
           <div className='d-flex justify-content-between'>
             <div className='pd-list'>
               {[...Array(n2)].map((j, k) =>
-                <p key={k} className='fw600 mb10 ff-heading dark-color dark:text-white'><LoadingSkeleton className='h-[18px] w-[100px]' /></p>
+                <div key={k} className='fw600 mb10 ff-heading dark-color dark:text-white'><LoadingSkeleton className='h-[18px] w-[100px]' /></div>
               )}
             </div>
             <div className='pd-list'>
               {[...Array(n2)].map((j, k) =>
-                <p key={k} className='text mb10 dark:text-white'><LoadingSkeleton className='h-[18px] w-[80px]' /></p>
+                <div key={k} className='text mb10 dark:text-white'><LoadingSkeleton className='h-[18px] w-[80px]' /></div>
               )}
             </div>
           </div>
