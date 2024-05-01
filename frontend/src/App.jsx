@@ -20,6 +20,7 @@ import { ROLES } from './constants/roles.constants.js'
 import RoomSingle from './pages/WebPages/SingleRoom/RoomSingle.jsx'
 import { RoomSingleProvider } from './context/RoomSingleContext.jsx'
 import { UserSingleProvider } from './context/UserSingleContext.jsx'
+import UserSingleSkeleton from './pages/WebPages/UserSingle/UserSingleSkeleton.jsx'
 
 function App () {
   const [isDarkMode, setIsDarkMode] = useState(false)
@@ -43,6 +44,7 @@ function App () {
     <AuthProvider>
       <Routes>
         {/* Routes for the web pages */}
+        <Route path='pene' element={<UserSingleSkeleton />} />
         <Route path='/' element={<Home />} />
         <Route path='about' element={<AboutUs />} />
         <Route path='rooms' element={<Rooms />} />

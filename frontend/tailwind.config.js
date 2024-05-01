@@ -40,6 +40,9 @@ export default {
       },
       spacing: {
         'calc-half-minus-30': 'calc(50% - 30px)'
+      },
+      boxShadow: {
+        skeletonShadow: 'rgba(0, 0, 0, 0.16) 0px 1px 4px'
       }
     }
   },
