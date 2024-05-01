@@ -12,6 +12,7 @@ import '../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js'
 import Rooms from './pages/WebPages/Rooms/Rooms.jsx'
 import DashboardHome from './pages/Dashboard/DashboardHome/DashboardHome.jsx'
 import DshSearchRooms from './pages/Dashboard/DshSearchRooms/DshSearchRooms.jsx'
+import DshMyProfile from './pages/Dashboard/DashboardMyProfile/DashboardMyProfile.jsx'
 import usersItems from './data/usersItems.js'
 import RoomItems from './data/roomsItems.js'
 import { ToastContainer } from 'react-toastify'
@@ -22,7 +23,7 @@ import { ROLES } from './constants/roles.constants.js'
 import RoomSingle from './pages/WebPages/SingleRoom/RoomSingle.jsx'
 import { RoomSingleProvider } from './context/RoomSingleContext.jsx'
 
-function App () {
+function App() {
   const [isDarkMode, setIsDarkMode] = useState(false)
 
   // Add event listener de body class change to know if the dark mode is activated
@@ -39,7 +40,7 @@ function App () {
       })
     }
   }
-  , [])
+    , [])
   return (
     <AuthProvider>
       <Routes>
@@ -54,7 +55,7 @@ function App () {
             <RoomSingleProvider>
               <RoomSingle room={RoomItems[0]} rooms={RoomItems} users={usersItems} />
             </RoomSingleProvider>
-            }
+          }
         />
         <Route path='users/:id' element={<UserSingle user={usersItems[0]} rooms={RoomItems} />} />
         {/* Autentication */}
@@ -64,6 +65,7 @@ function App () {
         <Route element={<RequireAuth allowedRoles={[ROLES.SUPER_ADMIN, ROLES.ADMIN, ROLES.USER]} />}>
           <Route path='dashboard' element={<DashboardHome />} />
           <Route path='dashboard/rooms' element={<DshSearchRooms />} />
+          <Route path='dashboard-my-profile' element={<DshMyProfile />} />
         </Route>
         {/* 404 page */}
         <Route path='*' element={<NotFound />} />
