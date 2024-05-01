@@ -1,9 +1,9 @@
-import { useAuth } from '../../../../context/AuthContext'
+import useAuthUser from 'react-auth-kit/hooks/useAuthUser'
 import Review from '../../Review/Review'
 import { USER_REVIEWS_ORDER } from './UserReviews.constant'
 
 const UserReviewsList = ({ userId, reviews, order, numtoDisplay = 4 }) => {
-  const { user } = useAuth()
+  const user = useAuthUser()
   // Order reviews
   reviews = reviews.sort((a, b) => {
     switch (order) {

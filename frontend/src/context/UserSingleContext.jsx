@@ -1,8 +1,8 @@
 import { createContext, useContext, useEffect, useMemo, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import UserService from '../services/UserService'
-import { useAuth } from './AuthContext'
 import useAlertToast from '../hooks/useToast'
+import useAuthUser from 'react-auth-kit/hooks/useAuthUser'
 
 export const UserSingleContext = createContext()
 
@@ -13,7 +13,7 @@ export const UserSingleProvider = ({ userId, children }) => {
   const navigate = useNavigate()
   const { toast } = useAlertToast()
   const id = useParams().id || userId
-  const { user } = useAuth()
+  const user = useAuthUser()
   const [userSingle, setUserSingle] = useState({})
   const [userRooms, setUserRooms] = useState([])
   const [loadingCount, setLoadingCount] = useState(2) // Dos peticiones
