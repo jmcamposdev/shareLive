@@ -1,17 +1,15 @@
 import LoadingSkeleton from '../../../components/common/Loading/LoadingSkeleton'
-
 import WebLayout from '../../../layout/WebLayout'
-import PropertyGallerySkeleton from '../../../components/common/SingleRoom/PropertyGallerySkeleton'// si si
-import OverViewSkeleton from '../../../components/common/SingleRoom/OverViewSkeleton'// si si
-import DescriptionSkeleton from '../../../components/common/SingleRoom/DescriptionSkeleton'// si si
-import FeaturesAminitesSkeleton from '../../../components/common/SingleRoom/FeaturesAminitesSkeleton'// si si
-import AddressSkeleton from '../../../components/common/SingleRoom/AddressSkeleton'// si si
-import WalkScoreSkeleton from '../../../components/common/SingleRoom/WalkScoreSkeleton'// si si
-import NearbySimilarProperty from '../../../components/common/SingleRoom/NearbySimilarProperty'
-import ScheduleTourSkeleton from '../../../components/common/SingleRoom/ScheduleTourSkeleton'// si si
-import ContactWithAgentSkeleton from '../../../components/common/SingleRoom/ContactWithAgentSkeleton'// si si
-import PropertyHeaderSkeleton from '../../../components/common/SingleRoom/PropertyHeaderSkeleton' // si
-// import ContactFormSingle from '../../../components/common/contactFormSingle/ContactFormSingle'
+import PropertyGallerySkeleton from '../../../components/common/SingleRoom/PropertyGallerySkeleton'
+import OverViewSkeleton from '../../../components/common/SingleRoom/OverViewSkeleton'
+import DescriptionSkeleton from '../../../components/common/SingleRoom/DescriptionSkeleton'
+import FeaturesAminitesSkeleton from '../../../components/common/SingleRoom/FeaturesAminitesSkeleton'
+import AddressSkeleton from '../../../components/common/SingleRoom/AddressSkeleton'
+import WalkScoreSkeleton from '../../../components/common/SingleRoom/WalkScoreSkeleton'
+import ScheduleTourSkeleton from '../../../components/common/SingleRoom/ScheduleTourSkeleton'
+import ContactWithAgentSkeleton from '../../../components/common/SingleRoom/ContactWithAgentSkeleton'
+import PropertyHeaderSkeleton from '../../../components/common/SingleRoom/PropertyHeaderSkeleton'
+import NearbySimilarPropertySkeleton from '../../../components/common/SingleRoom/NearbySimilarPropertySkeleton'
 
 const RoomSingleSkeleton = () => {
   return (
@@ -118,7 +116,7 @@ const RoomSingleSkeleton = () => {
 
           {/* End .row */}
 
-          <NearbySimilarProperty />
+          <NearbySimilarPropertySkeleton />
           {/* End .row */}
         </div>
         {/* End .container */}

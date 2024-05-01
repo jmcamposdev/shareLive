@@ -42,7 +42,6 @@ const AdvanceFilterModal = () => {
           <div className='flex flex-wrap '>
             <div className='sm:w-full pr-4 pl-4'>
               <div className='widget-wrapper'>
-                <h6 className='list-title dark:text-white'>Structure Type</h6>
                 <div className='form-style2 relative flex items-stretch w-full'>
                   <StructureType />
                 </div>

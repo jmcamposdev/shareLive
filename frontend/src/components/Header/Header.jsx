@@ -5,8 +5,10 @@ import LogoWhite2 from '../../assets/logos/logo-white-2.png'
 import LogoDark from '../../assets/logos/logo-dark.png'
 import DarkModeSwitcher from '../common/darkModeSwitcher/DarkModeSwitcher'
 import MainMenu from '../common/MainMenu'
+import useAuthUser from 'react-auth-kit/hooks/useAuthUser'
 
 const Header = () => {
+  const user = useAuthUser()
   const [navbar, setNavbar] = useState(false)
 
   // Variable to know if the user scrolled the page
@@ -89,13 +91,25 @@ const Header = () => {
                     Add Property
                     <i className='fal fa-arrow-right-long' />
                   </Link>
-                  <Link
-                    to='/login'
-                    className='login-info flex items-center'
-                  >
-                    <i className='ml-[8px] far fa-user-circle fz16 me-2 dark:!text-white' />{' '}
-                    <span className='hidden xl:block dark:!text-white'>Login / Register</span>
-                  </Link>
+                  {user
+                    ? (
+                      <Link
+                        to='/dashboard'
+                        className='ud-btn btn-thm dark:text-white !px-[22px] !py-[9px] '
+                      >
+                        Dashboard <i className='fal fa-arrow-right-long' />
+                      </Link>
+                      )
+                    : (
+                      <Link
+                        to='/login'
+                        className='login-info flex items-center'
+                      >
+                        <i className='ml-[8px] far fa-user-circle fz16 me-2 dark:!text-white' />{' '}
+                        <span className='hidden xl:block dark:!text-white'>Login / Register</span>
+                      </Link>
+
+                      )}
                   <DarkModeSwitcher />
                 </div>
               </div>

@@ -1,14 +1,14 @@
 import PropTypes from 'prop-types'
 import { formatDate } from '../../../utils/formatDate'
 import { getAvatarImage } from '../../../utils/user.utils'
-import { useAuth } from '../../../context/AuthContext'
 import { useUserSingle } from '../../../context/UserSingleContext'
 import { REVIEW_HELP_STATES } from '../SingleUser/UserReviews/UserReviews.constant'
 import useAlertToast from '../../../hooks/useToast'
+import useAuthUser from 'react-auth-kit/hooks/useAuthUser'
 
 const Review = ({ review, className }) => {
   const { toast } = useAlertToast()
-  const { user } = useAuth()
+  const user = useAuthUser()
   const { updateReview } = useUserSingle()
 
   const isYourReview = review.ownerId === user?._id

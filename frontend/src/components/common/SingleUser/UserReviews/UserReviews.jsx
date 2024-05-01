@@ -4,11 +4,11 @@ import UserReviewForm from './UserReviewForm'
 import UserReviewsList from './UserReviewsList'
 import { USER_REVIEWS_ORDER, USER_REVIEWS_ORDER_LABEL } from './UserReviews.constant'
 import { UserPropTypes } from '../../../../models/User.model'
-import { useAuth } from '../../../../context/AuthContext'
 import Selector from '../../Inputs/Selector'
+import useAuthUser from 'react-auth-kit/hooks/useAuthUser'
 
 const UserReviews = ({ userSingle }) => {
-  const { user } = useAuth()
+  const user = useAuthUser()
   const isSameUser = userSingle._id === user?._id
   const [order, setOrder] = useState(
     { value: USER_REVIEWS_ORDER.NEWEST, label: USER_REVIEWS_ORDER_LABEL.NEWEST }

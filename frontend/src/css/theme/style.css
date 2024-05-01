@@ -6848,7 +6848,6 @@ textarea:focus {
 }
 
 .testimonial-style2 .testi-text {
-  color: var(--headings-color);
   font-family: var(--title-font-family);
   font-weight: 600;
   font-size: 22px;

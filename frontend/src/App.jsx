@@ -20,6 +20,7 @@ import { ROLES } from './constants/roles.constants.js'
 import RoomSingle from './pages/WebPages/SingleRoom/RoomSingle.jsx'
 import { RoomSingleProvider } from './context/RoomSingleContext.jsx'
 import { UserSingleProvider } from './context/UserSingleContext.jsx'
+import LogOut from './pages/Dashboard/LogOut/LogOut.jsx'
 
 function App () {
   const [isDarkMode, setIsDarkMode] = useState(false)
@@ -65,6 +66,7 @@ function App () {
         {/* Autentication */}
         <Route path='login' element={<Login />} />
         <Route path='register' element={<Register />} />
+        <Route path='logout' element={<LogOut />} />
         {/* Routes for the Dashboard */}
         <Route element={<RequireAuth allowedRoles={[ROLES.SUPER_ADMIN, ROLES.ADMIN, ROLES.USER]} />}>
           <Route path='dashboard' element={<DashboardHome />} />

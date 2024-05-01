@@ -19,6 +19,16 @@ const AuthService = {
       console.error('Error signing up:', error.message)
       throw error
     }
+  },
+
+  verifyToken: async () => {
+    try {
+      const newUser = await api.post('auth/verify', null)
+      return newUser
+    } catch (error) {
+      console.error('Error signing up:', error.message)
+      throw error
+    }
   }
 }
 

@@ -5,9 +5,7 @@ const DescriptionSkeleton = () => {
     <>
       <div className='overview-element flex items-center'>
         <div className='w-full'>
-          <p className='text mb10 dark:text-white w-4/5'>
-            <LoadingSkeleton className='w-full h-[18px]' />
-          </p>
+          <LoadingSkeleton className='w-4/5 mb10 text h-[18px] ' />
           <div className='agent-single-accordion'>
             <div
               className='accordion accordion-flush'
