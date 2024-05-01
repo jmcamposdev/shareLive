@@ -1,5 +1,6 @@
 import { createContext, useContext, useEffect, useMemo, useState } from 'react'
 import { ROLES } from '../constants/roles.constants'
+import AuthService from '../services/authService'
 
 const AuthContext = createContext()
 
@@ -12,6 +13,18 @@ const AuthProvider = ({ children }) => {
   const setToken = (newToken) => {
     setToken_(newToken)
   }
+
+  // Check that the token is valid
+  useEffect(() => {
+    if (token) {
+      AuthService.verifyToken(token)
+        .catch((error) => {
+          console.error('Error verifying token:', error.message)
+          setToken(null)
+          setUser(null)
+        })
+    }
+  }, [token])
 
   useEffect(() => {
     if (token) {

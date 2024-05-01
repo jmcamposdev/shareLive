@@ -28,14 +28,14 @@ const api = {
   },
 
   post: async (endpoint, body) => {
-    // const { token } = useAuth()
+    const token = window.localStorage.getItem('token')
     try {
       const response = await fetch(`${BASE_URL}/${endpoint}`, {
         method: 'POST',
         // Pass the token in the Authorization header
         headers: {
-          'Content-Type': 'application/json'
-          // 'x-access-token': token // Añade el token al encabezado
+          'Content-Type': 'application/json',
+          'x-access-token': token // Añade el token al encabezado
         },
         body: JSON.stringify(body)
       })
@@ -47,14 +47,14 @@ const api = {
   },
 
   delete: async (endpoint) => {
-    // const { token } = useAuth()
+    const token = window.localStorage.getItem('token')
     try {
       const response = await fetch(`${BASE_URL}/${endpoint}`, {
         method: 'DELETE',
         // Pass the token in the Authorization header
         headers: {
-          'Content-Type': 'application/json'
-          // 'x-access-token': token // Añade el token al encabezado
+          'Content-Type': 'application/json',
+          'x-access-token': token // Añade el token al encabezado
         }
       })
       return api.handleResponse(response)
@@ -65,14 +65,14 @@ const api = {
   },
 
   put: async (endpoint, body) => {
-    // const { token } = useAuth()
+    const token = window.localStorage.getItem('token')
     try {
       const response = await fetch(`${BASE_URL}/${endpoint}`, {
         method: 'PUT',
         // Pass the token in the Authorization header
         headers: {
-          'Content-Type': 'application/json'
-          // 'x-access-token': token // Añade el token al encabezado
+          'Content-Type': 'application/json',
+          'x-access-token': token // Añade el token al encabezado
         },
         body: JSON.stringify(body)
       })
