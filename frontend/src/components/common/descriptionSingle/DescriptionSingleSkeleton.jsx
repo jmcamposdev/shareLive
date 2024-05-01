@@ -3,7 +3,7 @@ import LoadingSkeleton from '../Loading/LoadingSkeleton'
 const DescriptionSingleSkeleton = () => {
   return (
     <div className='flex flex-wrap '>
-      <div className='lg:w-full pr-4 pl-4'>
+      <div className='w-full pr-4 pl-4'>
         <div className='agent-single-details mt30 pb30'>
           <h6 className='fz17 mb30 dark:text-white'>
             <LoadingSkeleton className='w-1/2 h-6' />

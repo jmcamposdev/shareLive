@@ -3,9 +3,9 @@ import DescriptionSingleSkeleton from '../../../components/common/descriptionSin
 import { useParams } from 'react-router-dom'
 import { useUserSingle } from '../../../context/UserSingleContext'
 import UserHeaderSingleSkeleton from './UserHeaderSingleSkeleton'
-import UserLatestRooms from '../../../components/common/SingleUser/UserLastestRooms'
 import UserReviews from '../../../components/common/SingleUser/UserReviews/UserReviews'
 import UserSidebar from '../../../components/common/SingleUser/UserSidebar'
+import UserLatestRoomsSkeleton from '../../../components/common/SingleUser/UserLastestRoomsSkeleton'
 
 const UserSingleSkeleton = () => {
   return (
@@ -18,8 +18,8 @@ const UserSingleSkeleton = () => {
             <div className='lg:w-2/3 pr-4 pl-4 pr40 pr20-lg'>
               <DescriptionSingleSkeleton />
               {/* <ReadMore id='text' text={user.description} amountOfWords={35} /> */}
-              {/* <UserLatestRooms userName={user.name} rooms={userRooms} numToDisplay={ROOMS_TO_DISPLAY} />
-              <UserReviews userSingle={user} /> */}
+              <UserLatestRoomsSkeleton />
+              {/* <UserReviews userSingle={user} /> */}
             </div>
             <div className='lg:w-1/3 pr-4 pl-4'>
               {/* <UserSidebar user={user} /> */}
