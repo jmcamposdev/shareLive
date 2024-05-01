@@ -7,7 +7,7 @@ const FaqIntro = () => {
       <div style={{ height: 'calc(100% + 210px)' }} className='w-full top-0 absolute -z-20 bg-f7f7f7 dark:bg-lightmidnight' />
       <img className='dark:hidden absolute max-w-[450px] -z-10 left-0 top-[14rem] hidden lg:block' src={LeftHalfBlob} alt='' />
 
-      <svg className='dark:block hidden absolute hidden dark:block -z-10 w-[600px] top-[16rem] left-[-302px]' viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+      <svg className='dark:block hidden absolute -z-10 w-[600px] top-[16rem] left-[-302px]' viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
         <path className='lg:block hidden' fill='#181a20' d='M40,-56C53.4,-45.3,67,-35.7,65.8,-24.8C64.6,-13.9,48.6,-1.7,39.5,8.6C30.3,18.8,27.9,27,22.5,34.1C17,41.1,8.5,47,-5.1,54.1C-18.7,61.1,-37.5,69.2,-52.8,65.4C-68.1,61.5,-79.9,45.7,-82.1,29C-84.3,12.4,-76.8,-5.1,-71.2,-23.4C-65.6,-41.8,-62.1,-61.2,-50.5,-72.5C-39,-83.8,-19.5,-87.2,-3.1,-82.9C13.3,-78.6,26.5,-66.7,40,-56Z' transform='translate(100 100)' />
       </svg>
       <svg className='dark:block hidden absolute -z-[9] w-[500px] left-[-220px] top-[235px] rotate-[12deg]' viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
