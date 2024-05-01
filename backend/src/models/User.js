@@ -68,4 +68,12 @@ User.generateToken = async user => {
   )
 }
 
+User.verifyToken = async token => {
+  try {
+    return jwt.verify(token, process.env.JWT_SECRET)
+  } catch (error) {
+    return null
+  }
+}
+
 export default User
