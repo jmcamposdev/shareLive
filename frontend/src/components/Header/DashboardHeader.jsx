@@ -2,45 +2,10 @@ import { Link } from 'react-router-dom'
 import MainMenu from '../common/MainMenu'
 import LogoWhite from '../../assets/logos/logo-white.png'
 import LogoDark from '../../assets/logos/logo-dark.png'
-import userImage from '../../assets/img/dashboard/header/user-default.png'
 import DarkModeSwitcher from '../common/darkModeSwitcher/DarkModeSwitcher'
 import UserSettings from './UserSettings'
 
 const DashboardHeader = () => {
-  const menuItems = [
-    {
-      title: 'MAIN',
-      items: [
-        {
-          icon: 'flaticon-discovery',
-          text: 'Dashboard',
-          href: '/dashboard-home'
-        },
-        {
-          icon: 'flaticon-chat-1',
-          text: 'Message',
-          href: '/dashboard-message'
-        }
-      ]
-    },
-    {
-      title: 'MANAGE ACCOUNT',
-      items: [
-        {
-          icon: 'flaticon-protection',
-          text: 'My Package',
-          href: '/dashboard-my-package'
-        },
-        {
-          icon: 'flaticon-user',
-          text: 'My Profile',
-          href: '/dashboard-my-profile'
-        },
-        { icon: 'flaticon-exit', text: 'Logout', href: '/login' }
-      ]
-    }
-  ]
-
   return (
     <header className='header-nav nav-homepage-style light-header !fixed menu-home4 main-menu dark:bg-midnight'>
       <nav className='posr'>

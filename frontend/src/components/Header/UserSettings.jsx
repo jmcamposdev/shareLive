@@ -12,40 +12,6 @@ const UserSettings = () => {
     setIsExpanded(!isExpanded)
   }
 
-  const a = [
-    {
-      title: 'MAIN',
-      items: [
-        {
-          icon: 'flaticon-discovery',
-          text: 'Dashboard',
-          href: '/dashboard-home'
-        },
-        {
-          icon: 'flaticon-chat-1',
-          text: 'Message',
-          href: '/dashboard-message'
-        }
-      ]
-    },
-    {
-      title: 'MANAGE ACCOUNT',
-      items: [
-        {
-          icon: 'flaticon-protection',
-          text: 'My Package',
-          href: '/dashboard-my-package'
-        },
-        {
-          icon: 'flaticon-user',
-          text: 'My Profile',
-          href: '/dashboard-my-profile'
-        },
-        { icon: 'flaticon-exit', text: 'Logout', href: '/login' }
-      ]
-    }
-  ]
-
   return (
     <li className='user_setting '>
       <div className='dropdown'>
@@ -71,7 +37,7 @@ const UserSettings = () => {
                 {section.items.map((item, itemIndex) => (
                   <Link
                     key={itemIndex}
-                    className={`dark:text-white dropdown-item dashboard-phone-link max-h-[65px] flex items-center  ${pathname === item.href ? '-is-active active-dashboard-phone-link dark:!bg-lightmidnight' : 'dark:hover:!bg-lightmidnight'} ${item.text === 'Logout' ? 'log-bt bg-[#FFF5F8] hover:!bg-[#FBE2EA] dark:!bg-red-700/10 dark:hover:!bg-red-600/20' : ''} `}
+                    className={`dark:text-white dropdown-item dashboard-phone-link max-h-[65px] flex items-center  ${pathname === item.href ? '-is-active active-dashboard-phone-link dark:!bg-lightmidnight' : 'dark:hover:!bg-lightmidnight'} ${item.text === 'Log out' ? 'log-bt bg-[#FFF5F8] hover:!bg-[#FBE2EA] dark:!bg-red-700/10 dark:hover:!bg-red-600/20' : ''} `}
                     to={item.href}
                   >
                     {item.icon}
