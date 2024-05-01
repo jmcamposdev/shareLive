@@ -12,8 +12,8 @@ const FaqIntro = () => {
       </svg>
       <svg className='dark:block hidden absolute -z-[9] w-[500px] left-[-220px] top-[235px] rotate-[12deg]' viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
         <linearGradient id='gradient1' x1='0%' y1='0%' x2='100%' y2='0%'>
-          <stop offset='56%' stop-color='rgba(232,70,46,1)' />
-          <stop offset='100%' stop-color='rgba(222,117,101,1)' />
+          <stop offset='56%' stopColor='rgba(232,70,46,1)' />
+          <stop offset='100%' stopColor='rgba(222,117,101,1)' />
         </linearGradient>
         <path className='lg:block hidden' fill='url(#gradient1)' d='M19.1,-24.8C27.8,-20,39.9,-18.5,41.7,-13.5C43.4,-8.5,34.8,0,30.9,9.4C27,18.8,27.8,29.2,23.5,43.7C19.1,58.2,9.6,76.8,-0.6,77.6C-10.7,78.5,-21.5,61.4,-34.8,49.8C-48.1,38.2,-64,32.1,-67.5,21.8C-71,11.5,-62.2,-2.9,-56.3,-17.4C-50.3,-31.8,-47.3,-46.3,-38.4,-51.1C-29.5,-55.8,-14.7,-50.7,-4.8,-44.2C5.2,-37.6,10.4,-29.6,19.1,-24.8Z' transform='translate(100 100)' />
       </svg>
@@ -21,8 +21,8 @@ const FaqIntro = () => {
       <img className='dark:hidden absolute max-w-[380px] -z-10 right-0 top-[38rem] lg:block hidden' src={RightHalfBlob} alt='' />
       <svg className='hidden dark:block absolute w-[500px] right-[-292px] top-[546px] -z-10' viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
         <linearGradient id='gradient2' x1='0%' y1='0%' x2='100%' y2='0%'>
-          <stop offset='0%' stop-color='rgba(222,117,101,1)' />
-          <stop offset='36%' stop-color='rgba(232,70,46,1)' />
+          <stop offset='0%' stopColor='rgba(222,117,101,1)' />
+          <stop offset='36%' stopColor='rgba(232,70,46,1)' />
         </linearGradient>
         <path className='lg:block hidden' fill='url(#gradient2)' d='M31.8,-0.6C31.8,22.8,15.9,45.6,-7.7,45.6C-31.3,45.6,-62.7,22.8,-62.7,-0.6C-62.7,-24,-31.3,-48,-7.7,-48C15.9,-48,31.8,-24,31.8,-0.6Z' transform='translate(100 100)' />
       </svg>
