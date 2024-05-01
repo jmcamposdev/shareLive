@@ -7,10 +7,11 @@ import LogoDark from '../../../assets/logos/logo-dark.png'
 import LoginImg from '../../../assets/vectors/register.svg'
 import useAlertToast from '../../../hooks/useToast'
 import AuthService from '../../../services/authService'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useAuth } from '../../../context/AuthContext'
 
 const Register = () => {
+  const navigate = useNavigate()
   const { setToken, updateUserData } = useAuth()
   const { toast } = useAlertToast()
 
@@ -35,6 +36,7 @@ const Register = () => {
       setToken(res.token)
       updateUserData(res.user)
       toast.showSuccess('Registered successfully')
+      navigate('/dashboard')
     } catch (error) {
       toast.showError(error.message)
     }
