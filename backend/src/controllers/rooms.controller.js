@@ -6,7 +6,7 @@ import Room from '../models/Room.js'
  * @param {Object} res The response object
  */
 const getRooms = (req, res) => {
-  Room.find()
+  Room.find().populate('user')
     .then((rooms) => {
       res.json(rooms)
     })

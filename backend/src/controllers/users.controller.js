@@ -60,7 +60,7 @@ const getUserRooms = async (req, res) => {
         message: 'User not found'
       })
     }
-    const rooms = await Room.find({ user: id })
+    const rooms = await Room.find({ user: id }).populate('user')
     res.json(rooms)
   } catch (error) {
     res.status(500).json({
