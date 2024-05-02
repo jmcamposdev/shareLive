@@ -14,21 +14,21 @@ const UserHeaderSingleSkeleton = () => {
         <div className='flex flex-wrap  items-center'>
           <div className='xl:w-3/5 pr-4 pl-4'>
             <div className='agent-single sm:flex items-center'>
-              <div className=' single-img mb30-sm rounded-full overflow-hidden w-[172px] h-[172px] shadow-sm'>
+              <div className=' single-img mb30-sm rounded-full overflow-hidden w-[172px] h-[172px] '>
                 <LoadingImg className='w-full h-full' />
               </div>
               <div className='single-contant ml30 ml0-xs'>
                 <h2 className='title dark:text-white mb-2'>
-                  <LoadingSkeleton className='h-8 w-80' innerClasses='shadow-sm' />
+                  <LoadingSkeleton className='h-8 w-80' innerClasses='' />
                 </h2>
                 {/* <p className='fz15'>Renter in <b>`${user.zone}`</b></p> */}
                 <div className='agent-meta mb15 mt15 md:flex items-center'>
                   <UserReviewsStatsSkeleton />
                   <a className='text fz15 pe-2 ps-2  dark:text-white'>
-                    <LoadingSkeleton className='w-28 h-6' innerClasses='shadow-sm' />
+                    <LoadingSkeleton className='w-28 h-6' innerClasses='' />
                   </a>
                   <a className='text fz15 ps-2 dark:text-white'>
-                    <LoadingSkeleton className='w-28 h-6' innerClasses='shadow-sm' />
+                    <LoadingSkeleton className='w-28 h-6' innerClasses='' />
                   </a>
                 </div>
                 <UserSocialsSkeleton />
