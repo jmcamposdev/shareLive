@@ -10,8 +10,8 @@ const UserReviewsStats = ({ user, className, iconClassName }) => {
       : 0
 
   return (
-    <span className={`${className} text-dark dark:text-white`}>
-      <i className={`fas fa-star text-[#efcb0e] dark:text-white fz13 ${iconClassName}`} />
+    <span className={`${className} text-dark dark:text-white `}>
+      <i className={`fas fa-star !text-[#efcb0e] dark:!text-white fz13 ${iconClassName}`} />
       {'  '}
       {totalReviews > 0 ? `${averageRating.toFixed(1)} - ${totalReviews} Reviews` : 'No reviews'}
     </span>

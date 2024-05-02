@@ -28,29 +28,23 @@ const UserReviewsList = ({ userId, reviews, order, numtoDisplay = 4 }) => {
   }
 
   return (
+
     <>
-      {reviews.length > 0
-        ? (
-          <>
-            {reviews.slice(0, numtoDisplay).map(review => (
-              <Review key={review._id} review={review} />
-            ))}
-            {reviews.length > numtoDisplay && (
-              <div className='md:w-full'>
-                <div className='relative bdrb1 pt30 pb20 w-full'>
-                  <a href='#' className='ud-btn btn-white2 w-full'>
-                    Show all reviews
-                    <i className='fal fa-arrow-right-long' />
-                  </a>
-                </div>
-              </div>
-            )}
-          </>
-          )
-        : (
-          <h3 className='text-center mx-auto'>No reviews yet ...</h3>
-          )}
+      {reviews.slice(0, numtoDisplay).map(review => (
+        <Review key={review._id} review={review} />
+      ))}
+      {reviews.length > numtoDisplay && (
+        <div className='md:w-full'>
+          <div className='relative bdrb1 pt30 pb20 w-full'>
+            <a href='#' className='ud-btn btn-white2 w-full'>
+              Show all reviews
+              <i className='fal fa-arrow-right-long' />
+            </a>
+          </div>
+        </div>
+      )}
     </>
+
   )
 }
 

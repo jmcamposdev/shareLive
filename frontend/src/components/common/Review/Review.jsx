@@ -74,14 +74,14 @@ const Review = ({ review, className }) => {
       <div className='review_cansel_btns flex '>
         <button
           onClick={() => handleStateClick(REVIEW_HELP_STATES.HELPFUL)}
-          className={`hover:dark:text-whit ${isOwnerHelpful ? '!text-orangePrimary' : ''}`}
+          className={`hover:dark:text-white ${isOwnerHelpful ? '!text-orangePrimary' : ''}`}
         >
           <i className={`fas fa-thumbs-up text-gray-500 ${isOwnerHelpful ? '!text-orangePrimary' : ''}`} />
           Helpful ({review.helpful.length})
         </button>
         <button
           onClick={() => handleStateClick(REVIEW_HELP_STATES.NOT_HELPFUL)}
-          className={`hover:dark:text-whit ${isOwnerNotHelpful ? '!text-orangePrimary' : ''}`}
+          className={`hover:dark:text-white ${isOwnerNotHelpful ? '!text-orangePrimary' : ''}`}
         >
           <i className={`fas fa-thumbs-down text-gray-500 ${isOwnerNotHelpful ? '!text-orangePrimary' : ''}`} />
           Not helpful ({review.notHelpful.length})
