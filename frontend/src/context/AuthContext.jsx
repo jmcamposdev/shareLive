@@ -20,7 +20,7 @@ const AuthProvider = ({ children }) => {
     let isAdministrator = false
     if (user) {
       const { roles } = user
-      isAdministrator = roles.some((role) => role.name === 'admin')
+      isAdministrator = roles.some((role) => role.name === ROLES.SUPER_ADMIN || role.name === ROLES.ADMIN)
     }
     return isAdministrator
   }
