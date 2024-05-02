@@ -1,5 +1,5 @@
 import { Router } from 'express'
-import { createRoom, getRoom, getRooms, updateRoom } from '../controllers/rooms.controller.js'
+import { createRoom, deleteRoom, getRoom, getRooms, updateRoom } from '../controllers/rooms.controller.js'
 import { verifyToken } from '../middlewares/authJwt.js'
 
 /**
@@ -16,6 +16,7 @@ router.get('/rooms', getRooms) // Get all rooms
 router.get('/rooms/:id', getRoom) // Get a room by id
 router.post('/rooms', [verifyToken], createRoom) // Create a new room
 router.put('/rooms/:id', [verifyToken], updateRoom) // Update a room by id
+router.delete('/rooms/:id', [verifyToken], deleteRoom) // Delete a room by id
 
 // Export router to use it in the app
 export default router

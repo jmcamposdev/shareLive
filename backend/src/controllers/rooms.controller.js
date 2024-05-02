@@ -85,9 +85,30 @@ const updateRoom = (req, res) => {
     })
 }
 
+const deleteRoom = (req, res) => {
+  const { id } = req.params
+  Room.findByIdAndDelete(id)
+    .then((room) => {
+      if (!room) {
+        return res.status(404).json({
+          message: 'Room not found'
+        })
+      }
+
+      res.json(room)
+    })
+    .catch((error) => {
+      res.status(500).json({
+        message: 'An error occurred while deleting a room',
+        error
+      })
+    })
+}
+
 export {
   getRooms,
   getRoom,
   createRoom,
-  updateRoom
+  updateRoom,
+  deleteRoom
 }
