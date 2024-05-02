@@ -39,12 +39,10 @@ const ReviewSkeleton = () => {
       </p>
       <div className='review_cansel_btns flex '>
         <button className='flex items-center'>
-          <LoadingIcon className='fas fa-thumbs-up text-[17px]' />
-          <LoadingSkeleton className='w-20 h-4' />
+          <LoadingSkeleton className='w-28 h-4' innerClasses='border-sm' />
         </button>
         <button className='flex items-center'>
-          <LoadingIcon className='fas fa-thumbs-down text-[17px]' />
-          <LoadingSkeleton className='w-20 h-4' />
+          <LoadingSkeleton className='w-28 h-4' innerClasses='border-sm' />
         </button>
       </div>
     </div>

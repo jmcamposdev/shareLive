@@ -14,7 +14,7 @@ const RATING_OPTIONS = [
   { value: 5, label: '5 Stars' }
 ]
 
-const UserReviewForm = () => {
+const UserReviewForm = ({ noReviews }) => {
   const { toast } = useAlertToast()
   const user = useAuthUser()
   const { createReview, updateReview, youAlreadyReviewed, yourReview } = useUserSingle()
@@ -57,8 +57,12 @@ const UserReviewForm = () => {
 
   return (
     <div className='bsp_reveiw_wrt'>
-      <h6 className='fz17 dark:text-white'>
-        {youAlreadyReviewed ? 'Update your review' : 'Leave A Review'}
+      <h6 className={`fz17 dark:text-white ${noReviews ? 'mt60' : ''}`}>
+        {youAlreadyReviewed
+          ? 'Update your review'
+          : noReviews
+            ? 'Be the first one to leave a Review'
+            : 'Leave A Review'}
       </h6>
       {!user
         ? (
@@ -66,7 +70,7 @@ const UserReviewForm = () => {
             <p className='fz14 dark:text-white'>
               You need to be logged in to leave a review
             </p>
-            <Link className='ud-btn btn-white2' to='/login'>
+            <Link className='ud-btn btn-white2 mt15' to='/login'>
               Log In / Register
               <i className='fal fa-arrow-right-long' />
             </Link>

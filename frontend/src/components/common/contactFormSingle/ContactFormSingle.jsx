@@ -14,7 +14,7 @@ const ContactFormSingle = ({ title }) => {
             <div className='mb20'><input className='form-control block appearance-none w-full py-1 px-2 mb-1 text-base leading-normal bg-white text-gray-800 border border-gray-200 rounded' placeholder='Email' required='' type='email' /></div>
           </div>
           <div className='w-full'>
-            <div className='mb10'><textarea cols='30' rows='4' placeholder='There are many variations of passages.' required='' /></div>
+            <div className='mb10'><textarea className='placeholder:text-[#717171]' cols='30' rows='4' placeholder='There are many variations of passages.' required='' /></div>
           </div>
           <div className='w-full'>
             <div className='d-grid'><button type='submit' className='ud-btn btn-thm mb15'>Send Message<i className='fal fa-arrow-right-long' /></button><a className='ud-btn btn-white2' href='/contact'>Call<i className='fal fa-arrow-right-long' /></a></div>
