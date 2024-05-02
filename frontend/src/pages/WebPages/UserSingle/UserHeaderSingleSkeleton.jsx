@@ -7,12 +7,14 @@ import UserSocialsSkeleton from '../../../components/common/SingleUser/UserSocia
 const UserHeaderSingleSkeleton = () => {
   return (
     <div className='bg-transparent cta-agent bgc-thm-light mx-auto maxw1600 pt60 pb60 bdrs12 relative mx20-lg overflow-hidden'>
-      <LoadingSkeleton className='w-full h-full absolute top-0 left-0' innerClasses='rounded-none' />
+      <div className='w-full h-full absolute top-0 left-0 opacity-75 dark:opacity-60'>
+        <LoadingSkeleton className='w-full h-full opacity-10' innerClasses='rounded-none' />
+      </div>
       <div className='container mx-auto sm:px-4 relative '>
         <div className='flex flex-wrap  items-center'>
           <div className='xl:w-3/5 pr-4 pl-4'>
             <div className='agent-single sm:flex items-center'>
-              <div style={{ boxShadow: 'rgba(0, 0, 0, 0.16) 0px 1px 4px' }} className=' single-img mb30-sm rounded-full overflow-hidden w-[172px] h-[172px]'>
+              <div className=' single-img mb30-sm rounded-full overflow-hidden w-[172px] h-[172px] shadow-sm'>
                 <LoadingImg className='w-full h-full' />
               </div>
               <div className='single-contant ml30 ml0-xs'>

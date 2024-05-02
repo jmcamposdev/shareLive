@@ -14,7 +14,9 @@ const ReviewSkeleton = () => {
     <div className='  p-5 pt-7 pb-7  border-[1px] dark:border-0 dark:bg-midnight my-4 bdrs12 w-full'>
       <div className='mbp_first relative flex items-center justify-start mb30-sm'>
         <div className='mr-3 w-[60px] h-[60px] rounded-full overflow-hidden relative'>
-          <LoadingImg className='w-[120px] h-[120px] scale-75 absolute top-[-30px] left-[-30px]' />
+          <div className='w-[120px] h-[120px] absolute top-[-30px] left-[-30px]'>
+            <LoadingImg className='w-full h-full scale-50' />
+          </div>
         </div>
         <div className='ml20'>
           <h6 className='mt-0 mb-2.5 dark:text-white'>

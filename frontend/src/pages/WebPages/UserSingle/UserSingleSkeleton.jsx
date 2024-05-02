@@ -1,7 +1,5 @@
 import WebLayout from '../../../layout/WebLayout'
 import DescriptionSingleSkeleton from '../../../components/common/descriptionSingle/DescriptionSingleSkeleton'
-import { useParams } from 'react-router-dom'
-import { useUserSingle } from '../../../context/UserSingleContext'
 import UserHeaderSingleSkeleton from './UserHeaderSingleSkeleton'
 import UserReviewsSkeleton from '../../../components/common/SingleUser/UserReviews/UserReviewsSkeleton'
 import UserSidebarSkeleton from '../../../components/common/SingleUser/UserSidebarSkeleton'
@@ -21,7 +19,7 @@ const UserSingleSkeleton = () => {
               <UserLatestRoomsSkeleton />
               <UserReviewsSkeleton />
             </div>
-            <div className='lg:w-1/3 pr-4 pl-4'>
+            <div className='w-full lg:w-1/3 pr-4 pl-4'>
               <UserSidebarSkeleton />
             </div>
           </div>
