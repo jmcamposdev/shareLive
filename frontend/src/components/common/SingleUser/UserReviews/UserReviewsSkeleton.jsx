@@ -1,18 +1,9 @@
-import { useState } from 'react'
-import UserReviewsStatsSkeleton from '../UserReviewsStatsSkeleton'
-import UserReviewForm from './UserReviewForm'
-import UserReviewsList from './UserReviewsList'
-import { USER_REVIEWS_ORDER, USER_REVIEWS_ORDER_LABEL } from './UserReviews.constant'
-import { UserPropTypes } from '../../../../models/User.model'
-import { useAuth } from '../../../../context/AuthContext'
-import Selector from '../../Inputs/Selector'
+import UserReviewsStatsSkeleton from '../UserReviewStatsSkeleton'
+import UserReviewsListSkeleton from './UserReviewsListSkeleton'
+import UserReviewFormSkeleton from './UserReviewFormSkeleton'
+import LoadingSkeleton from '../../Loading/LoadingSkeleton'
 
-const UserReviewsSkeleton = ({ userSingle }) => {
-  const { user } = useAuth()
-  const isSameUser = userSingle._id === user?._id
-  const [order, setOrder] = useState(
-    { value: USER_REVIEWS_ORDER.NEWEST, label: USER_REVIEWS_ORDER_LABEL.NEWEST }
-  )
+const UserReviewsSkeleton = () => {
   return (
     <div className='flex flex-wrap '>
       <div className='lg:w-full pr-4 pl-4'>
@@ -26,42 +17,24 @@ const UserReviewsSkeleton = ({ userSingle }) => {
                   </h6>
                   <div className='page_control_shorting flex items-center justify-center sm:justify-end'>
                     <div className='pcs_dropdown mb15 flex items-center gap-2'>
-                      <span className='min-w-[60px]'>Sort by</span>
-                      <Selector
-                        id='sort-by'
-                        inputName='sort-by'
-                        inputType='select'
-                        label=''
-                        labelClassName='min-w-[180px]'
-                        options={[
-                          { value: USER_REVIEWS_ORDER.NEWEST, label: USER_REVIEWS_ORDER_LABEL.NEWEST },
-                          { value: USER_REVIEWS_ORDER.OLDEST, label: USER_REVIEWS_ORDER_LABEL.OLDEST },
-                          { value: USER_REVIEWS_ORDER.HIGHEST_RATING, label: USER_REVIEWS_ORDER_LABEL.HIGHEST_RATING },
-                          { value: USER_REVIEWS_ORDER.LOWEST_RATING, label: USER_REVIEWS_ORDER_LABEL.LOWEST_RATING }
-                        ]}
-                        optionValue='value'
-                        optionName='label'
-                        value={order}
-                        onChange={(option) => setOrder(option)}
-                      />
+                      <span className='min-w-[60px]'>
+                        <LoadingSkeleton className='h-5 w-[60px] mr-2.5' />
+                      </span>
+                      <LoadingSkeleton className='w-[180px] h-[53px]' innerClasses='rounded-md' />
                     </div>
                   </div>
                 </div>
               </div>
               {/* REVIEWS */}
-              <UserReviewsList userId={userSingle._id} reviews={userSingle.reviews} numtoDisplay={4} order={order.value} />
+              <UserReviewsListSkeleton />
               {/* END REVIEWS */}
             </div>
           </div>
         </div>
-        {!isSameUser && <UserReviewForm />}
+        <UserReviewFormSkeleton />
       </div>
     </div>
   )
-}
-
-UserReviews.propTypes = {
-  userSingle: UserPropTypes.isRequired
 }
 
 export default UserReviewsSkeleton

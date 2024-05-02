@@ -1,5 +1,6 @@
-// import useAuth from '../hooks/useAuth'
+import getUserCookiesData from '../utils/getUserCookiesData'
 
+const { token } = getUserCookiesData()
 const BASE_URL = import.meta.env.VITE_API_BASE_URL
 
 const api = {
@@ -28,16 +29,15 @@ const api = {
   },
 
   post: async (endpoint, body) => {
-    // const { token } = useAuth()
     try {
       const response = await fetch(`${BASE_URL}/${endpoint}`, {
         method: 'POST',
-        // Pass the token in the Authorization header
         headers: {
-          'Content-Type': 'application/json'
-          // 'x-access-token': token // Añade el token al encabezado
+          'Content-Type': 'application/json',
+          'x-access-token': token,
+          'Access-Control-Allow-Origin': 'yes'
         },
-        body: JSON.stringify(body)
+        body: body ? JSON.stringify(body) : null
       })
       return api.handleResponse(response)
     } catch (error) {
@@ -47,14 +47,13 @@ const api = {
   },
 
   delete: async (endpoint) => {
-    // const { token } = useAuth()
     try {
       const response = await fetch(`${BASE_URL}/${endpoint}`, {
         method: 'DELETE',
         // Pass the token in the Authorization header
         headers: {
-          'Content-Type': 'application/json'
-          // 'x-access-token': token // Añade el token al encabezado
+          'Content-Type': 'application/json',
+          'x-access-token': token // Añade el token al encabezado
         }
       })
       return api.handleResponse(response)
@@ -65,14 +64,13 @@ const api = {
   },
 
   put: async (endpoint, body) => {
-    // const { token } = useAuth()
     try {
       const response = await fetch(`${BASE_URL}/${endpoint}`, {
         method: 'PUT',
         // Pass the token in the Authorization header
         headers: {
-          'Content-Type': 'application/json'
-          // 'x-access-token': token // Añade el token al encabezado
+          'Content-Type': 'application/json',
+          'x-access-token': token // Añade el token al encabezado
         },
         body: JSON.stringify(body)
       })

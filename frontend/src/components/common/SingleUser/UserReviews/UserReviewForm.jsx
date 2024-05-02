@@ -1,10 +1,10 @@
 import { Formik, Form, Field, ErrorMessage } from 'formik'
 import * as Yup from 'yup'
 import Selector from '../../Inputs/Selector'
-import { useAuth } from '../../../../context/AuthContext'
 import { useUserSingle } from '../../../../context/UserSingleContext'
 import useAlertToast from '../../../../hooks/useToast'
 import { Link } from 'react-router-dom'
+import useAuthUser from 'react-auth-kit/hooks/useAuthUser'
 
 const RATING_OPTIONS = [
   { value: 1, label: '1 Star' },
@@ -16,7 +16,7 @@ const RATING_OPTIONS = [
 
 const UserReviewForm = () => {
   const { toast } = useAlertToast()
-  const { user } = useAuth()
+  const user = useAuthUser()
   const { createReview, updateReview, youAlreadyReviewed, yourReview } = useUserSingle()
   const formikInitialValues = {
     rating: yourReview ? RATING_OPTIONS.find(option => option.value === yourReview.reviewRate) : RATING_OPTIONS[0],

@@ -8,7 +8,8 @@ const Pagination = () => {
     setCurrentPage,
     totalPages,
     itemsPerPage,
-    elementIdToScroll
+    elementIdToScroll,
+    pageData
   } = usePagination()
 
   // Función para desplazarse al elemento #roomListing
@@ -69,37 +70,42 @@ const Pagination = () => {
 
   // Renderizamos el componente de paginación
   return (
-    <div className='mbp_pagination text-center'>
-      <ul className='page_navigation'>
-        {/* Botón para la página anterior */}
-        <li className='page-item'>
-          <span
-            className='page-link pointer'
-            onClick={() => handlePageChange(currentPage - 1)}
-            disabled={currentPage === 1}
-          >
-            <span className='fas fa-angle-left dark:text-white' />
-          </span>
-        </li>
+    <>
+      {pageData.length !== 0 && (
+        <div className='mbp_pagination text-center'>
+          <ul className='page_navigation'>
+            {/* Botón para la página anterior */}
+            <li className='page-item'>
+              <span
+                className='page-link pointer'
+                onClick={() => handlePageChange(currentPage - 1)}
+                disabled={currentPage === 1}
+              >
+                <span className='fas fa-angle-left dark:text-white' />
+              </span>
+            </li>
 
-        {/* Números de página */}
-        {renderPageNumbers()}
+            {/* Números de página */}
+            {renderPageNumbers()}
 
-        {/* Botón para la página siguiente */}
-        <li className='page-item'>
-          <span
-            className='page-link pointer dark:!text-white'
-            onClick={() => handlePageChange(currentPage + 1)}
-            disabled={currentPage === totalPages}
-          >
-            <span className='fas fa-angle-right dark:text-white' />
-          </span>
-        </li>
-      </ul>
-      <p className='mt10 pagination_page_count text-center'>
-        {((currentPage - 1) * itemsPerPage) + 1}-{(currentPage * itemsPerPage) > data.length ? data.length : (currentPage * itemsPerPage)} of {data.length}+ property available
-      </p>
-    </div>
+            {/* Botón para la página siguiente */}
+            <li className='page-item'>
+              <span
+                className='page-link pointer dark:!text-white'
+                onClick={() => handlePageChange(currentPage + 1)}
+                disabled={currentPage === totalPages}
+              >
+                <span className='fas fa-angle-right dark:text-white' />
+              </span>
+            </li>
+          </ul>
+          <p className='mt10 pagination_page_count text-center'>
+            {((currentPage - 1) * itemsPerPage) + 1}-{(currentPage * itemsPerPage) > data.length ? data.length : (currentPage * itemsPerPage)} of {data.length}+ property available
+          </p>
+        </div>
+      )}
+    </>
+
   )
 }
 

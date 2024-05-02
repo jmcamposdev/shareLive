@@ -6,7 +6,7 @@ import UserHeaderSingle from './UserHeaderSingle'
 import UserLatestRooms from '../../../components/common/SingleUser/UserLastestRooms'
 import UserReviews from '../../../components/common/SingleUser/UserReviews/UserReviews'
 import UserSidebar from '../../../components/common/SingleUser/UserSidebar'
-import userSingleSkeleton from './UserSingleSkeleton'
+import UserSingleSkeleton from './UserSingleSkeleton'
 
 const ROOMS_TO_DISPLAY = 4
 
@@ -15,7 +15,7 @@ const UserSingle = () => {
   const { user, userRooms, loading } = useUserSingle(id)
 
   if (loading) {
-    return <userSingleSkeleton />
+    return <UserSingleSkeleton />
   }
 
   return (
