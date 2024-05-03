@@ -23,7 +23,8 @@ const UserHeaderSingle = ({ user }) => {
                 {/* <p className='fz15'>Renter in <b>`${user.zone}`</b></p> */}
                 <div className='agent-meta mb15 md:flex items-center'>
                   <ReviewsStats className='pe-2' user={user} />
-                  {user.phone ? (<a className='text fz15 pe-2 ps-2 bdrl1 bdrr1 dark:text-white'><i className='flaticon-call pe-1' />{user.phone}</a>) : ''}
+                  {user.phone ? (<a className='text fz15 pe-2 ps-2  dark:text-white'><i className='flaticon-call pe-1' />{user.phone}</a>) : ''}
+                  {/* bdrl1 bdrr1 */}
                   {user.mobilePhone ? (<a className='text fz15 ps-2 dark:text-white'><i className='flaticon-smartphone pe-1' />{user.mobilePhone}</a>) : ''}
                 </div>
                 <UserSocials user={user} />
