@@ -22,7 +22,7 @@ const Table = ({ loading, data, columns, onEdit, onDelete, filterValue, onFilter
           onEdit && (
             <button
               className='flex justify-center items-center w-8 h-8 rounded-md bg-orangePrimary hover:bg-[#d96351]' title='Edit'
-              onClick={() => onEdit(row.cell.row.original)}
+              onClick={() => onEdit(row.cell.row.original._id)}
             >
               <i className='fa-solid fa-pen text-white' />
             </button>
