@@ -14,13 +14,14 @@ import DashboardHome from './pages/Dashboard/DashboardHome/DashboardHome.jsx'
 import DshSearchRooms from './pages/Dashboard/DshSearchRooms/DshSearchRooms.jsx'
 import { ToastContainer } from 'react-toastify'
 import { useEffect, useState } from 'react'
-import AuthProvider from './context/AuthContext.jsx'
 import RequireAuth from './features/auth/RequireAuth.jsx'
 import { ROLES } from './constants/roles.constants.js'
 import RoomSingle from './pages/WebPages/SingleRoom/RoomSingle.jsx'
 import { RoomSingleProvider } from './context/RoomSingleContext.jsx'
 import { UserSingleProvider } from './context/UserSingleContext.jsx'
 import LogOut from './pages/Dashboard/LogOut/LogOut.jsx'
+import DshRoomCreateForm from './pages/Dashboard/DshRoomForms/DshRoomCreateForm.jsx'
+import DshRoomEditForm from './pages/Dashboard/DshRoomForms/DshRoomEditForm.jsx'
 
 function App () {
   const [isDarkMode, setIsDarkMode] = useState(false)
@@ -41,7 +42,7 @@ function App () {
   }
   , [])
   return (
-    <AuthProvider>
+    <>
       <Routes>
         {/* Routes for the web pages */}
         <Route path='/' element={<Home />} />
@@ -71,6 +72,8 @@ function App () {
         <Route element={<RequireAuth allowedRoles={[ROLES.SUPER_ADMIN, ROLES.ADMIN, ROLES.USER]} />}>
           <Route path='dashboard' element={<DashboardHome />} />
           <Route path='dashboard/rooms' element={<DshSearchRooms />} />
+          <Route path='dashboard/rooms/add' element={<DshRoomCreateForm />} />
+          <Route path='dashboard/rooms/edit/:id' element={<DshRoomEditForm />} />
         </Route>
         {/* 404 page */}
         <Route path='*' element={<NotFound />} />
@@ -89,7 +92,8 @@ function App () {
         theme={isDarkMode ? 'dark' : 'light'}
         stacked
       />
-    </AuthProvider>
+    </>
+
   )
 }
 
