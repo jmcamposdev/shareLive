@@ -57,7 +57,7 @@ const Selector = ({
           className='dark:text-white rounded-lg !border-0 dark:bg-midnight absolute w-full h-full top-0 left-0 flex justify-between items-center py-2 px-4 pr-6 '
         >
           <p className='m-0 p-0 text-slate-500 dark:text-white '>
-            {value[optionName]}
+            {value[optionName] ? value[optionName] : value}
           </p>
           <div className='w-[37px] h-full flex justify-between items-center'>
             <div className='h-full border-l border-slate-300'>
@@ -77,7 +77,7 @@ const Selector = ({
               data-value={option[optionValue]}
               onClick={handleSelectorChange}
               className={`${
-                option[optionValue] === value[optionValue]
+                option[optionValue] === (value[optionValue] ? value[optionValue] : value)
                   ? 'bg-orangePrimary/40 dark:bg-orangeSecondary'
                   : 'bg-white dark:bg-midnight'
               } hover:bg-orangePrimary/20 hover:dark:bg-lightmidnight cursor-pointer w-full py-3 px-4 text-gray-800 dark:text-white transition-all duration-300`}
