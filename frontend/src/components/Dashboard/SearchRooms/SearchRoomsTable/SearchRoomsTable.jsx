@@ -5,26 +5,26 @@ import { useState } from 'react'
 import BoxDashboard from '../../../common/Dashboard/BoxDashboard/BoxDashboard'
 import RoomService from '../../../../services/roomService.js'
 import useAlertToast from '../../../../hooks/useToast.js'
+import { Link, useNavigate } from 'react-router-dom'
 
 const SearchRoomsTable = ({ rooms, loading, title, subTitle }) => {
   const { toast } = useAlertToast()
   const [filter, setFilter] = useState('')
+  const navigate = useNavigate()
 
   const onDelete = (roomId) => {
     RoomService.deleteRoom(roomId)
       .then(() => {
         toast.showSuccess('Room deleted successfully')
-        console.log('Room deleted successfully')
       })
       .catch((error) => {
         toast.showError(error.message)
-        console.error('Error deleting room:', error.message)
       }
       )
   }
 
   const onEdit = (roomId) => {
-    console.log('Edit room:', roomId)
+    navigate(`/dashboard/rooms/edit/${roomId}`)
   }
 
   return (
@@ -47,7 +47,9 @@ const SearchRoomsTable = ({ rooms, loading, title, subTitle }) => {
               </label>
             </div>
           </div>
-          <a href='#' className='ud-btn btn-thm'>Add New Room<i className='fal fa-arrow-right-long' /></a>
+          <Link to='/dashboard/rooms/add' className='ud-btn btn-thm'>
+            Add New Room <i className='fal fa-arrow-right-long' />
+          </Link>
         </div>
       </div>
       {/* End Title | Search | Add Room */}
