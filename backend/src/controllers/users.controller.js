@@ -93,7 +93,7 @@ const toggleFavoriteRoom = async (req, res) => {
   try {
     const { id } = req.params
     const { roomId } = req.body
-    const user = await User.findById(id)
+    const user = await User.findById(id).populate('roles')
     if (!user) {
       return res.status(404).json({
         message: 'User not found'
