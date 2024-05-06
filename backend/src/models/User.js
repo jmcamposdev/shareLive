@@ -26,7 +26,6 @@ const userSchema = new Schema({
   password: { type: String, required: true },
   reviews: [{ type: Schema.Types.ObjectId, ref: 'Review', default: [] }],
   favouriteRoomsIds: { type: [String], default: [] },
-  ownerRoomsIds: { type: [String], default: [] },
   joinDate: { type: Date, default: Date.now },
   roles: [
     {
