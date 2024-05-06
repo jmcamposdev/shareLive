@@ -88,6 +88,26 @@ const UserService = {
       console.error('Error getting rooms:', error.message)
       throw error
     }
+  },
+
+  toggleFavoriteRoom: async (userId, roomId) => {
+    try {
+      const user = await api.post(`users/${userId}/rooms/favourites`, { roomId })
+      return user
+    } catch (error) {
+      console.error('Error toggling favorite room:', error.message)
+      throw error
+    }
+  },
+
+  getFavouriteRooms: async (id) => {
+    try {
+      const rooms = await api.get(`users/${id}/rooms/favourites`)
+      return rooms
+    } catch (error) {
+      console.error('Error getting favourite rooms:', error.message)
+      throw error
+    }
   }
 }
 
