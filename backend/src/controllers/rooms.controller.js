@@ -28,6 +28,8 @@ const getRoom = async (req, res) => {
   try {
     const { id } = req.params
     const room = await Room.findById(id).populate('user')
+    // Populate the reviews of the user
+    await room.populate('user.reviews')
     if (!room) {
       return res.status(404).json({
         message: 'Room not found'
