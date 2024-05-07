@@ -14,7 +14,7 @@ import DetailsForm from './FormSteps/DetailsForm'
 const steps = ['Description', 'Media', 'Location', 'Details']
 const { formId, formField } = roomFormModel
 
-const DshRoomForm = ({ title, subtitle, onSubmit, initialValues }) => {
+const DshRoomForm = ({ title, subtitle, onSubmit, initialValues, isEdit }) => {
   const formRef = useRef(null)
   const [activeStep, setActiveStep] = useState(0)
   const currentValidationSchema = roomValidationSchema[activeStep]
@@ -103,7 +103,7 @@ const DshRoomForm = ({ title, subtitle, onSubmit, initialValues }) => {
                       type='submit'
                       className='ud-btn btn-thm dark:text-white ml-auto'
                     >
-                      {isLastStep ? 'Create Room' : 'Next Step'}
+                      {isLastStep ? (isEdit ? 'Update Room' : 'Create Room') : 'Next Step'}
                       <i className='fal fa-arrow-right-long' />
                     </button>
                   </div>
