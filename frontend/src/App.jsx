@@ -12,6 +12,7 @@ import '../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js'
 import Rooms from './pages/WebPages/Rooms/Rooms.jsx'
 import DashboardHome from './pages/Dashboard/DashboardHome/DashboardHome.jsx'
 import DshSearchRooms from './pages/Dashboard/DshSearchRooms/DshSearchRooms.jsx'
+import DashboardSearchUsers from './pages/Dashboard/DashboardSearchUsers/DashboardSearchUsers.jsx'
 import { ToastContainer } from 'react-toastify'
 import { useEffect, useState } from 'react'
 import AuthProvider from './context/AuthContext.jsx'
@@ -71,6 +72,7 @@ function App () {
         <Route element={<RequireAuth allowedRoles={[ROLES.SUPER_ADMIN, ROLES.ADMIN, ROLES.USER]} />}>
           <Route path='dashboard' element={<DashboardHome />} />
           <Route path='dashboard/rooms' element={<DshSearchRooms />} />
+          <Route path='dashboard/users' element={<DashboardSearchUsers />} />
         </Route>
         {/* 404 page */}
         <Route path='*' element={<NotFound />} />
