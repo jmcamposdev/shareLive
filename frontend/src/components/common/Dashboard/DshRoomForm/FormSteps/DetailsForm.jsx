@@ -118,7 +118,7 @@ const DetailsForm = (props) => {
                     {amenity.label}
                     <input
                       type='checkbox'
-                      defaultChecked={values.amenities[amenity.label]}
+                      defaultChecked={values.amenities[amenity.value]}
                       value={amenity.label}
                       onChange={handleAmenitiesChange}
                     />

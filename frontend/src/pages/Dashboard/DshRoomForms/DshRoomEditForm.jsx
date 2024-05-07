@@ -7,7 +7,6 @@ import RoomService from '../../../services/roomService'
 const DshRoomEditForm = () => {
   const { id } = useParams()
   const { loading, room } = useRoom(id)
-  console.log({ loading, room })
   const title = 'Edit Room'
   const subtitle = 'Here you can edit your room'
 
@@ -40,9 +39,13 @@ const DshRoomEditForm = () => {
       // Update the room
       await RoomService.updateRoom(updatedRoomValues)
       // Delete the images
-      await RoomService.deleteRoomImages(id, deletedImages)
+      if (deletedImages.length > 0) {
+        await RoomService.deleteRoomImages(id, deletedImages)
+      }
       // Upload the new images
-      await RoomService.uploadRoomImages(id, newFiles)
+      if (newFiles.length > 0) {
+        await RoomService.uploadRoomImages(id, newFiles)
+      }
     } catch (error) {
       console.error('Error updating room:', error.message)
       actions.setSubmitting(false)
@@ -61,6 +64,7 @@ const DshRoomEditForm = () => {
             subtitle={subtitle}
             initialValues={roomFormInitialValues(room)}
             onSubmit={onSubmit}
+            isEdit
           />
           )}
     </>
