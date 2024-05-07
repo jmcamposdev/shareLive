@@ -1,6 +1,6 @@
 import Room from '../models/Room.js'
 import User from '../models/User.js'
-import { handleDelete, handleUpload } from '../storage/cloudinary.js'
+import { CLOUDINARY_FOLDERS, handleDeleteImage, handleUploadImage } from '../storage/cloudinary.js'
 /**
  * Get all rooms
  * @param {Object} req The request object
@@ -76,7 +76,7 @@ const uploadImages = async (req, res) => {
   try {
     // Subir cada imagen a Cloudinary y guardar la URL en uploadedImages
     for (const image of req.files) {
-      const cldRes = await handleUpload(image)
+      const cldRes = await handleUploadImage(image, `${CLOUDINARY_FOLDERS.ROOMS}/${id}`)
       uploadedImages.push(cldRes.secure_url)
     }
   } catch (error) {
@@ -89,11 +89,8 @@ const uploadImages = async (req, res) => {
 
   // Save the image URLs in the room
   const room = await Room.findById(id)
-  room.images = uploadedImages
+  room.images = [...room.images, ...uploadedImages]
   await room.save()
-
-  // Guardar las URLs en la base de datos o realizar cualquier otra acción necesaria
-  console.log('Imágenes subidas:', uploadedImages)
 
   res.send(uploadedImages)
 }
@@ -108,7 +105,7 @@ const deleteImages = async (req, res) => {
     await room.save()
     // Delete the images from Cloudinary
     for (const img of images) {
-      await handleDelete(img)
+      await handleDeleteImage(img, `${CLOUDINARY_FOLDERS.ROOMS}/${id}`)
     }
   } catch (error) {
     console.error('Error deleting images:', error)

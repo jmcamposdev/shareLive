@@ -1,4 +1,5 @@
 import moongose, { Schema } from 'mongoose'
+import { CLOUDINARY_FOLDERS, checkAndDeleteFolder, handleDeleteImage } from '../storage/cloudinary.js'
 
 // Definición del esquema de Room
 const roomSchema = new Schema({
@@ -39,6 +40,22 @@ const roomSchema = new Schema({
     electricHeater: { type: Boolean, default: false }
   },
   createdAt: { type: Date, default: Date.now }
+})
+
+// Crear un hook para cuand se ejecute el método findByIdAndDelete
+// Hook para ejecutar antes de eliminar una habitación
+roomSchema.pre('findOneAndDelete', async function (next) {
+  // `this` se refiere a la consulta que se está ejecutando, así que puedes acceder a los datos de la habitación a eliminar
+  const room = await this.model.findOne(this.getFilter())
+  // Delete all images from Cloudinary
+  room.images.forEach(async (img) => {
+    await handleDeleteImage(img, `${CLOUDINARY_FOLDERS.ROOMS}/${room._id}`)
+  })
+
+  // Delete the folder
+  await checkAndDeleteFolder(`${CLOUDINARY_FOLDERS.ROOMS}/${room._id}`)
+
+  next()
 })
 
 // Creación del modelo Room
