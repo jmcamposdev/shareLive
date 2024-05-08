@@ -42,7 +42,7 @@ const DetailsForm = (props) => {
         <div className='flex gap-5'>
           <FormikControl
             control='input'
-            type='text'
+            type='number'
             id={squareMeters.name}
             name={squareMeters.name}
             label={squareMeters.label}

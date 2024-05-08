@@ -33,7 +33,7 @@ export default [
     [title.name]: Yup.string().required(`${title.requiredErrorMsg}`),
     [excerpt.name]: Yup.string().required(`${excerpt.requiredErrorMsg}`),
     [description.name]: Yup.string().required(`${description.requiredErrorMsg}`),
-    [price.name]: Yup.number().required(`${price.requiredErrorMsg}`),
+    [price.name]: Yup.number().required(`${price.requiredErrorMsg}`).min(price.min, `${price.minErrorMsg}`).max(price.max, `${price.maxErrorMsg}`),
     [propertyStatus.name]: Yup.string().required(`${propertyStatus.requiredErrorMsg}`)
   }),
   Yup.object().shape({
@@ -50,13 +50,13 @@ export default [
     [postalCode.name]: Yup.string().required(`${postalCode.requiredErrorMsg}`)
   }),
   Yup.object().shape({
-    [squareMeters.name]: Yup.number().required(),
-    [bedrooms.name]: Yup.number().required(),
-    [bathrooms.name]: Yup.number().required(),
-    [yearBuilt.name]: Yup.number().required(),
-    [floor.name]: Yup.number().required(),
-    [structureType.name]: Yup.string().required(),
-    [garageNumber.name]: Yup.number(),
+    [squareMeters.name]: Yup.number().required(`${squareMeters.requiredErrorMsg}`).min(squareMeters.min, `${squareMeters.minErrorMsg}`).max(squareMeters.max, `${squareMeters.maxErrorMsg}`),
+    [bedrooms.name]: Yup.number().required(`${bedrooms.requiredErrorMsg}`).min(bedrooms.min, `${bedrooms.minErrorMsg}`).max(bedrooms.max, `${bedrooms.maxErrorMsg}`),
+    [bathrooms.name]: Yup.number().required(`${bathrooms.requiredErrorMsg}`).min(bathrooms.min, `${bathrooms.minErrorMsg}`).max(bathrooms.max, `${bathrooms.maxErrorMsg}`),
+    [yearBuilt.name]: Yup.number().required(`${yearBuilt.requiredErrorMsg}`).min(yearBuilt.min, `${yearBuilt.minErrorMsg}`).max(yearBuilt.max, `${yearBuilt.maxErrorMsg}`),
+    [floor.name]: Yup.number().required(`${floor.requiredErrorMsg}`).min(floor.min, `${floor.minErrorMsg}`).max(floor.max, `${floor.maxErrorMsg}`),
+    [structureType.name]: Yup.string().required(`${structureType.requiredErrorMsg}`),
+    [garageNumber.name]: Yup.number().required(`${garageNumber.requiredErrorMsg}`).min(garageNumber.min, `${garageNumber.minErrorMsg}`).max(garageNumber.max, `${garageNumber.maxErrorMsg}`),
     [amenities.name]: Yup.object().shape({
       washer: Yup.boolean(),
       dryer: Yup.boolean(),

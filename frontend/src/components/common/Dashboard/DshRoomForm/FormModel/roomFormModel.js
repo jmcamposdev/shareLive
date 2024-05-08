@@ -23,7 +23,11 @@ export default {
       name: 'price',
       label: 'Price',
       placeholder: 'Price',
-      requiredErrorMsg: 'Price is required'
+      requiredErrorMsg: 'Price is required',
+      min: 1,
+      max: 1000000,
+      minErrorMsg: 'Price must be greater than 1$',
+      maxErrorMsg: 'Price must be less than 1000000$'
     },
     propertyStatus: {
       name: 'propertyStatus',
@@ -98,7 +102,11 @@ export default {
       name: 'squareMeters',
       label: 'Square Meters',
       placeholder: 'Square Meters',
-      requiredErrorMsg: 'Square Meters is required'
+      requiredErrorMsg: 'Square Meters is required',
+      min: 1,
+      max: 10000,
+      minErrorMsg: 'Square Meters must be greater than 0',
+      maxErrorMsg: 'Square Meters must be less than 10000'
     },
     bedrooms: {
       name: 'bedrooms',
@@ -113,7 +121,11 @@ export default {
         { value: '5', label: '5' }
       ],
       optionValue: 'value',
-      optionName: 'label'
+      optionName: 'label',
+      min: 1,
+      max: 10,
+      minErrorMsg: 'Bedrooms must be greater than 0',
+      maxErrorMsg: 'Bedrooms must be less than 10'
     },
     bathrooms: {
       name: 'bathrooms',
@@ -128,13 +140,21 @@ export default {
         { value: '5', label: '5' }
       ],
       optionValue: 'value',
-      optionName: 'label'
+      optionName: 'label',
+      min: 1,
+      max: 10,
+      minErrorMsg: 'Bathrooms must be greater than 0',
+      maxErrorMsg: 'Bathrooms must be less than 10'
     },
     yearBuilt: {
       name: 'yearBuilt',
       label: 'Year Built',
       placeholder: 'Year Built',
-      requiredErrorMsg: 'Year Built is required'
+      requiredErrorMsg: 'Year Built is required',
+      min: 1900,
+      max: new Date().getFullYear(),
+      minErrorMsg: 'Year Built must be greater than 1900',
+      maxErrorMsg: `Year Built must be less than ${new Date().getFullYear()}`
     },
     floor: {
       name: 'floor',
@@ -154,7 +174,11 @@ export default {
         { value: '10', label: '10' }
       ],
       optionValue: 'value',
-      optionName: 'label'
+      optionName: 'label',
+      min: 1,
+      max: 100,
+      minErrorMsg: 'Floor must be greater than 0',
+      maxErrorMsg: 'Floor must be less than 100'
     },
     structureType: {
       name: 'structureType',
@@ -176,7 +200,11 @@ export default {
       name: 'garageNumber',
       label: 'Garage Number',
       placeholder: 'Garage Number',
-      requiredErrorMsg: 'Garage Number is required'
+      requiredErrorMsg: 'Garage Number is required',
+      min: 0,
+      max: 10,
+      minErrorMsg: 'Garage Number must be greater than or equal to 0',
+      maxErrorMsg: 'Garage Number must be less than 10'
     },
     amenities: {
       name: 'amenities',
