@@ -53,6 +53,16 @@ const UserService = {
     }
   },
 
+  getUserReviews: async (id) => {
+    try {
+      const reviews = await api.get(`users/${id}/reviews`)
+      return reviews
+    } catch (error) {
+      console.error('Error getting user reviews:', error.message)
+      throw error
+    }
+  },
+
   updateUserReview: async (userId, review) => {
     try {
       const updatedReview = await api.put(

@@ -4,7 +4,7 @@ import Bounce1Dark from '../../../assets/img/users/bounceDark.png'
 import Bounce2 from '../../../assets/img/users/bounce2.png'
 import Bounce2Dark from '../../../assets/img/users/bounce2Dark.png'
 import CircleOrangeDark from '../../../assets/img/users/circleOrangeDark.png'
-import ReviewsStats from '../../../components/common/SingleUser/UserReviewsStats'
+import UserReviewsStats from '../../../components/common/SingleUser/UserReviewsStats'
 import UserSocials from '../../../components/common/SingleUser/UserSocials'
 import { getAvatarImage } from '../../../utils/user.utils'
 
@@ -22,7 +22,7 @@ const UserHeaderSingle = ({ user }) => {
                 <h2 className='title dark:text-white mb-2'>{`${user.firstName} ${user.lastName}`}</h2>
                 {/* <p className='fz15'>Renter in <b>`${user.zone}`</b></p> */}
                 <div className='agent-meta mb15 md:flex items-center'>
-                  <ReviewsStats className='pe-2' user={user} />
+                  <UserReviewsStats className='pe-2' reviews={user.reviews} />
                   {user.phone ? (<a className='text fz15 pe-2 ps-2  dark:text-white'><i className='flaticon-call pe-1' />{user.phone}</a>) : ''}
                   {/* bdrl1 bdrr1 */}
                   {user.mobilePhone ? (<a className='text fz15 ps-2 dark:text-white'><i className='flaticon-smartphone pe-1' />{user.mobilePhone}</a>) : ''}
