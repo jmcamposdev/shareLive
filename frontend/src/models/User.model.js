@@ -34,9 +34,8 @@ const UserPropTypes = PropTypes.shape({
     __v: PropTypes.number
   })),
   favouriteRoomsIds: PropTypes.arrayOf(PropTypes.string),
-  ownerRoomsIds: PropTypes.arrayOf(PropTypes.string),
   joinDate: PropTypes.string.isRequired,
-  roles: PropTypes.arrayOf(PropTypes.string)
+  roles: PropTypes.arrayOf(PropTypes.object)
 })
 
 // PropType para el esquema de revisión

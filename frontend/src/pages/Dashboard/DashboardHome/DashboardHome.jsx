@@ -1,23 +1,23 @@
-import RecentActivities from '../../../components/Dashboard/Home/RecentActivities/RecentActivities'
-import TopStateBlock from '../../../components/Dashboard/Home/TopStateBlock/TopStateBlock'
-import WeeklyRoomsChart from '../../../components/Dashboard/Home/WeeklyRoomsChart/WeeklyRoomsChart'
-import TitleDashboard from '../../../components/common/Dashboard/TitleDashboard/TitleDashboard'
-import DashboardLayout from '../../../layout/DashboardLayout'
+import useAuthUser from 'react-auth-kit/hooks/useAuthUser'
+import { isAdministrator } from '../../../utils/user.utils'
+import DashboardHomeUser from './DashboardHomeUser'
+import DashboardHomeAdmin from './DashboardHomeAdmin'
 
 function DashboardHome () {
+  const user = useAuthUser()
+  const isAdmin = isAdministrator(user.roles)
+
   return (
-    <DashboardLayout>
-      <TitleDashboard title='Howdy, Ali!' subtitle='We are glad to see you again!' />
-      <TopStateBlock />
-      <div className='flex flex-wrap '>
-        <div className='w-full xl:w-2/3 pr-4 pl-4'>
-          <WeeklyRoomsChart />
-        </div>
-        <div className='w-full xl:w-1/3 pr-4 pl-4'>
-          <RecentActivities />
-        </div>
-      </div>
-    </DashboardLayout>
+    <>
+      {isAdmin
+        ? (
+          <DashboardHomeAdmin />
+          )
+        : (
+          <DashboardHomeUser />
+          )}
+    </>
+
   )
 }
 

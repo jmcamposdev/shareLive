@@ -1,6 +1,5 @@
-import getUserCookiesData from '../utils/getUserCookiesData'
+import useAuth from "../hooks/useAuth"
 
-const { token } = getUserCookiesData()
 const BASE_URL = import.meta.env.VITE_API_BASE_URL
 
 const api = {
@@ -29,6 +28,8 @@ const api = {
   },
 
   post: async (endpoint, body) => {
+    const { token } = useAuth()
+
     try {
       const response = await fetch(`${BASE_URL}/${endpoint}`, {
         method: 'POST',
@@ -46,7 +47,9 @@ const api = {
     }
   },
 
-  delete: async (endpoint) => {
+  delete: async (endpoint, body) => {
+    const { token } = useAuth()
+
     try {
       const response = await fetch(`${BASE_URL}/${endpoint}`, {
         method: 'DELETE',
@@ -54,7 +57,8 @@ const api = {
         headers: {
           'Content-Type': 'application/json',
           'x-access-token': token // Añade el token al encabezado
-        }
+        },
+        body: body ? JSON.stringify(body) : null
       })
       return api.handleResponse(response)
     } catch (error) {
@@ -64,6 +68,8 @@ const api = {
   },
 
   put: async (endpoint, body) => {
+    const { token } = useAuth()
+
     try {
       const response = await fetch(`${BASE_URL}/${endpoint}`, {
         method: 'PUT',

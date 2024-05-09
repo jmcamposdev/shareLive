@@ -50,12 +50,6 @@ export default [
       3,
       4
     ],
-    ownerRoomsIds: [
-      1,
-      2,
-      3,
-      4
-    ],
     joinDate: '2024-03-27T15:05:48.261Z'
   }
 ]

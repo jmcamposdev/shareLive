@@ -1,7 +1,10 @@
 import mongoose, { Schema } from 'mongoose'
 import bcrypt from 'bcryptjs'
 import jwt from 'jsonwebtoken'
+import dotenv from 'dotenv'
 import Review from './Review.js'
+
+dotenv.config()
 
 // Definición del esquema de Usuario
 const userSchema = new Schema({
@@ -23,7 +26,6 @@ const userSchema = new Schema({
   password: { type: String, required: true },
   reviews: [{ type: Schema.Types.ObjectId, ref: 'Review', default: [] }],
   favouriteRoomsIds: { type: [String], default: [] },
-  ownerRoomsIds: { type: [String], default: [] },
   joinDate: { type: Date, default: Date.now },
   roles: [
     {
@@ -53,17 +55,17 @@ User.comparePassword = async (password, receivedPassword) => {
 }
 
 User.generateToken = async user => {
+  delete user.password
+  const expiredTime = process.env.EXPIRED_JWT_TIME
+  const jwtSecretKey = process.env.JWT_SECRET
+  console.log('expiredTime', expiredTime)
   return jwt.sign(
     {
-      id: user._id,
-      username: user.username,
-      email: user.email,
-      name: user.name,
-      roles: user.roles.map(role => role.name)
+      ...user.toJSON()
     },
-    process.env.JWT_SECRET,
+    jwtSecretKey,
     {
-      expiresIn: process.env.EXPIRED_JWT_TIME
+      expiresIn: Number(expiredTime)
     }
   )
 }

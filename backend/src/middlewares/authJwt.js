@@ -29,7 +29,7 @@ export const verifyToken = async (req, res, next) => {
     const decoded = jwt.verify(token, process.env.JWT_SECRET)
 
     // Add the user ID to the request
-    req.userId = decoded.id
+    req.userId = decoded._id
 
     // Find the user in the database
     const user = await User.findById(req.userId)
