@@ -1,9 +1,12 @@
 import useAuthUser from 'react-auth-kit/hooks/useAuthUser'
 import Review from '../../Review/Review'
 import { USER_REVIEWS_ORDER } from './UserReviews.constant'
+import { useUserSingle } from '../../../../context/UserSingleContext'
 
 const UserReviewsList = ({ userId, reviews, order, numtoDisplay = 4 }) => {
   const user = useAuthUser()
+  const { updateReview } = useUserSingle()
+
   // Order reviews
   reviews = reviews.sort((a, b) => {
     switch (order) {
@@ -31,7 +34,7 @@ const UserReviewsList = ({ userId, reviews, order, numtoDisplay = 4 }) => {
 
     <>
       {reviews.slice(0, numtoDisplay).map(review => (
-        <Review key={review._id} review={review} />
+        <Review key={review._id} review={review} onUpdate={updateReview} />
       ))}
       {reviews.length > numtoDisplay && (
         <div className='md:w-full'>

@@ -26,7 +26,7 @@ const UserReviews = ({ userSingle }) => {
                     <div className='w-full pr-4 pl-4'>
                       <div className='total_review flex justify-between mb20 mt60 items-start flex-col sm:flex-row sm:items-center'>
                         <h6 className='fz17 mb15 dark:text-white'>
-                          <UserReviewsStats user={userSingle} iconClassName='fz12 pe-2 text-black' />
+                          <UserReviewsStats reviews={userSingle.reviews} iconClassName='fz12 pe-2 text-black' />
                         </h6>
                         <div className='page_control_shorting flex items-center justify-center sm:justify-end'>
                           <div className='pcs_dropdown mb15 flex items-center gap-2'>

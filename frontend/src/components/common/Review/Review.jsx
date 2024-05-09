@@ -1,16 +1,13 @@
 import PropTypes from 'prop-types'
 import { formatDate } from '../../../utils/formatDate'
 import { getAvatarImage } from '../../../utils/user.utils'
-import { useUserSingle } from '../../../context/UserSingleContext'
 import { REVIEW_HELP_STATES } from '../SingleUser/UserReviews/UserReviews.constant'
 import useAlertToast from '../../../hooks/useToast'
 import useAuthUser from 'react-auth-kit/hooks/useAuthUser'
 
-const Review = ({ review, className }) => {
+const Review = ({ review, className, onUpdate }) => {
   const { toast } = useAlertToast()
   const user = useAuthUser()
-  const { updateReview } = useUserSingle()
-
   const isYourReview = review.ownerId === user?._id
   const isOwnerHelpful = review.helpful.includes(user?._id)
   const isOwnerNotHelpful = review.notHelpful.includes(user?._id)
@@ -39,7 +36,7 @@ const Review = ({ review, className }) => {
       review.notHelpful.push(user._id)
     }
     // Save the review
-    updateReview(review)
+    if (onUpdate) onUpdate(review)
   }
 
   return (

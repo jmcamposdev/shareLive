@@ -1,12 +1,12 @@
 import PropTypes from 'prop-types'
-import { UserPropTypes } from '../../../models/User.model'
+import { UserReviewPropTypes } from '../../../models/User.model'
 
-const UserReviewsStats = ({ user, className, iconClassName }) => {
+const UserReviewsStats = ({ reviews, className, iconClassName }) => {
   // Calcular la media de las calificaciones
-  const totalReviews = user.reviews.length
+  const totalReviews = reviews.length
   const averageRating =
     totalReviews > 0
-      ? user.reviews.reduce((acc, review) => acc + review.reviewRate, 0) / totalReviews
+      ? reviews.reduce((acc, review) => acc + review.reviewRate, 0) / totalReviews
       : 0
 
   return (
@@ -19,7 +19,7 @@ const UserReviewsStats = ({ user, className, iconClassName }) => {
 }
 
 UserReviewsStats.propTypes = {
-  user: UserPropTypes.isRequired,
+  user: PropTypes.arrayOf(UserReviewPropTypes).isRequired,
   className: PropTypes.string,
   iconClassName: PropTypes.string
 }
