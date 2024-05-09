@@ -1,5 +1,22 @@
 import Review from '../models/Review.js'
 
+export const getReviews = async (req, res) => {
+  try {
+    const { id } = req.params
+
+    // Find all reviews for the user
+    const reviews = await Review.find({ ownerId: id })
+
+    // Return the reviews
+    res.json(reviews)
+  } catch (error) {
+    console.error(error)
+    res.status(500).json({
+      message: 'Server error'
+    })
+  }
+}
+
 export const createReview = async (req, res) => {
   try {
     const { ownerId, reviewRate, reviewContent } = req.body
