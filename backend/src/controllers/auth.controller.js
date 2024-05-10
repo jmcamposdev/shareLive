@@ -7,6 +7,7 @@ export const signIn = async (req, res) => {
 
   // Populate the user's roles
   await user.populate('roles')
+  await user.populate('reviews')
 
   // Generate a token
   const token = await User.generateToken(user)
@@ -36,6 +37,7 @@ export const signUp = async (req, res) => {
 
   // Populate the user's roles
   await newUser.populate('roles')
+  await newUser.populate('reviews')
 
   // Generate a token
   const token = await User.generateToken(newUser)
