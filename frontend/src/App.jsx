@@ -12,6 +12,9 @@ import '../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js'
 import Rooms from './pages/WebPages/Rooms/Rooms.jsx'
 import DashboardHome from './pages/Dashboard/DashboardHome/DashboardHome.jsx'
 import DshSearchRooms from './pages/Dashboard/DshSearchRooms/DshSearchRooms.jsx'
+import DashboardMyProfile from './pages/Dashboard/DashboardMyProfile/DashboardMyProfile.jsx'
+import usersItems from './data/usersItems.js'
+import RoomItems from './data/roomsItems.js'
 import { ToastContainer } from 'react-toastify'
 import { useEffect, useState } from 'react'
 import RequireAuth from './features/auth/RequireAuth.jsx'
@@ -23,7 +26,7 @@ import LogOut from './pages/Dashboard/LogOut/LogOut.jsx'
 import DshRoomCreateForm from './pages/Dashboard/DshRoomForms/DshRoomCreateForm.jsx'
 import DshRoomEditForm from './pages/Dashboard/DshRoomForms/DshRoomEditForm.jsx'
 
-function App () {
+function App() {
   const [isDarkMode, setIsDarkMode] = useState(false)
 
   // Add event listener de body class change to know if the dark mode is activated
@@ -40,7 +43,7 @@ function App () {
       })
     }
   }
-  , [])
+    , [])
   return (
     <>
       <Routes>
@@ -55,14 +58,14 @@ function App () {
             <RoomSingleProvider>
               <RoomSingle />
             </RoomSingleProvider>
-            }
+          }
         />
         <Route
           path='users/:id' element={
             <UserSingleProvider>
               <UserSingle />
             </UserSingleProvider>
-        }
+          }
         />
         {/* Autentication */}
         <Route path='login' element={<Login />} />
@@ -74,10 +77,11 @@ function App () {
           <Route path='dashboard/rooms' element={<DshSearchRooms />} />
           <Route path='dashboard/rooms/add' element={<DshRoomCreateForm />} />
           <Route path='dashboard/rooms/edit/:id' element={<DshRoomEditForm />} />
-        </Route>
+          <Route path='dashboard/dashboard-my-profile' element={<DashboardMyProfile />} />
+        </Route >
         {/* 404 page */}
-        <Route path='*' element={<NotFound />} />
-      </Routes>
+        < Route path='*' element={< NotFound />} />
+      </Routes >
       <ToastContainer
         position='bottom-right'
         autoClose={5000}
