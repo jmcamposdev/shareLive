@@ -23,13 +23,25 @@ const useUserReviews = (userId) => {
       const updatedReviews = reviews.map(r => r._id === review._id ? review : r)
       setReviews(updatedReviews)
       // Actualizar la reseña en la base de datos
-      await UserService.updateUserReview(review.ownerId, review)
+      await UserService.updateUserReview(review.assignedId, review)
     } catch (error) {
       console.error('Error updating user review:', error)
     }
   }
 
-  return { reviews, loading, updateReview }
+  const deleteReview = async (reviewId) => {
+    try {
+      // Eliminar la reseña del estado local
+      const updatedReviews = reviews.filter(r => r._id !== reviewId)
+      setReviews(updatedReviews)
+      // Eliminar la reseña de la base de datos
+      await UserService.deleteReview(userId, reviewId)
+    } catch (error) {
+      console.error('Error deleting user review:', error)
+    }
+  }
+
+  return { reviews, loading, updateReview, deleteReview }
 }
 
 export default useUserReviews

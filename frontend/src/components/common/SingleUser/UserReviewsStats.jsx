@@ -19,7 +19,7 @@ const UserReviewsStats = ({ reviews, className, iconClassName }) => {
 }
 
 UserReviewsStats.propTypes = {
-  user: PropTypes.arrayOf(UserReviewPropTypes).isRequired,
+  reviews: PropTypes.arrayOf(UserReviewPropTypes).isRequired,
   className: PropTypes.string,
   iconClassName: PropTypes.string
 }

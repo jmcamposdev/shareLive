@@ -86,6 +86,15 @@ const UserService = {
     }
   },
 
+  deleteReview: async (userId, reviewId) => {
+    try {
+      await api.delete(`users/${userId}/reviews/${reviewId}`)
+    } catch (error) {
+      console.error('Error deleting user review:', error.message)
+      throw error
+    }
+  },
+
   getAllRoomsByUser: async (id) => {
     if (!id) {
       return []

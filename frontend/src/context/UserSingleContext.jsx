@@ -79,6 +79,7 @@ export const UserSingleProvider = ({ userId, children }) => {
   }
 
   const createReview = async (review) => {
+    review.assignedId = id
     try {
       const resReview = await UserService.createReview(id, review)
       // Add the review to the user

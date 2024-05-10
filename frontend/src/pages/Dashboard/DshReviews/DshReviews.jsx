@@ -12,7 +12,7 @@ import useUserReviews from '../../../hooks/useUserReviews'
 const DshReviews = () => {
   const user = useAuthUser()
   const [order, setOrder] = useState({ value: USER_REVIEWS_ORDER.NEWEST, label: USER_REVIEWS_ORDER_LABEL.NEWEST })
-  const { reviews, updateReview, loading } = useUserReviews(user?._id)
+  const { reviews, updateReview, deleteReview, loading } = useUserReviews(user?._id)
   const [orderReviews, setOrderReviews] = useState([])
 
   const orderReviewsFn = () => {
@@ -49,7 +49,7 @@ const DshReviews = () => {
       <TitleDashboard title='Reviews' subtitle='Here you can see all the reviews' />
       <BoxDashboard>
         <div className='flex justify-between items-center mb30'>
-          <UserReviewsStats reviews={user.reviews} iconClassName='fz12 pe-2 !text-black' />
+          <UserReviewsStats reviews={orderReviews} iconClassName='fz12 pe-2 !text-black' />
           <Selector
             id='sort-by'
             inputName='sort-by'
@@ -71,7 +71,7 @@ const DshReviews = () => {
 
         {orderReviews.length > 0
           ? (
-              orderReviews.map(review => <Review key={review._id} review={review} onUpdate={updateReview} />)
+              orderReviews.map(review => <Review key={review._id} review={review} onUpdate={updateReview} onDelete={deleteReview} />)
             )
           : (
             <div className='text-center my-24'>

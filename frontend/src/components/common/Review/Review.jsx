@@ -5,7 +5,7 @@ import { REVIEW_HELP_STATES } from '../SingleUser/UserReviews/UserReviews.consta
 import useAlertToast from '../../../hooks/useToast'
 import useAuthUser from 'react-auth-kit/hooks/useAuthUser'
 
-const Review = ({ review, className, onUpdate }) => {
+const Review = ({ review, className, onUpdate, onDelete }) => {
   const { toast } = useAlertToast()
   const user = useAuthUser()
   const isYourReview = review.ownerId === user?._id
@@ -83,6 +83,13 @@ const Review = ({ review, className, onUpdate }) => {
           <i className={`fas fa-thumbs-down text-gray-500 ${isOwnerNotHelpful ? '!text-orangePrimary' : ''}`} />
           Not helpful ({review.notHelpful.length})
         </button>
+        {
+          isYourReview && onDelete && (
+            <button className='ml-auto' onClick={() => onDelete(review._id)}>
+              <i className='fa-solid fa-trash text-gray-500 hover:!text-orangePrimary transition-all duration-300 cursor-pointer' />
+            </button>
+          )
+        }
       </div>
     </div>
   )
