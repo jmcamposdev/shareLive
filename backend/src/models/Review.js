@@ -2,6 +2,7 @@ import mongoose, { Schema } from 'mongoose'
 
 const reviewSchema = new Schema({
   ownerId: { type: String, required: true }, // Almacenar el id del usuario
+  assignedId: { type: String, required: true }, // Almacenar el id del usuario asignado
   ownerName: { type: String, required: true }, // Almacenar el nombre del usuario
   ownerAvatar: { type: String, default: '' }, // Almacenar el avatar del usuario
   reviewRate: { type: Number, required: true, min: 1, max: 5 },

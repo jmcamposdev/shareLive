@@ -19,12 +19,13 @@ export const getReviews = async (req, res) => {
 
 export const createReview = async (req, res) => {
   try {
-    const { ownerId, reviewRate, reviewContent } = req.body
+    const { ownerId, assignedId, reviewRate, reviewContent } = req.body
     const { ownerUser, user } = req
 
     // Create a new review
     const review = await Review.create({
       ownerId,
+      assignedId,
       ownerName: ownerUser.name,
       ownerAvatar: ownerUser.avatar,
       reviewRate,
