@@ -13,25 +13,23 @@ import DashboardPassword from '../../../components/Dashboard/MyProfile/Password'
 
 const DashboardMyProfile = () => {
     return (
-        <>
-            <DashboardLayout>
-                <div className='row align-items-center pb40'>
-                    <div className='col-lg-12'>
-                        <div className='dashboard_title_area '>
-                            <h2 className='dark:text-white'>My Profile</h2>
-                            <p className='text dark:text-white'>We are glad to see you again!</p>
-                        </div>
+        <DashboardLayout>
+            <div className='row align-items-center pb40'>
+                <div className='col-lg-12'>
+                    <div className='dashboard_title_area '>
+                        <h2 className='dark:text-white'>My Profile</h2>
+                        <p className='text dark:text-white'>We are glad to see you again!</p>
                     </div>
                 </div>
-                <div className='row'>
-                    <div className='col-xl-12'>
-                        <DashboardProfile />
-                        <DashboardSocial />
-                        <DashboardPassword />
-                    </div>
+            </div>
+            <div className='row'>
+                <div className='col-xl-12'>
+                    <DashboardProfile />
+                    <DashboardSocial />
+                    <DashboardPassword />
                 </div>
-            </DashboardLayout>
-        </>
+            </div>
+        </DashboardLayout>
     )
 }
 
