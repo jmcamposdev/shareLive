@@ -15,6 +15,15 @@ export function toNormalCase (str) {
     )
 }
 
+export function snakeToNormalCase (str) {
+  return str.replace(/_/g, ' ')
+}
+
+export function upperCaseToNormalCase (str) {
+  const allLowerCase = str.toLowerCase()
+  return allLowerCase.charAt(0).toUpperCase() + allLowerCase.slice(1)
+}
+
 export function removeDiacritics (text) {
   return text.normalize('NFD').replace(/[\u0300-\u036f]/g, '')
 }

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { Formik, Form, Field, ErrorMessage } from 'formik'
 import * as Yup from 'yup'
 import WebLayout from '../../../layout/WebLayout'
@@ -7,11 +7,12 @@ import LogoDark from '../../../assets/logos/logo-dark.png'
 import LoginImg from '../../../assets/vectors/register.svg'
 import useAlertToast from '../../../hooks/useToast'
 import AuthService from '../../../services/authService'
-import { Link } from 'react-router-dom'
-import { useAuth } from '../../../context/AuthContext'
+import { Link, useNavigate } from 'react-router-dom'
+import useSignIn from 'react-auth-kit/hooks/useSignIn'
 
 const Register = () => {
-  const { setToken, updateUserData } = useAuth()
+  const signIn = useSignIn()
+  const navigate = useNavigate()
   const { toast } = useAlertToast()
 
   // Validation schema for the form
@@ -32,25 +33,20 @@ const Register = () => {
 
     try {
       const res = await AuthService.signUp(username, email, password)
-      setToken(res.token)
-      updateUserData(res.user)
+      signIn({
+        auth: {
+          token: res.token,
+          type: 'Bearer'
+        },
+        userState: { ...res.user }
+      })
+
       toast.showSuccess('Registered successfully')
+      navigate('/dashboard')
     } catch (error) {
       toast.showError(error.message)
     }
   }
-
-  // Variable to know if the user scrolled the page
-  const [isScrolled, setIsScrolled] = useState(false)
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollTop = window.scrollY || document.documentElement.scrollTop
-      setIsScrolled(scrollTop > 0)
-    }
-
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
 
   // Use state to handle the state of the remember me checkbox
   const [isChecked, setIsChecked] = useState(false)
@@ -63,8 +59,6 @@ const Register = () => {
   return (
     <WebLayout>
       <section className='our-compare pt120 pb120 relative dark:bg-lightmidnight'>
-        {/* If the page is not scrolled the nav wil have this background color */}
-        <div className={`hidden lg:block absolute h-[87px] w-full top-0 ${!isScrolled ? 'bg-midnight' : 'bg-transparent'}`} />
         <img
           alt='logo'
           data-aos='fade-right'

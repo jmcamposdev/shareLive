@@ -18,8 +18,7 @@ const Rooms = () => {
       <WebLayout>
         <PageIntro title='Rooms' description='Find the perfect room for your stay' backgroundImage={RoomBackgroundImage} />
 
-        <section className='pt0 pb90 bgc-f7 relative'>
-          <div className='absolute top-0 left-0 w-full h-full hiddden dark:block dark:bg-lightmidnight' />
+        <section className='pt0 pb90 bgc-f7 relative dark:bg-lightmidnight' id='roomsContent'>
           <div className='container'>
             <div className='row gx-xl-5'>
               <div className='col-lg-4 d-none d-lg-block'>

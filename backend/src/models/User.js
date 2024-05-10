@@ -1,6 +1,10 @@
 import mongoose, { Schema } from 'mongoose'
 import bcrypt from 'bcryptjs'
 import jwt from 'jsonwebtoken'
+import dotenv from 'dotenv'
+import Review from './Review.js'
+
+dotenv.config()
 
 // Definición del esquema de Usuario
 const userSchema = new Schema({
@@ -20,25 +24,8 @@ const userSchema = new Schema({
     instagram: { type: String, default: '' }
   },
   password: { type: String, required: true },
-  reviews: {
-    type: [
-      {
-        id: { type: String, required: true },
-        reviewId: { type: String, required: true },
-        reviewRate: { type: Number, required: true },
-        reviewerAvatar: { type: String, required: true },
-        reviewerFirstName: { type: String, required: true },
-        reviewerLastName: { type: String, required: true },
-        reviewDate: { type: Date, required: true },
-        reviewContent: { type: String, required: true },
-        helpful: { type: Number, required: true },
-        notHelpful: { type: Number, required: true }
-      }
-    ],
-    default: []
-  },
+  reviews: [{ type: Schema.Types.ObjectId, ref: 'Review', default: [] }],
   favouriteRoomsIds: { type: [String], default: [] },
-  ownerRoomsIds: { type: [String], default: [] },
   joinDate: { type: Date, default: Date.now },
   roles: [
     {
@@ -46,6 +33,13 @@ const userSchema = new Schema({
       type: Schema.Types.ObjectId
     }
   ]
+})
+
+// Cuando el usuario actualiza su información, actualiza las revisiones relacionadas
+userSchema.post('findOneAndUpdate', async function (doc) {
+  if (doc) {
+    await Review.updateMany({ ownerId: doc._id }, { ownerName: doc.name, ownerAvatar: doc.avatar })
+  }
 })
 
 // Creación del modelo Usuario
@@ -61,19 +55,27 @@ User.comparePassword = async (password, receivedPassword) => {
 }
 
 User.generateToken = async user => {
+  delete user.password
+  const expiredTime = process.env.EXPIRED_JWT_TIME
+  const jwtSecretKey = process.env.JWT_SECRET
+  console.log('expiredTime', expiredTime)
   return jwt.sign(
     {
-      id: user._id,
-      username: user.username,
-      email: user.email,
-      name: user.name,
-      roles: user.roles.map(role => role.name)
+      ...user.toJSON()
     },
-    process.env.JWT_SECRET,
+    jwtSecretKey,
     {
-      expiresIn: process.env.EXPIRED_JWT_TIME
+      expiresIn: Number(expiredTime)
     }
   )
+}
+
+User.verifyToken = async token => {
+  try {
+    return jwt.verify(token, process.env.JWT_SECRET)
+  } catch (error) {
+    return null
+  }
 }
 
 export default User

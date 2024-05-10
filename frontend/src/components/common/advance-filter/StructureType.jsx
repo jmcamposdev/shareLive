@@ -1,4 +1,4 @@
-import Select from 'react-select'
+import Selector from '../Inputs/Selector'
 import { RoomSearchContext } from '../../../context/RoomSearchContext'
 import { useContext } from 'react'
 
@@ -6,22 +6,8 @@ const StructureType = () => {
   const { filters, filterBy } = useContext(RoomSearchContext)
   const { structureType } = filters
 
-  const customStyles = {
-    option: (styles, { isFocused, isSelected, isHovered }) => {
-      return {
-        ...styles,
-        backgroundColor: isSelected
-          ? '#eb6753'
-          : isHovered
-            ? '#eb675312'
-            : isFocused
-              ? '#eb675312'
-              : undefined
-      }
-    }
-  }
-
   const structureOptions = [
+    { value: 'all', label: 'All' },
     { value: 'Apartment', label: 'Apartment' },
     { value: 'House', label: 'House' },
     { value: 'Penthouse', label: 'Penthouse' },
@@ -30,15 +16,18 @@ const StructureType = () => {
     { value: 'Cottage', label: 'Cottage' }
   ]
   return (
-    <Select
-      onChange={(e) => filterBy.structureType(e.value)}
-      value={{ value: structureType, label: structureType }}
-      name='structureType'
+    <Selector
+      id='structureType'
+      inputName='structureType'
+      inputType='text'
+      containerClassName='w-full'
+      label='Structure Type'
+      labelClassName='text-[15px] !font-bold'
       options={structureOptions}
-      styles={customStyles}
-      className='select-custom'
-      classNamePrefix='select'
-      required
+      optionValue='value'
+      optionName='label'
+      value={structureOptions.find((option) => option.value === structureType)}
+      onChange={({ value }) => filterBy.structureType(value)}
     />
   )
 }

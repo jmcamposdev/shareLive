@@ -1,5 +1,5 @@
 import { createContext, useEffect, useMemo, useState } from 'react'
-import { ORDER_BY_HIGH_PRICE, ORDER_BY_LOW_PRICE, ORDER_BY_NEWEST } from '../constants/rooms.constants'
+import { ORDER_ROOMS_BY } from '../constants/rooms.constants'
 import { toCamelCase } from '../utils/formatString'
 
 export const RoomSearchContext = createContext()
@@ -7,7 +7,7 @@ export const RoomSearchContext = createContext()
 export const RoomSearchProvider = ({ roomsData = [], defaultFilters, loading, children }) => {
   const [rooms, setRooms] = useState(roomsData)
   const [isGridView, setIsGridView] = useState(false)
-  const [orderBy, setOrderBy] = useState(ORDER_BY_NEWEST)
+  const [orderBy, setOrderBy] = useState(ORDER_ROOMS_BY.NEWEST)
   const [filters, setFilters] = useState(defaultFilters || {
     price: {
       min: 0,
@@ -60,13 +60,13 @@ export const RoomSearchProvider = ({ roomsData = [], defaultFilters, loading, ch
    */
   useEffect(() => {
     switch (orderBy) {
-      case ORDER_BY_NEWEST:
+      case ORDER_ROOMS_BY.NEWEST:
         orderByNewest()
         break
-      case ORDER_BY_LOW_PRICE:
+      case ORDER_ROOMS_BY.LOW_PRICE:
         orderByLowPrice()
         break
-      case ORDER_BY_HIGH_PRICE:
+      case ORDER_ROOMS_BY.HIGH_PRICE:
         orderByHighPrice()
         break
       default:
@@ -206,6 +206,7 @@ export const RoomSearchProvider = ({ roomsData = [], defaultFilters, loading, ch
       onListClick
     },
     orderBy: orderRoomsBy,
+    orderByValue: orderBy,
     filterBy: {
       price: filterByPriceRange,
       bedrooms: filterByBedrooms,

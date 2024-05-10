@@ -39,7 +39,7 @@ export default {
         borderColor: '#dddddd'
       },
       spacing: {
-        'calc-half-minus-30': 'calc(50% - 30px)'
+        'calc-half-minus-30': 'calc(50% - 15px)'
       }
     }
   },

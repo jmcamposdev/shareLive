@@ -23,7 +23,7 @@ const OurOffice = () => {
         </div>
         {/* End .row */}
         <div className='flex flex-wrap mt-0 justify-center items-center '>
-          <div className='sm:w-1/2 lg:w-1/3 pr-4 pl-4 grow wow fadeInLeft ' dataWowDelay='0ms' style={{ visibility: 'visible', animationDelay: '0ms', animationName: 'fadeInLeft' }}>
+          <div className='sm:w-1/2 lg:w-1/3 pr-4 pl-4 grow wow fadeInLeft ' style={{ visibility: 'visible', animationDelay: '0ms', animationName: 'fadeInLeft' }}>
             <div className='iconbox-style8 text-center dark:bg-midnight dark:hover:shadow-[0_10px_40px_#ffff]'>
               <div className='icon dark:invert'>
                 <img src={Paris} alt='Paris' style={{ height: '120px', width: '120px', display: 'inline' }} />

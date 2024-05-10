@@ -24,8 +24,8 @@ const RoomsNearYou = () => {
           </div>
           <div className='lg:w-1/4 w-auto pr-4 pl-4'>
             <div className='text-end sm:text-start mb-3'>
-              <Link className='ud-btn2 dark:text-white' href='/grid-full-3-col'>
-                See All Properties
+              <Link to='/rooms' className='ud-btn2 dark:text-white'>
+                See All Rooms
                 <i className='fal fa-arrow-right-long' />
               </Link>
             </div>

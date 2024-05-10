@@ -7,9 +7,9 @@ const RoomSimple = ({ room, loading = false }) => {
   const linkUrl = `/rooms/${room._id}`
 
   return (
-    <div style={{ borderRadius: '12px' }} className='item dark:bg-midnight'>
-      <div className='listing-style1 mb-0 dark:bg-midnight'>
-        <div className='list-thumb'>
+    <div className='item rounded-xl h-full'>
+      <div className='listing-style1 mb-0 dark:bg-midnight' style={{ height: 'calc(100% - 30px)' }}>
+        <div className='list-thumb h-[50%]'>
           <Link to={linkUrl}>
             <img
               className='cover'
@@ -22,7 +22,7 @@ const RoomSimple = ({ room, loading = false }) => {
             <span className='dark:text-white'>{room.images.length}</span>
           </div>
         </div>
-        <div className='list-content dark:bg-midnight'>
+        <div className='list-content dark:bg-midnight h-[50%] flex flex-col'>
           <h6 className='list-title'>
             <Link
               to={linkUrl}
@@ -38,7 +38,7 @@ const RoomSimple = ({ room, loading = false }) => {
             <i className='fa-solid fa-location-dot pr-3' />
             {room.city !== room.state ? room.city : ''} {room.state}, {room.country}
           </p>
-          <div className='list-meta d-flex align-items-center'>
+          <div className='list-meta d-flex align-items-center mt-auto'>
             <a className='text-[#717171]'>
               <span className='flaticon-bed text-[#717171]' /> {room.bedrooms} bed
             </a>
