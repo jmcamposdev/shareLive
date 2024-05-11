@@ -3,6 +3,7 @@ import bcrypt from 'bcryptjs'
 import jwt from 'jsonwebtoken'
 import dotenv from 'dotenv'
 import Review from './Review.js'
+import { deleteAllReviewsOfUser, deleteAllRoomsOfUser, deleteReviewParticipationOfUser } from '../utils/user.utils.js'
 
 dotenv.config()
 
@@ -35,11 +36,28 @@ const userSchema = new Schema({
   ]
 })
 
-// Cuando el usuario actualiza su información, actualiza las revisiones relacionadas
+/**
+ * Trigger to update the ownerName and ownerAvatar in the reviews when the user is updated
+ */
 userSchema.post('findOneAndUpdate', async function (doc) {
   if (doc) {
     await Review.updateMany({ ownerId: doc._id }, { ownerName: doc.name, ownerAvatar: doc.avatar })
   }
+})
+
+/**
+ * Trigger to delete all rooms of the user when the user is deleted
+ */
+userSchema.pre('findOneAndDelete', async function (next) {
+  const user = await this.model.findOne(this.getFilter())
+
+  // Delete all rooms of the user
+  await deleteAllRoomsOfUser(user)
+  // Delete all reviews that the user has written or received
+  await deleteAllReviewsOfUser(user)
+  // Delete the user from the helpful and notHelpful arrays of all reviews
+  await deleteReviewParticipationOfUser(user)
+  next()
 })
 
 // Creación del modelo Usuario
