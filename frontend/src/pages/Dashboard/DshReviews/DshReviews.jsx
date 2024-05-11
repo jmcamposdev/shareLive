@@ -6,8 +6,10 @@ import BoxDashboard from '../../../components/common/Dashboard/BoxDashboard/BoxD
 import { useEffect, useState } from 'react'
 import { USER_REVIEWS_ORDER, USER_REVIEWS_ORDER_LABEL } from '../../../components/common/SingleUser/UserReviews/UserReviews.constant'
 import Selector from '../../../components/common/Inputs/Selector'
-import Review from '../../../components/common/Review/Review'
 import useUserReviews from '../../../hooks/useUserReviews'
+import { PaginationProvider } from '../../../context/PaginationContext'
+import Pagination from '../../../components/common/pagination/Pagintacion'
+import DshReviewsPagination from './DshReviewsPagination'
 
 const DshReviews = () => {
   const user = useAuthUser()
@@ -68,18 +70,19 @@ const DshReviews = () => {
             onChange={(option) => setOrder(option)}
           />
         </div>
-
-        {orderReviews.length > 0
-          ? (
-              orderReviews.map(review => <Review key={review._id} review={review} onUpdate={updateReview} onDelete={deleteReview} />)
-            )
-          : (
-            <div className='text-center my-24'>
-              <h3>
-                You don't write any review yet
-              </h3>
-            </div>
-            )}
+        <PaginationProvider
+          presetData={orderReviews}
+          defaultItemsPerPage={4}
+          elementIdToScroll='reviewsContent'
+          elementType='reviews'
+        >
+          <DshReviewsPagination
+            loading={loading}
+            onUpdateReview={updateReview}
+            onDeleteReview={deleteReview}
+          />
+          <Pagination />
+        </PaginationProvider>
       </BoxDashboard>
     </DashboardLayout>
   )

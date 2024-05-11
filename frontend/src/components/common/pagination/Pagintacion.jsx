@@ -9,7 +9,8 @@ const Pagination = () => {
     totalPages,
     itemsPerPage,
     elementIdToScroll,
-    pageData
+    pageData,
+    elementType
   } = usePagination()
 
   // Función para desplazarse al elemento #roomListing
@@ -100,7 +101,7 @@ const Pagination = () => {
             </li>
           </ul>
           <p className='mt10 pagination_page_count text-center'>
-            {((currentPage - 1) * itemsPerPage) + 1}-{(currentPage * itemsPerPage) > data.length ? data.length : (currentPage * itemsPerPage)} of {data.length}+ property available
+            {((currentPage - 1) * itemsPerPage) + 1}-{(currentPage * itemsPerPage) > data.length ? data.length : (currentPage * itemsPerPage)} of {data.length}+ {elementType} available
           </p>
         </div>
       )}
