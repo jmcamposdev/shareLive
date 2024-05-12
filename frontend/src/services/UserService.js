@@ -72,6 +72,15 @@ const UserService = {
     }
   },
 
+  changePassword: async (id, currentPassword, newPassword) => {
+    try {
+      await api.put(`users/${id}/password`, { currentPassword, newPassword })
+    } catch (error) {
+      console.error('Error changing password:', error.message)
+      throw error
+    }
+  },
+
   deleteUser: async (id) => {
     try {
       await api.delete(`users/${id}`)

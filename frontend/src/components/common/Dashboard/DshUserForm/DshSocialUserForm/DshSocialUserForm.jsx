@@ -24,7 +24,7 @@ const DshSocialUserForm = ({ user, onSubmit }) => {
             className='flex flex-col gap-5'
             id={formId}
           >
-            <div className='flex gap-5'>
+            <div className='flex gap-5 sm:flex-row flex-col'>
               <FormikControl
                 control='input'
                 type='text'
@@ -42,7 +42,7 @@ const DshSocialUserForm = ({ user, onSubmit }) => {
                 placeholder={instagram.placeholder}
               />
             </div>
-            <div className='flex gap-5'>
+            <div className='flex gap-5 sm:flex-row flex-col'>
               <FormikControl
                 control='input'
                 type='text'
