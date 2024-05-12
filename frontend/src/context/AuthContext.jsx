@@ -1,20 +1,14 @@
-import { createContext, useContext, useEffect, useMemo, useState } from 'react'
+import { createContext, useContext, useMemo } from 'react'
 import { ROLES } from '../constants/roles.constants'
 import useAuthUser from 'react-auth-kit/hooks/useAuthUser'
-import getUserCookiesData from '../utils/getUserCookiesData'
+import useAuthHeader from 'react-auth-kit/hooks/useAuthHeader'
 
 const AuthContext = createContext()
 
 const AuthProvider = ({ children }) => {
-  // State to hold the authentication token
-  const user = useAuthUser()
-  // const [user, setUser] = useState(null)
-  const [token, setToken] = useState(null)
-
-  useEffect(() => {
-    const { token } = getUserCookiesData()
-    setToken(token)
-  }, [])
+  const authHeader = useAuthHeader()
+  const [user, setUser] = useAuthUser()
+  const token = authHeader.split(' ')[1]
 
   const isAdministrator = () => {
     let isAdministrator = false
@@ -30,6 +24,7 @@ const AuthProvider = ({ children }) => {
     () => ({
       token,
       user: user || null,
+      setUser,
       role: user ? user.roles[0].name : ROLES.GUEST,
       isAdministrator: isAdministrator()
     }),
