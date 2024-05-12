@@ -1,5 +1,8 @@
 import Review from '../models/Review.js'
 import Room from '../models/Room.js'
+import dotenv from 'dotenv'
+import { handleDeleteImage } from '../storage/cloudinary.js'
+dotenv.config()
 
 const deleteAllRoomsOfUser = async (user) => {
   const rooms = await Room.find({ user: user._id })
@@ -38,4 +41,10 @@ const deleteReviewParticipationOfUser = async (user) => {
   await Promise.all(deletionReviewPromises)
 }
 
-export { deleteAllRoomsOfUser, deleteAllReviewsOfUser, deleteReviewParticipationOfUser }
+const deleteUserAvatar = async (user) => {
+  if (user.avatar !== process.env.DEFAULT_AVATAR_URL) {
+    await handleDeleteImage(user.avatar, `users/${user._id}/avatar`)
+  }
+}
+
+export { deleteAllRoomsOfUser, deleteAllReviewsOfUser, deleteReviewParticipationOfUser, deleteUserAvatar }

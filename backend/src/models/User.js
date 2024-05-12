@@ -3,7 +3,7 @@ import bcrypt from 'bcryptjs'
 import jwt from 'jsonwebtoken'
 import dotenv from 'dotenv'
 import Review from './Review.js'
-import { deleteAllReviewsOfUser, deleteAllRoomsOfUser, deleteReviewParticipationOfUser } from '../utils/user.utils.js'
+import { deleteAllReviewsOfUser, deleteAllRoomsOfUser, deleteReviewParticipationOfUser, deleteUserAvatar } from '../utils/user.utils.js'
 
 dotenv.config()
 
@@ -57,6 +57,9 @@ userSchema.pre('findOneAndDelete', async function (next) {
   await deleteAllReviewsOfUser(user)
   // Delete the user from the helpful and notHelpful arrays of all reviews
   await deleteReviewParticipationOfUser(user)
+  // Delete the user avatar
+  await deleteUserAvatar(user)
+
   next()
 })
 
