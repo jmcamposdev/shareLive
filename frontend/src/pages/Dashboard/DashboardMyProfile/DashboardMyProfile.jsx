@@ -1,8 +1,3 @@
-import DashboardLayout from '../../../layout/DashboardLayout'
-
-import DashboardProfile from '../../../components/Dashboard/MyProfile/Profile'
-import DashboardSocial from '../../../components/Dashboard/MyProfile/Social'
-import DashboardPassword from '../../../components/Dashboard/MyProfile/Password'
 import DshUserForm from '../../../components/common/Dashboard/DshUserForm/DshUserForm'
 import useAuthUser from 'react-auth-kit/hooks/useAuthUser'
 import UserService from '../../../services/UserService'
@@ -55,31 +50,12 @@ const DashboardMyProfile = () => {
   }
 
   return (
-    <>
-      <DshUserForm
-        title='My Profile'
-        subtitle='We are glad to see you again!'
-        user={user}
-        onSubmit={onSubmit}
-      />
-      <DashboardLayout>
-        <div className='row align-items-center pb40'>
-          <div className='col-lg-12'>
-            <div className='dashboard_title_area '>
-              <h2 className='dark:text-white'>My Profile</h2>
-              <p className='text dark:text-white'>We are glad to see you again!</p>
-            </div>
-          </div>
-        </div>
-        <div className='row'>
-          <div className='col-xl-12'>
-            <DashboardProfile />
-            <DashboardSocial />
-            <DashboardPassword />
-          </div>
-        </div>
-      </DashboardLayout>
-    </>
+    <DshUserForm
+      title='My Profile'
+      subtitle='We are glad to see you again!'
+      user={user}
+      onSubmit={onSubmit}
+    />
 
   )
 }
