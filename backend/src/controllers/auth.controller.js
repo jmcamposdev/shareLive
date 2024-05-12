@@ -20,7 +20,7 @@ export const signIn = async (req, res) => {
 
 export const signUp = async (req, res) => {
   // Extract the user from the request
-  const { username, email, password } = req.body
+  const { username, firstName, lastName, email, password } = req.body
 
   const roles = await Role.find()
   const userRole = roles.find(role => role.id === ROLES.USER)
@@ -29,6 +29,9 @@ export const signUp = async (req, res) => {
   const newUser = new User({
     username,
     email,
+    firstName,
+    lastName,
+    name: `${firstName} ${lastName}`,
     avatar: process.env.DEFAULT_AVATAR_URL,
     password: await User.encryptPassword(password),
     roles: [userRole._id],
