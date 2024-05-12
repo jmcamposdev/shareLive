@@ -1,10 +1,14 @@
+import PropTypes from 'prop-types'
 import spinnerSvg from '../../../../assets/vectors/spinner.svg'
 
-const FormikSubmitBtn = ({ label, isSubmitting }) => {
+const FormikSubmitBtn = ({ label, isSubmitting, isDanger = false }) => {
   return (
     <button
       type='submit'
-      className={`ud-btn bg-gray-900 text-white hover:bg-gray-900 dark:border-[#dddddd26] ${isSubmitting ? 'cursor-not-allowed' : 'cursor-pointer'}`}
+      className={`
+      ud-btn bg-gray-900 text-white hover:bg-gray-900 dark:border-[#dddddd26] 
+      ${isSubmitting ? 'cursor-not-allowed' : 'cursor-pointer'}
+      ${isDanger && 'bg-red-500 before:bg-[#c93939] hover:bg-red-500'}`}
       disabled={isSubmitting}
     >
       {label}
@@ -17,6 +21,12 @@ const FormikSubmitBtn = ({ label, isSubmitting }) => {
           )}
     </button>
   )
+}
+
+FormikSubmitBtn.propTypes = {
+  label: PropTypes.string.isRequired,
+  isSubmitting: PropTypes.bool.isRequired,
+  isDanger: PropTypes.bool
 }
 
 export default FormikSubmitBtn

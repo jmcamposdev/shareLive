@@ -1,7 +1,7 @@
 import Review from '../models/Review.js'
 import Room from '../models/Room.js'
 import dotenv from 'dotenv'
-import { handleDeleteImage } from '../storage/cloudinary.js'
+import { CLOUDINARY_FOLDERS, checkAndDeleteFolder, handleDeleteImage } from '../storage/cloudinary.js'
 dotenv.config()
 
 const deleteAllRoomsOfUser = async (user) => {
@@ -44,6 +44,7 @@ const deleteReviewParticipationOfUser = async (user) => {
 const deleteUserAvatar = async (user) => {
   if (user.avatar !== process.env.DEFAULT_AVATAR_URL) {
     await handleDeleteImage(user.avatar, `users/${user._id}/avatar`)
+    await checkAndDeleteFolder(`${CLOUDINARY_FOLDERS.USERS}/${user._id}`)
   }
 }
 
