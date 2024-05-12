@@ -1,5 +1,8 @@
 import Room from '../models/Room.js'
 import User from '../models/User.js'
+import dotenv from 'dotenv'
+import { handleDeleteImage, handleUploadImage } from '../storage/cloudinary.js'
+dotenv.config()
 
 const getUsers = async (req, res) => {
   try {
@@ -36,7 +39,7 @@ const getUser = async (req, res) => {
 const updateUser = async (req, res) => {
   try {
     const { id } = req.params
-    const user = await User.findByIdAndUpdate(id, req.body, { new: true })
+    const user = await User.findByIdAndUpdate(id, req.body, { new: true }).populate('roles')
     if (!user) {
       return res.status(404).json({
         message: 'User not found'
@@ -46,6 +49,37 @@ const updateUser = async (req, res) => {
   } catch (error) {
     res.status(500).json({
       message: 'An error occurred while updating a user',
+      error
+    })
+  }
+}
+/**
+ * Upload an avatar for a user and remove the old one if it isn't the default one
+ * @param {Object} req The request object
+ * @param {Object} res The response object
+ */
+const uploadAvatar = async (req, res) => {
+  const { id } = req.params
+  try {
+    const user = await User.findById(id).populate('roles')
+    if (!user) {
+      return res.status(404).json({
+        message: 'User not found'
+      })
+    }
+    // Remove the old avatar if it isn't the default one
+    if (user.avatar !== process.env.DEFAULT_AVATAR_URL) {
+      await handleDeleteImage(user.avatar, `users/${id}/avatar`)
+    }
+    // Update the user with the new avatar
+    const cldImages = await handleUploadImage(req.files[0], `users/${id}/avatar`)
+    user.avatar = cldImages.url
+    await user.save()
+
+    res.json(user)
+  } catch (error) {
+    res.status(500).json({
+      message: 'An error occurred while uploading an avatar',
       error
     })
   }
@@ -134,4 +168,4 @@ const toggleFavoriteRoom = async (req, res) => {
   }
 }
 
-export { getUsers, getUser, updateUser, deleteUser, getUserRooms, toggleFavoriteRoom, getFavouriteRooms }
+export { getUsers, getUser, updateUser, deleteUser, getUserRooms, toggleFavoriteRoom, getFavouriteRooms, uploadAvatar }
