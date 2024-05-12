@@ -77,7 +77,7 @@ function App () {
           <Route path='dashboard/rooms' element={<DshSearchRooms />} />
           <Route path='dashboard/rooms/add' element={<DshRoomCreateForm />} />
           <Route path='dashboard/rooms/edit/:id' element={<DshRoomEditForm />} />
-          <Route path='dashboard/dashboard-my-profile' element={<DashboardMyProfile />} />
+          <Route path='dashboard/profile' element={<DashboardMyProfile />} />
         </Route>
         {/* 404 page */}
         <Route path='*' element={<NotFound />} />
