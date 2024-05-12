@@ -1,5 +1,7 @@
 import Role, { ROLES } from '../models/Role.js'
 import User from '../models/User.js'
+import dotenv from 'dotenv'
+dotenv.config()
 
 export const signIn = async (req, res) => {
   // Extract the user from the request
@@ -27,6 +29,7 @@ export const signUp = async (req, res) => {
   const newUser = new User({
     username,
     email,
+    avatar: process.env.DEFAULT_AVATAR_URL,
     password: await User.encryptPassword(password),
     roles: [userRole._id],
     joinDate: new Date()
