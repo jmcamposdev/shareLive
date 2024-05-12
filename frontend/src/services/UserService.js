@@ -1,4 +1,7 @@
+import useAuth from '../hooks/useAuth'
 import api from './api'
+
+const BASE_URL = import.meta.env.VITE_API_BASE_URL
 
 const UserService = {
   getAllUsers: async () => {
@@ -34,12 +37,37 @@ const UserService = {
   updateUser: async (user) => {
     try {
       const updatedUser = await api.put(
-            `users/${user.id}`,
+            `users/${user._id}`,
             user
       )
       return updatedUser
     } catch (error) {
       console.error('Error updating user:', error.message)
+      throw error
+    }
+  },
+
+  uploadAvatar: async (id, avatar) => {
+    const { token } = useAuth()
+    try {
+      const formData = new FormData()
+      formData.append('avatar', avatar)
+
+      const avatarResponse = await fetch(`${BASE_URL}/users/${id}/avatar`, {
+        method: 'POST',
+        headers: {
+          'x-access-token': token
+        },
+        body: formData
+      })
+      if (avatarResponse.ok) { // Verificar si la solicitud fue exitosa
+        const avatarData = await avatarResponse.json() // Obtener el JSON devuelto por el servidor
+        return avatarData
+      } else {
+        throw new Error('Error al cargar el avatar: ' + avatarResponse.status)
+      }
+    } catch (error) {
+      console.error('Error uploading avatar:', error.message)
       throw error
     }
   },
