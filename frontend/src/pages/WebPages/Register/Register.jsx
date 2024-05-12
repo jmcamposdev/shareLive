@@ -144,7 +144,7 @@ const Register = () => {
                     <div className='flex gap-5 sm:flex-row flex-col'>
                       <FormikControl
                         control='input'
-                        type='text'
+                        type='password'
                         id={password.name}
                         name={password.name}
                         label={password.label}
@@ -152,7 +152,7 @@ const Register = () => {
                       />
                       <FormikControl
                         control='input'
-                        type='text'
+                        type='password'
                         id={confirmPassword.name}
                         name={confirmPassword.name}
                         label={confirmPassword.label}
