@@ -24,6 +24,12 @@ const DashboardMyProfile = () => {
       const updatedUserData = {
         ...user,
         ...newUserData,
+        socials: {
+          facebook: newUserData?.facebook || user.socials.facebook,
+          twitter: newUserData?.twitter || user.socials.twitter,
+          linkedin: newUserData?.linkedin || user.socials.linkedin,
+          instagram: newUserData?.instagram || user.socials.instagram
+        },
         avatar
       }
 
