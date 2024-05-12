@@ -4,6 +4,10 @@ import useAuthUser from 'react-auth-kit/hooks/useAuthUser'
 const RequireAuth = ({ allowedRoles }) => {
   const location = useLocation()
   const user = useAuthUser()
+  if (!user) {
+    return <Navigate to='/login' state={{ from: location }} replace />
+  }
+
   const { roles } = user
   const role = roles[0].name
   const content = (

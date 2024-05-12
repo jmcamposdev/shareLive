@@ -1,14 +1,22 @@
 import { useEffect, useState } from 'react'
 import RoomService from '../services/roomService'
+import UserService from '../services/UserService'
 
-const useRooms = () => {
+const useRooms = (userId) => {
   const [rooms, setRooms] = useState([])
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
     const fetchRooms = async () => {
       try {
-        const roomsData = await RoomService.getAllRooms()
+        let roomsData = []
+
+        if (userId) {
+          roomsData = await UserService.getAllRoomsByUser(userId)
+        } else {
+          roomsData = await RoomService.getAllRooms()
+        }
+
         setRooms(roomsData)
         setLoading(false)
       } catch (error) {

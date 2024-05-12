@@ -1,4 +1,7 @@
+import useAuth from '../hooks/useAuth'
 import api from './api'
+
+const BASE_URL = import.meta.env.VITE_API_BASE_URL
 
 const RoomService = {
   getAllRooms: async () => {
@@ -31,10 +34,44 @@ const RoomService = {
     }
   },
 
+  uploadRoomImages: async (id, images) => {
+    const { token } = useAuth()
+
+    try {
+      const formData = new FormData()
+      images.forEach((image) => {
+        formData.append('images', image)
+      })
+
+      const imagesResponse = await fetch(`${BASE_URL}/rooms/${id}/upload`, {
+        method: 'POST',
+        headers: {
+          'x-access-token': token
+        },
+        body: formData
+      })
+      return imagesResponse
+    } catch (error) {
+      console.error('Error uploading images:', error.message)
+      throw error
+    }
+  },
+
+  deleteRoomImages: async (id, images) => {
+    try {
+      const imagesResponse = api.delete(`rooms/${id}/upload`, { images })
+      return imagesResponse
+    } catch (error) {
+      console.error('Error deleting images:', error.message)
+      throw error
+    }
+  },
+
   updateRoom: async (room) => {
+    console.log('RoomService.updateRoom:', room)
     try {
       const updatedRoom = await api.put(
-        `rooms/${room.id}`,
+        `rooms/${room._id}`,
         room
       )
       return updatedRoom

@@ -1,5 +1,5 @@
 import { Router } from 'express'
-import { getUser, getUserRooms, getUsers, updateUser } from '../controllers/users.controller.js'
+import { getFavouriteRooms, getUser, getUserRooms, getUsers, toggleFavoriteRoom, updateUser } from '../controllers/users.controller.js'
 
 /**
  * ----------------------------------------------
@@ -17,6 +17,10 @@ router.put('/users/:id', updateUser) // Update a user by id
 
 // Relation with rooms
 router.get('/users/:id/rooms', getUserRooms) // Get rooms of a user by id
+
+// Favourites rooms
+router.get('/users/:id/rooms/favourites', getFavouriteRooms)
+router.post('/users/:id/rooms/favourites', toggleFavoriteRoom)
 
 // Export router to use it in the app
 export default router

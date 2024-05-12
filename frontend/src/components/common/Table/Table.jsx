@@ -27,10 +27,10 @@ const Table = ({ loading = false, data, columns, onEdit, onDelete, filterValue, 
           // Only show the edit button if the onEdit function is provided
           onEdit && (
             <button
-              className='flex justify-center items-center w-8 h-8 rounded-md bg-primary hover:bg-opacity-70' title='Edit'
-              onClick={() => onEdit(row.cell.row.original)}
+              className='flex justify-center items-center w-8 h-8 rounded-md bg-orangePrimary hover:bg-[#d96351]' title='Edit'
+              onClick={() => onEdit(row.cell.row.original._id)}
             >
-              <i className='icon-[material-symbols-light--edit] fill-current duration-300 ease-in-out  text-white' />
+              <i className='fa-solid fa-pen text-white' />
             </button>
           )
         }
@@ -39,10 +39,10 @@ const Table = ({ loading = false, data, columns, onEdit, onDelete, filterValue, 
           // Only show the delete button if the onDelete function is provided
           onDelete && (
             <button
-              className='flex justify-center items-center w-8 h-8 rounded-md bg-danger hover:bg-opacity-70' title='Delete'
-              onClick={() => onDelete(row.cell.row.original.id)}
+              className='flex justify-center items-center w-8 h-8 rounded-md bg-red-600 hover:bg-[#c72626]' title='Delete'
+              onClick={() => onDelete(row.cell.row.original._id)}
             >
-              <i className='icon-[material-symbols-light--delete] fill-current duration-300 ease-in-out text-white' />
+              <i className='fa-solid fa-trash text-white' />
             </button>
           )
         }
@@ -80,32 +80,36 @@ const Table = ({ loading = false, data, columns, onEdit, onDelete, filterValue, 
   }, [data, table.getRowModel().rows])
 
   return (
-    <section className='pt-0 packages_table table-responsive dark:bg-midnight'>
-      {/* Start of Search and Entries per page */}
-      <div className=''>
-        <div className='flex items-center font-medium'>
-          <select
-            className='bg-transparent pl-2 dark:text-white'
-            value={table.getState().pagination.pageSize}
-            onChange={e => {
-              table.setPageSize(Number(e.target.value))
-            }}
-          >
-            {[10, 20, 30, 40, 50].map(pageSize => (
-              <option key={pageSize} value={pageSize}>
-                {pageSize}
-              </option>
-            ))}
-          </select>
-          <p className='pl-2 text-black dark:!text-white duration-300 ease-linear'>Entries Per Page</p>
-        </div>
-      </div>
-      {/* End of Search and Entries per page */}
+    <>
+      {loading
+        ? <TableSkeleton />
+        : (
+          <section className='pt-0 packages_table table-responsive dark:bg-midnight'>
+            {/* Start of Search and Entries per page */}
+            <div className=''>
+              <div className='flex items-center font-medium'>
+                <select
+                  className='bg-transparent pl-2 dark:text-white'
+                  value={table.getState().pagination.pageSize}
+                  onChange={e => {
+                    table.setPageSize(Number(e.target.value))
+                  }}
+                >
+                  {[10, 20, 30, 40, 50].map(pageSize => (
+                    <option key={pageSize} value={pageSize}>
+                      {pageSize}
+                    </option>
+                  ))}
+                </select>
+                <span className='pl-2 dark:!text-white duration-300 ease-linear mb-0'>Entries Per Page</span>
+              </div>
+            </div>
+            {/* End of Search and Entries per page */}
 
-      {/* Start Table */}
-      <table role='table' className='table-style3 table at-savesearch min-w-[0px]'>
-        <thead className='t-head fixed lg:static w-[100dvw] lg:w-full z-40 top-[140px] left-0 dark-bg:midnight !rounded-b-lg !rounded-t-none dark:bg-midnight'>
-          {
+            {/* Start Table */}
+            <table role='table' className='table-style3 table at-savesearch min-w-[0px]'>
+              <thead className='t-head fixed lg:static w-[100dvw] lg:w-full z-40 top-[140px] left-0 dark-bg:midnight !rounded-b-lg !rounded-t-none dark:bg-midnight'>
+                {
             table.getHeaderGroups().map(headerGroup => (
               <tr className={`${isPhone ? 'flex justify-around' : ''}`} scope='row' key={headerGroup.id}>
                 {
@@ -139,19 +143,19 @@ const Table = ({ loading = false, data, columns, onEdit, onDelete, filterValue, 
               </tr>
             ))
           }
-        </thead>
-        <tbody className='t-body flex flex-col gap-10 2xl:table'>
-          {!showData && (
-            <tr role='row' className='border-b border-stroke dark:border-strokedark duration-300 ease-linear dark:bg-midnight'>
-              <td colSpan={columns.length} className='pl-8 py-5 pr-2 text-center'>
-                No data found
-              </td>
-            </tr>
-          )}
-          {showData && table.getRowModel().rows.map(row => (
-            <tr className='dark:border-borderColor/20 flex flex-col 2xl:table-row 2xl:px-7 2xl:py-5 border box-border rounded-xl overflow-hidden !border-borderColor/20 2xl:border-none' key={row.id}>
+              </thead>
+              <tbody className='t-body flex flex-col gap-10 2xl:table'>
+                {!showData && (
+                  <tr role='row' className='border-b border-stroke dark:border-strokedark duration-300 ease-linear dark:bg-midnight'>
+                    <td colSpan={columns.length} className='pl-8 py-5 pr-2 text-center'>
+                      No data found
+                    </td>
+                  </tr>
+                )}
+                {showData && table.getRowModel().rows.map(row => (
+                  <tr className='dark:border-borderColor/20 flex flex-col 2xl:table-row 2xl:px-7 2xl:py-5 border box-border rounded-xl overflow-hidden !border-borderColor/20 2xl:border-none' key={row.id}>
 
-              {
+                    {
                 row.getVisibleCells().map((cell, index) => (
 
                   !cell.column.columnDef.hidden && (
@@ -164,45 +168,45 @@ const Table = ({ loading = false, data, columns, onEdit, onDelete, filterValue, 
                   )
                 ))
 }
-            </tr>
-          ))}
-        </tbody>
-      </table>
-      {/* End Table */}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+            {/* End Table */}
 
-      {/* Pagination Section */}
-      <div className='flex justify-between border-t border-stroke px-8 pt-5 dark:border-strokedark min-w-[0px] duration-300 ease-linear border-none'>
-        <p className='font-medium dark:text-white'>
-          Showing {table.getState().pagination.pageIndex + 1} 0f {table.getPageCount()} pages
-        </p>
-        <div className='flex'>
-          <button
-            className={`flex justify-center items-center rounded-md enabled:hover:bg-primary enabled:hover:text-whiter ${table.getCanPreviousPage() ? 'cursor-pointer' : 'cursor-not-allowed '}`}
-            onClick={() => table.setPageIndex(0)}
-            disabled={!table.getCanPreviousPage()}
-          >
-            <span className='icon-[material-symbols-light--keyboard-double-arrow-left-rounded]' style={{ fontSize: '30px' }} />
-          </button>
-          <button
-            className={`flex justify-center items-center rounded-md enabled:hover:bg-primary enabled:hover:text-whiter ${table.getCanPreviousPage() ? 'cursor-pointer' : 'cursor-not-allowed '}`} onClick={() => table.previousPage()}
-            disabled={!table.getCanPreviousPage()}
-          >
-            <span className='icon-[iconamoon--arrow-left-2-thin]' style={{ fontSize: '30px' }} />
-          </button>
-          <button
-            className={`flex justify-center items-center rounded-md enabled:hover:bg-primary enabled:hover:text-whiter ${table.getCanNextPage() ? 'cursor-pointer' : 'cursor-not-allowed '}`} onClick={() => table.nextPage()}
-            disabled={!table.getCanNextPage()}
-          >
-            <span className='icon-[iconamoon--arrow-right-2-thin]' style={{ fontSize: '30px' }} />
-          </button>
-          <button
-            className={`flex justify-center items-center rounded-md enabled:hover:bg-primary enabled:hover:text-whiter ${table.getCanNextPage() ? 'cursor-pointer' : 'cursor-not-allowed '}`} onClick={() => table.setPageIndex(table.getPageCount() - 1)}
-            disabled={!table.getCanNextPage()}
-          >
-            <span className='icon-[material-symbols-light--keyboard-double-arrow-right-rounded]' style={{ fontSize: '30px' }} />
-          </button>
-        </div>
-        {/* <div>
+            {/* Pagination Section */}
+            <div className='flex justify-between border-t border-stroke px-8 pt-5 dark:border-strokedark min-w-[0px] duration-300 ease-linear border-none'>
+              <p className='font-medium dark:text-white'>
+                Showing {table.getState().pagination.pageIndex + 1} 0f {table.getPageCount()} pages
+              </p>
+              <div className='flex'>
+                <button
+                  className={`flex justify-center items-center rounded-md enabled:hover:bg-primary enabled:hover:text-whiter ${table.getCanPreviousPage() ? 'cursor-pointer' : 'cursor-not-allowed '}`}
+                  onClick={() => table.setPageIndex(0)}
+                  disabled={!table.getCanPreviousPage()}
+                >
+                  <span className='icon-[material-symbols-light--keyboard-double-arrow-left-rounded]' style={{ fontSize: '30px' }} />
+                </button>
+                <button
+                  className={`flex justify-center items-center rounded-md enabled:hover:bg-primary enabled:hover:text-whiter ${table.getCanPreviousPage() ? 'cursor-pointer' : 'cursor-not-allowed '}`} onClick={() => table.previousPage()}
+                  disabled={!table.getCanPreviousPage()}
+                >
+                  <span className='icon-[iconamoon--arrow-left-2-thin]' style={{ fontSize: '30px' }} />
+                </button>
+                <button
+                  className={`flex justify-center items-center rounded-md enabled:hover:bg-primary enabled:hover:text-whiter ${table.getCanNextPage() ? 'cursor-pointer' : 'cursor-not-allowed '}`} onClick={() => table.nextPage()}
+                  disabled={!table.getCanNextPage()}
+                >
+                  <span className='icon-[iconamoon--arrow-right-2-thin]' style={{ fontSize: '30px' }} />
+                </button>
+                <button
+                  className={`flex justify-center items-center rounded-md enabled:hover:bg-primary enabled:hover:text-whiter ${table.getCanNextPage() ? 'cursor-pointer' : 'cursor-not-allowed '}`} onClick={() => table.setPageIndex(table.getPageCount() - 1)}
+                  disabled={!table.getCanNextPage()}
+                >
+                  <span className='icon-[material-symbols-light--keyboard-double-arrow-right-rounded]' style={{ fontSize: '30px' }} />
+                </button>
+              </div>
+              {/* <div>
           <span>Go to page:</span>
           <input
             type='number'
@@ -215,9 +219,13 @@ const Table = ({ loading = false, data, columns, onEdit, onDelete, filterValue, 
             }}
           />
         </div> */}
-      </div>
-      {/* End Pagination Section */}
-    </section>
+            </div>
+            {/* End Pagination Section */}
+          </section>
+          )}
+
+    </>
+
   )
 }
 

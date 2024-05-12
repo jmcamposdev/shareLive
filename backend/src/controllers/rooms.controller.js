@@ -1,12 +1,13 @@
 import Room from '../models/Room.js'
-
+import User from '../models/User.js'
+import { CLOUDINARY_FOLDERS, handleDeleteImage, handleUploadImage } from '../storage/cloudinary.js'
 /**
  * Get all rooms
  * @param {Object} req The request object
  * @param {Object} res The response object
  */
 const getRooms = (req, res) => {
-  Room.find()
+  Room.find().sort({ createdAt: -1 }).populate('user')
     .then((rooms) => {
       res.json(rooms)
     })
@@ -27,6 +28,8 @@ const getRoom = async (req, res) => {
   try {
     const { id } = req.params
     const room = await Room.findById(id).populate('user')
+    // Populate the reviews of the user
+    await room.populate('user.reviews')
     if (!room) {
       return res.status(404).json({
         message: 'Room not found'
@@ -46,7 +49,13 @@ const getRoom = async (req, res) => {
  * @param {Object} req The request object
  * @param {Object} res The response object
  */
-const createRoom = (req, res) => {
+const createRoom = async (req, res) => {
+  // Clean the images array
+  req.body.images = []
+  // Assing the user
+  const user = await User.findById(req.body.user)
+  req.body.user = user._id
+
   const room = new Room(req.body)
   room.save()
     .then((room) => {
@@ -58,6 +67,57 @@ const createRoom = (req, res) => {
         error
       })
     })
+}
+
+const uploadImages = async (req, res) => {
+  const { id } = req.params
+
+  const uploadedImages = []
+  try {
+    // Subir cada imagen a Cloudinary y guardar la URL en uploadedImages
+    for (const image of req.files) {
+      const cldRes = await handleUploadImage(image, `${CLOUDINARY_FOLDERS.ROOMS}/${id}`)
+      uploadedImages.push(cldRes.secure_url)
+    }
+  } catch (error) {
+    console.error('Error uploading images:', error)
+    return res.status(500).json({
+      message: 'An error occurred while uploading images',
+      error
+    })
+  }
+
+  // Save the image URLs in the room
+  const room = await Room.findById(id)
+  room.images = [...room.images, ...uploadedImages]
+  await room.save()
+
+  res.send(uploadedImages)
+}
+
+const deleteImages = async (req, res) => {
+  const { id } = req.params
+  const { images } = req.body
+
+  try {
+    const room = await Room.findById(id)
+    room.images = room.images.filter((img) => !images.includes(img))
+    await room.save()
+    // Delete the images from Cloudinary
+    for (const img of images) {
+      await handleDeleteImage(img, `${CLOUDINARY_FOLDERS.ROOMS}/${id}`)
+    }
+  } catch (error) {
+    console.error('Error deleting images:', error)
+    return res.status(500).json({
+      message: 'An error occurred while deleting images',
+      error
+    })
+  }
+
+  res.send({
+    message: 'Images deleted'
+  })
 }
 
 /**
@@ -85,9 +145,32 @@ const updateRoom = (req, res) => {
     })
 }
 
+const deleteRoom = (req, res) => {
+  const { id } = req.params
+  Room.findByIdAndDelete(id)
+    .then((room) => {
+      if (!room) {
+        return res.status(404).json({
+          message: 'Room not found'
+        })
+      }
+
+      res.json(room)
+    })
+    .catch((error) => {
+      res.status(500).json({
+        message: 'An error occurred while deleting a room',
+        error
+      })
+    })
+}
+
 export {
   getRooms,
   getRoom,
   createRoom,
-  updateRoom
+  updateRoom,
+  deleteRoom,
+  uploadImages,
+  deleteImages
 }

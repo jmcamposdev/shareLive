@@ -86,7 +86,7 @@ const Header = () => {
                 <div className='flex items-center'>
                   <Link
                     className='ud-btn add-property menu-btn bdrs60 mx-2 xl:mx-6 dark:!text-white dark:!border-white '
-                    to='/dashboard-add-property'
+                    to='/dashboard/rooms/add'
                   >
                     Add Property
                     <i className='fal fa-arrow-right-long' />
