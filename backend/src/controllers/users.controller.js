@@ -85,6 +85,32 @@ const uploadAvatar = async (req, res) => {
   }
 }
 
+const changePassword = async (req, res) => {
+  try {
+    // Extract the user from the request
+    const { user } = req
+    const { currentPassword, newPassword } = req.body
+    // Check if the current password is correct
+    const isPasswordValid = await User.comparePassword(currentPassword, user.password)
+
+    if (!isPasswordValid) {
+      return res.status(400).json({
+        message: 'Invalid password'
+      })
+    }
+    // Encrypt the new password
+    const encryptedPassword = await User.encryptPassword(newPassword)
+    // Update the user with the new password
+    const updated = await User.findByIdAndUpdate(user._id, { password: encryptedPassword }, { new: true })
+    res.json(updated)
+  } catch (error) {
+    res.status(500).json({
+      message: 'An error occurred while changing the password',
+      error
+    })
+  }
+}
+
 const deleteUser = async (req, res) => {
   try {
     const { id } = req.params
@@ -168,4 +194,4 @@ const toggleFavoriteRoom = async (req, res) => {
   }
 }
 
-export { getUsers, getUser, updateUser, deleteUser, getUserRooms, toggleFavoriteRoom, getFavouriteRooms, uploadAvatar }
+export { getUsers, getUser, updateUser, deleteUser, getUserRooms, toggleFavoriteRoom, getFavouriteRooms, uploadAvatar, changePassword }
