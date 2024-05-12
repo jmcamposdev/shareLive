@@ -40,7 +40,7 @@ export default [
       instagram: ''
     },
     _id: '661eb30b8184a9a469251f60',
-    avatar: 'https://example.com/avatar2.jpg',
+    avatar: '',
     username: 'janedoe',
     email: 'janedoe@example.com',
     name: 'Jane Doe',

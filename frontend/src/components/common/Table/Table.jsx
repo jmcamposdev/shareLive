@@ -8,9 +8,13 @@ import {
 } from '@tanstack/react-table'
 import { useEffect, useState } from 'react'
 import TableSkeleton from './TableSkeleton'
+import useIsPhone from '../../../hooks/useIsPhone'
 
 const Table = ({ loading = false, data, columns, onEdit, onDelete, filterValue, onFilter }) => {
   if (loading) return <TableSkeleton />
+
+  // Responsive design use state
+  const isPhone = useIsPhone
 
   // Remove the Action column if exists to prevent unexpected actions
   columns = columns.filter(column => column.header !== 'Actions')
@@ -99,11 +103,11 @@ const Table = ({ loading = false, data, columns, onEdit, onDelete, filterValue, 
       {/* End of Search and Entries per page */}
 
       {/* Start Table */}
-      <table role='table' className='table-style3 table at-savesearch min-w-[700px]'>
-        <thead className='t-head'>
+      <table role='table' className='table-style3 table at-savesearch min-w-[0px]'>
+        <thead className='t-head fixed lg:static w-[100dvw] lg:w-full z-40 top-[140px] left-0 dark-bg:midnight !rounded-b-lg !rounded-t-none dark:bg-midnight'>
           {
             table.getHeaderGroups().map(headerGroup => (
-              <tr className='' scope='row' key={headerGroup.id}>
+              <tr className={`${isPhone ? 'flex justify-around' : ''}`} scope='row' key={headerGroup.id}>
                 {
                   headerGroup.headers.map(header => {
                     return !header.column.columnDef.hidden
@@ -136,7 +140,7 @@ const Table = ({ loading = false, data, columns, onEdit, onDelete, filterValue, 
             ))
           }
         </thead>
-        <tbody className='t-body '>
+        <tbody className='t-body flex flex-col gap-10 2xl:table'>
           {!showData && (
             <tr role='row' className='border-b border-stroke dark:border-strokedark duration-300 ease-linear dark:bg-midnight'>
               <td colSpan={columns.length} className='pl-8 py-5 pr-2 text-center'>
@@ -145,19 +149,21 @@ const Table = ({ loading = false, data, columns, onEdit, onDelete, filterValue, 
             </tr>
           )}
           {showData && table.getRowModel().rows.map(row => (
-            <tr className='dark:border-borderColor/20' key={row.id}>
-              {row.getVisibleCells().map(cell => {
-                return !cell.column.columnDef.hidden
-                  ? (
+            <tr className='dark:border-borderColor/20 flex flex-col 2xl:table-row 2xl:px-7 2xl:py-5 border box-border rounded-xl overflow-hidden !border-borderColor/20 2xl:border-none' key={row.id}>
+
+              {
+                row.getVisibleCells().map((cell, index) => (
+
+                  !cell.column.columnDef.hidden && (
                     <td
-                      className='vam dark:bg-midnight dark:!text-white'
+                      className={`vam dark:bg-midnight dark:!text-white ${index === 0 || index === row.getVisibleCells().length - 1 ? 'border-none !px-[20px] 2xl:!px-[30px]' : 'hidden 2xl:table-cell'}`}
                       key={cell.id}
                     >
                       {flexRender(cell.column.columnDef.cell, cell.getContext())}
                     </td>
-                    )
-                  : null
-              })}
+                  )
+                ))
+}
             </tr>
           ))}
         </tbody>
@@ -165,7 +171,7 @@ const Table = ({ loading = false, data, columns, onEdit, onDelete, filterValue, 
       {/* End Table */}
 
       {/* Pagination Section */}
-      <div className='flex justify-between border-t border-stroke px-8 pt-5 dark:border-strokedark min-w-[700px] duration-300 ease-linear border-none'>
+      <div className='flex justify-between border-t border-stroke px-8 pt-5 dark:border-strokedark min-w-[0px] duration-300 ease-linear border-none'>
         <p className='font-medium dark:text-white'>
           Showing {table.getState().pagination.pageIndex + 1} 0f {table.getPageCount()} pages
         </p>
