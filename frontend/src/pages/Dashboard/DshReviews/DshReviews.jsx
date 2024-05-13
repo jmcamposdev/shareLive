@@ -45,13 +45,12 @@ const DshReviews = () => {
     orderReviewsFn()
   }, [])
 
-  if (loading) return null
   return (
     <DashboardLayout>
       <TitleDashboard title='Reviews' subtitle='Here you can see all the reviews' />
       <BoxDashboard>
         <div className='flex justify-between items-center mb30'>
-          <UserReviewsStats reviews={orderReviews} iconClassName='fz12 pe-2 !text-black' />
+          <UserReviewsStats reviews={orderReviews} iconClassName='fz12 pe-2 !text-black' loading={loading} />
           <Selector
             id='sort-by'
             inputName='sort-by'

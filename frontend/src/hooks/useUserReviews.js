@@ -8,8 +8,8 @@ const useUserReviews = (userId) => {
     const fetchUserReviews = async () => {
       try {
         const reviews = await UserService.getUserReviews(userId)
-        setLoading(false)
         setReviews(reviews)
+        setLoading(false)
       } catch (error) {
         console.error(error)
       }

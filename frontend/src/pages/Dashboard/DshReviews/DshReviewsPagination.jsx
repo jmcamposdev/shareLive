@@ -16,8 +16,8 @@ const DshReviewsPagination = ({ loading, onUpdateReview, onDeleteReview }) => {
           </div>
         )}
 
-      {loading &&
-        (
+      {loading
+        ? (
           <>
             {
               Array.from({ length: itemsPerPage }).map((_, index) => (
@@ -25,9 +25,10 @@ const DshReviewsPagination = ({ loading, onUpdateReview, onDeleteReview }) => {
               ))
             }
           </>
-        )}
-
-      {pageData.map(review => <Review key={review._id} review={review} onUpdate={onUpdateReview} onDelete={onDeleteReview} />)}
+          )
+        : (
+            pageData.map(review => <Review key={review._id} review={review} onUpdate={onUpdateReview} onDelete={onDeleteReview} />)
+          )}
     </div>
   )
 }

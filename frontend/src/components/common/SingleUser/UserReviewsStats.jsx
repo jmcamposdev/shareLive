@@ -1,7 +1,10 @@
 import PropTypes from 'prop-types'
 import { UserReviewPropTypes } from '../../../models/User.model'
+import UserReviewsStatsSkeleton from './UserReviewStatsSkeleton'
 
-const UserReviewsStats = ({ reviews, className, iconClassName }) => {
+const UserReviewsStats = ({ reviews, className, iconClassName, loading = false }) => {
+  if (loading) return <UserReviewsStatsSkeleton />
+
   // Calcular la media de las calificaciones
   const totalReviews = reviews.length
   const averageRating =

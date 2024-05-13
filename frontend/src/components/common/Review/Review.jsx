@@ -4,8 +4,11 @@ import { getAvatarImage } from '../../../utils/user.utils'
 import { REVIEW_HELP_STATES } from '../SingleUser/UserReviews/UserReviews.constant'
 import useAlertToast from '../../../hooks/useToast'
 import useAuthUser from 'react-auth-kit/hooks/useAuthUser'
+import ReviewSkeleton from './ReviewSkeleton'
 
-const Review = ({ review, className, onUpdate, onDelete }) => {
+const Review = ({ review, className, onUpdate, onDelete, loading = false }) => {
+  if (loading) return <ReviewSkeleton />
+
   const { toast } = useAlertToast()
   const user = useAuthUser()
   const isYourReview = review.ownerId === user?._id
