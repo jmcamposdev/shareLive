@@ -8,14 +8,8 @@ import {
 } from '@tanstack/react-table'
 import { useEffect, useState } from 'react'
 import TableSkeleton from './TableSkeleton'
-import useIsPhone from '../../../hooks/useIsPhone'
 
 const Table = ({ loading = false, data, columns, onEdit, onDelete, filterValue, onFilter }) => {
-  if (loading) return <TableSkeleton />
-
-  // Responsive design use state
-  const isPhone = useIsPhone
-
   // Remove the Action column if exists to prevent unexpected actions
   columns = columns.filter(column => column.header !== 'Actions')
 
@@ -84,10 +78,10 @@ const Table = ({ loading = false, data, columns, onEdit, onDelete, filterValue, 
       {loading
         ? <TableSkeleton />
         : (
-          <section className='pt-0 packages_table table-responsive dark:bg-midnight'>
+          <section className='pt-0 packages_table table-responsive 2xl:bg-white 2xl:dark:bg-midnight 2xl:p-5 rounded-xl'>
             {/* Start of Search and Entries per page */}
             <div className=''>
-              <div className='flex items-center font-medium'>
+              <div className='flex items-center font-medium !mb-7'>
                 <select
                   className='bg-transparent pl-2 dark:text-white'
                   value={table.getState().pagination.pageSize}
@@ -107,23 +101,23 @@ const Table = ({ loading = false, data, columns, onEdit, onDelete, filterValue, 
             {/* End of Search and Entries per page */}
 
             {/* Start Table */}
-            <table role='table' className='table-style3 table at-savesearch min-w-[0px]'>
-              <thead className='t-head fixed lg:static w-[100dvw] lg:w-full z-40 top-[140px] left-0 dark-bg:midnight !rounded-b-lg !rounded-t-none dark:bg-midnight'>
+            <table role='table' className='table-style3 at-savesearch min-w-[0px] !block'>
+              <thead className='t-head fixed 2xl:static w-[100dvw] lg:w-[calc(100dvw-300px)] 2xl:w-full z-40 top-[140px] lg:top-[179px] right-0 block bg-white dark:bg-midnight rounded-b-3xl 2xl:rounded-none overflow-hidden'>
                 {
             table.getHeaderGroups().map(headerGroup => (
-              <tr className={`${isPhone ? 'flex justify-around' : ''}`} scope='row' key={headerGroup.id}>
+              <tr className='w-full flex bg-white dark:bg-midnight overflow-hidden' scope='row' key={headerGroup.id}>
                 {
-                  headerGroup.headers.map(header => {
+                  headerGroup.headers.map((header, index) => {
                     return !header.column.columnDef.hidden
                       ? (
                         <th
                           role='columnheader'
                           key={header.id}
                           onClick={header.column.getToggleSortingHandler()}
-                          className='cursor-pointer pt-9 pl-8 pr-2.5 pb-6 select-none dark:bg-midnight'
+                          className={`cursor-pointer pt-9 pl-8 pr-2.5 pb-6 select-none w-1/4 dark:bg-midnight ${index === 0 ? '2xl:w-[40%]' : '2xl:w-[20%]'}`}
                           colSpan='1'
                         >
-                          <div className='flex items-center'>
+                          <div className='flex items-center justify-center'>
                             <span className='dark:text-white'>{header.column.columnDef.header}</span>
                             {/* Show the sorting icon */}
                             <div className='ml-2 inline-flex flex-col space-y-[2px]'>
@@ -144,23 +138,23 @@ const Table = ({ loading = false, data, columns, onEdit, onDelete, filterValue, 
             ))
           }
               </thead>
-              <tbody className='t-body flex flex-col gap-10 2xl:table'>
+              <tbody className='t-body flex flex-col gap-10 2xl:gap-0 w-full'>
                 {!showData && (
-                  <tr role='row' className='border-b border-stroke dark:border-strokedark duration-300 ease-linear dark:bg-midnight'>
-                    <td colSpan={columns.length} className='pl-8 py-5 pr-2 text-center'>
+                  <tr role='row' className='border-b border-stroke dark:border-strokedark duration-300 ease-linear block w-full border-none'>
+                    <td colSpan={columns.length} className='pl-8 !py-7 pr-2 text-center block w-full dark:!text-white bg-white dark:bg-midnight !font-medium rounded-xl text-base my-6 border !border-[#ddd] dark:!border-borderColor/20'>
                       No data found
                     </td>
                   </tr>
                 )}
                 {showData && table.getRowModel().rows.map(row => (
-                  <tr className='dark:border-borderColor/20 flex flex-col 2xl:table-row 2xl:px-7 2xl:py-5 border box-border rounded-xl overflow-hidden !border-borderColor/20 2xl:border-none' key={row.id}>
+                  <tr className='flex flex-col border box-border rounded-xl overflow-hidden 2xl:border-none w-full 2xl:flex-nowrap 2xl:flex-row  !border-[#ddd] dark:!border-borderColor/20' key={row.id}>
 
                     {
                 row.getVisibleCells().map((cell, index) => (
 
                   !cell.column.columnDef.hidden && (
                     <td
-                      className={`vam dark:bg-midnight dark:!text-white ${index === 0 || index === row.getVisibleCells().length - 1 ? 'border-none !px-[20px] 2xl:!px-[30px]' : 'hidden 2xl:table-cell'}`}
+                      className={`vam dark:bg-midnight bg-white dark:!text-white box-border ${index === 0 || index === row.getVisibleCells().length - 1 ? 'border-none !px-[30px]' : 'justify-center items-center hidden 2xl:flex'}  ${index === 0 ? '2xl:w-[40%]' : '2xl:w-[20%]'} ${index === 1 ? '!p-0' : ''}`}
                       key={cell.id}
                     >
                       {flexRender(cell.column.columnDef.cell, cell.getContext())}

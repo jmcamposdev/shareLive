@@ -46,18 +46,18 @@ const searchUsersColumns = [
 
             </div>
           </div>
-          <div className='listing-style1 dashboard-style d-xxl-flex align-items-center !mb-0 dark:bg-midnight hidden 2xl:table-cell'>
-            <div className='list-thumb !rounded-full overflow-hidden h-[90px] w-[90px]'>
+          <div className='listing-style1 dashboard-style d-xxl-flex align-items-center !mb-0 dark:bg-midnight hidden 2xl:table-cell !bg-transparent'>
+            <div className='list-thumb !rounded-full overflow-hidden !h-[76px] !aspect-square !min-w-0 !min-h-0'>
               <img className='w-full h-full object-fill' src={user.avatar || DefaultAvatar} alt={`Avatar of user ${user.firstName} ${user.lastName}`} />
             </div>
-            <div className='list-content py-0 p-0 mt-2 mt-xxl-0 ps-xxl-4'>
+            <div className='list-content py-0 p-0 mt-2 mt-xxl-0 ps-xxl-4 !pr-0'>
               <div className='h6 list-title'>
                 <Link to={`/users/${user._id}`} className='dark:text-white dark:hover:!text-orangePrimary'>
                   {`${user.firstName} ${user.lastName}`}
                 </Link>
               </div>
               <p className='list-text mb-0'>{user.roles.join(', ')}</p>
-              <div className='list-price dark:bg-midnight'>
+              <div className='list-price dark:bg-midnight bg-transparent'>
                 <span className='dark:text-white font-normal'>{user.email}</span>
               </div>
             </div>
