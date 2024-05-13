@@ -1,42 +1,10 @@
-import React, { useState } from 'react'
-import useAuthUser from 'react-auth-kit/hooks/useAuthUser'
-import useAlertToast from '../../../hooks/useToast'
+import React from 'react'
 import { useRoomSingle } from '../../../context/RoomSingleContext'
-import UserService from '../../../services/UserService'
-import useSignIn from 'react-auth-kit/hooks/useSignIn'
-import useAuthHeader from 'react-auth-kit/hooks/useAuthHeader'
+import RoomFavouriteIcon from '../Room/RoomFavouriteIcon'
 
 const PropertyHeader = ({ title, address, price }) => {
-  const signIn = useSignIn()
-  const { toast } = useAlertToast()
   const { room } = useRoomSingle()
-  const user = useAuthUser()
-  const authHeader = useAuthHeader()
-  const [favouriteLoading, setFavouriteLoading] = useState(false)
-  const [isRoomFavourite, setIsRoomFavourite] = useState(user && user.favouriteRoomsIds.includes(room._id))
 
-  const handleFavourite = async () => {
-    if (!user) {
-      toast.showError('Please login to add to favourites')
-    } else {
-      setFavouriteLoading(true)
-      try {
-        const updatedUser = await UserService.toggleFavoriteRoom(user._id, room._id)
-        signIn({
-          auth: {
-            token: authHeader.split(' ')[1],
-            type: authHeader.split(' ')[0]
-          },
-          userState: { ...updatedUser }
-        })
-        setIsRoomFavourite(!isRoomFavourite)
-        setFavouriteLoading(false)
-      } catch (error) {
-        console.log(error)
-        toast.showError('Error adding to favourites')
-      }
-    }
-  }
   return (
     <>
       <div className='flex-[0_0_auto] w-full md:w-2/3 px-[12px] '>
@@ -55,13 +23,7 @@ const PropertyHeader = ({ title, address, price }) => {
         <div className='single-property-content'>
           <div className='property-action lg:text-right'>
             <div className='flex mb-[20px] mb10-md items-center justify-start lg:justify-end'>
-              <button
-                disabled={favouriteLoading}
-                onClick={handleFavourite}
-                className={`!flex justify-center items-center icon mr-[10px] !leading-[40px] dark:bg-midnight dark:!border-none  dark:hover:!bg-orangePrimary/10 ${isRoomFavourite ? 'text-red-500' : ''}`}
-              >
-                <span className={`fa-heart dark:text-white ${isRoomFavourite ? 'text-red-500 fa-solid' : 'fa-light'}`} />
-              </button>
+              <RoomFavouriteIcon roomId={room._id} className='!leading-[40px]' />
               <a className='icon mr-[10px] !leading-[40px] dark:bg-midnight dark:!border-none  dark:hover:!bg-orangePrimary/10' href='#'>
                 <span className='flaticon-share-1 dark:text-white' />
               </a>

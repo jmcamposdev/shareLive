@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import RoomDetailedSkeleton from './RoomDetailedSkeleton'
+import RoomFavouriteIcon from '../RoomFavouriteIcon'
 
 const RoomDetailed = ({ room, loading = false }) => {
   if (loading) return <RoomDetailedSkeleton />
@@ -57,7 +58,10 @@ const RoomDetailed = ({ room, loading = false }) => {
             </Link>
             <div className='list-meta2 icons d-flex align-items-center gap-1'>
               <a href='#' className='!bg-borderColor/30 hover:!bg-borderColor/50 dark:!bg-lightmidnight dark:hover:!bg-orangePrimary/10'><span className='flaticon-fullscreen dark:text-white' /></a>
-              <a href='#' className='!bg-borderColor/30 hover:!bg-borderColor/50 dark:!bg-lightmidnight dark:hover:!bg-orangePrimary/10'><span className='flaticon-like dark:text-white' /></a>
+              <RoomFavouriteIcon
+                roomId={room._id}
+                className='!bg-borderColor/30 hover:!bg-borderColor/50 dark:!bg-lightmidnight dark:hover:!bg-orangePrimary/10 rounded-md w-[35px] !h-[35px]'
+              />
             </div>
           </div>
         </div>
