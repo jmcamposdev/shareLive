@@ -29,25 +29,25 @@ const SearchRoomsTable = ({ rooms, loading, title, subTitle }) => {
 
   return (
     <>
-      <div className='flex justify-between items-center'>
+      <div className='flex justify-between items-center 2xl:mb30 mt-56 2xl:mt-0 flex-wrap gap-9'>
         <TitleDashboard title={title} subtitle={subTitle} />
-        <div className='flex gap-4 pb40'>
+        <div className='flex gap-4 pb40 w-full sm:w-fit'>
           <div className='item1 mb15-sm'>
-            <div className='search_area'>
+            <div className='search_area z-40 w-[100dvw] lg:w-[calc(100dvw-300px)] 2xl:w-fit top-[65px] lg:top-[92px] rounded-b-lg bg-white dark:bg-midnight py-4 px-5 box-border 2xl:bg-transparent 2xl:dark:bg-transparent !right-0 !fixed 2xl:!relative 2xl:!top-0 !rounded-none'>
               <input
                 type='text'
-                className='form-control bdrs12 dark:bg-midnight dark:!border-borderColor/20 placeholder:text-[#181A20]/50 dark:text-white dark:outline-white'
+                className='form-control bdrs12 dark:bg-midnight dark:!border-borderColor/20 dark:placeholder:text-borderColor/40 dark:text-white dark:outline-white placeholder:text-[#212529bf]'
                 placeholder='Search'
                 required=''
                 value={filter}
                 onChange={e => setFilter(e.target.value)}
               />
-              <label>
+              <label className='!absolute !left-[36px] !top-[34px] 2xl:relative'>
                 <span className='flaticon-search dark:text-white' />
               </label>
             </div>
           </div>
-          <Link to='/dashboard/rooms/add' className='ud-btn btn-thm'>
+          <Link to='/dashboard/rooms/add' className='ud-btn btn-thm w-fit m-auto sm:translate-y-0 translate-y-[-30px]'>
             Add New Room <i className='fal fa-arrow-right-long' />
           </Link>
         </div>

@@ -16,15 +16,15 @@ const Table = ({ loading = false, data, columns, onEdit, onDelete, filterValue, 
   columns.push({
     header: 'Action', // Add the Actions header
     cell: (row) => ( // Add the cell function
-      <div className='flex space-x-4'>
+      <div className='flex space-x-4 w-full 2xl:w-fit justify-center items-center gap-8 2xl:gap-4'>
         {
           // Only show the edit button if the onEdit function is provided
           onEdit && (
             <button
-              className='flex justify-center items-center w-8 h-8 rounded-md bg-orangePrimary hover:bg-[#d96351]' title='Edit'
+              className='flex justify-center items-center h-11 w-11 2xl:w-8 2xl:h-8 rounded-md bg-orangePrimary dark:bg-orangePrimary/70 dark:hover:bg-[#d96351]/40 hover:bg-[#d96351]' title='Edit'
               onClick={() => onEdit(row.cell.row.original._id)}
             >
-              <i className='fa-solid fa-pen text-white' />
+              <i className='fa-solid fa-pen text-white scale-110 2xl:scale-100' />
             </button>
           )
         }
@@ -33,10 +33,10 @@ const Table = ({ loading = false, data, columns, onEdit, onDelete, filterValue, 
           // Only show the delete button if the onDelete function is provided
           onDelete && (
             <button
-              className='flex justify-center items-center w-8 h-8 rounded-md bg-red-600 hover:bg-[#c72626]' title='Delete'
+              className='flex justify-center items-center h-11 w-11 2xl:w-8 2xl:h-8 !m-0 rounded-md bg-red-600 dark:bg-red-600/70 dark:hover:bg-red-600/40 hover:bg-[#c72626]' title='Delete'
               onClick={() => onDelete(row.cell.row.original._id)}
             >
-              <i className='fa-solid fa-trash text-white' />
+              <i className='fa-solid fa-trash text-white scale-110 2xl:scale-100' />
             </button>
           )
         }
@@ -102,7 +102,7 @@ const Table = ({ loading = false, data, columns, onEdit, onDelete, filterValue, 
 
             {/* Start Table */}
             <table role='table' className='table-style3 at-savesearch min-w-[0px] !block'>
-              <thead className='t-head fixed 2xl:static w-[100dvw] lg:w-[calc(100dvw-300px)] 2xl:w-full z-40 top-[140px] lg:top-[179px] right-0 block bg-white dark:bg-midnight rounded-b-3xl 2xl:rounded-none overflow-hidden'>
+              <thead style={{ borderTopLeftRadius: 0, borderTopRightRadius: 0 }} className='t-head fixed 2xl:static w-[100dvw] lg:w-[calc(100dvw-300px)] 2xl:w-full z-40 top-[140px] lg:top-[179px] right-0 block bg-white dark:bg-midnight rounded-b-3xl 2xl:rounded-none overflow-hidden'>
                 {
             table.getHeaderGroups().map(headerGroup => (
               <tr className='w-full flex bg-white dark:bg-midnight overflow-hidden' scope='row' key={headerGroup.id}>
@@ -154,7 +154,7 @@ const Table = ({ loading = false, data, columns, onEdit, onDelete, filterValue, 
 
                   !cell.column.columnDef.hidden && (
                     <td
-                      className={`vam dark:bg-midnight bg-white dark:!text-white box-border ${index === 0 || index === row.getVisibleCells().length - 1 ? 'border-none !px-[30px]' : 'justify-center items-center hidden 2xl:flex'}  ${index === 0 ? '2xl:w-[40%]' : '2xl:w-[20%]'} ${index === 1 ? '!p-0' : ''}`}
+                      className={`vam dark:bg-midnight bg-white dark:!text-white box-border ${index === 0 || index === row.getVisibleCells().length - 1 ? 'border-none !px-[30px]' : 'justify-center items-center hidden 2xl:flex'} ${index === row.getVisibleCells().length - 1 ? 'flex justify-center items-center' : ''}  ${index === 0 ? '2xl:w-[40%]' : '2xl:w-[20%]'} ${index === 1 ? '!p-0' : ''}`}
                       key={cell.id}
                     >
                       {flexRender(cell.column.columnDef.cell, cell.getContext())}
