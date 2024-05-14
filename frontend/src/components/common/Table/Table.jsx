@@ -9,22 +9,22 @@ import {
 import { useEffect, useState } from 'react'
 import TableSkeleton from './TableSkeleton'
 
-const Table = ({ loading, data, columns, onEdit, onDelete, filterValue, onFilter }) => {
+const Table = ({ loading = false, data, columns, onEdit, onDelete, filterValue, onFilter }) => {
   // Remove the Action column if exists to prevent unexpected actions
   columns = columns.filter(column => column.header !== 'Actions')
 
   columns.push({
     header: 'Action', // Add the Actions header
     cell: (row) => ( // Add the cell function
-      <div className='flex space-x-4'>
+      <div className='flex space-x-4 w-full 2xl:w-fit justify-center items-center gap-8 2xl:gap-4'>
         {
           // Only show the edit button if the onEdit function is provided
           onEdit && (
             <button
-              className='flex justify-center items-center w-8 h-8 rounded-md bg-orangePrimary hover:bg-[#d96351]' title='Edit'
+              className='flex justify-center items-center h-11 w-11 2xl:w-8 2xl:h-8 rounded-md bg-orangePrimary dark:bg-orangePrimary/70 dark:hover:bg-[#d96351]/40 hover:bg-[#d96351]' title='Edit'
               onClick={() => onEdit(row.cell.row.original._id)}
             >
-              <i className='fa-solid fa-pen text-white' />
+              <i className='fa-solid fa-pen text-white scale-110 2xl:scale-100' />
             </button>
           )
         }
@@ -33,10 +33,10 @@ const Table = ({ loading, data, columns, onEdit, onDelete, filterValue, onFilter
           // Only show the delete button if the onDelete function is provided
           onDelete && (
             <button
-              className='flex justify-center items-center w-8 h-8 rounded-md bg-red-600 hover:bg-[#c72626]' title='Delete'
+              className='flex justify-center items-center h-11 w-11 2xl:w-8 2xl:h-8 !m-0 rounded-md bg-red-600 dark:bg-red-600/70 dark:hover:bg-red-600/40 hover:bg-[#c72626]' title='Delete'
               onClick={() => onDelete(row.cell.row.original._id)}
             >
-              <i className='fa-solid fa-trash text-white' />
+              <i className='fa-solid fa-trash text-white scale-110 2xl:scale-100' />
             </button>
           )
         }
@@ -78,10 +78,10 @@ const Table = ({ loading, data, columns, onEdit, onDelete, filterValue, onFilter
       {loading
         ? <TableSkeleton />
         : (
-          <section className='pt-0 packages_table table-responsive dark:bg-midnight'>
+          <section className='pt-0 packages_table table-responsive 2xl:bg-white 2xl:dark:bg-midnight 2xl:p-5 rounded-xl'>
             {/* Start of Search and Entries per page */}
             <div className=''>
-              <div className='flex items-center font-medium'>
+              <div className='flex items-center font-medium !mb-7'>
                 <select
                   className='bg-transparent pl-2 dark:text-white'
                   value={table.getState().pagination.pageSize}
@@ -101,23 +101,23 @@ const Table = ({ loading, data, columns, onEdit, onDelete, filterValue, onFilter
             {/* End of Search and Entries per page */}
 
             {/* Start Table */}
-            <table role='table' className='table-style3 table at-savesearch min-w-[700px]'>
-              <thead className='t-head'>
+            <table role='table' className='table-style3 at-savesearch min-w-[0px] !block'>
+              <thead style={{ borderTopLeftRadius: 0, borderTopRightRadius: 0 }} className='t-head fixed 2xl:static w-[100dvw] lg:w-[calc(100dvw-300px)] 2xl:w-full z-40 top-[140px] lg:top-[179px] right-0 block bg-white dark:bg-midnight rounded-b-3xl 2xl:rounded-none overflow-hidden'>
                 {
             table.getHeaderGroups().map(headerGroup => (
-              <tr className='' scope='row' key={headerGroup.id}>
+              <tr className='w-full flex bg-white dark:bg-midnight overflow-hidden' scope='row' key={headerGroup.id}>
                 {
-                  headerGroup.headers.map(header => {
+                  headerGroup.headers.map((header, index) => {
                     return !header.column.columnDef.hidden
                       ? (
                         <th
                           role='columnheader'
                           key={header.id}
                           onClick={header.column.getToggleSortingHandler()}
-                          className='cursor-pointer pt-9 pl-8 pr-2.5 pb-6 select-none dark:bg-midnight'
+                          className={`cursor-pointer pt-9 pl-8 pr-2.5 pb-6 select-none w-1/4 dark:bg-midnight ${index === 0 ? '2xl:w-[40%]' : '2xl:w-[20%]'}`}
                           colSpan='1'
                         >
-                          <div className='flex items-center'>
+                          <div className='flex items-center justify-center'>
                             <span className='dark:text-white'>{header.column.columnDef.header}</span>
                             {/* Show the sorting icon */}
                             <div className='ml-2 inline-flex flex-col space-y-[2px]'>
@@ -138,28 +138,30 @@ const Table = ({ loading, data, columns, onEdit, onDelete, filterValue, onFilter
             ))
           }
               </thead>
-              <tbody className='t-body '>
+              <tbody className='t-body flex flex-col gap-10 2xl:gap-0 w-full'>
                 {!showData && (
-                  <tr role='row' className='border-b border-stroke dark:border-strokedark duration-300 ease-linear dark:bg-midnight'>
-                    <td colSpan={columns.length} className='pl-8 py-5 pr-2 text-center'>
+                  <tr role='row' className='border-b border-stroke dark:border-strokedark duration-300 ease-linear block w-full border-none'>
+                    <td colSpan={columns.length} className='pl-8 !py-7 pr-2 text-center block w-full dark:!text-white bg-white dark:bg-midnight !font-medium rounded-xl text-base my-6 border !border-[#ddd] dark:!border-borderColor/20'>
                       No data found
                     </td>
                   </tr>
                 )}
                 {showData && table.getRowModel().rows.map(row => (
-                  <tr className='dark:border-borderColor/20' key={row.id}>
-                    {row.getVisibleCells().map(cell => {
-                      return !cell.column.columnDef.hidden
-                        ? (
-                          <td
-                            className='vam dark:bg-midnight dark:!text-white'
-                            key={cell.id}
-                          >
-                            {flexRender(cell.column.columnDef.cell, cell.getContext())}
-                          </td>
-                          )
-                        : null
-                    })}
+                  <tr className='flex flex-col border box-border rounded-xl overflow-hidden 2xl:border-none w-full 2xl:flex-nowrap 2xl:flex-row  !border-[#ddd] dark:!border-borderColor/20' key={row.id}>
+
+                    {
+                row.getVisibleCells().map((cell, index) => (
+
+                  !cell.column.columnDef.hidden && (
+                    <td
+                      className={`vam dark:bg-midnight bg-white dark:!text-white box-border ${index === 0 || index === row.getVisibleCells().length - 1 ? 'border-none !px-[30px]' : 'justify-center items-center hidden 2xl:flex'} ${index === row.getVisibleCells().length - 1 ? 'flex justify-center items-center' : ''}  ${index === 0 ? '2xl:w-[40%]' : '2xl:w-[20%]'} ${index === 1 ? '!p-0' : ''}`}
+                      key={cell.id}
+                    >
+                      {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                    </td>
+                  )
+                ))
+}
                   </tr>
                 ))}
               </tbody>
@@ -167,7 +169,7 @@ const Table = ({ loading, data, columns, onEdit, onDelete, filterValue, onFilter
             {/* End Table */}
 
             {/* Pagination Section */}
-            <div className='flex justify-between border-t border-stroke px-8 pt-5 dark:border-strokedark min-w-[700px] duration-300 ease-linear border-none'>
+            <div className='flex justify-between border-t border-stroke px-8 pt-5 dark:border-strokedark min-w-[0px] duration-300 ease-linear border-none'>
               <p className='font-medium dark:text-white'>
                 Showing {table.getState().pagination.pageIndex + 1} 0f {table.getPageCount()} pages
               </p>

@@ -16,9 +16,11 @@ const UserLatestRooms = ({ userName, rooms, numToDisplay }) => {
     }
   }
 
+  console.log(rooms)
+
   return (
 
-    rooms
+    rooms.length > 0
       ? (
         <>
           <div className='flex flex-wrap  items-center mt40'>
