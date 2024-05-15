@@ -1,5 +1,7 @@
 import Role, { ROLES } from '../models/Role.js'
 import User from '../models/User.js'
+import dotenv from 'dotenv'
+dotenv.config()
 
 export const signIn = async (req, res) => {
   // Extract the user from the request
@@ -7,6 +9,7 @@ export const signIn = async (req, res) => {
 
   // Populate the user's roles
   await user.populate('roles')
+  await user.populate('reviews')
 
   // Generate a token
   const token = await User.generateToken(user)
@@ -17,7 +20,7 @@ export const signIn = async (req, res) => {
 
 export const signUp = async (req, res) => {
   // Extract the user from the request
-  const { username, email, password } = req.body
+  const { username, firstName, lastName, email, password } = req.body
 
   const roles = await Role.find()
   const userRole = roles.find(role => role.id === ROLES.USER)
@@ -26,6 +29,10 @@ export const signUp = async (req, res) => {
   const newUser = new User({
     username,
     email,
+    firstName,
+    lastName,
+    name: `${firstName} ${lastName}`,
+    avatar: process.env.DEFAULT_AVATAR_URL,
     password: await User.encryptPassword(password),
     roles: [userRole._id],
     joinDate: new Date()
@@ -36,6 +43,7 @@ export const signUp = async (req, res) => {
 
   // Populate the user's roles
   await newUser.populate('roles')
+  await newUser.populate('reviews')
 
   // Generate a token
   const token = await User.generateToken(newUser)

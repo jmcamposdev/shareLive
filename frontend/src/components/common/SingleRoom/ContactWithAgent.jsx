@@ -27,7 +27,7 @@ const ContactWithAgent = ({ user }) => {
               {user.phone || 'No phone'}
             </a>
           </div>
-          <UserReviewsStats user={user} />
+          <UserReviewsStats reviews={user.reviews} />
           {/* Puedes agregar aquí las reseñas del propietario si lo deseas */}
         </div>
       </div>

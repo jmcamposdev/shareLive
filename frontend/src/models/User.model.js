@@ -8,6 +8,19 @@ const UserSocialsPropTypes = PropTypes.shape({
   instagram: PropTypes.string
 })
 
+const UserReviewPropTypes = PropTypes.shape({
+  _id: PropTypes.string.isRequired,
+  ownerId: PropTypes.string.isRequired,
+  ownerName: PropTypes.string.isRequired,
+  ownerAvatar: PropTypes.string.isRequired,
+  reviewRate: PropTypes.number.isRequired,
+  reviewContent: PropTypes.string.isRequired,
+  helpful: PropTypes.arrayOf(PropTypes.string),
+  notHelpful: PropTypes.arrayOf(PropTypes.string),
+  createdAt: PropTypes.string.isRequired,
+  __v: PropTypes.number
+})
+
 // PropType para el esquema de usuario
 const UserPropTypes = PropTypes.shape({
   avatar: PropTypes.string,
@@ -21,31 +34,10 @@ const UserPropTypes = PropTypes.shape({
   description: PropTypes.string.isRequired,
   socials: UserSocialsPropTypes.isRequired,
   password: PropTypes.string.isRequired,
-  reviews: PropTypes.arrayOf(PropTypes.shape({
-    _id: PropTypes.string.isRequired,
-    ownerId: PropTypes.string.isRequired,
-    ownerName: PropTypes.string.isRequired,
-    ownerAvatar: PropTypes.string.isRequired,
-    reviewRate: PropTypes.number.isRequired,
-    reviewContent: PropTypes.string.isRequired,
-    helpful: PropTypes.arrayOf(PropTypes.string),
-    notHelpful: PropTypes.arrayOf(PropTypes.string),
-    createdAt: PropTypes.string.isRequired,
-    __v: PropTypes.number
-  })),
+  reviews: PropTypes.arrayOf(UserReviewPropTypes),
   favouriteRoomsIds: PropTypes.arrayOf(PropTypes.string),
   joinDate: PropTypes.string.isRequired,
   roles: PropTypes.arrayOf(PropTypes.object)
-})
-
-// PropType para el esquema de revisión
-const UserReviewPropTypes = PropTypes.shape({
-  owner: UserPropTypes.isRequired,
-  reviewRate: PropTypes.number.isRequired,
-  reviewContent: PropTypes.string.isRequired,
-  helpful: PropTypes.arrayOf(PropTypes.string),
-  notHelpful: PropTypes.arrayOf(PropTypes.string),
-  createdAt: PropTypes.instanceOf(Date)
 })
 
 export { UserPropTypes, UserReviewPropTypes }

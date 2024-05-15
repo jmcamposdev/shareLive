@@ -68,7 +68,6 @@ const RoomService = {
   },
 
   updateRoom: async (room) => {
-    console.log('RoomService.updateRoom:', room)
     try {
       const updatedRoom = await api.put(
         `rooms/${room._id}`,

@@ -11,9 +11,9 @@ const AuthService = {
     }
   },
 
-  signUp: async (username, email, password) => {
+  signUp: async (username, firstName, lastName, email, password) => {
     try {
-      const newUser = await api.post('auth/signup', { username, email, password })
+      const newUser = await api.post('auth/signup', { username, firstName, lastName, email, password })
       return newUser
     } catch (error) {
       console.error('Error signing up:', error.message)

@@ -24,6 +24,7 @@ import { UserSingleProvider } from './context/UserSingleContext.jsx'
 import LogOut from './pages/Dashboard/LogOut/LogOut.jsx'
 import DshRoomCreateForm from './pages/Dashboard/DshRoomForms/DshRoomCreateForm.jsx'
 import DshRoomEditForm from './pages/Dashboard/DshRoomForms/DshRoomEditForm.jsx'
+import DshReviews from './pages/Dashboard/DshReviews/DshReviews.jsx'
 
 function App () {
   const [isDarkMode, setIsDarkMode] = useState(false)
@@ -73,11 +74,12 @@ function App () {
         {/* Routes for the Dashboard */}
         <Route element={<RequireAuth allowedRoles={[ROLES.SUPER_ADMIN, ROLES.ADMIN, ROLES.USER]} />}>
           <Route path='dashboard' element={<DashboardHome />} />
+          <Route path='dashboard/reviews' element={<DshReviews />} />
           <Route path='dashboard/rooms' element={<DshSearchRooms />} />
           <Route path='dashboard/users' element={<DashboardSearchUsers />} />
           <Route path='dashboard/rooms/add' element={<DshRoomCreateForm />} />
           <Route path='dashboard/rooms/edit/:id' element={<DshRoomEditForm />} />
-          <Route path='dashboard/dashboard-my-profile' element={<DashboardMyProfile />} />
+          <Route path='dashboard/profile' element={<DashboardMyProfile />} />
         </Route>
         {/* 404 page */}
         <Route path='*' element={<NotFound />} />

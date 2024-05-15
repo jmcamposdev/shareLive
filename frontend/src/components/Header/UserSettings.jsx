@@ -1,10 +1,11 @@
 import { Link, useLocation } from 'react-router-dom'
-import userImage from '../../assets/img/dashboard/header/user-default.png'
+import useAuthUser from 'react-auth-kit/hooks/useAuthUser'
 import React, { useState } from 'react'
 import menuItems from '../common/dashboardHeaderMobile/dashboardHeaderMobileLinks.admin'
 
 const UserSettings = () => {
   const { pathname } = useLocation()
+  const user = useAuthUser()
 
   const [isExpanded, setIsExpanded] = useState(false)
 
@@ -15,12 +16,19 @@ const UserSettings = () => {
   return (
     <li className='user_setting '>
       <div className='dropdown'>
-        <a id='userImg' className={`${isExpanded ? 'border-black dark:!border-white ' : ''} btn !p-1 rounded-full hover:border hover:border-orangePrimary lg:!border-none`} href='#' data-bs-toggle='dropdown' aria-expanded={isExpanded} onClick={toggleExpanded}>
+        <a
+          id='userImg'
+          className={`${isExpanded ? 'border-black dark:!border-white ' : ''} btn !p-1 rounded-full hover:border hover:border-orangePrimary lg:!border-none`}
+          data-bs-toggle='dropdown'
+          aria-expanded={isExpanded}
+          onClick={toggleExpanded}
+        >
           <img
+            className='rounded-full'
             width={44}
             height={44}
-            src={userImage}
-            alt='user.png'
+            src={user.avatar}
+            alt={user.name}
           />
         </a>
         <div style={{ inset: 'unset !important' }} className='dark:bg-midnight !rounded-none dropdown-menu !h-[100dvh] !max-h-[100dvh] !top-0 !w-[100dvw] sm:!w-[360px] !left-[195px] sm:!left-[175px] rounded-none lg:!hidden '>

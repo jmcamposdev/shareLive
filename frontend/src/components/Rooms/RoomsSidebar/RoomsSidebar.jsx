@@ -15,6 +15,7 @@ const RoomsSidebar = () => {
       presetData={rooms}
       defaultItemsPerPage={6}
       elementIdToScroll='roomsContent'
+      elementType='rooms'
     >
       <div className='row align-items-center mb20'>
         <TopFilterBar />

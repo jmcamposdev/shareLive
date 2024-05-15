@@ -7,7 +7,7 @@ export const PaginationContext = createContext()
 export const usePagination = () => useContext(PaginationContext)
 
 // Create the PaginationContextProvider component
-export const PaginationProvider = ({ presetData = [], defaultItemsPerPage = 5, elementIdToScroll, children }) => {
+export const PaginationProvider = ({ presetData = [], defaultItemsPerPage = 5, elementIdToScroll, children, elementType }) => {
   // State variables
   const [data, setData] = useState(presetData)
   const [pageData, setPageData] = useState([])
@@ -23,7 +23,8 @@ export const PaginationProvider = ({ presetData = [], defaultItemsPerPage = 5, e
     setCurrentPage,
     totalPages: Math.ceil(data.length / itemsPerPage),
     pageData,
-    elementIdToScroll
+    elementIdToScroll,
+    elementType
   }), [data, setData, itemsPerPage, setItemsPerPage, currentPage, setCurrentPage, pageData])
 
   useEffect(() => {
@@ -52,5 +53,6 @@ PaginationProvider.propTypes = {
   presetData: PropTypes.array,
   defaultItemsPerPage: PropTypes.number,
   nodeRefToScroll: PropTypes.object,
-  children: PropTypes.node.isRequired
+  children: PropTypes.node.isRequired,
+  elementType: PropTypes.string
 }
