@@ -1,4 +1,3 @@
-import useAuthUser from 'react-auth-kit/hooks/useAuthUser'
 import TitleDashboard from '../../../components/common/Dashboard/TitleDashboard/TitleDashboard'
 import UserReviewsStats from '../../../components/common/SingleUser/UserReviewsStats'
 import DashboardLayout from '../../../layout/DashboardLayout'
@@ -10,9 +9,10 @@ import useUserReviews from '../../../hooks/useUserReviews'
 import { PaginationProvider } from '../../../context/PaginationContext'
 import Pagination from '../../../components/common/pagination/Pagintacion'
 import DshReviewsPagination from './DshReviewsPagination'
+import { useAuth } from '../../../context/AuthContext'
 
 const DshReviews = () => {
-  const user = useAuthUser()
+  const { user } = useAuth()
   const [order, setOrder] = useState({ value: USER_REVIEWS_ORDER.NEWEST, label: USER_REVIEWS_ORDER_LABEL.NEWEST })
   const { reviews, updateReview, deleteReview, loading } = useUserReviews(user?._id)
   const [orderReviews, setOrderReviews] = useState([])

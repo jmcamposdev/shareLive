@@ -1,10 +1,10 @@
-import useAuthUser from 'react-auth-kit/hooks/useAuthUser'
 import DshRoomForm from '../../../components/common/Dashboard/DshRoomForm/DshRoomForm'
 import RoomService from '../../../services/roomService'
 import { roomFormInitialValues } from '../../../components/common/Dashboard/DshRoomForm/FormModel/roomFormInitialValues'
+import { useAuth } from '../../../context/AuthContext'
 
 const DshRoomCreateForm = () => {
-  const user = useAuthUser()
+  const { user } = useAuth()
   const title = 'Create Room'
   const subtitle = 'Here you can create your room'
 

@@ -1,9 +1,9 @@
 import { Form, Formik } from 'formik'
 import BoxDashboard from '../../BoxDashboard/BoxDashboard'
-import FormikSubmitBtn from '../../../Formik/Buttons/FormikSubmitBtn'
 import UserService from '../../../../../services/UserService'
 import useAlertToast from '../../../../../hooks/useToast'
 import { useNavigate } from 'react-router-dom'
+import { useDialogoConfirmarCambiarV2 } from '../../../../../hooks/useDialogoConfirmarCambiarV2'
 
 const DshDeleteUserForm = ({ user }) => {
   const { toast } = useAlertToast()
@@ -21,6 +21,10 @@ const DshDeleteUserForm = ({ user }) => {
     }
   }
 
+  const { DialogoConfirmarCambiar, handleMostrarDialogo } = useDialogoConfirmarCambiarV2({
+    onCambiar: () => { console.log('cambio') }
+  })
+
   return (
     <BoxDashboard>
       <h4 className='title fz17 mb30 dark:text-white'>Delete Account</h4>
@@ -35,13 +39,17 @@ const DshDeleteUserForm = ({ user }) => {
                 Are you sure you want to delete your account? This action cannot be undone.
               </p>
               <div className='text-end'>
-                <FormikSubmitBtn label='Delete Account' isSubmitting={isSubmitting} isDanger />
+                {/* <FormikSubmitBtn label='Delete Account' isSubmitting={isSubmitting} isDanger /> */}
+                <a type='button' className='ud-btn bg-red-500 before:bg-[#c93939] hover:bg-red-500' onClick={() => handleMostrarDialogo(false)}>
+                  Delete Account
+                  <i className='fal fa-arrow-right-long' />
+                </a>
               </div>
             </div>
           </Form>
         )}
       </Formik>
-
+      {DialogoConfirmarCambiar}
     </BoxDashboard>
   )
 }

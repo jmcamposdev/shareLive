@@ -3,14 +3,14 @@ import { formatDate } from '../../../utils/formatDate'
 import { getAvatarImage } from '../../../utils/user.utils'
 import { REVIEW_HELP_STATES } from '../SingleUser/UserReviews/UserReviews.constant'
 import useAlertToast from '../../../hooks/useToast'
-import useAuthUser from 'react-auth-kit/hooks/useAuthUser'
 import ReviewSkeleton from './ReviewSkeleton'
+import { useAuth } from '../../../context/AuthContext'
 
 const Review = ({ review, className, onUpdate, onDelete, loading = false }) => {
   if (loading) return <ReviewSkeleton />
 
   const { toast } = useAlertToast()
-  const user = useAuthUser()
+  const { user } = useAuth()
   const isYourReview = review.ownerId === user?._id
   const isOwnerHelpful = review.helpful.includes(user?._id)
   const isOwnerNotHelpful = review.notHelpful.includes(user?._id)

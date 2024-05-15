@@ -7,10 +7,10 @@ import LoginImg from '../../../assets/vectors/loginRegisterImg.svg'
 import useAlertToast from '../../../hooks/useToast'
 import AuthService from '../../../services/authService'
 import { Link, useNavigate } from 'react-router-dom'
-import useSignIn from 'react-auth-kit/hooks/useSignIn'
+import { useAuth } from '../../../context/AuthContext'
 
 const Login = () => {
-  const signIn = useSignIn()
+  const { signInUser } = useAuth()
   const navigate = useNavigate()
   const { toast } = useAlertToast()
 
@@ -24,14 +24,7 @@ const Login = () => {
     const { email, password } = values
     try {
       const res = await AuthService.signIn(email, password)
-      signIn({
-        auth: {
-          token: res.token,
-          type: 'Bearer'
-        },
-        userState: { ...res.user }
-      })
-
+      signInUser(res.user, res.token)
       toast.showSuccess('Logged in successfully')
       navigate('/dashboard')
     } catch (error) {

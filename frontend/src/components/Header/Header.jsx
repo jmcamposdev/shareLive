@@ -5,10 +5,10 @@ import LogoWhite2 from '../../assets/logos/logo-white-2.png'
 import LogoDark from '../../assets/logos/logo-dark.png'
 import DarkModeSwitcher from '../common/darkModeSwitcher/DarkModeSwitcher'
 import MainMenu from '../common/MainMenu'
-import useAuthUser from 'react-auth-kit/hooks/useAuthUser'
+import { useAuth } from '../../context/AuthContext'
 
 const Header = () => {
-  const user = useAuthUser()
+  const { user } = useAuth()
   const [navbar, setNavbar] = useState(false)
 
   // Variable to know if the user scrolled the page
