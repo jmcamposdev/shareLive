@@ -12,6 +12,7 @@ import '../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js'
 import Rooms from './pages/WebPages/Rooms/Rooms.jsx'
 import DashboardHome from './pages/Dashboard/DashboardHome/DashboardHome.jsx'
 import DshSearchRooms from './pages/Dashboard/DshSearchRooms/DshSearchRooms.jsx'
+import DashboardSearchUsers from './pages/Dashboard/DashboardSearchUsers/DashboardSearchUsers.jsx'
 import DashboardMyProfile from './pages/Dashboard/DashboardMyProfile/DashboardMyProfile.jsx'
 import { ToastContainer } from 'react-toastify'
 import { useEffect, useState } from 'react'
@@ -75,6 +76,7 @@ function App () {
           <Route path='dashboard' element={<DashboardHome />} />
           <Route path='dashboard/reviews' element={<DshReviews />} />
           <Route path='dashboard/rooms' element={<DshSearchRooms />} />
+          <Route path='dashboard/users' element={<DashboardSearchUsers />} />
           <Route path='dashboard/rooms/add' element={<DshRoomCreateForm />} />
           <Route path='dashboard/rooms/edit/:id' element={<DshRoomEditForm />} />
           <Route path='dashboard/profile' element={<DashboardMyProfile />} />
