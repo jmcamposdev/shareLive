@@ -26,6 +26,7 @@ import DshRoomCreateForm from './pages/Dashboard/DshRoomForms/DshRoomCreateForm.
 import DshRoomEditForm from './pages/Dashboard/DshRoomForms/DshRoomEditForm.jsx'
 import DshReviews from './pages/Dashboard/DshReviews/DshReviews.jsx'
 import PrivacyPolicy from './pages/WebPages/PrivacyTerms/Privacy.jsx'
+import TermsConditions from './pages/WebPages/PrivacyTerms/Terms.jsx'
 
 function App() {
   const [isDarkMode, setIsDarkMode] = useState(false)
@@ -85,6 +86,7 @@ function App() {
         {/* 404 page */}
         <Route path='*' element={<NotFound />} />
         <Route path='privacy' element={<PrivacyPolicy />} />
+        <Route path='terms' element={<TermsConditions />} />
       </Routes>
       <ToastContainer
         position='bottom-right'

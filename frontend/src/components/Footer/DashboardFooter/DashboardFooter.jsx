@@ -1,9 +1,9 @@
 import React from 'react'
 
 const footerLinks = [
-  { text: 'Privacy', href: '#' },
-  { text: 'Terms', href: '#' },
-  { text: 'Sitemap', href: '#' }
+  { text: 'Privacy', href: 'privacy' },
+  { text: 'Terms', href: 'terms' },
+  { text: 'Sitemap', href: 'sitemap' }
 ]
 
 const DashboardFooter = () => {
