@@ -4,7 +4,7 @@ import { useState } from 'react'
 import BoxDashboard from '../../common/Dashboard/BoxDashboard/BoxDashboard.jsx'
 import searchUsersColumns from './SearchUsersColumns.jsx'
 
-const SearchUsersTable = ({ users }) => {
+const SearchUsersTable = ({ users, setUsers, loading }) => {
   const [filter, setFilter] = useState('')
   return (
     <>
@@ -31,7 +31,15 @@ const SearchUsersTable = ({ users }) => {
       {/* End Title | Search | Add Room */}
 
       <BoxDashboard>
-        <Table data={users} columns={searchUsersColumns} filterValue={filter} onFilter={setFilter} />
+        <Table
+          data={users}
+          setData={setUsers}
+          loading={loading}
+          columns={searchUsersColumns}
+          filterValue={filter}
+          onFilter={setFilter}
+          itemName='user'
+        />
       </BoxDashboard>
 
     </>

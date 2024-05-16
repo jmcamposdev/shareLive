@@ -1,11 +1,17 @@
 import DashboardLayout from '../../../layout/DashboardLayout'
-import usersItems from '../../../data/usersItems'
 import SearchUsersTable from '../../../components/Dashboard/SearchUsersTable/SearchUsersTable'
+import useUsers from '../../../hooks/useUsers'
 
 const DashboardSearchUsers = () => {
+  const { users, setUsers, loading } = useUsers()
+
   return (
     <DashboardLayout>
-      <SearchUsersTable users={usersItems} />
+      <SearchUsersTable
+        users={users}
+        setUsers={setUsers}
+        loading={loading}
+      />
     </DashboardLayout>
   )
 }

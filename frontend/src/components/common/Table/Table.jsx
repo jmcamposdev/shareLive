@@ -11,7 +11,7 @@ import TableSkeleton from './TableSkeleton'
 import { useDeleteDialog } from '../../../hooks/useDeleteDialog'
 import { toNormalCase } from '../../../utils/formatString'
 
-const Table = ({ loading = false, data, setData, columns, onEdit, onDelete, filterValue, onFilter, itemName }) => {
+const Table = ({ loading = false, data, setData, columns, onEdit, onDelete, filterValue, onFilter, itemName = 'item' }) => {
   const [itemToDelete, setItemToDelete] = useState(null)
 
   const { DialogElement, handleOpen } = useDeleteDialog({

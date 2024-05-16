@@ -4,7 +4,7 @@ import FormikSubmitBtn from '../Formik/Buttons/FormikSubmitBtn'
 const DialogConfirmDel = ({ open, onCancel, onSave, title, message, deleteElementName }) => {
   return (
     <div
-      className={`fixed left-0 top-0 z-50 flex h-full min-h-screen w-full items-center justify-center bg-black/90 px-4 py-5 ${open ? 'block' : 'hidden'}`}
+      className={`fixed left-0 top-0 z-[99999999] flex h-full min-h-screen w-full items-center justify-center bg-black/90 px-4 py-5 ${open ? 'block' : 'hidden'}`}
     >
       <div className='max-w-[620px] max-w-142.5 rounded-lg bg-white px-8 py-12 text-center dark:bg-boxdark md:px-17.5 md:py-15'>
         <Formik
