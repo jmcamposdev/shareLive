@@ -3,12 +3,14 @@ import { ROLES } from '../constants/roles.constants'
 import useAuthUser from 'react-auth-kit/hooks/useAuthUser'
 import useAuthHeader from 'react-auth-kit/hooks/useAuthHeader'
 import useSignIn from 'react-auth-kit/hooks/useSignIn'
+import useSignOut from 'react-auth-kit/hooks/useSignOut'
 
 const AuthContext = createContext()
 
 const AuthUserProvider = ({ children }) => {
   const authHeader = useAuthHeader()
   const signIn = useSignIn()
+  const signOut = useSignOut()
   const token = authHeader?.split(' ')[1] || null
   const [user, setUser] = useState(useAuthUser())
 
@@ -43,6 +45,11 @@ const AuthUserProvider = ({ children }) => {
     setUser(user)
   }
 
+  const logOutUser = () => {
+    signOut()
+    setUser(null)
+  }
+
   // Memoized value of the authentication context
   const contextValue = useMemo(
     () => ({
@@ -52,7 +59,8 @@ const AuthUserProvider = ({ children }) => {
       role: user ? user.roles[0].name : ROLES.GUEST,
       isAdministrator,
       updateUser,
-      signInUser
+      signInUser,
+      logOutUser
     }),
     [token, user]
   )
