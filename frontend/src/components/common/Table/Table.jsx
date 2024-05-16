@@ -8,8 +8,30 @@ import {
 } from '@tanstack/react-table'
 import { useEffect, useState } from 'react'
 import TableSkeleton from './TableSkeleton'
+import { useDeleteDialog } from '../../../hooks/useDeleteDialog'
+import { toNormalCase } from '../../../utils/formatString'
 
-const Table = ({ loading = false, data, columns, onEdit, onDelete, filterValue, onFilter }) => {
+const Table = ({ loading = false, data, setData, columns, onEdit, onDelete, filterValue, onFilter, itemName }) => {
+  const [itemToDelete, setItemToDelete] = useState(null)
+
+  const { DialogElement, handleOpen } = useDeleteDialog({
+    onCancel: () => setItemToDelete(null),
+    onSave: onDelete ? () => deleteItem(itemToDelete) : () => {},
+    title: `Delete ${toNormalCase(itemName)}`,
+    message: `Are you sure you want to delete this ${itemName}? This action cannot be undone.`,
+    deleteElementName: itemName
+  })
+
+  const deleteItem = async (id) => {
+    await onDelete(id)
+    setData(data.filter(item => item._id !== id))
+  }
+
+  const handleDeleteBtn = (id) => {
+    setItemToDelete(id)
+    handleOpen()
+  }
+
   // Remove the Action column if exists to prevent unexpected actions
   columns = columns.filter(column => column.header !== 'Actions')
 
@@ -34,7 +56,7 @@ const Table = ({ loading = false, data, columns, onEdit, onDelete, filterValue, 
           onDelete && (
             <button
               className='flex justify-center items-center h-11 w-11 2xl:w-8 2xl:h-8 !m-0 rounded-md bg-red-600 dark:bg-red-600/70 dark:hover:bg-red-600/40 hover:bg-[#c72626]' title='Delete'
-              onClick={() => onDelete(row.cell.row.original._id)}
+              onClick={() => handleDeleteBtn(row.cell.row.original._id)}
             >
               <i className='fa-solid fa-trash text-white scale-110 2xl:scale-100' />
             </button>
@@ -215,6 +237,7 @@ const Table = ({ loading = false, data, columns, onEdit, onDelete, filterValue, 
         </div> */}
             </div>
             {/* End Pagination Section */}
+            {DialogElement}
           </section>
           )}
 

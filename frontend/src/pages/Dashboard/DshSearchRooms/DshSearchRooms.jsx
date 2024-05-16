@@ -7,11 +7,12 @@ import { useAuth } from '../../../context/AuthContext'
 const DshSearchRooms = () => {
   const { user } = useAuth()
   const isAdmin = isAdministrator(user.roles)
-  const { rooms, loading } = useRooms(isAdmin ? null : user._id)
+  const { rooms, setRooms, loading } = useRooms(isAdmin ? null : user._id)
   return (
     <DashboardLayout>
       <SearchRoomsTable
         rooms={rooms}
+        setRooms={setRooms}
         loading={loading}
         title={isAdmin ? 'Search Rooms' : 'My Rooms'}
         subTitle={isAdmin ? 'Search all for rooms here!' : 'Search your rooms here!'}

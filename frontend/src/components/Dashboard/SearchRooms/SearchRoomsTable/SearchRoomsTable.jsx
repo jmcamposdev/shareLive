@@ -7,20 +7,18 @@ import RoomService from '../../../../services/roomService.js'
 import useAlertToast from '../../../../hooks/useToast.js'
 import { Link, useNavigate } from 'react-router-dom'
 
-const SearchRoomsTable = ({ rooms, loading, title, subTitle }) => {
+const SearchRoomsTable = ({ rooms, setRooms, loading, title, subTitle }) => {
   const { toast } = useAlertToast()
   const [filter, setFilter] = useState('')
   const navigate = useNavigate()
 
-  const onDelete = (roomId) => {
-    RoomService.deleteRoom(roomId)
-      .then(() => {
-        toast.showSuccess('Room deleted successfully')
-      })
-      .catch((error) => {
-        toast.showError(error.message)
-      }
-      )
+  const onDelete = async (roomId) => {
+    try {
+      await RoomService.deleteRoom(roomId)
+      toast.showSuccess('Room deleted successfully')
+    } catch (error) {
+      toast.showError(error.message)
+    }
   }
 
   const onEdit = (roomId) => {
@@ -57,12 +55,14 @@ const SearchRoomsTable = ({ rooms, loading, title, subTitle }) => {
       <BoxDashboard>
         <Table
           data={rooms}
+          setData={setRooms}
           loading={loading}
           columns={roomsColumns}
           filterValue={filter}
           onFilter={setFilter}
           onDelete={onDelete}
           onEdit={onEdit}
+          itemName='room'
         />
       </BoxDashboard>
 

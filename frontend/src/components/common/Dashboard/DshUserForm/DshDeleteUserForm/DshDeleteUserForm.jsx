@@ -2,7 +2,7 @@ import BoxDashboard from '../../BoxDashboard/BoxDashboard'
 import UserService from '../../../../../services/UserService'
 import useAlertToast from '../../../../../hooks/useToast'
 import { useNavigate } from 'react-router-dom'
-import { useDialogoConfirmarCambiarV2 } from '../../../../../hooks/useDialogoConfirmarCambiarV2'
+import { useDeleteDialog } from '../../../../../hooks/useDeleteDialog'
 
 const DshDeleteUserForm = ({ user }) => {
   const { toast } = useAlertToast()
@@ -21,7 +21,7 @@ const DshDeleteUserForm = ({ user }) => {
     }
   }
 
-  const { DialogElement, handleOpen } = useDialogoConfirmarCambiarV2({
+  const { DialogElement, handleOpen } = useDeleteDialog({
     onSave: onSubmit,
     title: 'Delete Account',
     message: 'Are you sure you want to delete your account? This action cannot be undone.',

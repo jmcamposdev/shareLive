@@ -3,7 +3,7 @@ import { useState } from "react";
 import DialogConfirmDel from "../components/common/Dialogs/DialogConfirmDel";
 
 
-export const useDialogoConfirmarCambiarV2 = ({
+export const useDeleteDialog = ({
   onCancel,
   onSave,
   title,
