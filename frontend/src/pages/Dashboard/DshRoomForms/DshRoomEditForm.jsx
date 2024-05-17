@@ -11,7 +11,7 @@ const DshRoomEditForm = () => {
   const subtitle = 'Here you can edit your room'
 
   const onSubmit = async (values, actions) => {
-    actions.setSubmitting(false)
+    actions.setSubmitting(true)
 
     try {
       // Convert values to number
@@ -37,7 +37,7 @@ const DshRoomEditForm = () => {
         images: urls
       }
       // Update the room
-      await RoomService.updateRoom(updatedRoomValues)
+      const newRoomUpdate = await RoomService.updateRoom(updatedRoomValues)
       // Delete the images
       if (deletedImages.length > 0) {
         await RoomService.deleteRoomImages(id, deletedImages)
@@ -46,8 +46,11 @@ const DshRoomEditForm = () => {
       if (newFiles.length > 0) {
         await RoomService.uploadRoomImages(id, newFiles)
       }
+
+      return newRoomUpdate
     } catch (error) {
       console.error('Error updating room:', error.message)
+    } finally {
       actions.setSubmitting(false)
     }
   }

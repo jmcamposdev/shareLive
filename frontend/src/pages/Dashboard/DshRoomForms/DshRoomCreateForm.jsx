@@ -9,7 +9,7 @@ const DshRoomCreateForm = () => {
   const subtitle = 'Here you can create your room'
 
   async function onSubmit (values, actions) {
-    actions.setSubmitting(false)
+    actions.setSubmitting(true)
     // Create the room
     try {
       values.user = user._id
@@ -25,8 +25,10 @@ const DshRoomCreateForm = () => {
       const room = await RoomService.createRoom(values)
       // Upload images
       await RoomService.uploadRoomImages(room._id, values.images)
+      return await RoomService.getRoom(room._id)
     } catch (error) {
       console.error('Error creating room:', error.message)
+    } finally {
       actions.setSubmitting(false)
     }
   }
