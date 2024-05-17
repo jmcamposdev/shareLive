@@ -88,10 +88,17 @@ const uploadAvatar = async (req, res) => {
 const changePassword = async (req, res) => {
   try {
     // Extract the user from the request
+    const { id } = req.params
     const { user } = req
     const { currentPassword, newPassword } = req.body
+    await user.populate('roles')
+    console.log(user)
+    const isAdministrator = user.roles.some((role) => role.name === 'admin' || role.name === 'superadmin')
     // Check if the current password is correct
-    const isPasswordValid = await User.comparePassword(currentPassword, user.password)
+    let isPasswordValid = isAdministrator
+    if (!isAdministrator) {
+      isPasswordValid = await User.comparePassword(currentPassword, user.password)
+    }
 
     if (!isPasswordValid) {
       return res.status(400).json({
@@ -101,7 +108,7 @@ const changePassword = async (req, res) => {
     // Encrypt the new password
     const encryptedPassword = await User.encryptPassword(newPassword)
     // Update the user with the new password
-    const updated = await User.findByIdAndUpdate(user._id, { password: encryptedPassword }, { new: true })
+    const updated = await User.findByIdAndUpdate(id, { password: encryptedPassword }, { new: true })
     res.json(updated)
   } catch (error) {
     res.status(500).json({
