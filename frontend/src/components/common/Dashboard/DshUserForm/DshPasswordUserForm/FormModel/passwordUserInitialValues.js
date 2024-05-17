@@ -8,8 +8,8 @@ const {
   }
 } = passwordUserFormModel
 
-export default {
-  [currentPassword.name]: '',
+export default (isAdministrator) => ({
+  ...(isAdministrator ? {} : { [currentPassword.name]: '' }),
   [newPassword.name]: '',
   [confirmNewPassword.name]: ''
-}
+})

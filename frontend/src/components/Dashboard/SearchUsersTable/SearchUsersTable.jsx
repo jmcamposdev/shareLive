@@ -3,9 +3,28 @@ import Table from '../../common/Table/Table.jsx'
 import { useState } from 'react'
 import BoxDashboard from '../../common/Dashboard/BoxDashboard/BoxDashboard.jsx'
 import searchUsersColumns from './SearchUsersColumns.jsx'
+import { useNavigate } from 'react-router-dom'
+import UserService from '../../../services/UserService.js'
+import useAlertToast from '../../../hooks/useToast.js'
 
 const SearchUsersTable = ({ users, setUsers, loading }) => {
+  const { toast } = useAlertToast()
   const [filter, setFilter] = useState('')
+  const navigate = useNavigate()
+
+  const onDelete = async (userId) => {
+    try {
+      await UserService.deleteUser(userId)
+      toast.showSuccess('Room deleted successfully')
+    } catch (error) {
+      toast.showError(error.message)
+    }
+  }
+
+  const onEdit = (userId) => {
+    navigate(`/dashboard/users/edit/${userId}`)
+  }
+
   return (
     <>
       <div className='flex justify-between items-center 2xl:mb30 mt-56 2xl:mt-0'>
@@ -38,6 +57,8 @@ const SearchUsersTable = ({ users, setUsers, loading }) => {
           columns={searchUsersColumns}
           filterValue={filter}
           onFilter={setFilter}
+          onDelete={onDelete}
+          onEdit={onEdit}
           itemName='user'
         />
       </BoxDashboard>

@@ -9,12 +9,19 @@ const {
   }
 } = passwordUserFormModel
 
-export default Yup.object().shape({
-  [currentPassword.name]: Yup.string()
-    .required(`${currentPassword.requiredErrorMsg}`),
-  [newPassword.name]: Yup.string()
-    .required(`${newPassword.requiredErrorMsg}`),
-  [confirmNewPassword.name]: Yup.string()
-    .oneOf([Yup.ref('newPassword'), null], 'Passwords must match')
-    .required(`${confirmNewPassword.requiredErrorMsg}`)
-})
+export default (isAdministrator) => {
+  const baseSchema = {
+    [newPassword.name]: Yup.string()
+      .required(`${newPassword.requiredErrorMsg}`),
+    [confirmNewPassword.name]: Yup.string()
+      .oneOf([Yup.ref(newPassword.name), null], 'Passwords must match')
+      .required(`${confirmNewPassword.requiredErrorMsg}`)
+  }
+
+  if (!isAdministrator) {
+    baseSchema[currentPassword.name] = Yup.string()
+      .required(`${currentPassword.requiredErrorMsg}`)
+  }
+
+  return Yup.object().shape(baseSchema)
+}
