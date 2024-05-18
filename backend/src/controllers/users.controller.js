@@ -28,6 +28,8 @@ const getUser = async (req, res) => {
     }
     // Populate the owners reviews
     await user.populate('reviews')
+    // Populate the roles
+    await user.populate('roles')
     res.json(user)
   } catch (error) {
     res.status(500).json({
@@ -68,6 +70,18 @@ const createUser = async (req, res) => {
 const updateUser = async (req, res) => {
   try {
     const { id } = req.params
+    const { isAdministrator } = req.body
+
+    const roles = await Role.find()
+    if (isAdministrator) {
+      const adminRole = roles.find((role) => role.id === ROLES.ADMIN)
+      req.body.roles = [adminRole._id]
+    } else {
+      const userRole = roles.find((role) => role.id === ROLES.USER)
+      req.body.roles = [userRole._id]
+    }
+
+    console.log(req.body)
     const user = await User.findByIdAndUpdate(id, { ...req.body, name: `${req.body.firstName} ${req.body.lastName}` }, { new: true }).populate('roles')
     if (!user) {
       return res.status(404).json({
