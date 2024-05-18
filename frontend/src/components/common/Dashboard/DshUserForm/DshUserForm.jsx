@@ -9,7 +9,7 @@ const DshUserForm = ({ title, subtitle, user, onSubmit }) => {
   return (
     <DashboardLayout>
       <TitleDashboard title={title} subtitle={subtitle} />
-      <DshBasicUserForm user={user} onSubmit={onSubmit} />
+      <DshBasicUserForm userToEdit={user} onSubmit={onSubmit} />
       <DshSocialUserForm user={user} onSubmit={onSubmit} />
       {user && <DshPasswordUserForm user={user} />}
       {user && <DshDeleteUserForm user={user} />}

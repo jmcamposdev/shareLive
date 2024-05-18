@@ -11,9 +11,21 @@ const CheckBox = (props) => {
   }
 
   return (
-    <div>
-      <div className='button r' id='button-3'>
-        <input type='checkbox' className='checkbox' onChange={handleOnChange} {...rest} />
+    <div className='flex justify-center items-center gap-5 min-h-9'>
+      <label
+        htmlFor={name}
+        className='fw600 ff-heading m-0 dark:text-white '
+      >
+        {label}
+      </label>
+      <div className='button r mt-auto' id='button-3'>
+        <input
+          type='checkbox'
+          className='checkbox'
+          onChange={handleOnChange}
+          checked={field.value}
+          {...rest}
+        />
         <div className='knobs' />
         <div className='layer' />
       </div>
