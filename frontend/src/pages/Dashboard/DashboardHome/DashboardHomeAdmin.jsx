@@ -2,14 +2,16 @@ import RecentActivities from '../../../components/Dashboard/Home/RecentActivitie
 import TopStateBlock from '../../../components/Dashboard/Home/TopStateBlock/TopStateBlock'
 import WeeklyRoomsChart from '../../../components/Dashboard/Home/WeeklyRoomsChart/WeeklyRoomsChart'
 import TitleDashboard from '../../../components/common/Dashboard/TitleDashboard/TitleDashboard'
+import useAuth from '../../../hooks/useAuth'
 import useDshHomeAdmin from '../../../hooks/useDshHomeAdmin'
 import DashboardLayout from '../../../layout/DashboardLayout'
 
 function DashboardHomeAdmin () {
+  const { user } = useAuth()
   const { stats, loading } = useDshHomeAdmin()
   return (
     <DashboardLayout>
-      <TitleDashboard title='Howdy, Ali!' subtitle='We are glad to see you again!' />
+      <TitleDashboard title={`Howdy, ${user.name}!`} subtitle='We are glad to see you again!' />
       <TopStateBlock
         totalRooms={stats.rooms?.totalRooms}
         totalViews={stats.rooms?.totalVisits}
