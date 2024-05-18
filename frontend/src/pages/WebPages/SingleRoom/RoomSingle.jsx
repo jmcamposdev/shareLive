@@ -22,7 +22,7 @@ const RoomSingle = () => {
   return (
     <WebLayout>
       {/* Property All Single V1 */}
-      <section className='pt-[87px] pb-[90px] dark:bg-lightmidnight'>
+      <section className='pt-[87px] pb-[90px] dark:bg-lightmidnight bg-f7f7f7'>
         <div className='container'>
           <div className='py-12 flex'>
             <Link

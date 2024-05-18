@@ -165,6 +165,21 @@ const deleteRoom = (req, res) => {
     })
 }
 
+const getVisits = async (req, res) => {
+  const { id } = req.params
+  try {
+    const room = await Room.findById(id)
+    room.visits++
+    await room.save()
+    res.json(room.visits)
+  } catch (error) {
+    res.status(500).json({
+      message: 'An error occurred while getting visits',
+      error
+    })
+  }
+}
+
 export {
   getRooms,
   getRoom,
@@ -172,5 +187,6 @@ export {
   updateRoom,
   deleteRoom,
   uploadImages,
-  deleteImages
+  deleteImages,
+  getVisits
 }
