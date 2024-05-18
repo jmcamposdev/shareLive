@@ -1,3 +1,4 @@
+import Role, { ROLES } from '../models/Role.js'
 import Room from '../models/Room.js'
 import User from '../models/User.js'
 import dotenv from 'dotenv'
@@ -31,6 +32,34 @@ const getUser = async (req, res) => {
   } catch (error) {
     res.status(500).json({
       message: 'An error occurred while getting a user',
+      error
+    })
+  }
+}
+
+const createUser = async (req, res) => {
+  const { isAdministrator } = req.body
+  const roles = await Role.find()
+  if (isAdministrator) {
+    const adminRole = roles.find((role) => role.id === ROLES.ADMIN)
+    req.body.roles = [adminRole._id]
+  } else {
+    const userRole = roles.find((role) => role.id === ROLES.USER)
+    req.body.roles = [userRole._id]
+  }
+
+  try {
+    const encryptedPassword = await User.encryptPassword(req.body.password)
+    const user = new User({
+      ...req.body,
+      password: encryptedPassword,
+      name: `${req.body.firstName} ${req.body.lastName}`
+    })
+    await user.save()
+    res.json(user)
+  } catch (error) {
+    res.status(500).json({
+      message: 'An error occurred while creating a user',
       error
     })
   }
@@ -201,4 +230,4 @@ const toggleFavoriteRoom = async (req, res) => {
   }
 }
 
-export { getUsers, getUser, updateUser, deleteUser, getUserRooms, toggleFavoriteRoom, getFavouriteRooms, uploadAvatar, changePassword }
+export { getUsers, getUser, updateUser, deleteUser, getUserRooms, toggleFavoriteRoom, getFavouriteRooms, uploadAvatar, changePassword, createUser }
