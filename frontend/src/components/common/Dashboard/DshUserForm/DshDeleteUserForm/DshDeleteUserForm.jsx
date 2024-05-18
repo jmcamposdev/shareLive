@@ -31,7 +31,7 @@ const DshDeleteUserForm = ({ user }) => {
   return (
     <BoxDashboard>
       <h4 className='title fz17 mb30 dark:text-white'>Delete Account</h4>
-      <div className='flex items-center justify-between'>
+      <div className='flex items-center justify-between sm:flex-row flex-col gap-5'>
         <p className='fz14 dark:text-white m-0'>
           Are you sure you want to delete your account? This action cannot be undone.
         </p>
