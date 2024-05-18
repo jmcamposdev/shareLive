@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const getCurrentYear = () => {
   return new Date().getFullYear()
@@ -27,14 +28,12 @@ const Footer = () => {
           <div className='text-center text-lg-start'>
             <p className='copyright-text text-gray ff-heading'>
               © Homez {getCurrentYear()}{' '}
-              <a
-                href='https://themeforest.net/user/ib-themes'
-                target='_blank'
+              <Link
                 rel='noopener noreferrer'
                 className='text-white'
               >
-                ib-themes
-              </a>{' '}
+                JCC
+              </Link>{' '}
               - All rights reserved
             </p>
           </div>
