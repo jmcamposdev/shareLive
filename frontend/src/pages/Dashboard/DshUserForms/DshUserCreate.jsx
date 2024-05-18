@@ -282,13 +282,12 @@ const DshUserCreate = () => {
             {/* END PASSWORD DATA */}
             <BoxDashboard>
               <div className='flex gap-5 sm:flex-row flex-col justify-between items-center'>
-                <div className='flex gap-10'>
+                <div className='flex gap-10 items-center'>
                   <h4 className='title fz17 m-0 dark:text-white'>Administrator</h4>
                   <FormikControl
                     control='checkbox'
                     id={isAdministrator.name}
                     name={isAdministrator.name}
-                    label={isAdministrator.label}
                   />
                 </div>
                 <div className='text-end'>
