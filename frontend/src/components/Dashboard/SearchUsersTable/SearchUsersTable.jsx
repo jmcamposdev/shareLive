@@ -3,7 +3,7 @@ import Table from '../../common/Table/Table.jsx'
 import { useState } from 'react'
 import BoxDashboard from '../../common/Dashboard/BoxDashboard/BoxDashboard.jsx'
 import searchUsersColumns from './SearchUsersColumns.jsx'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import UserService from '../../../services/UserService.js'
 import useAlertToast from '../../../hooks/useToast.js'
 
@@ -45,6 +45,9 @@ const SearchUsersTable = ({ users, setUsers, loading }) => {
               </label>
             </div>
           </div>
+          <Link to='/dashboard/users/add' className='ud-btn btn-thm w-fit m-auto sm:translate-y-0 translate-y-[-30px]'>
+            Add New User <i className='fal fa-arrow-right-long' />
+          </Link>
         </div>
       </div>
       {/* End Title | Search | Add Room */}
