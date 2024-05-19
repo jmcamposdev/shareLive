@@ -104,10 +104,6 @@ const ListingSidebar = () => {
           <span className='flaticon-turn-back' />
           <u>Reset all filters</u>
         </div>
-        <a className='reset-button dark:text-white' href='#'>
-          <span className='flaticon-favourite' />
-          <u>Save Search</u>
-        </a>
       </div>
     </div>
   )
