@@ -122,7 +122,6 @@ export const RoomSearchProvider = ({ roomsData = [], defaultFilters, loading, ch
       if (structureType !== 'all' && isValid) { // Filter by structure type
         isValid = room.structureType === structureType
       }
-      console.log(typeof sqft.max)
       if ((sqft.min !== 0 || sqft.max !== 0) && isValid) { // Filter by square meters
         // If is defined only min or max, then filter by only one value
         if (sqft.min !== 0 && sqft.max === 0) {
@@ -162,7 +161,6 @@ export const RoomSearchProvider = ({ roomsData = [], defaultFilters, loading, ch
     setFilters({ ...filters, location })
   }
   const filterBySquareMeters = (min, max) => {
-    console.log(min, max)
     setFilters({
       ...filters,
       sqft: {

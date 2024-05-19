@@ -81,7 +81,6 @@ User.generateToken = async user => {
   delete user.password
   const expiredTime = process.env.EXPIRED_JWT_TIME
   const jwtSecretKey = process.env.JWT_SECRET
-  console.log('expiredTime', expiredTime)
   return jwt.sign(
     {
       ...user.toJSON()

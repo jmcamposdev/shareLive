@@ -120,7 +120,6 @@ export const handleUpdateReview = async (req, res, next) => {
 export const handleDeleteReview = async (req, res, next) => {
   try {
     const { userId, id } = req.params
-    console.log(id)
 
     // Check that the ids are valid
     if (!mongoose.Types.ObjectId.isValid(id) || !mongoose.Types.ObjectId.isValid(userId)) {
