@@ -122,14 +122,15 @@ export const RoomSearchProvider = ({ roomsData = [], defaultFilters, loading, ch
       if (structureType !== 'all' && isValid) { // Filter by structure type
         isValid = room.structureType === structureType
       }
+      console.log(typeof sqft.max)
       if ((sqft.min !== 0 || sqft.max !== 0) && isValid) { // Filter by square meters
         // If is defined only min or max, then filter by only one value
         if (sqft.min !== 0 && sqft.max === 0) {
-          isValid = room.size >= sqft.min
+          isValid = room.squareMeters >= sqft.min
         } else if (sqft.min === 0 && sqft.max !== 0) {
-          isValid = room.size <= sqft.max
+          isValid = room.squareMeters <= sqft.max
         } else {
-          isValid = room.size >= sqft.min && room.size <= sqft.max
+          isValid = room.squareMeters >= sqft.min && room.squareMeters <= sqft.max
         }
       }
       if (amenities.some((amenity) => amenity.checked) && isValid) { // Filter by amenities
@@ -161,7 +162,14 @@ export const RoomSearchProvider = ({ roomsData = [], defaultFilters, loading, ch
     setFilters({ ...filters, location })
   }
   const filterBySquareMeters = (min, max) => {
-    setFilters({ ...filters, sqft: { min, max } })
+    console.log(min, max)
+    setFilters({
+      ...filters,
+      sqft: {
+        min: min ? parseInt(min) : 0,
+        max: max ? parseInt(max) : 0
+      }
+    })
   }
   const filterByAmenities = (amenities) => {
     setFilters({ ...filters, amenities })

@@ -44,7 +44,6 @@ const ListingSidebar = () => {
       {/* End .widget-wrapper */}
 
       <div className='widget-wrapper advance-feature-modal'>
-        <h6 className='list-title dark:text-white'>Structure Type</h6>
         <div className='form-style2 relative flex items-stretch w-full'>
           <StructureType />
         </div>
