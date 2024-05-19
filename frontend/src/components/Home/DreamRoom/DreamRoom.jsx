@@ -136,7 +136,7 @@ const DreamRoom = () => {
                   <span className='text-[17px] dark:text-white'>Assurance of safe and comfortable living spaces</span>
                 </li>
               </ul>
-              <Link href='#' className='ud-btn btn-thm'>
+              <Link to='rooms' className='ud-btn btn-thm'>
                 See More
                 <i className='fal fa-arrow-right-long' />
               </Link>

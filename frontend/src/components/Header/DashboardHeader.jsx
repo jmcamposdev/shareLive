@@ -7,7 +7,7 @@ import UserSettings from './UserSettings'
 
 const DashboardHeader = () => {
   return (
-    <header style={{ zIndex: '99999' }} className='header-nav nav-homepage-style light-header !fixed menu-home4 main-menu dark:bg-midnight'>
+    <header className='header-nav nav-homepage-style light-header !fixed menu-home4 main-menu dark:bg-midnight !z-[1000]'>
       <nav className='posr'>
         <div className='max-w-full mx-auto sm:px-4 pr30 pr15-xs pl30 posr menu_bdrt1'>
           <div className='flex flex-wrap  items-center justify-between'>

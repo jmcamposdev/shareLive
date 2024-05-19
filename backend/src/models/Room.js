@@ -39,6 +39,7 @@ const roomSchema = new Schema({
     elevator: { type: Boolean, default: false },
     electricHeater: { type: Boolean, default: false }
   },
+  visits: { type: Number, default: 0 },
   createdAt: { type: Date, default: Date.now }
 })
 

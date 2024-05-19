@@ -1,8 +1,7 @@
-import { useContext, useEffect, useState } from 'react'
+import { useContext, useMemo } from 'react'
 import { RoomSearchContext } from '../../../context/RoomSearchContext'
 
 const Amenities = ({ numColumns }) => {
-  const [slicedAmenities, setSlicedAmenities] = useState([])
   const { filters, filterBy } = useContext(RoomSearchContext)
   const { amenities } = filters
 
@@ -16,13 +15,13 @@ const Amenities = ({ numColumns }) => {
     filterBy.amenities(updatedAmenities)
   }
 
-  useEffect(() => {
+  const slicedAmenities = useMemo(() => {
     const dataperColumn = Math.ceil(amenities.length / numColumns)
     const tempAmenities = []
     for (let i = 0; i < numColumns; i++) {
       tempAmenities.push(amenities.slice(i * dataperColumn, (i + 1) * dataperColumn))
     }
-    setSlicedAmenities(tempAmenities)
+    return tempAmenities
   }, [amenities, numColumns])
 
   return (
@@ -39,7 +38,7 @@ const Amenities = ({ numColumns }) => {
                   {amenity.label}
                   <input
                     type='checkbox'
-                    defaultChecked={amenity.checked}
+                    checked={amenity.checked}
                     value={amenity.label}
                     onChange={handleAmenities}
                   />

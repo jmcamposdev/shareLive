@@ -27,7 +27,7 @@ const useRooms = (userId) => {
     fetchRooms()
   }, [])
 
-  return { rooms, loading }
+  return { rooms, setRooms, loading }
 }
 
 export default useRooms

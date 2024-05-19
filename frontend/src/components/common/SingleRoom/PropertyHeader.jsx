@@ -1,9 +1,10 @@
 import React from 'react'
 import { useRoomSingle } from '../../../context/RoomSingleContext'
 import RoomFavouriteIcon from '../Room/RoomFavouriteIcon'
+import RoomVisits from '../Room/RoomVisits'
 
 const PropertyHeader = ({ title, address, price }) => {
-  const { room } = useRoomSingle()
+  const { room, visits } = useRoomSingle()
 
   return (
     <>
@@ -23,6 +24,7 @@ const PropertyHeader = ({ title, address, price }) => {
         <div className='single-property-content'>
           <div className='property-action lg:text-right'>
             <div className='flex mb-[20px] mb10-md items-center justify-start lg:justify-end'>
+              <RoomVisits visits={visits} />
               <RoomFavouriteIcon roomId={room._id} className='!leading-[40px]' />
               <a className='icon mr-[10px] !leading-[40px] dark:bg-midnight dark:!border-none  dark:hover:!bg-orangePrimary/10' href='#'>
                 <span className='flaticon-share-1 dark:text-white' />

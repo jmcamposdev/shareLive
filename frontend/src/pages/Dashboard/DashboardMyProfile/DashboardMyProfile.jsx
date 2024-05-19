@@ -1,15 +1,11 @@
 import DshUserForm from '../../../components/common/Dashboard/DshUserForm/DshUserForm'
-import useAuthUser from 'react-auth-kit/hooks/useAuthUser'
 import UserService from '../../../services/UserService'
 import useAlertToast from '../../../hooks/useToast'
-import useSignIn from 'react-auth-kit/hooks/useSignIn'
-import useAuthHeader from 'react-auth-kit/hooks/useAuthHeader'
+import { useAuth } from '../../../context/AuthContext'
 
 const DashboardMyProfile = () => {
   const { toast } = useAlertToast()
-  const user = useAuthUser()
-  const authHeader = useAuthHeader()
-  const signIn = useSignIn()
+  const { user, updateUser } = useAuth()
 
   const onSubmit = async (newUserData, actions) => {
     actions.setSubmitting(true)
@@ -34,14 +30,7 @@ const DashboardMyProfile = () => {
       if (typeof newUserData.avatar === 'object') {
         updatedUser = await UserService.uploadAvatar(updatedUserData._id, newUserData.avatar)
       }
-      // Update the user in the context
-      signIn({
-        auth: {
-          token: authHeader.split(' ')[1],
-          type: authHeader.split(' ')[0]
-        },
-        userState: { ...updatedUser }
-      })
+      updateUser(updatedUser)
       toast.showSuccess('User updated successfully!')
       actions.setSubmitting(false)
     } catch (error) {

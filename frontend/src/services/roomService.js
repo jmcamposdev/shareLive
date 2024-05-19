@@ -87,6 +87,16 @@ const RoomService = {
       console.error('Error deleting room:', error.message)
       throw error
     }
+  },
+
+  getVisits: async (id) => {
+    try {
+      const visits = await api.get(`rooms/${id}/visits`)
+      return visits || 0
+    } catch (error) {
+      console.error('Error getting visits:', error.message)
+      throw error
+    }
   }
 }
 

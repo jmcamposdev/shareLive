@@ -1,13 +1,18 @@
+import Role, { ROLES } from '../models/Role.js'
 import Room from '../models/Room.js'
 import User from '../models/User.js'
 import dotenv from 'dotenv'
 import { handleDeleteImage, handleUploadImage } from '../storage/cloudinary.js'
+import Activity, { ACTIVITY_TYPES } from '../models/Activity.js'
 dotenv.config()
 
 const getUsers = async (req, res) => {
   try {
-    const users = await User.find()
-    res.json(users)
+    const users = await User.find().populate('roles')
+    // Remove the superadmin from the list
+    const filteredUsers = users.filter((user) => user.roles.every((role) => role.id !== ROLES.SUPERADMIN))
+
+    res.json(filteredUsers)
   } catch (error) {
     res.status(500).json({
       message: 'An error occurred while getting users',
@@ -27,6 +32,8 @@ const getUser = async (req, res) => {
     }
     // Populate the owners reviews
     await user.populate('reviews')
+    // Populate the roles
+    await user.populate('roles')
     res.json(user)
   } catch (error) {
     res.status(500).json({
@@ -36,15 +43,60 @@ const getUser = async (req, res) => {
   }
 }
 
+const createUser = async (req, res) => {
+  const { isAdministrator } = req.body
+  const roles = await Role.find()
+  if (isAdministrator) {
+    const adminRole = roles.find((role) => role.id === ROLES.ADMIN)
+    req.body.roles = [adminRole._id]
+  } else {
+    const userRole = roles.find((role) => role.id === ROLES.USER)
+    req.body.roles = [userRole._id]
+  }
+
+  try {
+    const encryptedPassword = await User.encryptPassword(req.body.password)
+    const newUser = new User({
+      ...req.body,
+      password: encryptedPassword,
+      name: `${req.body.firstName} ${req.body.lastName}`
+    })
+    await newUser.save()
+    // Register the activity of creating a user
+    Activity.createUserActivity(ACTIVITY_TYPES.CREATE, newUser._id, newUser, req.user)
+    res.json(newUser)
+  } catch (error) {
+    res.status(500).json({
+      message: 'An error occurred while creating a user',
+      error
+    })
+  }
+}
+
 const updateUser = async (req, res) => {
   try {
     const { id } = req.params
+    const { isAdministrator } = req.body
+
+    const roles = await Role.find()
+    if (isAdministrator) {
+      const adminRole = roles.find((role) => role.id === ROLES.ADMIN)
+      req.body.roles = [adminRole._id]
+    } else if (isAdministrator !== undefined) {
+      const userRole = roles.find((role) => role.id === ROLES.USER)
+      req.body.roles = [userRole._id]
+    }
+
     const user = await User.findByIdAndUpdate(id, { ...req.body, name: `${req.body.firstName} ${req.body.lastName}` }, { new: true }).populate('roles')
     if (!user) {
       return res.status(404).json({
         message: 'User not found'
       })
     }
+
+    // Register the activity of updating a user
+    Activity.createUserActivity(ACTIVITY_TYPES.UPDATE, user._id, user, req.user)
+
     res.json(user)
   } catch (error) {
     res.status(500).json({
@@ -88,10 +140,16 @@ const uploadAvatar = async (req, res) => {
 const changePassword = async (req, res) => {
   try {
     // Extract the user from the request
+    const { id } = req.params
     const { user } = req
     const { currentPassword, newPassword } = req.body
+    await user.populate('roles')
+    const isAdministrator = user.roles.some((role) => role.name === 'admin' || role.name === 'superadmin')
     // Check if the current password is correct
-    const isPasswordValid = await User.comparePassword(currentPassword, user.password)
+    let isPasswordValid = isAdministrator
+    if (!isAdministrator) {
+      isPasswordValid = await User.comparePassword(currentPassword, user.password)
+    }
 
     if (!isPasswordValid) {
       return res.status(400).json({
@@ -101,7 +159,7 @@ const changePassword = async (req, res) => {
     // Encrypt the new password
     const encryptedPassword = await User.encryptPassword(newPassword)
     // Update the user with the new password
-    const updated = await User.findByIdAndUpdate(user._id, { password: encryptedPassword }, { new: true })
+    const updated = await User.findByIdAndUpdate(id, { password: encryptedPassword }, { new: true })
     res.json(updated)
   } catch (error) {
     res.status(500).json({
@@ -120,6 +178,8 @@ const deleteUser = async (req, res) => {
         message: 'User not found'
       })
     }
+    // Register the activity of deleting a user
+    Activity.createUserActivity(ACTIVITY_TYPES.DELETE, user._id, user, req.user)
     res.json(user)
   } catch (error) {
     res.status(500).json({
@@ -185,6 +245,9 @@ const toggleFavoriteRoom = async (req, res) => {
       user.favouriteRoomsIds.push(roomId)
     }
     await user.save()
+    const room = await Room.findById(roomId)
+    // Register the activity of adding a favorite room
+    Activity.createFavoriteActivity(isFavorite ? ACTIVITY_TYPES.DELETE : ACTIVITY_TYPES.CREATE, roomId, user, room)
     res.json(user)
   } catch (error) {
     res.status(500).json({
@@ -194,4 +257,4 @@ const toggleFavoriteRoom = async (req, res) => {
   }
 }
 
-export { getUsers, getUser, updateUser, deleteUser, getUserRooms, toggleFavoriteRoom, getFavouriteRooms, uploadAvatar, changePassword }
+export { getUsers, getUser, updateUser, deleteUser, getUserRooms, toggleFavoriteRoom, getFavouriteRooms, uploadAvatar, changePassword, createUser }

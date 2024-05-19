@@ -7,11 +7,11 @@ import LoginImg from '../../../assets/vectors/register.svg'
 import useAlertToast from '../../../hooks/useToast'
 import AuthService from '../../../services/authService'
 import { Link, useNavigate } from 'react-router-dom'
-import useSignIn from 'react-auth-kit/hooks/useSignIn'
 import FormikControl from '../../../components/common/Formik/Inputs/FormikControl'
 import { registerInitialValues } from './FormModel/registerFormInitialValues'
 import registerValidationSchema from './FormModel/registerValidationSchema'
 import registerFormModel from './FormModel/registerFormModel'
+import { useAuth } from '../../../context/AuthContext'
 
 const {
   formId,
@@ -25,7 +25,7 @@ const {
   }
 } = registerFormModel
 const Register = () => {
-  const signIn = useSignIn()
+  const { signInUser } = useAuth()
   const navigate = useNavigate()
   const { toast } = useAlertToast()
 
@@ -34,14 +34,7 @@ const Register = () => {
 
     try {
       const res = await AuthService.signUp(username, firstName, lastName, email, password)
-      signIn({
-        auth: {
-          token: res.token,
-          type: 'Bearer'
-        },
-        userState: { ...res.user }
-      })
-
+      signInUser(res.user, res.token)
       toast.showSuccess('Registered successfully')
       navigate('/dashboard')
     } catch (error) {

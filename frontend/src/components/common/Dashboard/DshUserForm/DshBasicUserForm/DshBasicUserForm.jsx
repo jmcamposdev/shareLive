@@ -7,6 +7,7 @@ import { useState } from 'react'
 import TextError from '../../../Formik/Inputs/TextError'
 import FormikSubmitBtn from '../../../Formik/Buttons/FormikSubmitBtn'
 import BoxDashboard from '../../BoxDashboard/BoxDashboard'
+import { useAuth } from '../../../../../context/AuthContext'
 
 const {
   formId, formField: {
@@ -17,12 +18,15 @@ const {
     firstName,
     lastName,
     mobilePhone,
-    description
+    description,
+    isAdministrator
   }
 } = basicUserFormModel
 
-const DshBasicUserForm = ({ user, onSubmit }) => {
+const DshBasicUserForm = ({ userToEdit, onSubmit }) => {
+  const { user } = useAuth()
   const [selectedAvatar, setSelectedAvatar] = useState(null)
+  const isSameUser = user._id === userToEdit._id
 
   const handleAvatarSelection = (event, handleFormikChange) => {
     const file = event.target.files[0]
@@ -39,14 +43,14 @@ const DshBasicUserForm = ({ user, onSubmit }) => {
 
   return (
     <Formik
-      initialValues={basicUserInitialValues(user)}
-      validationSchema={basicUserValidationSchema}
+      initialValues={basicUserInitialValues(userToEdit)}
+      validationSchema={basicUserValidationSchema(userToEdit)}
       onSubmit={onSubmit}
     >
       {({ values, isSubmitting, handleChange }) => (
         <BoxDashboard>
           <Form id={formId}>
-            <div className='col-xl-7'>
+            <div className='w-full flex justify-between'>
               <div className='profile-box position-relative d-md-flex align-items-end mb50'>
                 <div className='profile-img position-relative overflow-hidden bdrs12 mb20-sm'>
                   <img
@@ -88,6 +92,16 @@ const DshBasicUserForm = ({ user, onSubmit }) => {
                   <ErrorMessage name={avatar.name} />
                 </TextError>
               </div>
+              {!isSameUser && (
+                <div className=''>
+                  <FormikControl
+                    control='checkbox'
+                    id={isAdministrator.name}
+                    name={isAdministrator.name}
+                    label={isAdministrator.label}
+                  />
+                </div>
+              )}
             </div>
             <div className='flex flex-wrap gap-5 '>
               <div className='flex-1 xl:basis-[31%] sm:basis-[48%] basis-full'>

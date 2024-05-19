@@ -1,3 +1,4 @@
+import Activity, { ACTIVITY_TYPES } from '../models/Activity.js'
 import Role, { ROLES } from '../models/Role.js'
 import User from '../models/User.js'
 import dotenv from 'dotenv'
@@ -13,6 +14,9 @@ export const signIn = async (req, res) => {
 
   // Generate a token
   const token = await User.generateToken(user)
+
+  // Register the login activity
+  Activity.createUserActivity(ACTIVITY_TYPES.LOGIN, user._id, user, user)
 
   // Send the token
   res.json({ token, user })
@@ -37,6 +41,9 @@ export const signUp = async (req, res) => {
     roles: [userRole._id],
     joinDate: new Date()
   })
+
+  // Register the create user activity
+  Activity.createUserActivity(ACTIVITY_TYPES.CREATE, newUser._id, newUser, newUser)
 
   // Save the user in the database
   await newUser.save()

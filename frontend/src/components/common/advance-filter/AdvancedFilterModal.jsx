@@ -6,9 +6,18 @@ import { useContext } from 'react'
 import StructureType from './StructureType'
 import SquareFeet from '../../Rooms/ListingSidebar/SquareFeet/SquareFeet'
 import { RoomSearchContext } from '../../../context/RoomSearchContext'
+import { useNavigate } from 'react-router-dom'
 
 const AdvanceFilterModal = () => {
-  const { resetFilters } = useContext(RoomSearchContext)
+  const { resetFilters, filters } = useContext(RoomSearchContext)
+  const navigate = useNavigate()
+
+  const handleSearchSubmit = () => {
+    const queryParams = new URLSearchParams()
+    queryParams.append('data', JSON.stringify(filters))
+
+    navigate(`/rooms?${queryParams.toString()}`)
+  }
 
   return (
     <div className='modal-dialog modal-dialog-centered modal-lg t'>
@@ -105,7 +114,12 @@ const AdvanceFilterModal = () => {
             <u className='dark:text-white'>Reset all filters</u>
           </button>
           <div className='btn-area'>
-            <button data-bs-dismiss='modal' type='submit' className='!flex !items-center !justify-center ud-btn btn-thm '>
+            <button
+              data-bs-dismiss='modal'
+              type='submit'
+              className='!flex !items-center !justify-center ud-btn btn-thm '
+              onClick={handleSearchSubmit}
+            >
               <span className='flaticon-search align-text-top pr10 !flex' />
               Search
             </button>

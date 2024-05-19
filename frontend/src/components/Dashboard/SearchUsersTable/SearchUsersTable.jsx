@@ -3,9 +3,28 @@ import Table from '../../common/Table/Table.jsx'
 import { useState } from 'react'
 import BoxDashboard from '../../common/Dashboard/BoxDashboard/BoxDashboard.jsx'
 import searchUsersColumns from './SearchUsersColumns.jsx'
+import { Link, useNavigate } from 'react-router-dom'
+import UserService from '../../../services/UserService.js'
+import useAlertToast from '../../../hooks/useToast.js'
 
-const SearchUsersTable = ({ users }) => {
+const SearchUsersTable = ({ users, setUsers, loading }) => {
+  const { toast } = useAlertToast()
   const [filter, setFilter] = useState('')
+  const navigate = useNavigate()
+
+  const onDelete = async (userId) => {
+    try {
+      await UserService.deleteUser(userId)
+      toast.showSuccess('Room deleted successfully')
+    } catch (error) {
+      toast.showError(error.message)
+    }
+  }
+
+  const onEdit = (userId) => {
+    navigate(`/dashboard/users/edit/${userId}`)
+  }
+
   return (
     <>
       <div className='flex justify-between items-center 2xl:mb30 mt-56 2xl:mt-0'>
@@ -26,12 +45,25 @@ const SearchUsersTable = ({ users }) => {
               </label>
             </div>
           </div>
+          <Link to='/dashboard/users/add' className='ud-btn btn-thm w-fit m-auto sm:translate-y-0 translate-y-[-30px]'>
+            Add New User <i className='fal fa-arrow-right-long' />
+          </Link>
         </div>
       </div>
       {/* End Title | Search | Add Room */}
 
       <BoxDashboard>
-        <Table data={users} columns={searchUsersColumns} filterValue={filter} onFilter={setFilter} />
+        <Table
+          data={users}
+          setData={setUsers}
+          loading={loading}
+          columns={searchUsersColumns}
+          filterValue={filter}
+          onFilter={setFilter}
+          onDelete={onDelete}
+          onEdit={onEdit}
+          itemName='user'
+        />
       </BoxDashboard>
 
     </>

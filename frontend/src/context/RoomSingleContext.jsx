@@ -11,6 +11,7 @@ export const RoomSingleProvider = ({ roomId, children }) => {
   const navigate = useNavigate()
   const id = useParams().id || roomId
   const [room, setRoom] = useState({})
+  const [visits, setVisits] = useState(0)
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
@@ -18,6 +19,8 @@ export const RoomSingleProvider = ({ roomId, children }) => {
       try {
         const roomsData = await RoomService.getRoom(id)
         setRoom(roomsData)
+        const visitsData = await RoomService.getVisits(id)
+        setVisits(visitsData)
         setLoading(false)
       } catch (error) {
         navigate('/404')
@@ -31,6 +34,7 @@ export const RoomSingleProvider = ({ roomId, children }) => {
   const contextValue = useMemo(() => ({
     id,
     room,
+    visits,
     loading
   }), [id, room, loading])
 

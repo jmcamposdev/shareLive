@@ -31,7 +31,7 @@ const RoomDetailed = ({ room, loading = false }) => {
           </h6>
           <p className='list-text'>
             <i className='fa-solid fa-location-dot pr-3' />
-            {room.city !== room.state ? room.city : ''} {room.state}, {room.country}
+            {room.city !== room.state ? `${room.city},` : ''} {room.state}, {room.country}
           </p>
           <div className='list-meta d-flex align-items-center'>
             <a className='text-[#717171]'>

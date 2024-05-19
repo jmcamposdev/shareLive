@@ -25,6 +25,8 @@ import LogOut from './pages/Dashboard/LogOut/LogOut.jsx'
 import DshRoomCreateForm from './pages/Dashboard/DshRoomForms/DshRoomCreateForm.jsx'
 import DshRoomEditForm from './pages/Dashboard/DshRoomForms/DshRoomEditForm.jsx'
 import DshReviews from './pages/Dashboard/DshReviews/DshReviews.jsx'
+import DshUserEdit from './pages/Dashboard/DshUserForms/DshUserEdit.jsx'
+import DshUserCreate from './pages/Dashboard/DshUserForms/DshUserCreate.jsx'
 
 function App () {
   const [isDarkMode, setIsDarkMode] = useState(false)
@@ -77,6 +79,8 @@ function App () {
           <Route path='dashboard/reviews' element={<DshReviews />} />
           <Route path='dashboard/rooms' element={<DshSearchRooms />} />
           <Route path='dashboard/users' element={<DashboardSearchUsers />} />
+          <Route path='dashboard/users/add' element={<DshUserCreate />} />
+          <Route path='dashboard/users/edit/:id' element={<DshUserEdit />} />
           <Route path='dashboard/rooms/add' element={<DshRoomCreateForm />} />
           <Route path='dashboard/rooms/edit/:id' element={<DshRoomEditForm />} />
           <Route path='dashboard/profile' element={<DashboardMyProfile />} />

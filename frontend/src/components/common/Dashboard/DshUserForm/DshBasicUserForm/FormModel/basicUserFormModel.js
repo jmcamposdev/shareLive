@@ -48,6 +48,10 @@ export default {
       label: 'Description',
       placeholder: 'Description',
       requiredErrorMsg: 'Description is required'
+    },
+    isAdministrator: {
+      name: 'isAdministrator',
+      label: 'Administrator'
     }
   }
 }

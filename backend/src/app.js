@@ -11,6 +11,7 @@ import roomsRoutes from './routes/rooms.routes.js'
 import usersRoutes from './routes/users.routes.js'
 import reviewRoutes from './routes/reviews.routes.js'
 import authRoutes from './routes/auth.routes.js'
+import statsRoutes from './routes/stats.routes.js'
 import connectDB from './database/db.js'
 
 // Fake data
@@ -44,6 +45,7 @@ apiV1Routes.use(roomsRoutes)
 apiV1Routes.use(authRoutes)
 apiV1Routes.use(usersRoutes)
 apiV1Routes.use(reviewRoutes)
+apiV1Routes.use(statsRoutes)
 
 // Mount API v1 routes
 app.use('/api/v1', apiV1Routes)

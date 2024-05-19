@@ -1,11 +1,11 @@
 import { Link, useLocation } from 'react-router-dom'
-import useAuthUser from 'react-auth-kit/hooks/useAuthUser'
 import React, { useState } from 'react'
 import menuItems from '../common/dashboardHeaderMobile/dashboardHeaderMobileLinks.admin'
+import { useAuth } from '../../context/AuthContext'
 
 const UserSettings = () => {
   const { pathname } = useLocation()
-  const user = useAuthUser()
+  const { user } = useAuth()
 
   const [isExpanded, setIsExpanded] = useState(false)
 

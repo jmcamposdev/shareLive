@@ -4,7 +4,7 @@ import Selector from '../../Inputs/Selector'
 import { useUserSingle } from '../../../../context/UserSingleContext'
 import useAlertToast from '../../../../hooks/useToast'
 import { Link } from 'react-router-dom'
-import useAuthUser from 'react-auth-kit/hooks/useAuthUser'
+import { useAuth } from '../../../../context/AuthContext'
 
 const RATING_OPTIONS = [
   { value: 1, label: '1 Star' },
@@ -16,7 +16,7 @@ const RATING_OPTIONS = [
 
 const UserReviewForm = ({ noReviews }) => {
   const { toast } = useAlertToast()
-  const user = useAuthUser()
+  const { user } = useAuth()
   const { createReview, updateReview, youAlreadyReviewed, yourReview } = useUserSingle()
   const formikInitialValues = {
     rating: yourReview ? RATING_OPTIONS.find(option => option.value === yourReview.reviewRate) : RATING_OPTIONS[0],

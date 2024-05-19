@@ -5,10 +5,10 @@ import UserReviewsList from './UserReviewsList'
 import { USER_REVIEWS_ORDER, USER_REVIEWS_ORDER_LABEL } from './UserReviews.constant'
 import { UserPropTypes } from '../../../../models/User.model'
 import Selector from '../../Inputs/Selector'
-import useAuthUser from 'react-auth-kit/hooks/useAuthUser'
+import { useAuth } from '../../../../context/AuthContext'
 
 const UserReviews = ({ userSingle }) => {
-  const user = useAuthUser()
+  const { user } = useAuth()
   const isSameUser = userSingle._id === user?._id
   const [order, setOrder] = useState(
     { value: USER_REVIEWS_ORDER.NEWEST, label: USER_REVIEWS_ORDER_LABEL.NEWEST }

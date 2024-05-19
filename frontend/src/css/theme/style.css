@@ -6,7 +6,6 @@
 @import "./plugins/menu.css";
 @import "./plugins/ud-custom-spacing.css";
 
-/* Project/Template Name: Homez - Real Estate Nextjs Template Template Url: Author: ib-themes Author Url: https://themeforest.net/user/ib-themes/portfolio Version: 1.0.0 Description: Zeomart - Multi-Vendor & Marketplace HTML Template Tag: advanced search, agency, agent, classified, directory, house, listing, property, real estate, real estate agency, real estate agent, realestate, realtor, rental ********/
 /* CSS Document */
 /* == Table Of Content == */
 /* Variables */
@@ -3377,6 +3376,7 @@ li {
   -webkit-transition: all 0.4s ease;
   -o-transition: all 0.4s ease;
   transition: all 0.4s ease;
+  aspect-ratio: 4 / 3;
 }
 
 .sp-img-content .sp-img:hover img {
