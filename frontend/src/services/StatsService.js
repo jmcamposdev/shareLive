@@ -29,7 +29,18 @@ const StatsService = {
       console.error('Error getting reviews stats:', error.message)
       throw error
     }
+  },
+
+  getActivitiesLogs: async (limit) => {
+    try {
+      const stats = await api.get(`activities-logs/${limit}`)
+      return stats
+    } catch (error) {
+      console.error('Error getting activities logs:', error.message)
+      throw error
+    }
   }
+
 }
 
 export default StatsService

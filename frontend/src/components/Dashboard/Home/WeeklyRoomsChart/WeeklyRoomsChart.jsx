@@ -15,7 +15,7 @@ import useWeeklyRoomsChart from '../../../../hooks/useWeeklyRoomsChart'
 const WeeklyRoomsChart = () => {
   const { weeklyStats, lines } = useWeeklyRoomsChart()
   return (
-    <BoxDashboard>
+    <BoxDashboard className='xl:!mb-0'>
       <TitleBoxDashboard title='Weekly Rooms' />
       <div
         className='tab-pane w-100'

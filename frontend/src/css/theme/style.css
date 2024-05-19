@@ -3376,6 +3376,7 @@ li {
   -webkit-transition: all 0.4s ease;
   -o-transition: all 0.4s ease;
   transition: all 0.4s ease;
+  aspect-ratio: 4 / 3;
 }
 
 .sp-img-content .sp-img:hover img {

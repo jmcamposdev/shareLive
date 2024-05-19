@@ -99,3 +99,22 @@
   transform: translateX(-5px);
   stroke: #EB6753;
 }
+
+.recent-activities-list {
+  /* Your existing styles */
+
+  scrollbar-color: #EB6753;
+}
+
+.recent-activities-list::-webkit-scrollbar {
+  width: 4px;
+}
+
+.recent-activities-list::-webkit-scrollbar-thumb {
+  background-color: #EB6753;
+  border-radius: 4px;
+}
+
+.recent-activities-list::-webkit-scrollbar-thumb:hover {
+  background-color: #d55f4c;
+}

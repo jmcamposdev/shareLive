@@ -4,6 +4,7 @@ import jwt from 'jsonwebtoken'
 import dotenv from 'dotenv'
 import Review from './Review.js'
 import { deleteAllReviewsOfUser, deleteAllRoomsOfUser, deleteReviewParticipationOfUser, deleteUserAvatar } from '../utils/user.utils.js'
+import Activity from './Activity.js'
 
 dotenv.config()
 
@@ -42,6 +43,7 @@ const userSchema = new Schema({
 userSchema.post('findOneAndUpdate', async function (doc) {
   if (doc) {
     await Review.updateMany({ ownerId: doc._id }, { ownerName: doc.name, ownerAvatar: doc.avatar })
+    await Activity.updateMany({ 'user.id': doc._id }, { 'user.name': doc.name })
   }
 })
 

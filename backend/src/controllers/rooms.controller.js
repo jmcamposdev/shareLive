@@ -1,3 +1,4 @@
+import Activity, { ACTIVITY_TYPES } from '../models/Activity.js'
 import Room from '../models/Room.js'
 import User from '../models/User.js'
 import { CLOUDINARY_FOLDERS, handleDeleteImage, handleUploadImage } from '../storage/cloudinary.js'
@@ -59,6 +60,9 @@ const createRoom = async (req, res) => {
   const room = new Room(req.body)
   room.save()
     .then((room) => {
+      // Register the activity of creating a room
+      Activity.createRoomActivity(ACTIVITY_TYPES.CREATE, room._id, user)
+
       res.json(room)
     })
     .catch((error) => {
@@ -126,6 +130,7 @@ const deleteImages = async (req, res) => {
  * @param {Object} res The response object
  */
 const updateRoom = (req, res) => {
+  const user = req.user
   const { id } = req.params
   Room.findByIdAndUpdate(id, req.body, { new: true })
     .then((room) => {
@@ -134,6 +139,9 @@ const updateRoom = (req, res) => {
           message: 'Room not found'
         })
       }
+
+      // Register the activity of updating a room
+      Activity.createRoomActivity(ACTIVITY_TYPES.UPDATE, room._id, user)
 
       res.json(room)
     })
@@ -146,6 +154,7 @@ const updateRoom = (req, res) => {
 }
 
 const deleteRoom = (req, res) => {
+  const user = req.user
   const { id } = req.params
   Room.findByIdAndDelete(id)
     .then((room) => {
@@ -154,6 +163,9 @@ const deleteRoom = (req, res) => {
           message: 'Room not found'
         })
       }
+
+      // Register the activity of deleting a room
+      Activity.createRoomActivity(ACTIVITY_TYPES.DELETE, room._id, user)
 
       res.json(room)
     })

@@ -19,8 +19,8 @@ function DashboardHomeAdmin () {
         totalReviews={stats.reviews?.totalReviews}
         loading={loading}
       />
-      <div className='flex flex-wrap '>
-        <div className='w-full xl:w-2/3 pr-4 pl-4'>
+      <div className='flex flex-wrap mb30'>
+        <div className='w-full xl:w-2/3 pr-4 pl-4 h-fit'>
           <WeeklyRoomsChart />
         </div>
         <div className='w-full xl:w-1/3 pr-4 pl-4'>

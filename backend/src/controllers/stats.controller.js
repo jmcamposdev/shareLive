@@ -1,3 +1,4 @@
+import Activity from '../models/Activity.js'
 import Review from '../models/Review.js'
 import Room from '../models/Room.js'
 import User from '../models/User.js'
@@ -105,4 +106,17 @@ const weeklyStats = async (req, res) => {
   }
 }
 
-export { roomsStats, reviewsStats, weeklyStats }
+const activitiesLogs = async (req, res) => {
+  const { limit } = req.params
+  try {
+    let activities = await Activity.find().sort({ timestamp: -1 })
+    if (limit) {
+      activities = activities.slice(0, limit)
+    }
+    res.json(activities)
+  } catch (error) {
+    res.status(500).json({ message: 'Error fetching activities', error })
+  }
+}
+
+export { roomsStats, reviewsStats, weeklyStats, activitiesLogs }

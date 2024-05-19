@@ -1,6 +1,6 @@
-const BoxDashboard = ({ children }) => {
+const BoxDashboard = ({ children, className }) => {
   return (
-    <div className='ps-widget bgc-white bdrs12 default-box-shadow2 p30 mb30 relative dark:bg-midnight'>
+    <div className={`ps-widget bgc-white bdrs12 default-box-shadow2 p30 mb-[30px] relative dark:bg-midnight ${className}`}>
       {children}
     </div>
   )
