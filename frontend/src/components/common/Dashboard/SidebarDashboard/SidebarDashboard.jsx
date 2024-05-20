@@ -1,11 +1,11 @@
 import { useLocation, Link } from 'react-router-dom'
 import sidebarLinksAdmin from '../../../../data/dashboard/sidebarLinksDashboard.admin.jsx'
 import sidebarLinksUser from '../../../../data/dashboard/sidebarLinksDashboard.user.jsx'
-import useAuthUser from 'react-auth-kit/hooks/useAuthUser'
 import { isAdministrator } from '../../../../utils/user.utils.js'
+import { useAuth } from '../../../../context/AuthContext.jsx'
 
 const SidebarDashboard = () => {
-  const user = useAuthUser()
+  const { user } = useAuth()
   const isAdmin = isAdministrator(user.roles)
   const { pathname } = useLocation()
 

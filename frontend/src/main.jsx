@@ -6,6 +6,7 @@ import { LocationProvider } from './context/LocationContext.jsx'
 import ScrollToTop from './features/ScrollToTop.js'
 import AuthProvider from 'react-auth-kit/AuthProvider'
 import createStore from 'react-auth-kit/createStore'
+import AuthUserProvider from './context/AuthContext.jsx'
 
 const store = createStore({
   authName: '_auth',
@@ -18,11 +19,13 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <AuthProvider
     store={store}
   >
-    <LocationProvider>
-      <Router>
-        <ScrollToTop />
-        <App />
-      </Router>
-    </LocationProvider>
+    <AuthUserProvider>
+      <LocationProvider>
+        <Router>
+          <ScrollToTop />
+          <App />
+        </Router>
+      </LocationProvider>
+    </AuthUserProvider>
   </AuthProvider>
 )

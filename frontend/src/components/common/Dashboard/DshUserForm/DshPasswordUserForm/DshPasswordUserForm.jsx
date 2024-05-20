@@ -7,12 +7,14 @@ import FormikControl from '../../../Formik/Inputs/FormikControl'
 import FormikSubmitBtn from '../../../Formik/Buttons/FormikSubmitBtn'
 import UserService from '../../../../../services/UserService'
 import useAlertToast from '../../../../../hooks/useToast'
+import { useAuth } from '../../../../../context/AuthContext'
 
 const {
   formId, formField: { currentPassword, newPassword, confirmNewPassword }
 } = passwordUserFormModel
 
 const DshPasswordUserForm = ({ user }) => {
+  const { isAdministrator } = useAuth()
   const { toast } = useAlertToast()
 
   const onSubmit = async (values, actions) => {
@@ -32,20 +34,22 @@ const DshPasswordUserForm = ({ user }) => {
     <BoxDashboard>
       <h4 className='title fz17 mb30 dark:text-white'>Change Password</h4>
       <Formik
-        initialValues={passwordUserInitialValues}
-        validationSchema={passwordValidationSchema}
+        initialValues={passwordUserInitialValues(isAdministrator)}
+        validationSchema={passwordValidationSchema(isAdministrator)}
         onSubmit={onSubmit}
       >
         {({ isSubmitting }) => (
           <Form id={formId} className='flex flex-col gap-5'>
-            <FormikControl
-              control='input'
-              type='password'
-              id={currentPassword.name}
-              name={currentPassword.name}
-              label={currentPassword.label}
-              placeholder={currentPassword.placeholder}
-            />
+            {!isAdministrator && (
+              <FormikControl
+                control='input'
+                type='password'
+                id={currentPassword.name}
+                name={currentPassword.name}
+                label={currentPassword.label}
+                placeholder={currentPassword.placeholder}
+              />
+            )}
             <div className='flex gap-5 sm:flex-row flex-col'>
               <FormikControl
                 control='input'

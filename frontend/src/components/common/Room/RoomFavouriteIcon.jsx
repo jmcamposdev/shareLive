@@ -1,17 +1,13 @@
 import { useState } from 'react'
-import useAuthHeader from 'react-auth-kit/hooks/useAuthHeader'
-import useAuthUser from 'react-auth-kit/hooks/useAuthUser'
-import useSignIn from 'react-auth-kit/hooks/useSignIn'
 import { useNavigate } from 'react-router-dom'
 import useAlertToast from '../../../hooks/useToast'
 import UserService from '../../../services/UserService'
+import { useAuth } from '../../../context/AuthContext'
 
 const RoomFavouriteIcon = ({ roomId, className }) => {
   const { toast } = useAlertToast()
-  const user = useAuthUser()
-  const authHeader = useAuthHeader()
+  const { user, updateUser } = useAuth()
   const navigate = useNavigate()
-  const signIn = useSignIn()
   const [favouriteLoading, setFavouriteLoading] = useState(false)
   const [isRoomFavourite, setIsRoomFavourite] = useState(user && user.favouriteRoomsIds.includes(roomId))
 
@@ -22,13 +18,7 @@ const RoomFavouriteIcon = ({ roomId, className }) => {
       setFavouriteLoading(true)
       try {
         const updatedUser = await UserService.toggleFavoriteRoom(user._id, roomId)
-        signIn({
-          auth: {
-            token: authHeader.split(' ')[1],
-            type: authHeader.split(' ')[0]
-          },
-          userState: { ...updatedUser }
-        })
+        updateUser(updatedUser)
         setIsRoomFavourite(!isRoomFavourite)
         setFavouriteLoading(false)
       } catch (error) {

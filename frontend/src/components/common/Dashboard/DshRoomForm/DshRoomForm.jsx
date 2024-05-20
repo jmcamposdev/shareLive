@@ -10,12 +10,15 @@ import DescriptionForm from './FormSteps/DescriptionForm'
 import MediaForm from './FormSteps/MediaForm'
 import LocationForm from './FormSteps/LocationForm'
 import DetailsForm from './FormSteps/DetailsForm'
+import FormikSubmitBtn from '../../Formik/Buttons/FormikSubmitBtn'
+import FinishStep from './FormSteps/FinishStep'
 
 const steps = ['Description', 'Media', 'Location', 'Details']
 const { formId, formField } = roomFormModel
 
 const DshRoomForm = ({ title, subtitle, onSubmit, initialValues, isEdit }) => {
   const formRef = useRef(null)
+  const [room, setRoom] = useState(null)
   const [activeStep, setActiveStep] = useState(0)
   const currentValidationSchema = roomValidationSchema[activeStep]
   const isLastStep = activeStep === steps.length - 1
@@ -35,9 +38,10 @@ const DshRoomForm = ({ title, subtitle, onSubmit, initialValues, isEdit }) => {
     }
   }
 
-  function _handleSubmit (values, actions) {
+  async function _handleSubmit (values, actions) {
     if (isLastStep) {
-      onSubmit(values, actions)
+      const room = await onSubmit(values, actions)
+      setRoom(room)
       setActiveStep(activeStep + 1)
     } else {
       setActiveStep(activeStep + 1)
@@ -74,7 +78,7 @@ const DshRoomForm = ({ title, subtitle, onSubmit, initialValues, isEdit }) => {
         />
         {activeStep === steps.length
           ? (
-            <h1>Finish you create your Room, please edit this finish view</h1>
+            <FinishStep room={room} isEdit={isEdit} />
             )
           : (
             <Formik
@@ -87,7 +91,7 @@ const DshRoomForm = ({ title, subtitle, onSubmit, initialValues, isEdit }) => {
                 <Form id={formId} className='relative'>
                   {_renderStepContent(activeStep)}
                   {/* NAVIGATION BUTTON NEXT & BACK */}
-                  <div className='flex items-center justify-between'>
+                  <div className={`flex items-center ${activeStep !== 0 ? 'justify-between' : 'justify-end'}`}>
                     {activeStep !== 0 && (
                       <button
                         type='button'
@@ -98,14 +102,10 @@ const DshRoomForm = ({ title, subtitle, onSubmit, initialValues, isEdit }) => {
                         Back
                       </button>
                     )}
-                    <button
-                      disabled={isSubmitting}
-                      type='submit'
-                      className='ud-btn btn-thm dark:text-white ml-auto'
-                    >
-                      {isLastStep ? (isEdit ? 'Update Room' : 'Create Room') : 'Next Step'}
-                      <i className='fal fa-arrow-right-long' />
-                    </button>
+                    <FormikSubmitBtn
+                      label={isLastStep ? (isEdit ? 'Update Room' : 'Create Room') : 'Next Step'}
+                      isSubmitting={isSubmitting}
+                    />
                   </div>
                 </Form>
               )}

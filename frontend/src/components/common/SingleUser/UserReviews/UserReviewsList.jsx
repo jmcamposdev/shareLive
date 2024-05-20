@@ -1,10 +1,10 @@
-import useAuthUser from 'react-auth-kit/hooks/useAuthUser'
 import Review from '../../Review/Review'
 import { USER_REVIEWS_ORDER } from './UserReviews.constant'
 import { useUserSingle } from '../../../../context/UserSingleContext'
+import { useAuth } from '../../../../context/AuthContext'
 
 const UserReviewsList = ({ userId, reviews, order, numtoDisplay = 4 }) => {
-  const user = useAuthUser()
+  const { user } = useAuth()
   const { updateReview } = useUserSingle()
 
   // Order reviews

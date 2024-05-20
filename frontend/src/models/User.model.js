@@ -37,7 +37,12 @@ const UserPropTypes = PropTypes.shape({
   reviews: PropTypes.arrayOf(UserReviewPropTypes),
   favouriteRoomsIds: PropTypes.arrayOf(PropTypes.string),
   joinDate: PropTypes.string.isRequired,
-  roles: PropTypes.arrayOf(PropTypes.object)
+  roles: PropTypes.arrayOf(
+    PropTypes.oneOfType([
+      PropTypes.object,
+      PropTypes.string
+    ])
+  ).isRequired
 })
 
 export { UserPropTypes, UserReviewPropTypes }

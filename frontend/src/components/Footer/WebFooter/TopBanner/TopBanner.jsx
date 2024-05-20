@@ -32,7 +32,7 @@ const TopBanner = () => {
                 <p className='cta-text'>
                   Talk to our experts or Browse through more properties.
                 </p>
-                <Link href='/contact' className='ud-btn btn-dark mt10'>
+                <Link to='/contact' className='ud-btn btn-dark mt10'>
                   Learn More
                   <i className='fal fa-arrow-right-long' />
                 </Link>

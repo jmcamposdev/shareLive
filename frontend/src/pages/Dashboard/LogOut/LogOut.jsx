@@ -1,16 +1,16 @@
 import { useEffect } from 'react'
-import useSignOut from 'react-auth-kit/hooks/useSignOut'
 import { useNavigate } from 'react-router-dom'
+import { useAuth } from '../../../context/AuthContext'
 
 const LogOut = () => {
+  const { logOutUser } = useAuth()
   const navigate = useNavigate()
-  const signOut = useSignOut()
 
   useEffect(() => {
-    signOut()
+    logOutUser()
     navigate('/')
   }
-  , [navigate, signOut])
+  , [navigate, logOutUser])
 
   return null
 }

@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const footerLinks = [
   { text: 'Privacy', href: 'privacy' },
@@ -17,13 +18,11 @@ const DashboardFooter = () => {
             <div className='copyright-widget'>
               <p className='text dark:text-borderColor'>
                 © ShareLive {currentYear}{' '}
-                <a
-                  href='https://themeforest.net/user/ib-themes'
-                  target='_blank'
+                <Link
                   rel='noopener noreferrer'
                 >
                   <span style={{ transition: 'all 400ms ease' }} className='font-semibold dark:text-white dark:hover:text-orangePrimary'>JCC Designs</span>
-                </a>{' '}
+                </Link>{' '}
                 - All rights reserved
               </p>
             </div>

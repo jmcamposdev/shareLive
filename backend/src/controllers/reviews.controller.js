@@ -1,3 +1,4 @@
+import Activity, { ACTIVITY_TYPES } from '../models/Activity.js'
 import Review from '../models/Review.js'
 
 export const getReviews = async (req, res) => {
@@ -36,6 +37,9 @@ export const createReview = async (req, res) => {
     user.reviews.push(review._id)
     await user.save()
 
+    // Register the review in the activity log
+    Activity.createReviewActivity(ACTIVITY_TYPES.CREATE, ownerUser, review)
+
     // Return the review
     res.json(review)
   } catch (error) {
@@ -64,6 +68,9 @@ export const updateReview = async (req, res) => {
     review.notHelpful = notHelpful
     await review.save()
 
+    // Register the review in the activity log
+    Activity.createReviewActivity(ACTIVITY_TYPES.UPDATE, req.user, review)
+
     // Return the review
     res.json(review)
   } catch (error) {
@@ -85,6 +92,9 @@ export const deleteReview = async (req, res) => {
 
     // Remove the review
     await Review.findByIdAndDelete(id)
+
+    // Register the review in the activity log
+    Activity.createReviewActivity(ACTIVITY_TYPES.DELETE, user, { _id: id })
 
     res.json({
       message: 'Review deleted successfully'

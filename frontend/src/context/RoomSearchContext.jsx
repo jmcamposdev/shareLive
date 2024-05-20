@@ -1,26 +1,20 @@
-import { createContext, useEffect, useMemo, useState } from 'react'
+import { createContext, useMemo, useState } from 'react'
 import { ORDER_ROOMS_BY } from '../constants/rooms.constants'
 import { toCamelCase } from '../utils/formatString'
 
 export const RoomSearchContext = createContext()
 
 export const RoomSearchProvider = ({ roomsData = [], defaultFilters, loading, children }) => {
-  const [rooms, setRooms] = useState(roomsData)
   const [isGridView, setIsGridView] = useState(false)
   const [orderBy, setOrderBy] = useState(ORDER_ROOMS_BY.NEWEST)
   const [filters, setFilters] = useState(defaultFilters || {
-    price: {
-      min: 0,
-      max: 0
-    },
+    search: '',
+    price: { min: 0, max: 0 },
     structureType: 'all',
     bedrooms: 0,
     bathrooms: 0,
     location: 'all',
-    sqft: {
-      min: 0,
-      max: 0
-    },
+    sqft: { min: 0, max: 0 },
     amenities: [
       { label: 'Washer', checked: false },
       { label: 'Dryer', checked: false },
@@ -37,61 +31,37 @@ export const RoomSearchProvider = ({ roomsData = [], defaultFilters, loading, ch
     ]
   })
 
-  useEffect(() => {
-    setRooms(roomsData)
-  }, [roomsData])
-
   /**
    * ---------------------------------------------
    * Grid View and List View Handler
    * ---------------------------------------------
    */
-  const onGridClick = () => {
-    setIsGridView(true)
-  }
-  const onListClick = () => {
-    setIsGridView(false)
-  }
+  const onGridClick = () => setIsGridView(true)
+  const onListClick = () => setIsGridView(false)
 
   /**
    * ---------------------------------------------
    * Order Rooms Function
    * ---------------------------------------------
    */
-  useEffect(() => {
+  const orderRoomsBy = (order) => setOrderBy(order)
+
+  const orderRooms = (roomsList) => {
+    const orderedRooms = [...roomsList]
     switch (orderBy) {
       case ORDER_ROOMS_BY.NEWEST:
-        orderByNewest()
+        orderedRooms.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
         break
       case ORDER_ROOMS_BY.LOW_PRICE:
-        orderByLowPrice()
+        orderedRooms.sort((a, b) => a.price - b.price)
         break
       case ORDER_ROOMS_BY.HIGH_PRICE:
-        orderByHighPrice()
+        orderedRooms.sort((a, b) => b.price - a.price)
         break
       default:
         break
     }
-  }, [orderBy])
-
-  const orderRoomsBy = (order) => {
-    setOrderBy(order)
-  }
-
-  const orderByNewest = () => {
-    const roomsCopy = [...rooms]
-    const orderedRooms = roomsCopy.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
-    setRooms([...orderedRooms])
-  }
-  const orderByLowPrice = () => {
-    const roomsCopy = [...rooms]
-    const orderedRooms = roomsCopy.sort((a, b) => a.price - b.price)
-    setRooms([...orderedRooms])
-  }
-  const orderByHighPrice = () => {
-    const roomsCopy = [...rooms]
-    const orderedRooms = roomsCopy.sort((a, b) => b.price - a.price)
-    setRooms([...orderedRooms])
+    return orderedRooms
   }
 
   /**
@@ -99,87 +69,66 @@ export const RoomSearchProvider = ({ roomsData = [], defaultFilters, loading, ch
    * Filter Rooms Function
    * ---------------------------------------------
    */
-  useEffect(() => {
+  const filterRooms = () => {
     const { price, bedrooms, bathrooms, structureType, location, sqft, amenities } = filters
-    if (price.min === 0 && price.max === 0 && bedrooms === 0 && bathrooms === 0 && location === 'all' && sqft.min === 0 && sqft.max === 0 && structureType === 'all' && amenities.every((amenity) => !amenity.checked)) {
-      setRooms([...roomsData])
-      return
-    }
-    const filteredRooms = roomsData.filter((room) => {
-      let isValid = true
-      if (price.min !== 0 || price.max !== 0) { // Filter by price
-        isValid = room.price >= price.min && room.price <= price.max
-      }
-      if (bedrooms !== 0 && isValid) { // Filter by bedrooms
-        isValid = room.bedrooms >= bedrooms
-      }
-      if (bathrooms !== 0 && isValid) { // Filter by bathrooms
-        isValid = room.bathrooms >= bathrooms
-      }
-      if (location !== 'all' && isValid) { // Filter by location
-        isValid = room.state === location
-      }
-      if (structureType !== 'all' && isValid) { // Filter by structure type
-        isValid = room.structureType === structureType
-      }
-      if ((sqft.min !== 0 || sqft.max !== 0) && isValid) { // Filter by square meters
-        // If is defined only min or max, then filter by only one value
-        if (sqft.min !== 0 && sqft.max === 0) {
-          isValid = room.size >= sqft.min
-        } else if (sqft.min === 0 && sqft.max !== 0) {
-          isValid = room.size <= sqft.max
-        } else {
-          isValid = room.size >= sqft.min && room.size <= sqft.max
-        }
-      }
-      if (amenities.some((amenity) => amenity.checked) && isValid) { // Filter by amenities
-        isValid = amenities.every((amenity) => {
-          if (amenity.checked) {
-            return room.amenities[toCamelCase(amenity.label)] === true
-          }
-          return true
-        })
-      }
-      return isValid
-    })
-    setRooms([...filteredRooms])
-  }, [filters])
+    let filteredRooms = roomsData
 
-  const filterByPriceRange = (min, max) => {
-    setFilters({ ...filters, price: { min, max } })
+    if (filters.search) {
+      const search = filters.search.toLowerCase()
+      filteredRooms = filteredRooms.filter(room =>
+        room.title.toLowerCase().includes(search) ||
+        room.excerpt?.toLowerCase().includes(search) ||
+        room.description?.toLowerCase().includes(search) ||
+        room.city.toLowerCase().includes(search) ||
+        room.state.toLowerCase().includes(search) ||
+        room.country.toLowerCase().includes(search)
+      )
+    }
+
+    if (price.min !== 0 || price.max !== 0) {
+      filteredRooms = filteredRooms.filter(room => room.price >= price.min && room.price <= price.max)
+    }
+    if (bedrooms !== 0) {
+      filteredRooms = filteredRooms.filter(room => room.bedrooms >= bedrooms)
+    }
+    if (bathrooms !== 0) {
+      filteredRooms = filteredRooms.filter(room => room.bathrooms >= bathrooms)
+    }
+    if (location !== 'all') {
+      filteredRooms = filteredRooms.filter(room =>
+        location.city?.includes(room.city) || location.state?.includes(room.state) || location.city?.includes(room.state) || location.state?.includes(room.city)
+      )
+    }
+    if (structureType !== 'all') {
+      filteredRooms = filteredRooms.filter(room => room.structureType === structureType)
+    }
+    if (sqft.min !== 0 || sqft.max !== 0) {
+      filteredRooms = filteredRooms.filter(room =>
+        (sqft.min === 0 || room.squareMeters >= sqft.min) &&
+        (sqft.max === 0 || room.squareMeters <= sqft.max)
+      )
+    }
+    if (amenities.some(amenity => amenity.checked)) {
+      filteredRooms = filteredRooms.filter(room =>
+        amenities.every(amenity => !amenity.checked || room.amenities[toCamelCase(amenity.label)])
+      )
+    }
+
+    return orderRooms(filteredRooms)
   }
-  const filterByBedrooms = (bedrooms) => {
-    setFilters({ ...filters, bedrooms })
+
+  const handleFilterChange = (filterName, value) => {
+    setFilters(prevFilters => ({ ...prevFilters, [filterName]: value }))
   }
-  const filterByBathrooms = (bathrooms) => {
-    setFilters({ ...filters, bathrooms })
-  }
-  const filterByStructureType = (structureType) => {
-    setFilters({ ...filters, structureType })
-  }
-  const filterByLocation = (location) => {
-    setFilters({ ...filters, location })
-  }
-  const filterBySquareMeters = (min, max) => {
-    setFilters({ ...filters, sqft: { min, max } })
-  }
-  const filterByAmenities = (amenities) => {
-    setFilters({ ...filters, amenities })
-  }
+
   const resetFilters = () => {
     setFilters({
-      price: {
-        min: 0,
-        max: 0
-      },
+      price: { min: 0, max: 0 },
       bedrooms: 0,
       bathrooms: 0,
       structureType: 'all',
       location: 'all',
-      sqft: {
-        min: 0,
-        max: 0
-      },
+      sqft: { min: 0, max: 0 },
       amenities: [
         { label: 'Washer', checked: false },
         { label: 'Dryer', checked: false },
@@ -197,9 +146,10 @@ export const RoomSearchProvider = ({ roomsData = [], defaultFilters, loading, ch
     })
   }
 
+  const filteredRooms = useMemo(filterRooms, [filters, roomsData, orderBy])
+
   const contextValue = useMemo(() => ({
-    rooms,
-    setRooms,
+    rooms: filteredRooms,
     gridView: {
       isGridView,
       onGridClick,
@@ -208,18 +158,23 @@ export const RoomSearchProvider = ({ roomsData = [], defaultFilters, loading, ch
     orderBy: orderRoomsBy,
     orderByValue: orderBy,
     filterBy: {
-      price: filterByPriceRange,
-      bedrooms: filterByBedrooms,
-      bathrooms: filterByBathrooms,
-      structureType: filterByStructureType,
-      location: filterByLocation,
-      sqft: filterBySquareMeters,
-      amenities: filterByAmenities
+      search: search => {
+        handleFilterChange('search', search)
+        // Reset location filter when searching
+        handleFilterChange('location', 'all')
+      },
+      price: (min, max) => handleFilterChange('price', { min, max }),
+      bedrooms: bedrooms => handleFilterChange('bedrooms', bedrooms),
+      bathrooms: bathrooms => handleFilterChange('bathrooms', bathrooms),
+      structureType: structureType => handleFilterChange('structureType', structureType),
+      location: location => handleFilterChange('location', location),
+      sqft: (min, max) => handleFilterChange('sqft', { min: min ? parseInt(min) : 0, max: max ? parseInt(max) : 0 }),
+      amenities: amenities => handleFilterChange('amenities', amenities)
     },
     resetFilters,
     filters,
     loading
-  }), [rooms, setRooms, isGridView, onGridClick, onListClick, orderRoomsBy, filterByPriceRange, filterByBedrooms, filterByBathrooms, filterByLocation, filterBySquareMeters, filterByAmenities, filterByStructureType, resetFilters, filters])
+  }), [filteredRooms, isGridView, orderBy, filters, loading])
 
   return (
     <RoomSearchContext.Provider value={contextValue}>

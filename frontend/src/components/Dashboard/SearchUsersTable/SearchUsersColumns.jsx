@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import { formatDate } from '../../../utils/formatDate'
 import DefaultAvatar from '../../../assets/img/users/defaultAvatar.jpg'
+import { toNormalCase } from '../../../utils/formatString'
 
 const searchUsersColumns = [
   {
@@ -41,7 +42,7 @@ const searchUsersColumns = [
 
               <p className='dark:text-white m-0 flex flex-wrap gap-2 items-center  w-full justify-between'>
                 <span className='font-medium text-base text-[#717171] '>Roles:</span>
-                <span className='font-normal text-base'>{user.roles.join(', ')}</span>
+                <span className='font-normal text-base'>{user.roles.map(role => toNormalCase(role.name)).join(', ')}</span>
               </p>
 
             </div>
@@ -56,7 +57,8 @@ const searchUsersColumns = [
                   {`${user.firstName} ${user.lastName}`}
                 </Link>
               </div>
-              <p className='list-text mb-0'>{user.roles.join(', ')}</p>
+              <p className='list-text mb-0'>{user.roles.map(role => toNormalCase(role.name)).join(', ')}
+              </p>
               <div className='list-price dark:bg-midnight bg-transparent'>
                 <span className='dark:text-white font-normal'>{user.email}</span>
               </div>

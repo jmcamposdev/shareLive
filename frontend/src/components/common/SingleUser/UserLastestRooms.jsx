@@ -16,8 +16,6 @@ const UserLatestRooms = ({ userName, rooms, numToDisplay }) => {
     }
   }
 
-  console.log(rooms)
-
   return (
 
     rooms.length > 0

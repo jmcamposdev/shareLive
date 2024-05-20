@@ -1,15 +1,15 @@
-import useAuthUser from 'react-auth-kit/hooks/useAuthUser'
 import DshRoomForm from '../../../components/common/Dashboard/DshRoomForm/DshRoomForm'
 import RoomService from '../../../services/roomService'
 import { roomFormInitialValues } from '../../../components/common/Dashboard/DshRoomForm/FormModel/roomFormInitialValues'
+import { useAuth } from '../../../context/AuthContext'
 
 const DshRoomCreateForm = () => {
-  const user = useAuthUser()
+  const { user } = useAuth()
   const title = 'Create Room'
   const subtitle = 'Here you can create your room'
 
   async function onSubmit (values, actions) {
-    actions.setSubmitting(false)
+    actions.setSubmitting(true)
     // Create the room
     try {
       values.user = user._id
@@ -25,8 +25,10 @@ const DshRoomCreateForm = () => {
       const room = await RoomService.createRoom(values)
       // Upload images
       await RoomService.uploadRoomImages(room._id, values.images)
+      return await RoomService.getRoom(room._id)
     } catch (error) {
       console.error('Error creating room:', error.message)
+    } finally {
       actions.setSubmitting(false)
     }
   }

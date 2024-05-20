@@ -1,3 +1,5 @@
+import { ROLES } from '../../../../../../constants/roles.constants'
+import { useAuth } from '../../../../../../context/AuthContext'
 import basicUserFormModel from './basicUserFormModel'
 
 const {
@@ -9,19 +11,31 @@ const {
     firstName,
     lastName,
     mobilePhone,
-    description
+    description,
+    isAdministrator
   }
 } = basicUserFormModel
 
-export const basicUserInitialValues = (user) => {
-  return {
-    [avatar.name]: user?.avatar || '',
-    [username.name]: user?.username || '',
-    [email.name]: user?.email || '',
-    [phone.name]: user?.phone || '',
-    [firstName.name]: user?.firstName || '',
-    [lastName.name]: user?.lastName || '',
-    [mobilePhone.name]: user?.mobilePhone || '',
-    [description.name]: user?.description || ''
+export const basicUserInitialValues = (userToEdit) => {
+  const { user } = useAuth()
+  const isSameUser = user._id === userToEdit._id
+  const initialValues = {
+    [avatar.name]: userToEdit?.avatar || '',
+    [username.name]: userToEdit?.username || '',
+    [email.name]: userToEdit?.email || '',
+    [phone.name]: userToEdit?.phone || '',
+    [firstName.name]: userToEdit?.firstName || '',
+    [lastName.name]: userToEdit?.lastName || '',
+    [mobilePhone.name]: userToEdit?.mobilePhone || '',
+    [description.name]: userToEdit?.description || ''
   }
+
+  if (!isSameUser) {
+    const { roles } = userToEdit
+    console.log(roles)
+    const isUserAdmin = roles.some((role) => role.name === ROLES.SUPER_ADMIN || role.name === ROLES.ADMIN)
+    initialValues[isAdministrator.name] = isUserAdmin
+  }
+
+  return initialValues
 }
