@@ -25,10 +25,13 @@ import LogOut from './pages/Dashboard/LogOut/LogOut.jsx'
 import DshRoomCreateForm from './pages/Dashboard/DshRoomForms/DshRoomCreateForm.jsx'
 import DshRoomEditForm from './pages/Dashboard/DshRoomForms/DshRoomEditForm.jsx'
 import DshReviews from './pages/Dashboard/DshReviews/DshReviews.jsx'
+import PrivacyPolicy from './pages/WebPages/PrivacyTerms/Privacy.jsx'
+import TermsConditions from './pages/WebPages/PrivacyTerms/Terms.jsx'
+import SiteMap from './pages/WebPages/PrivacyTerms/SiteMap.jsx'
 import DshUserEdit from './pages/Dashboard/DshUserForms/DshUserEdit.jsx'
 import DshUserCreate from './pages/Dashboard/DshUserForms/DshUserCreate.jsx'
 
-function App () {
+function App() {
   const [isDarkMode, setIsDarkMode] = useState(false)
 
   // Add event listener de body class change to know if the dark mode is activated
@@ -45,7 +48,7 @@ function App () {
       })
     }
   }
-  , [])
+    , [])
   return (
     <>
       <Routes>
@@ -87,6 +90,9 @@ function App () {
         </Route>
         {/* 404 page */}
         <Route path='*' element={<NotFound />} />
+        <Route path='privacy' element={<PrivacyPolicy />} />
+        <Route path='terms' element={<TermsConditions />} />
+        <Route path='sitemap' element={<SiteMap />} />
       </Routes>
       <ToastContainer
         position='bottom-right'
