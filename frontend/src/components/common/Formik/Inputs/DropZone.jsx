@@ -14,7 +14,6 @@ const baseStyle = {
   borderRadius: 2,
   borderColor: '#eeeeee',
   borderStyle: 'dashed',
-  backgroundColor: '#fafafa',
   color: '#bdbdbd',
   outline: 'none',
   transition: 'border .24s ease-in-out'
@@ -34,7 +33,7 @@ const rejectStyle = {
 
 const MAX_FILES = 3
 
-function DropZone ({ name, value, onChange }) {
+function DropZone({ name, value, onChange }) {
   const [allFiles, setAllFiles] = useState(value || [])
 
   useEffect(() => {
@@ -101,26 +100,26 @@ function DropZone ({ name, value, onChange }) {
       <img
         className='object-cover w-[170px] h-[170px] rounded-lg'
         src={file?.preview || file}
-          // Revoke data uri after image is loaded
+        // Revoke data uri after image is loaded
         onLoad={() => { URL.revokeObjectURL(file.preview) }}
       />
       <button
         type='button'
         onClick={() => deleteFile(file)}
-        className='absolute top-1 right-1 p-2 bg-white rounded-full w-11 h-11 hover:bg-orangePrimaryLightHover hover:text-white'
+        className='absolute top-1 right-1 p-2 bg-white rounded-full w-11 h-11 hover:bg-orangePrimaryLightHover hover:text-white dark:bg-midnight dark:hover:bg-orangePrimaryLightHover'
       >
-        <i className='fa-solid fa-trash' />
+        <i className='fa-solid fa-trash dark:text-white ' />
       </button>
     </div>
   ))
 
   return (
     <div className='flex flex-col gap-8'>
-      <div {...getRootProps({ style })}>
+      <div {...getRootProps({ style })} className='bg-[#fafafa]  dark:bg-lightmidnight'>
         <input {...getInputProps()} />
-        <img className='pb-8' src={uploadRoomsSvg} alt='Upload Svg' />
-        <h5>Upload photos of your room</h5>
-        <p className='m-0'>Photos must be JPEG or PNG format and smaller than 5MB</p>
+        <img className='pb-8 dark:invert' src={uploadRoomsSvg} alt='Upload Svg' />
+        <h5 className='dark:text-white'>Upload photos of your room</h5>
+        <p className='m-0 dark:text-white'>Photos must be JPEG or PNG format and smaller than 5MB</p>
         <button
           type='button'
           onClick={open}

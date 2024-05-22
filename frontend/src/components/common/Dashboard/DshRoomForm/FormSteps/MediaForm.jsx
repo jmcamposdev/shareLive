@@ -11,7 +11,7 @@ const MediaForm = (props) => {
 
   return (
     <div className='py-8'>
-      <h5 className='pb-8 mb-0'>Room Images</h5>
+      <h5 className='pb-8 mb-0 dark:text-white'>Room Images</h5>
       <DropZone
         value={values[images.name]}
         name={images.name}
