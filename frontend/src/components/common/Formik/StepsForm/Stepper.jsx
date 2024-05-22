@@ -7,7 +7,7 @@ const Stepper = ({ steps, activeStep, stepsClick }) => {
       <div
         key={label}
         onClick={() => stepsClick(index)}
-        className={`px-4 step-label font-bold cursor-pointer ${isCurrentStep ? 'text-[#181A20]' : 'text-[#181A20]/50'}`}
+        className={`px-4 step-label font-bold cursor-pointer dark:text-white dark:hover:text-orangePrimaryLightHover transition ${isCurrentStep ? 'text-[#181A20]' : 'text-[#181A20]/50'}`}
       >
         {index + 1}. {label}
       </div>
