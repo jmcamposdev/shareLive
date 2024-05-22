@@ -16,8 +16,8 @@ const NearbySimilarProperty = () => {
       <div className='flex flex-wrap justify-between' data-aos='fade-up'>
         <div className='lg:w-3/4 w-auto pr-4 pl-4'>
           <div className='main-title2'>
-            <h2 className='title'>Nearby Similar Rooms</h2>
-            <p className='paragraph'>
+            <h2 className='title dark:text-white'>Nearby Similar Rooms</h2>
+            <p className='paragraph dark:text-white'>
               Explore similar rooms
             </p>
           </div>

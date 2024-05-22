@@ -63,6 +63,7 @@ const ScheduleTour = () => {
                   <textarea
                     cols={30}
                     rows={4}
+                    className='placeholder:text-[#717171]'
                     placeholder='Enter Your Messages'
                     defaultValue=''
                   />
