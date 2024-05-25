@@ -3,10 +3,13 @@ import Rooms from '../../../data/roomsItems'
 import TitleDashboard from '../../../components/common/Dashboard/TitleDashboard/TitleDashboard'
 import RoomsContainer from '../../../components/common/Dashboard/RoomsContainer/RoomsContainer'
 import RoomSmall from '../../../components/common/Room/RoomSmall/RoomSmall'
+import RoomSmallSkeleton from '../../../components/common/Room/RoomSmall/RoomsSmallSkeleton'
 import Selector from '../../../components/common/Inputs/Selector'
 
-const DashboardFavouriteRooms = () => {
+const DashboardFavouriteRooms = (loading) => {
+  const skeletonItems = Array.from({ length: 8 }, (_, index) => <RoomSmallSkeleton key={index} />)
   return (
+
     <DashboardLayout>
       <div className='flex justify-between items-center 2xl:mb30 mt-56 2xl:mt-0'>
         <TitleDashboard title='Your favourite Rooms' subtitle='Search your favourite rooms here.' />
@@ -34,15 +37,17 @@ const DashboardFavouriteRooms = () => {
           <Selector />
         */}
         {
-          Rooms.length > 0
-            ? Rooms.map((room) => (
-              <RoomSmall key={room._id} room={room} onEdit={1} onDelete={1} />
-            ))
-            : <>
-              <div className='min-h-[40dvh] w-full flex items-center justify-center'>
-                <h3 className='black:text-white'>No rooms favourited yet...</h3>
-              </div>
-              </>
+          loading
+            ? (skeletonItems)
+            : Rooms.length > 0
+              ? Rooms.map((room) => (
+                <RoomSmall key={room._id} room={room} onEdit={1} onDelete={1} />
+              ))
+              : <>
+                <div className='min-h-[40dvh] w-full flex items-center justify-center'>
+                  <h3 className='black:text-white'>No rooms favourited yet...</h3>
+                </div>
+                </>
 
         }
 
