@@ -27,6 +27,7 @@ import DshRoomEditForm from './pages/Dashboard/DshRoomForms/DshRoomEditForm.jsx'
 import DshReviews from './pages/Dashboard/DshReviews/DshReviews.jsx'
 import DshUserEdit from './pages/Dashboard/DshUserForms/DshUserEdit.jsx'
 import DshUserCreate from './pages/Dashboard/DshUserForms/DshUserCreate.jsx'
+import DashboardFavouriteRooms from './pages/Dashboard/DashboardFavouriteRooms/DashboardFavouriteRooms.jsx'
 
 function App () {
   const [isDarkMode, setIsDarkMode] = useState(false)
@@ -84,6 +85,7 @@ function App () {
           <Route path='dashboard/rooms/add' element={<DshRoomCreateForm />} />
           <Route path='dashboard/rooms/edit/:id' element={<DshRoomEditForm />} />
           <Route path='dashboard/profile' element={<DashboardMyProfile />} />
+          <Route path='dashboard/favourites' element={<DashboardFavouriteRooms />} />
         </Route>
         {/* 404 page */}
         <Route path='*' element={<NotFound />} />
