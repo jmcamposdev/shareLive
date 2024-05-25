@@ -16,7 +16,7 @@ const UserChatItem = ({ user, loading }) => {
           )
         : (
           <div
-            className={`hover:bg-[#f7f7f7] p-3 rounded-lg transition-all duration-200 cursor-pointer ${isSelected ? 'selected-chat-item' : ''}`}
+            className={`hover:bg-[#f7f7f7] dark:hover:!bg-lightmidnight p-3 rounded-lg transition-all duration-200 cursor-pointer ${isSelected ? 'selected-chat-item dark:!bg-lightmidnight' : ''}`}
             onClick={() => handleSelectContact(user)}
           >
             <div className='flex items-center relative'>
@@ -29,10 +29,10 @@ const UserChatItem = ({ user, loading }) => {
               />
               <div className='flex flex-1 justify-between'>
                 <div className='d-inline-block'>
-                  <div className='fz14 fw600 dark-color ff-heading mb-0'>
+                  <div className='fz14 fw600 dark-color ff-heading mb-0 dark:text-white'>
                     {user.name}
                   </div>
-                  <span className='preview'>
+                  <span className='preview dark:text-white'>
                     {
                     user.lastMessage?.message
                       ? (

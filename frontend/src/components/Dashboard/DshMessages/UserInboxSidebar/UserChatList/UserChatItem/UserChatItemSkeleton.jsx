@@ -4,7 +4,7 @@ import LoadingSkeleton from '../../../../../common/Loading/LoadingSkeleton'
 const UserChatItemSkeleton = () => {
   return (
     <div
-      className='hover:bg-[#f7f7f7] p-3 rounded-lg transition-all duration-200 cursor-pointer'
+      className='hover:bg-[#f7f7f7] dark:hover:!bg-lightmidnight p-3 rounded-lg transition-all duration-200 cursor-pointer'
     >
       <div className='flex items-center relative'>
         <div className='w-[50px] h-[50px] mr10'>

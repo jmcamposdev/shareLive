@@ -16,7 +16,7 @@ const UserChatHeader = ({ user, loading, onDeleteUser }) => {
           <UserChatHeaderSkeleton />
           )
         : (
-          <div className='user_heading px-0 border-b border-gray-200 py-3'>
+          <div className='user_heading px-0 border-b border-gray-200 py-3 dark:text-white'>
             <div className='flex w-full'>
               <span className='contact-status online' />
               <img
@@ -28,12 +28,12 @@ const UserChatHeader = ({ user, loading, onDeleteUser }) => {
               />
               <div className='flex justify-between items-center flex-1'>
                 <div className='authors'>
-                  <h6 className='name mb-0'>{user.name}</h6>
+                  <h6 className='name mb-0 dark:text-white'>{user.name}</h6>
                   {/* <p className='preview'>Active</p> */}
                 </div>
                 <div>
                   <a
-                    className='text-decoration-underline fz14 fw600 dark-color ff-heading cursor-pointer'
+                    className=' fz14 fw600 dark-color ff-heading cursor-pointer text-decoration-none dark:text-white'
                     onClick={() => handleOpen()}
                   >
                     Delete Conversation
