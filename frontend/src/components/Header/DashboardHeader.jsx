@@ -48,7 +48,7 @@ const DashboardHeader = () => {
                   {/* End Dark Mode Switcher */}
 
                   <li className='flex justify-center items-center'>
-                    <Link className='text-center mr15 !flex justify-center items-center' href='/login'>
+                    <Link className='text-center mr15 !flex justify-center items-center' to='/dashboard/messages'>
                       <span className='flaticon-email !flex dark:text-white' />
                     </Link>
                   </li>
