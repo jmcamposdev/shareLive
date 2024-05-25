@@ -37,7 +37,7 @@ const DashboardFavouriteRooms = (loading) => {
           <Selector />
         */}
         {
-          !loading
+          loading
             ? (skeletonItems)
             : Rooms.length > 0
               ? Rooms.map((room) => (
