@@ -12,14 +12,14 @@ const Input = (props) => {
       <Field
         {...field}
         {...rest}
-        className={`form-control block appearance-none w-full py-1 px-2 mb-1 text-base leading-normal bg-white text-gray-800 border border-gray-200 rounded ${className || ''} ${meta.touched && meta.error ? '!border-red-500' : ''}`}
+        className={`form-control block appearance-none w-full py-1 dark:bg-midnight dark:!border-borderColor/20 dark:placeholder:text-borderColor/40 dark:text-white dark:outline-white px-2 mb-1 text-base leading-normal bg-white text-gray-800 border border-gray-200 rounded ${className || ''} ${meta.touched && meta.error ? '!border-red-500' : ''}`}
       />
       {meta.touched && meta.error
         ? (
           <TextError>
             <ErrorMessage name={name} />
           </TextError>
-          )
+        )
         : null}
     </div>
   )
