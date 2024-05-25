@@ -30,8 +30,9 @@ import TermsConditions from './pages/WebPages/PrivacyTerms/Terms.jsx'
 import SiteMap from './pages/WebPages/PrivacyTerms/SiteMap.jsx'
 import DshUserEdit from './pages/Dashboard/DshUserForms/DshUserEdit.jsx'
 import DshUserCreate from './pages/Dashboard/DshUserForms/DshUserCreate.jsx'
+import DshMessages from './pages/Dashboard/DshMessages/DshMessages.jsx'
 
-function App() {
+function App () {
   const [isDarkMode, setIsDarkMode] = useState(false)
 
   // Add event listener de body class change to know if the dark mode is activated
@@ -48,7 +49,7 @@ function App() {
       })
     }
   }
-    , [])
+  , [])
   return (
     <>
       <Routes>
@@ -87,6 +88,8 @@ function App() {
           <Route path='dashboard/rooms/add' element={<DshRoomCreateForm />} />
           <Route path='dashboard/rooms/edit/:id' element={<DshRoomEditForm />} />
           <Route path='dashboard/profile' element={<DashboardMyProfile />} />
+          <Route path='dashboard/messages' element={<DshMessages />} />
+
         </Route>
         {/* 404 page */}
         <Route path='*' element={<NotFound />} />
