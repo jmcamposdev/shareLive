@@ -31,6 +31,7 @@ import SiteMap from './pages/WebPages/PrivacyTerms/SiteMap.jsx'
 import DshUserEdit from './pages/Dashboard/DshUserForms/DshUserEdit.jsx'
 import DshUserCreate from './pages/Dashboard/DshUserForms/DshUserCreate.jsx'
 import DshMessages from './pages/Dashboard/DshMessages/DshMessages.jsx'
+import DashboardFavouriteRooms from './pages/Dashboard/DashboardFavouriteRooms/DashboardFavouriteRooms.jsx'
 
 function App () {
   const [isDarkMode, setIsDarkMode] = useState(false)
@@ -90,6 +91,7 @@ function App () {
           <Route path='dashboard/profile' element={<DashboardMyProfile />} />
           <Route path='dashboard/messages' element={<DshMessages />} />
 
+          <Route path='dashboard/favourites' element={<DashboardFavouriteRooms />} />
         </Route>
         {/* 404 page */}
         <Route path='*' element={<NotFound />} />

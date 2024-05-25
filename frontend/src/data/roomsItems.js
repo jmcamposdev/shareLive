@@ -58,10 +58,10 @@ export default [
       ],
       __v: 76
     },
-    title: '11',
-    excerpt: '11',
-    description: '11',
-    price: 11,
+    title: 'titulo de una habiatcion medio larga para que ver como se ve en el componente que quiero que sea bastante largo',
+    excerpt: 'titulo de una habiatcion medio larga para que ver como se ve en el componente que quiero que sea bastante largo',
+    description: 'titulo de una habiatcion medio larga para que ver como se ve en el componente que quiero que sea bastante largo',
+    price: 1,
     propertyStatus: 'Nearly new',
     images: [
       'https://res.cloudinary.com/djwmudirg/image/upload/v1715107204/rooms/663a75835260d748a0e5278c/rzsukdjbrkxxyf4yrr7c.jpg'
@@ -74,7 +74,7 @@ export default [
     city: 'Granada',
     postalCode: '18007',
     address: 'Cl Carmen De Icaza 26',
-    squareMeters: 34,
+    squareMeters: 130,
     bedrooms: 1,
     bathrooms: 1,
     yearBuilt: 2342,
@@ -143,10 +143,10 @@ export default [
       ],
       __v: 76
     },
-    title: '11',
-    excerpt: '11',
-    description: '11',
-    price: 11,
+    title: 'titulo de una habiatcion medio larga para que ver como se ve en el componente que quiero que sea bastante largo',
+    excerpt: 'titulo de una habiatcion medio larga para que ver como se ve en el componente que quiero que sea bastante largo',
+    description: 'titulo de una habiatcion medio larga para que ver como se ve en el componente que quiero que sea bastante largo',
+    price: 1,
     propertyStatus: 'Nearly new',
     images: [
       'https://res.cloudinary.com/djwmudirg/image/upload/v1715107204/rooms/663a75835260d748a0e5278c/rzsukdjbrkxxyf4yrr7c.jpg'
@@ -159,7 +159,7 @@ export default [
     city: 'Granada',
     postalCode: '18007',
     address: 'Cl Carmen De Icaza 26',
-    squareMeters: 34,
+    squareMeters: 130,
     bedrooms: 1,
     bathrooms: 1,
     yearBuilt: 2342,
@@ -228,10 +228,10 @@ export default [
       ],
       __v: 76
     },
-    title: '11',
-    excerpt: '11',
-    description: '11',
-    price: 11,
+    title: 'titulo de una habiatcion medio larga para que ver como se ve en el componente que quiero que sea bastante largo',
+    excerpt: 'titulo de una habiatcion medio larga para que ver como se ve en el componente que quiero que sea bastante largo',
+    description: 'titulo de una habiatcion medio larga para que ver como se ve en el componente que quiero que sea bastante largo',
+    price: 1,
     propertyStatus: 'Nearly new',
     images: [
       'https://res.cloudinary.com/djwmudirg/image/upload/v1715107204/rooms/663a75835260d748a0e5278c/rzsukdjbrkxxyf4yrr7c.jpg'
@@ -244,7 +244,7 @@ export default [
     city: 'Granada',
     postalCode: '18007',
     address: 'Cl Carmen De Icaza 26',
-    squareMeters: 34,
+    squareMeters: 130,
     bedrooms: 1,
     bathrooms: 1,
     yearBuilt: 2342,
@@ -313,10 +313,10 @@ export default [
       ],
       __v: 76
     },
-    title: '11',
-    excerpt: '11',
-    description: '11',
-    price: 11,
+    title: 'titulo de una habiatcion medio larga para que ver como se ve en el componente que quiero que sea bastante largo',
+    excerpt: 'titulo de una habiatcion medio larga para que ver como se ve en el componente que quiero que sea bastante largo',
+    description: 'titulo de una habiatcion medio larga para que ver como se ve en el componente que quiero que sea bastante largo',
+    price: 1,
     propertyStatus: 'Nearly new',
     images: [
       'https://res.cloudinary.com/djwmudirg/image/upload/v1715107204/rooms/663a75835260d748a0e5278c/rzsukdjbrkxxyf4yrr7c.jpg'
@@ -329,7 +329,7 @@ export default [
     city: 'Granada',
     postalCode: '18007',
     address: 'Cl Carmen De Icaza 26',
-    squareMeters: 34,
+    squareMeters: 130,
     bedrooms: 1,
     bathrooms: 1,
     yearBuilt: 2342,
@@ -398,10 +398,10 @@ export default [
       ],
       __v: 76
     },
-    title: '11',
-    excerpt: '11',
-    description: '11',
-    price: 11,
+    title: 'titulo de una habiatcion medio larga para que ver como se ve en el componente que quiero que sea bastante largo',
+    excerpt: 'titulo de una habiatcion medio larga para que ver como se ve en el componente que quiero que sea bastante largo',
+    description: 'titulo de una habiatcion medio larga para que ver como se ve en el componente que quiero que sea bastante largo',
+    price: 1,
     propertyStatus: 'Nearly new',
     images: [
       'https://res.cloudinary.com/djwmudirg/image/upload/v1715107204/rooms/663a75835260d748a0e5278c/rzsukdjbrkxxyf4yrr7c.jpg'
@@ -414,7 +414,7 @@ export default [
     city: 'Granada',
     postalCode: '18007',
     address: 'Cl Carmen De Icaza 26',
-    squareMeters: 34,
+    squareMeters: 130,
     bedrooms: 1,
     bathrooms: 1,
     yearBuilt: 2342,
@@ -483,10 +483,10 @@ export default [
       ],
       __v: 76
     },
-    title: '11',
-    excerpt: '11',
-    description: '11',
-    price: 11,
+    title: 'titulo de una habiatcion medio larga para que ver como se ve en el componente que quiero que sea bastante largo',
+    excerpt: 'titulo de una habiatcion medio larga para que ver como se ve en el componente que quiero que sea bastante largo',
+    description: 'titulo de una habiatcion medio larga para que ver como se ve en el componente que quiero que sea bastante largo',
+    price: 1,
     propertyStatus: 'Nearly new',
     images: [
       'https://res.cloudinary.com/djwmudirg/image/upload/v1715107204/rooms/663a75835260d748a0e5278c/rzsukdjbrkxxyf4yrr7c.jpg'
@@ -499,7 +499,7 @@ export default [
     city: 'Granada',
     postalCode: '18007',
     address: 'Cl Carmen De Icaza 26',
-    squareMeters: 34,
+    squareMeters: 130,
     bedrooms: 1,
     bathrooms: 1,
     yearBuilt: 2342,
@@ -568,10 +568,10 @@ export default [
       ],
       __v: 76
     },
-    title: '11',
-    excerpt: '11',
-    description: '11',
-    price: 11,
+    title: 'titulo de una habiatcion medio larga para que ver como se ve en el componente que quiero que sea bastante largo',
+    excerpt: 'titulo de una habiatcion medio larga para que ver como se ve en el componente que quiero que sea bastante largo',
+    description: 'titulo de una habiatcion medio larga para que ver como se ve en el componente que quiero que sea bastante largo',
+    price: 1,
     propertyStatus: 'Nearly new',
     images: [
       'https://res.cloudinary.com/djwmudirg/image/upload/v1715107204/rooms/663a75835260d748a0e5278c/rzsukdjbrkxxyf4yrr7c.jpg'
@@ -584,7 +584,7 @@ export default [
     city: 'Granada',
     postalCode: '18007',
     address: 'Cl Carmen De Icaza 26',
-    squareMeters: 34,
+    squareMeters: 130,
     bedrooms: 1,
     bathrooms: 1,
     yearBuilt: 2342,
@@ -653,10 +653,10 @@ export default [
       ],
       __v: 76
     },
-    title: '11',
-    excerpt: '11',
-    description: '11',
-    price: 11,
+    title: 'titulo de una habiatcion medio larga para que ver como se ve en el componente que quiero que sea bastante largo',
+    excerpt: 'titulo de una habiatcion medio larga para que ver como se ve en el componente que quiero que sea bastante largo',
+    description: 'titulo de una habiatcion medio larga para que ver como se ve en el componente que quiero que sea bastante largo',
+    price: 1,
     propertyStatus: 'Nearly new',
     images: [
       'https://res.cloudinary.com/djwmudirg/image/upload/v1715107204/rooms/663a75835260d748a0e5278c/rzsukdjbrkxxyf4yrr7c.jpg'
@@ -669,7 +669,7 @@ export default [
     city: 'Granada',
     postalCode: '18007',
     address: 'Cl Carmen De Icaza 26',
-    squareMeters: 34,
+    squareMeters: 130,
     bedrooms: 1,
     bathrooms: 1,
     yearBuilt: 2342,
@@ -738,10 +738,10 @@ export default [
       ],
       __v: 76
     },
-    title: '11',
-    excerpt: '11',
-    description: '11',
-    price: 11,
+    title: 'titulo de una habiatcion medio larga para que ver como se ve en el componente que quiero que sea bastante largo',
+    excerpt: 'titulo de una habiatcion medio larga para que ver como se ve en el componente que quiero que sea bastante largo',
+    description: 'titulo de una habiatcion medio larga para que ver como se ve en el componente que quiero que sea bastante largo',
+    price: 1,
     propertyStatus: 'Nearly new',
     images: [
       'https://res.cloudinary.com/djwmudirg/image/upload/v1715107204/rooms/663a75835260d748a0e5278c/rzsukdjbrkxxyf4yrr7c.jpg'
@@ -754,7 +754,7 @@ export default [
     city: 'Granada',
     postalCode: '18007',
     address: 'Cl Carmen De Icaza 26',
-    squareMeters: 34,
+    squareMeters: 130,
     bedrooms: 1,
     bathrooms: 1,
     yearBuilt: 2342,
@@ -823,10 +823,10 @@ export default [
       ],
       __v: 76
     },
-    title: '11',
-    excerpt: '11',
-    description: '11',
-    price: 11,
+    title: 'titulo de una habiatcion medio larga para que ver como se ve en el componente que quiero que sea bastante largo',
+    excerpt: 'titulo de una habiatcion medio larga para que ver como se ve en el componente que quiero que sea bastante largo',
+    description: 'titulo de una habiatcion medio larga para que ver como se ve en el componente que quiero que sea bastante largo',
+    price: 1,
     propertyStatus: 'Nearly new',
     images: [
       'https://res.cloudinary.com/djwmudirg/image/upload/v1715107204/rooms/663a75835260d748a0e5278c/rzsukdjbrkxxyf4yrr7c.jpg'
@@ -839,7 +839,7 @@ export default [
     city: 'Granada',
     postalCode: '18007',
     address: 'Cl Carmen De Icaza 26',
-    squareMeters: 34,
+    squareMeters: 130,
     bedrooms: 1,
     bathrooms: 1,
     yearBuilt: 2342,
@@ -908,10 +908,10 @@ export default [
       ],
       __v: 76
     },
-    title: '11',
-    excerpt: '11',
-    description: '11',
-    price: 11,
+    title: 'titulo de una habiatcion medio larga para que ver como se ve en el componente que quiero que sea bastante largo',
+    excerpt: 'titulo de una habiatcion medio larga para que ver como se ve en el componente que quiero que sea bastante largo',
+    description: 'titulo de una habiatcion medio larga para que ver como se ve en el componente que quiero que sea bastante largo',
+    price: 1,
     propertyStatus: 'Nearly new',
     images: [
       'https://res.cloudinary.com/djwmudirg/image/upload/v1715107204/rooms/663a75835260d748a0e5278c/rzsukdjbrkxxyf4yrr7c.jpg'
@@ -924,7 +924,7 @@ export default [
     city: 'Granada',
     postalCode: '18007',
     address: 'Cl Carmen De Icaza 26',
-    squareMeters: 34,
+    squareMeters: 130,
     bedrooms: 1,
     bathrooms: 1,
     yearBuilt: 2342,
@@ -993,10 +993,10 @@ export default [
       ],
       __v: 76
     },
-    title: '11',
-    excerpt: '11',
-    description: '11',
-    price: 11,
+    title: 'titulo de una habiatcion medio larga para que ver como se ve en el componente que quiero que sea bastante largo',
+    excerpt: 'titulo de una habiatcion medio larga para que ver como se ve en el componente que quiero que sea bastante largo',
+    description: 'titulo de una habiatcion medio larga para que ver como se ve en el componente que quiero que sea bastante largo',
+    price: 1,
     propertyStatus: 'Nearly new',
     images: [
       'https://res.cloudinary.com/djwmudirg/image/upload/v1715107204/rooms/663a75835260d748a0e5278c/rzsukdjbrkxxyf4yrr7c.jpg'
@@ -1009,7 +1009,7 @@ export default [
     city: 'Granada',
     postalCode: '18007',
     address: 'Cl Carmen De Icaza 26',
-    squareMeters: 34,
+    squareMeters: 130,
     bedrooms: 1,
     bathrooms: 1,
     yearBuilt: 2342,
@@ -1078,10 +1078,10 @@ export default [
       ],
       __v: 76
     },
-    title: '11',
-    excerpt: '11',
-    description: '11',
-    price: 11,
+    title: 'titulo de una habiatcion medio larga para que ver como se ve en el componente que quiero que sea bastante largo',
+    excerpt: 'titulo de una habiatcion medio larga para que ver como se ve en el componente que quiero que sea bastante largo',
+    description: 'titulo de una habiatcion medio larga para que ver como se ve en el componente que quiero que sea bastante largo',
+    price: 1,
     propertyStatus: 'Nearly new',
     images: [
       'https://res.cloudinary.com/djwmudirg/image/upload/v1715107204/rooms/663a75835260d748a0e5278c/rzsukdjbrkxxyf4yrr7c.jpg'
@@ -1094,7 +1094,7 @@ export default [
     city: 'Granada',
     postalCode: '18007',
     address: 'Cl Carmen De Icaza 26',
-    squareMeters: 34,
+    squareMeters: 130,
     bedrooms: 1,
     bathrooms: 1,
     yearBuilt: 2342,
@@ -1163,10 +1163,10 @@ export default [
       ],
       __v: 76
     },
-    title: '11',
-    excerpt: '11',
-    description: '11',
-    price: 11,
+    title: 'titulo de una habiatcion medio larga para que ver como se ve en el componente que quiero que sea bastante largo',
+    excerpt: 'titulo de una habiatcion medio larga para que ver como se ve en el componente que quiero que sea bastante largo',
+    description: 'titulo de una habiatcion medio larga para que ver como se ve en el componente que quiero que sea bastante largo',
+    price: 1,
     propertyStatus: 'Nearly new',
     images: [
       'https://res.cloudinary.com/djwmudirg/image/upload/v1715107204/rooms/663a75835260d748a0e5278c/rzsukdjbrkxxyf4yrr7c.jpg'
@@ -1179,7 +1179,7 @@ export default [
     city: 'Granada',
     postalCode: '18007',
     address: 'Cl Carmen De Icaza 26',
-    squareMeters: 34,
+    squareMeters: 130,
     bedrooms: 1,
     bathrooms: 1,
     yearBuilt: 2342,
@@ -1248,10 +1248,10 @@ export default [
       ],
       __v: 76
     },
-    title: '11',
-    excerpt: '11',
-    description: '11',
-    price: 11,
+    title: 'titulo de una habiatcion medio larga para que ver como se ve en el componente que quiero que sea bastante largo',
+    excerpt: 'titulo de una habiatcion medio larga para que ver como se ve en el componente que quiero que sea bastante largo',
+    description: 'titulo de una habiatcion medio larga para que ver como se ve en el componente que quiero que sea bastante largo',
+    price: 1,
     propertyStatus: 'Nearly new',
     images: [
       'https://res.cloudinary.com/djwmudirg/image/upload/v1715107204/rooms/663a75835260d748a0e5278c/rzsukdjbrkxxyf4yrr7c.jpg'
@@ -1264,7 +1264,7 @@ export default [
     city: 'Granada',
     postalCode: '18007',
     address: 'Cl Carmen De Icaza 26',
-    squareMeters: 34,
+    squareMeters: 130,
     bedrooms: 1,
     bathrooms: 1,
     yearBuilt: 2342,
