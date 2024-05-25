@@ -33,7 +33,7 @@ const rejectStyle = {
 
 const MAX_FILES = 3
 
-function DropZone({ name, value, onChange }) {
+function DropZone ({ name, value, onChange }) {
   const [allFiles, setAllFiles] = useState(value || [])
 
   useEffect(() => {

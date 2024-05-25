@@ -19,7 +19,7 @@ const Input = (props) => {
           <TextError>
             <ErrorMessage name={name} />
           </TextError>
-        )
+          )
         : null}
     </div>
   )
