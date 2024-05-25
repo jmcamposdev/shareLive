@@ -2,6 +2,8 @@ import Review from '../models/Review.js'
 import Room from '../models/Room.js'
 import dotenv from 'dotenv'
 import { CLOUDINARY_FOLDERS, checkAndDeleteFolder, handleDeleteImage } from '../storage/cloudinary.js'
+import Message from '../models/Message.js'
+import User from '../models/User.js'
 dotenv.config()
 
 const deleteAllRoomsOfUser = async (user) => {
@@ -48,4 +50,27 @@ const deleteUserAvatar = async (user) => {
   }
 }
 
-export { deleteAllRoomsOfUser, deleteAllReviewsOfUser, deleteReviewParticipationOfUser, deleteUserAvatar }
+const deleteAllMessagesOfUser = async (user) => {
+  // Delete all messages of the user
+  const messages = await Message.find({ $or: [{ sender: user._id }, { receiver: user._id }] })
+
+  const deletionMessagePromises = messages.map(async (message) => {
+    return Message.findByIdAndDelete(message._id)
+  })
+
+  await Promise.all(deletionMessagePromises)
+}
+
+const deleteAllContactsOfUser = async (user) => {
+  // Delete the user from all contact lists
+  const users = await User.find({ contactList: user._id })
+
+  const deletionContactPromises = users.map(async (contact) => {
+    contact.contactList = contact.contactList.filter(userId => userId.toString() !== user._id.toString())
+    await contact.save()
+  })
+
+  await Promise.all(deletionContactPromises)
+}
+
+export { deleteAllRoomsOfUser, deleteAllReviewsOfUser, deleteReviewParticipationOfUser, deleteUserAvatar, deleteAllMessagesOfUser, deleteAllContactsOfUser }
