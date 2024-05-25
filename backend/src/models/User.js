@@ -3,7 +3,7 @@ import bcrypt from 'bcryptjs'
 import jwt from 'jsonwebtoken'
 import dotenv from 'dotenv'
 import Review from './Review.js'
-import { deleteAllReviewsOfUser, deleteAllRoomsOfUser, deleteReviewParticipationOfUser, deleteUserAvatar } from '../utils/user.utils.js'
+import { deleteAllContactsOfUser, deleteAllMessagesOfUser, deleteAllReviewsOfUser, deleteAllRoomsOfUser, deleteReviewParticipationOfUser, deleteUserAvatar } from '../utils/user.utils.js'
 import Activity from './Activity.js'
 
 dotenv.config()
@@ -19,6 +19,7 @@ const userSchema = new Schema({
   lastName: { type: String, default: '' },
   mobilePhone: { type: String, default: '' },
   description: { type: String, default: '' },
+  contactList: { type: [String], default: [] },
   socials: {
     twitter: { type: String, default: '' },
     facebook: { type: String, default: '' },
@@ -61,6 +62,10 @@ userSchema.pre('findOneAndDelete', async function (next) {
   await deleteReviewParticipationOfUser(user)
   // Delete the user avatar
   await deleteUserAvatar(user)
+  // Delete all messages of the user
+  await deleteAllMessagesOfUser(user)
+  // Delete the user from all contact lists
+  await deleteAllContactsOfUser(user)
 
   next()
 })

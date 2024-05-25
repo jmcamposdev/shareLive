@@ -1,26 +1,60 @@
-const ContactFormSingle = ({ title }) => {
+import * as Yup from 'yup'
+import { Form, Formik } from 'formik'
+import FormikControl from '../Formik/Inputs/FormikControl'
+import FormikSubmitBtn from '../Formik/Buttons/FormikSubmitBtn'
+import MessageService from '../../../services/MessageService'
+import { useNavigate } from 'react-router-dom'
+import UserService from '../../../services/UserService'
+import { useAuth } from '../../../context/AuthContext'
+
+const ContactFormSingle = ({ title, contactUser }) => {
+  const { user, updateUser } = useAuth()
+  const navigate = useNavigate()
+  const onSubmit = async (values, actions) => {
+    actions.setSubmitting(true)
+    // Send the message
+    try {
+      if (!user || user._id === contactUser._id) return
+      // Verify if the user is already a contact
+      if (!user.contactList.includes(contactUser._id)) {
+        const newUser = await UserService.addContact(user._id, contactUser._id)
+        updateUser(newUser)
+      }
+      await MessageService.createMessage(values.message, user._id, contactUser._id)
+      navigate('/dashboard/messages')
+    } catch (error) {
+      console.error('Error sending message:', error.message)
+    }
+    actions.resetForm()
+  }
   return (
     <div className='agent-single-form home8-contact-form default-box-shadow1 bdrs12 bdr1 p30 mb30-md bgc-white relative dark:bg-midnight dark:border-slate-400/20  '>
       <h4 className='form-title mb25 dark:text-white'>{title}</h4>
-      <form className='form-style1'>
-        <div className='flex flex-wrap '>
-          <div className='w-full'>
-            <div className='mb20'><input className=' form-control block appearance-none w-full py-1 px-2 mb-1 text-base leading-normal bg-white text-gray-800 border border-gray-200 rounded' placeholder='Your Name' required='' type='text' /></div>
-          </div>
-          <div className='w-full'>
-            <div className='mb20'><input className='form-control block appearance-none w-full py-1 px-2 mb-1 text-base leading-normal bg-white text-gray-800 border border-gray-200 rounded' placeholder='Phone' required='' type='text' /></div>
-          </div>
-          <div className='w-full'>
-            <div className='mb20'><input className='form-control block appearance-none w-full py-1 px-2 mb-1 text-base leading-normal bg-white text-gray-800 border border-gray-200 rounded' placeholder='Email' required='' type='email' /></div>
-          </div>
-          <div className='w-full'>
-            <div className='mb10'><textarea className='placeholder:text-[#717171]' cols='30' rows='4' placeholder='There are many variations of passages.' required='' /></div>
-          </div>
-          <div className='w-full'>
-            <div className='d-grid'><button type='submit' className='ud-btn btn-thm mb15'>Send Message<i className='fal fa-arrow-right-long' /></button><a className='ud-btn btn-white2' href='/contact'>Call<i className='fal fa-arrow-right-long' /></a></div>
-          </div>
-        </div>
-      </form>
+      <Formik
+        initialValues={{ message: '' }}
+        validationSchema={Yup.object({
+          message: Yup.string().required('Message is required')
+        })}
+        onSubmit={onSubmit}
+      >
+        {({ isSubmitting }) => (
+          <Form className='flex flex-col gap-5'>
+            <FormikControl
+              control='textarea'
+              type='text'
+              id='message'
+              name='message'
+              placeholder='I am interested in this property. Please contact me.'
+              rows='10'
+            />
+            <FormikSubmitBtn
+              label='Send Message'
+              isSubmitting={isSubmitting}
+              className='w-full'
+            />
+          </Form>
+        )}
+      </Formik>
     </div>
   )
 }

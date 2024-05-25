@@ -9,15 +9,15 @@ const Footer = () => {
   const footerMenuItems = [
     {
       label: 'Privacy',
-      link: '#'
+      link: 'privacy'
     },
     {
       label: 'Terms',
-      link: '#'
+      link: 'terms'
     },
     {
       label: 'Sitemap',
-      link: '#'
+      link: 'sitemap'
     }
   ]
 

@@ -16,7 +16,7 @@ const DescriptionForm = (props) => {
 
   return (
     <div className='py-8'>
-      <h5 className='pb-8 mb-0'>Room Description</h5>
+      <h5 className='pb-8 mb-0 dark:text-white'>Room Description</h5>
       <div className='flex flex-col gap-5'>
         <FormikControl
           control='input'

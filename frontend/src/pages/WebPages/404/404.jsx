@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import WebLayout from '../../../layout/WebLayout'
 import ErrorImg from '../../../assets/vectors/404img.svg'
 import ErrorImgDark from '../../../assets/vectors/404imgDark.svg'
+
 function NotFound () {
   // Variable to know if the user scrolled the page
   const [isScrolled, setIsScrolled] = useState(false)
@@ -25,8 +26,8 @@ function NotFound () {
             <div className='xl:w-1/2 pr-4 pl-4 aos-init aos-animate' data-aos='fade-left'>
               <div className='animate_content text-center text-xl-start'>
                 <div className='animate_thumb'>
-                  <img alt='error-page-img' loading='lazy' width='591' height='452' decoding='async' data-nimg='1' className='w-full h-full cover dark:hidden' style={{ color: 'transparent' }} src={ErrorImg} />
-                  <img alt='error-page-img' loading='lazy' width='591' height='452' decoding='async' data-nimg='1' className='w-full h-full cover hidden dark:block' style={{ color: 'transparent' }} src={ErrorImgDark} />
+                  <img alt='error-page-img' loading='lazy' width='591' height='452' decoding='async' data-nimg='1' className='w-full h-full cover hidden dark:block' style={{ color: 'transparent' }} src={ErrorImg} />
+                  <img alt='error-page-img' loading='lazy' width='591' height='452' decoding='async' data-nimg='1' className='w-full h-full cover dark:hidden' style={{ color: 'transparent' }} src={ErrorImgDark} />
                 </div>
               </div>
             </div>

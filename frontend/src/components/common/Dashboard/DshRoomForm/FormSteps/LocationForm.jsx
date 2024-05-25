@@ -37,12 +37,12 @@ const LocationForm = (props) => {
 
   return (
     <div className='py-8'>
-      <h5 className='pb-8 mb-0'>Room Location</h5>
+      <h5 className='pb-8 mb-0 dark:text-white'>Room Location</h5>
       <div className='flex flex-col gap-5'>
         <div>
           <label htmlFor='search' className='fw600 ff-heading mb-2 dark:text-white '>Address</label>
           <DebounceInput
-            className='form-control'
+            className='form-control dark:bg-midnight dark:!border-borderColor/20 dark:placeholder:text-borderColor/40 dark:text-white dark:outline-white'
             inputName='search'
             placeholder='Enter your address...'
             value={searchValue}
@@ -51,7 +51,7 @@ const LocationForm = (props) => {
             onFocusOut={() => setTimeout(() => setVisibleList(false), 200)}
           />
           {visibleList && (
-            <ul className='list-results absolute bg-white w-full pr-0 rounded-lg mt-6 max-h-96 overflow-y-scroll z-50'>
+            <ul className='list-results absolute bg-white w-full pr-0 rounded-lg mt-6 max-h-96 overflow-y-scroll z-50 dark:bg-lightmidnight dark:text-white'>
               {citiesLoading
                 ? (
                   <li className='flex items-center gap-3 px-4 py-4 cursor-pointer hover:bg-[#FEF7F6] transition-all'>
@@ -60,16 +60,16 @@ const LocationForm = (props) => {
                       <p className='m-0 leading-none mb-2 text-base'>Loading...</p>
                     </div>
                   </li>
-                  )
+                )
                 : cities.map((city, index) => (
                   <li
-                    className={`flex items-center gap-3 px-4 py-4 cursor-pointer hover:bg-[#FEF7F6] transition-all ${index === cities.length - 1 ? '' : 'bdrb1'}`}
+                    className={`flex items-center gap-3 px-4 py-4 cursor-pointer hover:bg-[#FEF7F6] dark:hover:text-black transition-all ${index === cities.length - 1 ? '' : 'bdrb1'}`}
                     key={city.addressLabel}
                     onClick={() => handleSelectCity(city)}
                   >
                     <span className='icon fa-regular fa-city text-xl' />
                     <div>
-                      <p className='m-0 leading-none mb-2 text-base'>{city.addressLabel || city.street}</p>
+                      <p className='m-0 leading-none mb-2 text-base dark:text-gray-600'>{city.addressLabel || city.street}</p>
                       <p className='m-0 leading-none text-sm text-gray-600'>{city.city}, {city.state}, {city.country}</p>
                     </div>
                   </li>

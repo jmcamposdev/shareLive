@@ -16,7 +16,7 @@ const Table = ({ loading = false, data, setData, columns, onEdit, onDelete, filt
 
   const { DialogElement, handleOpen } = useDeleteDialog({
     onCancel: () => setItemToDelete(null),
-    onSave: onDelete ? () => deleteItem(itemToDelete) : () => {},
+    onSave: onDelete ? () => deleteItem(itemToDelete) : () => { },
     title: `Delete ${toNormalCase(itemName)}`,
     message: `Are you sure you want to delete this ${itemName}? This action cannot be undone.`,
     deleteElementName: itemName
@@ -112,7 +112,7 @@ const Table = ({ loading = false, data, setData, columns, onEdit, onDelete, filt
                   }}
                 >
                   {[10, 20, 30, 40, 50].map(pageSize => (
-                    <option key={pageSize} value={pageSize}>
+                    <option key={pageSize} value={pageSize} className='dark:bg-lightmidnight'>
                       {pageSize}
                     </option>
                   ))}
@@ -126,39 +126,39 @@ const Table = ({ loading = false, data, setData, columns, onEdit, onDelete, filt
             <table role='table' className='table-style3 at-savesearch min-w-[0px] !block'>
               <thead style={{ borderTopLeftRadius: 0, borderTopRightRadius: 0 }} className='t-head fixed 2xl:static w-[100dvw] lg:w-[calc(100dvw-300px)] 2xl:w-full z-40 top-[140px] lg:top-[179px] right-0 block bg-white dark:bg-midnight rounded-b-3xl 2xl:rounded-none overflow-hidden'>
                 {
-            table.getHeaderGroups().map(headerGroup => (
-              <tr className='w-full flex bg-white dark:bg-midnight overflow-hidden' scope='row' key={headerGroup.id}>
-                {
-                  headerGroup.headers.map((header, index) => {
-                    return !header.column.columnDef.hidden
-                      ? (
-                        <th
-                          role='columnheader'
-                          key={header.id}
-                          onClick={header.column.getToggleSortingHandler()}
-                          className={`cursor-pointer pt-9 pl-8 pr-2.5 pb-6 select-none w-1/4 dark:bg-midnight ${index === 0 ? '2xl:w-[40%]' : '2xl:w-[20%]'}`}
-                          colSpan='1'
-                        >
-                          <div className='flex items-center justify-center'>
-                            <span className='dark:text-white'>{header.column.columnDef.header}</span>
-                            {/* Show the sorting icon */}
-                            <div className='ml-2 inline-flex flex-col space-y-[2px]'>
-                              <span className='inline-block'>
-                                <svg className={`fill-current ${header.column.getIsSorted() === 'asc' ? 'fill-white dark:fill-midnight' : 'dark:fill-white fill-midnight'}`} width='10' height='5' viewBox='0 0 10 5' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M5 0L0 5H10L5 0Z' fill='' /></svg>
-                              </span>
-                              <span className='inline-block'>
-                                <svg className={`fill-current ${header.column.getIsSorted() === 'desc' ? 'fill-white dark:fill-midnight' : 'dark:fill-white fill-midnight'}`} width='10' height='5' viewBox='0 0 10 5' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M5 5L10 0L-4.37114e-07 8.74228e-07L5 5Z' fill='' /></svg>
-                              </span>
-                            </div>
-                          </div>
-                        </th>
-                        )
-                      : null
-                  })
+                  table.getHeaderGroups().map(headerGroup => (
+                    <tr className='w-full flex bg-white dark:bg-midnight overflow-hidden' scope='row' key={headerGroup.id}>
+                      {
+                        headerGroup.headers.map((header, index) => {
+                          return !header.column.columnDef.hidden
+                            ? (
+                              <th
+                                role='columnheader'
+                                key={header.id}
+                                onClick={header.column.getToggleSortingHandler()}
+                                className={`cursor-pointer pt-9 pl-8 pr-2.5 pb-6 select-none w-1/4 dark:bg-midnight ${index === 0 ? '2xl:w-[40%]' : '2xl:w-[20%]'}`}
+                                colSpan='1'
+                              >
+                                <div className='flex items-center justify-center'>
+                                  <span className='dark:text-white'>{header.column.columnDef.header}</span>
+                                  {/* Show the sorting icon */}
+                                  <div className='ml-2 inline-flex flex-col space-y-[2px]'>
+                                    <span className='inline-block'>
+                                      <svg className={`fill-current ${header.column.getIsSorted() === 'asc' ? 'fill-white dark:fill-midnight' : 'dark:fill-white fill-midnight'}`} width='10' height='5' viewBox='0 0 10 5' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M5 0L0 5H10L5 0Z' fill='' /></svg>
+                                    </span>
+                                    <span className='inline-block'>
+                                      <svg className={`fill-current ${header.column.getIsSorted() === 'desc' ? 'fill-white dark:fill-midnight' : 'dark:fill-white fill-midnight'}`} width='10' height='5' viewBox='0 0 10 5' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M5 5L10 0L-4.37114e-07 8.74228e-07L5 5Z' fill='' /></svg>
+                                    </span>
+                                  </div>
+                                </div>
+                              </th>
+                              )
+                            : null
+                        })
+                      }
+                    </tr>
+                  ))
                 }
-              </tr>
-            ))
-          }
               </thead>
               <tbody className='t-body flex flex-col gap-10 2xl:gap-0 w-full'>
                 {!showData && (
@@ -172,18 +172,18 @@ const Table = ({ loading = false, data, setData, columns, onEdit, onDelete, filt
                   <tr className='flex flex-col border box-border rounded-xl overflow-hidden 2xl:border-none w-full 2xl:flex-nowrap 2xl:flex-row  !border-[#ddd] dark:!border-borderColor/20' key={row.id}>
 
                     {
-                row.getVisibleCells().map((cell, index) => (
+                      row.getVisibleCells().map((cell, index) => (
 
-                  !cell.column.columnDef.hidden && (
-                    <td
-                      className={`vam dark:bg-midnight bg-white dark:!text-white box-border ${index === 0 || index === row.getVisibleCells().length - 1 ? 'border-none !px-[30px]' : 'justify-center items-center hidden 2xl:flex'} ${index === row.getVisibleCells().length - 1 ? 'flex justify-center items-center' : ''}  ${index === 0 ? '2xl:w-[40%]' : '2xl:w-[20%]'} ${index === 1 ? '!p-0' : ''}`}
-                      key={cell.id}
-                    >
-                      {flexRender(cell.column.columnDef.cell, cell.getContext())}
-                    </td>
-                  )
-                ))
-}
+                        !cell.column.columnDef.hidden && (
+                          <td
+                            className={`vam dark:bg-midnight bg-white dark:!text-white box-border ${index === 0 || index === row.getVisibleCells().length - 1 ? 'border-none !px-[30px]' : 'justify-center items-center hidden 2xl:flex'} ${index === row.getVisibleCells().length - 1 ? 'flex justify-center items-center' : ''}  ${index === 0 ? '2xl:w-[40%]' : '2xl:w-[20%]'} ${index === 1 ? '!p-0' : ''}`}
+                            key={cell.id}
+                          >
+                            {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                          </td>
+                        )
+                      ))
+                    }
                   </tr>
                 ))}
               </tbody>

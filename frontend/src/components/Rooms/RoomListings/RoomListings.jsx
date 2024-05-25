@@ -42,10 +42,10 @@ const RoomListings = ({ rooms, isGridView }) => {
     <>
       {roomsData.length === 0 && !loading && (
         <>
-          <h4 className='text-center mb-9'>No rooms found</h4>
+          <h4 className='text-center mb-9 dark:text-white'>No rooms found</h4>
           <div className='animate_thumb'>
-            <img alt='error-page-img' loading='lazy' width='591' height='452' decoding='async' data-nimg='1' className='h-full cover dark:hidden w-2/3 m-auto' style={{ color: 'transparent' }} src={ErrorImg} />
-            <img alt='error-page-img' loading='lazy' width='591' height='452' decoding='async' data-nimg='1' className='h-full cover hidden dark:block w-2/3 m-auto' style={{ color: 'transparent' }} src={ErrorImgDark} />
+            <img alt='error-page-img' loading='lazy' width='591' height='452' decoding='async' data-nimg='1' className='h-full cover hidden dark:block  w-2/3 m-auto' style={{ color: 'transparent' }} src={ErrorImg} />
+            <img alt='error-page-img' loading='lazy' width='591' height='452' decoding='async' data-nimg='1' className='h-full cover dark:hidden w-2/3 m-auto' style={{ color: 'transparent' }} src={ErrorImgDark} />
           </div>
         </>
       )}

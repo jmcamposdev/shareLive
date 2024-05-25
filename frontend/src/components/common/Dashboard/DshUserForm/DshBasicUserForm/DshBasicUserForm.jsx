@@ -173,7 +173,7 @@ const DshBasicUserForm = ({ userToEdit, onSubmit }) => {
                   label={description.label}
                   placeholder={description.placeholder}
                   rows='10'
-                  className='mb10'
+                  className='mb10 !dark:bg-midnight'
                 />
               </div>
               <div className='w-full md:w-full sm:px-4 px-0'>

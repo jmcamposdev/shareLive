@@ -164,7 +164,37 @@ const UserService = {
       console.error('Error getting favourite rooms:', error.message)
       throw error
     }
+  },
+
+  getContactList: async (id) => {
+    try {
+      const contacts = await api.get(`users/${id}/contacts`)
+      return contacts
+    } catch (error) {
+      console.error('Error getting contacts:', error.message)
+      throw error
+    }
+  },
+
+  addContact: async (userId, contactId) => {
+    try {
+      const contact = await api.post(`users/${userId}/contacts`, { contactId })
+      return contact
+    } catch (error) {
+      console.error('Error adding contact:', error.message)
+      throw error
+    }
+  },
+
+  deleteContact: async (userId, contactId) => {
+    try {
+      await api.delete(`users/${userId}/contacts/${contactId}`)
+    } catch (error) {
+      console.error('Error deleting contact:', error.message)
+      throw error
+    }
   }
+
 }
 
 export default UserService

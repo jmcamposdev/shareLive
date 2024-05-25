@@ -261,8 +261,7 @@ li {
   transition: all 0.4s ease;
 }
 
-.app-widget .widget-container {
-}
+.app-widget .widget-container {}
 
 .app-widget .app-info:hover {
   background-color: #eb6753;
@@ -996,7 +995,7 @@ li {
 }
 
 .inbox_chatting_box {
-  height: auto;
+  height: 100%;
   margin-right: 10px;
   max-height: 575px !important;
   overflow-y: scroll;
@@ -1017,16 +1016,17 @@ li {
 }
 
 .inbox_chatting_box .chatting_content {
-  display: inline-block;
-  padding: 15px 30px 0 30px;
-  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
   width: 100%;
+  padding: 0;
 }
 
 .inbox_chatting_box .chatting_content li {
   display: block;
-  padding: 25px 0 5px;
-  margin-bottom: 0;
+  margin-bottom: 15px;
+  position: relative;
   clear: both;
 }
 
@@ -1037,10 +1037,6 @@ li {
   font-size: 15px;
   padding: 15px 20px;
   max-width: 456px;
-}
-
-.inbox_chatting_box .chatting_content li.reply {
-  margin: -15px 0;
 }
 
 .inbox_chatting_box .chatting_content li.reply p {
@@ -6431,15 +6427,15 @@ textarea {
 }
 
 .dark textarea {
-  border-color: #dddddd26 !important;   
-  background-color: rgb(33, 35, 40) !important;
-  color:#717171
+  border-color: #dddddd26 !important;
+  background-color: rgb(33, 35, 40);
+  color: #717171
 }
 
-.dark textarea:focus{
-  border:transparent;
-  outline:2px solid white;
-  color:white
+.dark textarea:focus {
+  border: transparent;
+  outline: 2px solid white;
+  color: white
 }
 
 textarea:focus {
@@ -7694,10 +7690,10 @@ textarea:focus {
   border: 1px solid var(--headings-color);
 }
 
-.dark .btn-white2{
+.dark .btn-white2 {
   background-color: rgb(24 26 32);
-  color:white;
-  border:1px solid #dddddd26;
+  color: white;
+  border: 1px solid #dddddd26;
 }
 
 .btn-white:hover,
@@ -7718,7 +7714,7 @@ textarea:focus {
 }
 
 .dark .btn-white2:hover {
-  color:black;
+  color: black;
   border: 1px solid white;
 }
 
@@ -7881,10 +7877,11 @@ textarea:focus {
   width: 16px;
 }
 
-input+.checkmark::after{
+input+.checkmark::after {
   opacity: 0;
 }
-input:checked+.checkmark::after{
+
+input:checked+.checkmark::after {
 
   opacity: 1;
 }
@@ -7902,8 +7899,9 @@ input:checked+.checkmark::after{
   -ms-transform: rotate(45deg);
   transform: rotate(45deg);
 }
+
 /*Modified by CARLOS H*/
-.custom_checkbox  #checkbox+.checkmark:after {
+.custom_checkbox #checkbox+.checkmark:after {
   opacity: 0;
   position: absolute;
   left: 5px;
@@ -7916,8 +7914,9 @@ input:checked+.checkmark::after{
   -ms-transform: rotate(45deg);
   transform: rotate(45deg);
 }
+
 /*Modified by CARLOS H*/
-.custom_checkbox  #checkbox:checked+.checkmark:after {
+.custom_checkbox #checkbox:checked+.checkmark:after {
   opacity: 1;
   content: "";
   position: absolute;
@@ -8040,8 +8039,7 @@ input:checked+.checkmark::after{
   line-height: 63px;
 }
 
-.dark .timer span
-{
+.dark .timer span {
   color: white;
 }
 
@@ -10887,7 +10885,7 @@ input:focus-visible {
 
 .dark .selection label {
   background-color: #212328;
-  color:white;
+  color: white;
   border: 2px solid transparent;
   cursor: pointer;
   display: inline-block;
@@ -11868,10 +11866,11 @@ input:focus-visible {
   box-shadow: 0px 6px 15px rgba(64, 79, 104, 0.05);
 }
 
-.log-bg span{
+.log-bg span {
   color: #F1416C !important;
 }
-.log-bg:hover span{
+
+.log-bg:hover span {
   color: #F1416C !important;
 }
 
