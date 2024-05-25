@@ -19,6 +19,7 @@ const userSchema = new Schema({
   lastName: { type: String, default: '' },
   mobilePhone: { type: String, default: '' },
   description: { type: String, default: '' },
+  contactList: { type: [String], default: [] },
   socials: {
     twitter: { type: String, default: '' },
     facebook: { type: String, default: '' },
