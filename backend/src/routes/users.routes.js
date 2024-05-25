@@ -1,5 +1,5 @@
 import { Router } from 'express'
-import { changePassword, createUser, deleteUser, getFavouriteRooms, getUser, getUserRooms, getUsers, toggleFavoriteRoom, updateUser, uploadAvatar } from '../controllers/users.controller.js'
+import { addUserToContactList, changePassword, createUser, deleteUser, deleteUserFromContactList, getFavouriteRooms, getUser, getUserContacts, getUserRooms, getUsers, toggleFavoriteRoom, updateUser, uploadAvatar } from '../controllers/users.controller.js'
 import { verifyToken } from '../middlewares/authJwt.js'
 import { upload } from '../storage/storage.js'
 
@@ -20,6 +20,11 @@ router.post('/users', [verifyToken], createUser) // Create a new user
 router.put('/users/:id/password', [verifyToken], changePassword) // Update user password by id
 router.post('/users/:id/avatar', [verifyToken, upload.array('avatar')], uploadAvatar) // Upload an avatar for a user by id
 router.delete('/users/:id', [verifyToken], deleteUser) // Delete a user by id
+
+// Contact List
+router.get('/users/:id/contacts', [verifyToken], getUserContacts) // Get contacts of a user by id
+router.post('/users/:id/contacts', [verifyToken], addUserToContactList) // Add a contact to a user by id
+router.delete('/users/:id/contacts/:contactId', [verifyToken], deleteUserFromContactList) // Delete a contact from a user by id
 
 // Relation with rooms
 router.get('/users/:id/rooms', getUserRooms) // Get rooms of a user by id

@@ -3,7 +3,7 @@ import WebLayout from '../../../layout/WebLayout'
 import ErrorImg from '../../../assets/vectors/404img.svg'
 import ErrorImgDark from '../../../assets/vectors/404imgDark.svg'
 
-function NotFound() {
+function NotFound () {
   // Variable to know if the user scrolled the page
   const [isScrolled, setIsScrolled] = useState(false)
   useEffect(() => {

@@ -1,8 +1,4 @@
 import { Link } from 'react-router-dom'
-import ContactInfo from '../mobile-menu/ContactInfo'
-import Social from '../mobile-menu/Social'
-import ProSidebarContent from '../mobile-menu/ProSidebarContent'
-import MobileDarkNavIcon from '../../../assets/vectors/mobile-dark-nav-icon.svg'
 import LogoDark from '../../../assets/logos/logo-dark.png'
 import LogoWhite from '../../../assets/logos/logo-white.png'
 import DarkModeSwitcher from '../darkModeSwitcher/DarkModeSwitcher'
@@ -35,7 +31,7 @@ const MobileMenu = () => {
 
               <div className='flex gap-3 justify-center !align-center' style={{ alignItems: 'center' }}>
                 <li className='flex justify-center align-center'>
-                  <Link className='text-center !flex justify-center items-center !mr-2' href='/login'>
+                  <Link className='text-center !flex justify-center items-center !mr-2' to='/dashboard/messages'>
                     <span className='flaticon-email !flex dark:text-white text-2xl' />
                   </Link>
                 </li>

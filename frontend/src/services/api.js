@@ -17,8 +17,17 @@ const api = {
   },
 
   get: async (endpoint) => {
+    const { token } = useAuth()
+
     try {
-      const response = await fetch(`${BASE_URL}/${endpoint}`)
+      const response = await fetch(`${BASE_URL}/${endpoint}`, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+          'Access-Control-Allow-Origin': 'yes',
+          'x-access-token': token
+        }
+      })
       return api.handleResponse(response)
     } catch (error) {
       console.error('Error fetching data:', error)

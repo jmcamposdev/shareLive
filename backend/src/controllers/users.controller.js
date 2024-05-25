@@ -4,6 +4,8 @@ import User from '../models/User.js'
 import dotenv from 'dotenv'
 import { handleDeleteImage, handleUploadImage } from '../storage/cloudinary.js'
 import Activity, { ACTIVITY_TYPES } from '../models/Activity.js'
+import mongoose from 'mongoose'
+import Message from '../models/Message.js'
 dotenv.config()
 
 const getUsers = async (req, res) => {
@@ -256,5 +258,127 @@ const toggleFavoriteRoom = async (req, res) => {
     })
   }
 }
+const getUserContacts = async (req, res) => {
+  const { user } = req
+  try {
+    const contacts = await User.find({ _id: { $in: user.contactList } }).lean() // use .lean() to get plain JavaScript objects
+    const contactListWithLastMessage = await Promise.all(contacts.map(async (contact) => {
+      const lastMessage = await Message.findOne({
+        users: { $all: [user._id, contact._id] }
+      }).sort({ createdAt: -1 })
 
-export { getUsers, getUser, updateUser, deleteUser, getUserRooms, toggleFavoriteRoom, getFavouriteRooms, uploadAvatar, changePassword, createUser }
+      return {
+        ...contact,
+        lastMessage
+      }
+    }))
+
+    res.json(contactListWithLastMessage)
+  } catch (error) {
+    res.status(500).json({
+      message: 'An error occurred while getting user contacts',
+      error
+    })
+  }
+}
+
+const addUserToContactList = async (req, res) => {
+  const { id } = req.params
+  const { contactId } = req.body
+
+  const user = await User.findById(id)
+  if (!user) {
+    return res.status(404).json({
+      message: 'User not found'
+    })
+  }
+
+  if (!contactId) {
+    return res.status(400).json({
+      message: 'The contactId is required'
+    })
+  }
+
+  if (user.contactList.includes(contactId)) {
+    return res.status(400).json({
+      message: 'The user is already in the contact list'
+    })
+  }
+
+  // Validate that the contactId is a valid id
+  const isValidId = mongoose.Types.ObjectId.isValid(contactId)
+  if (!isValidId) {
+    return res.status(400).json({
+      message: 'The contactId is not valid'
+    })
+  }
+
+  // Validate that the contact exists
+  const contact = await User.findById(contactId)
+  if (!contact) {
+    return res.status(404).json({
+      message: 'Contact not found'
+    })
+  }
+
+  try {
+    user.contactList.push(contactId)
+    await user.save()
+    // Add the user to the contact's contact list
+    contact.contactList.push(user._id)
+    await contact.save()
+    res.json(user)
+  } catch (error) {
+    res.status(500).json({
+      message: 'An error occurred while adding a contact',
+      error
+    })
+  }
+}
+
+const deleteUserFromContactList = async (req, res) => {
+  const { user } = req
+  const { contactId } = req.params
+
+  if (!contactId) {
+    return res.status(400).json({
+      message: 'The contactId is required'
+    })
+  }
+
+  try {
+    user.contactList = user.contactList.filter((id) => id !== contactId)
+    await user.save()
+    // Delete all messages between the user and the contact
+    await Message.deleteMany({
+      users: { $all: [user._id, contactId] }
+    })
+    // Delete the user from the contact's contact list
+    const contact = await User.findByIdAndUpdate(contactId, {
+      $pull: { contactList: user._id }
+    })
+    await contact.save()
+    res.json(user)
+  } catch (error) {
+    res.status(500).json({
+      message: 'An error occurred while deleting a contact',
+      error
+    })
+  }
+}
+
+export {
+  getUsers,
+  getUser,
+  createUser,
+  updateUser,
+  deleteUser,
+  getUserRooms,
+  toggleFavoriteRoom,
+  getFavouriteRooms,
+  uploadAvatar,
+  changePassword,
+  getUserContacts,
+  addUserToContactList,
+  deleteUserFromContactList
+}

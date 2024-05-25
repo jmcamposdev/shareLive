@@ -124,8 +124,7 @@ const RoomSingle = () => {
               <div className='column'>
                 <div className='default-box-shadow1 bdrs12 bdr1 p30 mb30-md bgc-white relative dark:bg-midnight dark:border-borderColor/20'>
                   <h4 className='form-title dark:text-white !mb-[32px]'>Schedule a tour</h4>
-                  <ScheduleTour id={1} />
-                  {/* <ContactFormSingle title={'Schedule a tour'} /> */}
+                  <ScheduleTour contactUser={room.user} />
                 </div>
                 {/* End .Schedule a tour */}
 

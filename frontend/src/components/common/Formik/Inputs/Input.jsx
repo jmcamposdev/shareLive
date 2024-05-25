@@ -8,7 +8,7 @@ const Input = (props) => {
 
   return (
     <div className='w-full'>
-      <label htmlFor={name} className='fw600 ff-heading mb-2 dark:text-white '>{label}</label>
+      {label && <label htmlFor={name} className='fw600 ff-heading mb-2 dark:text-white '>{label}</label>}
       <Field
         {...field}
         {...rest}
@@ -19,7 +19,7 @@ const Input = (props) => {
           <TextError>
             <ErrorMessage name={name} />
           </TextError>
-        )
+          )
         : null}
     </div>
   )

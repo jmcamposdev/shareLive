@@ -152,7 +152,7 @@ const Table = ({ loading = false, data, setData, columns, onEdit, onDelete, filt
                                   </div>
                                 </div>
                               </th>
-                            )
+                              )
                             : null
                         })
                       }
@@ -239,7 +239,7 @@ const Table = ({ loading = false, data, setData, columns, onEdit, onDelete, filt
             {/* End Pagination Section */}
             {DialogElement}
           </section>
-        )}
+          )}
 
     </>
 
