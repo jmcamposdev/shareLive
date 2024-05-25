@@ -21,6 +21,11 @@ export default [
         href: '/dashboard/favourites',
         icon: <svg width='16' height='14' viewBox='0 0 16 14' fill='none' xmlns='http://www.w3.org/2000/svg' className='!fill-none'><path className='stroke-dark dark:stroke-white' d='M8.9101 1.51106L7.84998 2.57717L6.78986 1.52004C6.12216 0.938605 5.25866 0.632268 4.37381 0.66292C3.48896 0.693572 2.64872 1.05893 2.02285 1.68518C1.39699 2.31143 1.03214 3.15188 1.00202 4.03675C0.971909 4.92162 1.27877 5.78493 1.86061 6.45229L2.92073 7.5124L5.39135 9.98302L7.84998 12.4596L10.3206 9.98901L12.7912 7.51839L13.8393 6.45229C14.4713 5.79231 14.8197 4.91106 14.8098 3.99735C14.7999 3.08363 14.4325 2.21014 13.7864 1.56401C13.1403 0.917876 12.2668 0.550508 11.3531 0.540611C10.4393 0.530713 9.55809 0.879075 8.89812 1.51106H8.9101Z' stroke-width='0.8' /></svg>,
         text: 'My favorites'
+      },
+      {
+        href: '/dashboard/messages',
+        icon: <svg xmlns='http://www.w3.org/2000/svg' width='22' height='17' viewBox='0 0 22 17' fill='none' stroke='none'><path className='dark:stroke-white' d='M9.00039 8.50005C7.67491 8.50005 6.60039 7.42556 6.60039 6.10012C6.60039 4.77468 7.67491 3.7002 9.00039 3.7002C10.3259 3.7002 11.4004 4.77468 11.4004 6.10012C11.4004 7.42556 10.3259 8.50005 9.00039 8.50005Z' stroke='inherit' fill='none' /><path className='dark:stroke-white' d='M4.22339 14.8998C4.35139 12.5862 5.05939 10.8999 8.99939 10.8999C12.9394 10.8999 13.6474 12.5862 13.7754 14.8998' stroke='inherit' fill='none' strokeLinecap='round' /><path className='dark:stroke-white' d='M13 1.57062C11.7844 0.867363 10.4044 0.49809 9 0.500254C4.5816 0.500254 1 4.08174 1 8.5C1 12.9183 4.5816 16.4998 9 16.4998C13.4184 16.4998 17 12.9183 17 8.5' stroke='inherit' fill='none' strokeLinecap='round' /><path className='dark:stroke-white' d='M18.9967 6.16691L21.3301 8.50024M17.0523 6.94469C15.5489 6.94469 14.3301 5.72591 14.3301 4.22247C14.3301 2.71903 15.5489 1.50024 17.0523 1.50024C18.5557 1.50024 19.7745 2.71903 19.7745 4.22247C19.7745 5.72591 18.5557 6.94469 17.0523 6.94469Z' stroke='inherit' fill='none' strokeLinecap='round' strokeLinejoin='round' /></svg>,
+        text: 'Messages'
       }
     ]
   },
