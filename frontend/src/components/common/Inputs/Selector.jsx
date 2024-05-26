@@ -50,7 +50,7 @@ const Selector = ({
 
   return (
     <div ref={selectorRef} className={`mb-4 ${containerClassName || ''}`}>
-      <label className={`fw600 ff-heading mb-2 dark:text-white ${labelClassName}`}>{label}</label>
+      {label && <label className={`fw600 ff-heading mb-2 dark:text-white ${labelClassName}`}>{label}</label>}
       <div className='dark:!border-gray-100/40 dark:!bg-midnight rounded-lg dark:text-white relative block appearance-none w-full py-1 px-2 mb-1 text-base leading-normal bg-white text-gray-800 border border-gray-200 form-control'>
         <div
           onClick={handleOpenCloseSelector}

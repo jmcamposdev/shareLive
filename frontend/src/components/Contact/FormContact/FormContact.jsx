@@ -14,7 +14,7 @@ const FormContact = () => {
         <div className='container mx-auto sm:px-4 '>
           <div className='flex flex-wrap items-end'>
             <div className='lg:w-2/5 pr-4 pl-4 relative'>
-              <div className='home8-contact-form default-box-shadow1 rounded-[12px] border-[1px] border-solid border-[#DDDDDD] p-[30px] bg-white dark:!bg-midnight dark:!border-[#181A20]'>
+              <div className='home8-contact-form default-box-shadow1 rounded-[12px] border-[1px] border-solid border-[#DDDDDD] p-[30px] bg-white dark:!bg-midnight dark:!border-[#181A20] z-20 relative'>
                 <h4 className='form-title mb-[25px] dark:text-white'>
                   Have questions? Get in touch!
                 </h4>
@@ -92,7 +92,7 @@ const FormContact = () => {
               </div>
             </div>
 
-            <div className='lg:w-2/5 pr-4 pl-4 lg:ml-[16.66666667%] md:mt-[3rem] '>
+            <div className='lg:w-2/5 pr-4 pl-4 lg:ml-[16.66666667%] mt-[3rem] '>
               <h2 className='mb-[30px] capitalize dark:text-white'>
                 We’d love to hear <br className='hidden lg:block' />
                 from you.

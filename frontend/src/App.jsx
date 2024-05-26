@@ -90,7 +90,6 @@ function App () {
           <Route path='dashboard/rooms/edit/:id' element={<DshRoomEditForm />} />
           <Route path='dashboard/profile' element={<DashboardMyProfile />} />
           <Route path='dashboard/messages' element={<DshMessages />} />
-
           <Route path='dashboard/favourites' element={<DashboardFavouriteRooms />} />
         </Route>
         {/* 404 page */}

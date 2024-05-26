@@ -2,7 +2,7 @@ import circulo from '../../../assets/vectors/greyPatternCircle.svg'
 
 const NeedHelpBox = () => {
   return (
-    <section className='our-cta pt-0  dark:bg-lightmidnight'>
+    <section className='our-cta pt-0  dark:bg-lightmidnight overflow-hidden'>
       <div className='cta-banner bgc-f7 mx-auto maxw1600 pt120 pb120 pt60-md pb60-md bdrs12 relative mx20-lg dark:bg-midnight'>
         <div className='img-box-5 !right-[-215px] !top-[-176px]'>
           <img className='img-1 spin-right' src={circulo} alt='' />

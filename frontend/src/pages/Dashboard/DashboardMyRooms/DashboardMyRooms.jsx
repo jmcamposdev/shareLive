@@ -1,20 +1,37 @@
-import DashboardLayout from '../../../layout/DashboardLayout'
+import { useMemo, useState } from 'react'
 import TitleDashboard from '../../../components/common/Dashboard/TitleDashboard/TitleDashboard'
-import useFavoriteRooms from '../../../hooks/useFavoriteRooms'
-import { useAuth } from '../../../context/AuthContext'
-import { useState } from 'react'
 import DshRoomsListing from '../../../components/Dashboard/DshRoomsListing/DshRoomsListing'
+import { Link, useNavigate } from 'react-router-dom'
+import RoomService from '../../../services/roomService'
+import useAlertToast from '../../../hooks/useToast'
 
-const DashboardFavouriteRooms = () => {
-  const { user } = useAuth()
+const DashboardMyRooms = ({ rooms, loading }) => {
+  const { toast } = useAlertToast()
+  const navigate = useNavigate()
+
   const [search, setSearch] = useState('')
-  const { favoriteRooms, loading, deleteFavoriteRoom } = useFavoriteRooms(user)
+  const [excludedRoomsId, setExcludedRoomsId] = useState([])
+  const filteredRooms = useMemo(() => rooms.filter(room => !excludedRoomsId.includes(room._id)), [rooms, excludedRoomsId])
+
+  const onEdit = (roomId) => {
+    navigate(`/dashboard/rooms/edit/${roomId}`)
+  }
+
+  const onDelete = async (roomId) => {
+    try {
+      setExcludedRoomsId([...excludedRoomsId, roomId])
+      toast.showSuccess('Room deleted successfully')
+      await RoomService.deleteRoom(roomId)
+    } catch (error) {
+      toast.showError(error.message)
+    }
+  }
 
   return (
 
-    <DashboardLayout>
+    <>
       <div className='flex justify-between items-center 2xl:mb30 mt-56 2xl:mt-0'>
-        <TitleDashboard title='Your favourite Rooms' subtitle='Search your favourite rooms here.' />
+        <TitleDashboard title='My Rooms' subtitle='Search your rooms here!' />
 
         <div className='flex gap-4 pb40 w-full sm:w-fit'>
           <div className='item1 mb15-sm'>
@@ -33,11 +50,14 @@ const DashboardFavouriteRooms = () => {
               </label>
             </div>
           </div>
+          <Link to='/dashboard/rooms/add' className='ud-btn btn-thm w-fit m-auto sm:translate-y-0 translate-y-[-30px]'>
+            Add New Room <i className='fal fa-arrow-right-long' />
+          </Link>
         </div>
       </div>
-      <DshRoomsListing rooms={favoriteRooms} onDelete={deleteFavoriteRoom} search={search} loading={loading} />
-    </DashboardLayout>
+      <DshRoomsListing rooms={filteredRooms} onDelete={onDelete} onEdit={onEdit} search={search} loading={loading} />
+    </>
   )
 }
 
-export default DashboardFavouriteRooms
+export default DashboardMyRooms
