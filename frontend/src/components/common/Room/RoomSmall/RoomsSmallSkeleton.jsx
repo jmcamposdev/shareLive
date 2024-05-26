@@ -3,7 +3,7 @@ import LoadingSkeleton from '../../Loading/LoadingSkeleton'
 
 const RoomSmall = () => {
   return (
-    <div className='h-fit rounded-xl w-full sm:w-[calc((100%-(12px))/2)] xl:w-[calc((100%-(12px*2))/3)] 2xl:w-[calc((100%-(12px*3))/4)]  bg-white dark:bg-midnight overflow-hidden border border-[#ddddddd] dark:border-borderColor/20'>
+    <div className='h-fit rounded-xl w-full sm:w-[calc((100%-(24px))/2)] xl:w-[calc((100%-(24px*2))/3)] 2xl:w-[calc((100%-(24px*3))/4)]  bg-white dark:bg-midnight overflow-hidden border border-[#ddddddd] dark:border-borderColor/20'>
       <a style={{ aspectRatio: '16/9' }} className='block w-full group overflow-hidden relative'>
         <LoadingSkeleton className='w-20 h-8 absolute z-20 left-5 bottom-5' innerClasses='!rounded-md shadow-sm' />
         <LoadingImg className='w-full h-full !rounded-none' />
