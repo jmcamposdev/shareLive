@@ -3,7 +3,6 @@ import Rooms from '../../../data/roomsItems'
 import TitleDashboard from '../../../components/common/Dashboard/TitleDashboard/TitleDashboard'
 import RoomsContainer from '../../../components/common/Dashboard/RoomsContainer/RoomsContainer'
 import RoomSmall from '../../../components/common/Room/RoomSmall/RoomSmall'
-import Selector from '../../../components/common/Inputs/Selector'
 
 const DashboardFavouriteRooms = () => {
   return (
@@ -11,7 +10,7 @@ const DashboardFavouriteRooms = () => {
       <div className='flex justify-between items-center 2xl:mb30 mt-56 2xl:mt-0'>
         <TitleDashboard title='Your favourite Rooms' subtitle='Search your favourite rooms here.' />
 
-        <div className='flex gap-4'>
+        <div className='flex gap-4 pb40 w-full sm:w-fit'>
           <div className='item1 mb15-sm'>
             <div className='search_area  z-40 w-[100dvw] lg:w-[calc(100dvw-300px)] 2xl:w-fit top-[65px] lg:top-[92px] rounded-b-lg bg-white dark:bg-midnight py-4 px-5 box-border 2xl:bg-transparent 2xl:dark:bg-transparent !right-0 !fixed 2xl:!relative 2xl:!top-0 !rounded-none'>
               <input
@@ -38,12 +37,13 @@ const DashboardFavouriteRooms = () => {
             ? Rooms.map((room) => (
               <RoomSmall key={room._id} room={room} onEdit={1} onDelete={1} />
             ))
-            : <>
-              <div className='min-h-[40dvh] w-full flex items-center justify-center'>
-                <h3 className='black:text-white'>No rooms favourited yet...</h3>
-              </div>
+            : (
+              <>
+                <div className='min-h-[40dvh] w-full flex items-center justify-center'>
+                  <h3 className='black:text-white'>No rooms favourited yet...</h3>
+                </div>
               </>
-
+              )
         }
 
         {/*
