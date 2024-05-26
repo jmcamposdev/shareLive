@@ -1,38 +1,14 @@
 import DashboardLayout from '../../../layout/DashboardLayout'
 import TitleDashboard from '../../../components/common/Dashboard/TitleDashboard/TitleDashboard'
-import RoomsContainer from '../../../components/common/Dashboard/RoomsContainer/RoomsContainer'
-import RoomSmallSkeleton from '../../../components/common/Room/RoomSmall/RoomsSmallSkeleton'
 import useFavoriteRooms from '../../../hooks/useFavoriteRooms'
 import { useAuth } from '../../../context/AuthContext'
-import { PaginationProvider } from '../../../context/PaginationContext'
-import Pagination from '../../../components/common/pagination/Pagintacion'
-import DshFavoriteRoomsPagination from './DshFavoriteRoomsPagination'
-import Selector from '../../../components/common/Inputs/Selector'
-import { useMemo, useState } from 'react'
-
-const ENTRIES_PER_PAGES = [
-  { value: 8, label: 1 },
-  { value: 16, label: 16 },
-  { value: 24, label: 24 },
-  { value: 32, label: 32 },
-  { value: 40, label: 40 }
-]
+import { useState } from 'react'
+import DshRoomsListing from '../../../components/Dashboard/DshRoomsListing/DshRoomsListing'
 
 const DashboardFavouriteRooms = () => {
   const { user } = useAuth()
   const [search, setSearch] = useState('')
-  const [entriesPerPage, setEntriesPerPage] = useState(ENTRIES_PER_PAGES[0])
   const { favoriteRooms, loading, deleteFavoriteRoom } = useFavoriteRooms(user)
-  const filteredFavoriteRooms = useMemo(() =>
-    favoriteRooms.filter(room =>
-      room.title.toLowerCase().includes(search) ||
-        room.excerpt?.toLowerCase().includes(search) ||
-        room.description?.toLowerCase().includes(search) ||
-        room.city.toLowerCase().includes(search) ||
-        room.state.toLowerCase().includes(search) ||
-        room.country.toLowerCase().includes(search)
-    ), [favoriteRooms, search])
-  const loadingFavoriteRooms = Array.from({ length: entriesPerPage.value }, (_, index) => <RoomSmallSkeleton key={index} />)
 
   return (
 
@@ -59,46 +35,7 @@ const DashboardFavouriteRooms = () => {
           </div>
         </div>
       </div>
-      {/* Start of Search and Entries per page */}
-      <div className=''>
-        <div className='flex items-center font-medium !mb-7 w-'>
-          <Selector
-            id='entriesPerPage'
-            inputName='entriesPerPage'
-            inputType='select'
-            labelClassName='dark:text-white'
-            containerClassName='w-40 dark:bg-midnight !mb-0'
-            options={ENTRIES_PER_PAGES}
-            optionName='label'
-            optionValue='value'
-            value={entriesPerPage.value}
-            onChange={(option) => setEntriesPerPage(option)}
-          />
-          <span className='pl-2 dark:!text-white duration-300 ease-linear mb-0'>Entries Per Page</span>
-        </div>
-      </div>
-      {/* End of Search and Entries per page */}
-      <RoomsContainer>
-        {loading && loadingFavoriteRooms}
-        {favoriteRooms.length === 0 && !loading
-          ? (
-            <div className='min-h-[40dvh] w-full flex items-center justify-center'>
-              <h3 className='black:text-white'>No rooms favourited yet...</h3>
-            </div>
-            )
-          : (
-            <PaginationProvider
-              presetData={filteredFavoriteRooms}
-              defaultItemsPerPage={entriesPerPage.value}
-              elementType='rooms'
-            >
-              <DshFavoriteRoomsPagination onDelete={deleteFavoriteRoom} />
-              <div className='w-full mt-7'>
-                <Pagination />
-              </div>
-            </PaginationProvider>
-            )}
-      </RoomsContainer>
+      <DshRoomsListing rooms={favoriteRooms} onDelete={deleteFavoriteRoom} search={search} loading={loading} />
     </DashboardLayout>
   )
 }

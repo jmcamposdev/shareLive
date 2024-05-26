@@ -1,7 +1,7 @@
 import LoadingImg from '../../Loading/LoadingImg'
 import LoadingSkeleton from '../../Loading/LoadingSkeleton'
 
-const RoomSmall = () => {
+const RoomSmallSkeleton = () => {
   return (
     <div className='h-fit rounded-xl w-full sm:w-[calc((100%-(24px))/2)] xl:w-[calc((100%-(24px*2))/3)] 2xl:w-[calc((100%-(24px*3))/4)]  bg-white dark:bg-midnight overflow-hidden border border-[#ddddddd] dark:border-borderColor/20'>
       <span style={{ aspectRatio: '16/9' }} className='block w-full group overflow-hidden relative'>
@@ -28,4 +28,4 @@ const RoomSmall = () => {
   )
 }
 
-export default RoomSmall
+export default RoomSmallSkeleton

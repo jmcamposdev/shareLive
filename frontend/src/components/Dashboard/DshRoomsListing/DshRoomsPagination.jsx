@@ -1,9 +1,9 @@
 import PropTypes from 'prop-types'
 import { useContext } from 'react'
 import { PaginationContext } from '../../../context/PaginationContext'
-import RoomSmall from '../../../components/common/Room/RoomSmall/RoomSmall'
+import RoomSmall from '../../common/Room/RoomSmall/RoomSmall'
 
-const DshFavoriteRoomsPagination = ({ onDelete }) => {
+const DshRoomsPagination = ({ onDelete, onEdit }) => {
   const { pageData } = useContext(PaginationContext)
 
   return (
@@ -13,14 +13,16 @@ const DshFavoriteRoomsPagination = ({ onDelete }) => {
           key={room._id}
           room={room}
           onDelete={onDelete}
+          onEdit={onEdit}
         />
       ))}
     </>
   )
 }
 
-DshFavoriteRoomsPagination.propTypes = {
-  onDelete: PropTypes.func.isRequired
+DshRoomsPagination.propTypes = {
+  onDelete: PropTypes.func,
+  onEdit: PropTypes.func
 }
 
-export default DshFavoriteRoomsPagination
+export default DshRoomsPagination
