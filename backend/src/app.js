@@ -35,13 +35,31 @@ const io = new Server(server, {
 // Socket.io
 socketMessages(io)
 
+// ------------------------------------------
 // Middlewares
+// ------------------------------------------
+
+// Cargar variables de entorno según el entorno
+const envFile = process.env.NODE_ENV === 'production' ? '.env.production' : '.env.development'
+dotenv.config({ path: envFile })
+
+// Configuración de Express
 app.use(express.json()) // Parse JSON bodies (as sent by API clients)
-app.use(cors()) // Enable CORS for all routes
+
+// Configuración de CORS
+const allowedOrigins = process.env.ALLOWED_ORIGINS.split(',')
+app.use(cors({
+  origin: (origin, callback) => {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true)
+    } else {
+      callback(new Error('Not allowed by CORS'))
+    }
+  }
+}))
+
 app.use(handleJsonSyntaxError) // Verify JSON
 app.use(morgan('dev')) // Log requests to the console
-dotenv.config() // Enable Environment Variables
-
 // Connect to MongoDB
 connectDB()
 
