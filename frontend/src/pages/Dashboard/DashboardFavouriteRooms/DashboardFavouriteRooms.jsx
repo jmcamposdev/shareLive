@@ -1,12 +1,16 @@
 import DashboardLayout from '../../../layout/DashboardLayout'
-import Rooms from '../../../data/roomsItems'
 import TitleDashboard from '../../../components/common/Dashboard/TitleDashboard/TitleDashboard'
 import RoomsContainer from '../../../components/common/Dashboard/RoomsContainer/RoomsContainer'
 import RoomSmall from '../../../components/common/Room/RoomSmall/RoomSmall'
 import RoomSmallSkeleton from '../../../components/common/Room/RoomSmall/RoomsSmallSkeleton'
+import useFavoriteRooms from '../../../hooks/useFavoriteRooms'
+import { useAuth } from '../../../context/AuthContext'
 
-const DashboardFavouriteRooms = (loading) => {
-  const skeletonItems = Array.from({ length: 8 }, (_, index) => <RoomSmallSkeleton key={index} />)
+const DashboardFavouriteRooms = () => {
+  const { user } = useAuth()
+  const { favoriteRooms, loading, deleteFavoriteRoom } = useFavoriteRooms(user)
+
+  const loadingFavoriteRooms = Array.from({ length: 8 }, (_, index) => <RoomSmallSkeleton key={index} />)
   return (
 
     <DashboardLayout>
@@ -30,20 +34,18 @@ const DashboardFavouriteRooms = (loading) => {
 
       </div>
       <RoomsContainer>
-        {
-          loading
-            ? (skeletonItems)
-            : Rooms.length > 0
-              ? Rooms.map((room) => (
-                <RoomSmall key={room._id} room={room} onEdit={1} onDelete={1} />
+        {loading && loadingFavoriteRooms}
+        {favoriteRooms.length === 0 && !loading
+          ? (
+            <div className='min-h-[40dvh] w-full flex items-center justify-center'>
+              <h3 className='black:text-white'>No rooms favourited yet...</h3>
+            </div>
+            )
+          : (
+              favoriteRooms.map((room) => (
+                <RoomSmall key={room._id} room={room} onDelete={deleteFavoriteRoom} />
               ))
-              : (
-                <div className='min-h-[40dvh] w-full flex items-center justify-center'>
-                  <h3 className='black:text-white'>No rooms favourited yet...</h3>
-                </div>
-                )
-
-        }
+            )}
       </RoomsContainer>
     </DashboardLayout>
   )
