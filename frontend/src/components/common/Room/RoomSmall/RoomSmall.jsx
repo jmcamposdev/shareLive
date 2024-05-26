@@ -7,7 +7,7 @@ const RoomSmall = ({ room, onDelete, onEdit }) => {
       <div style={{ aspectRatio: '16/9' }} className='block w-full group overflow-hidden relative'>
         <div className='z-20  flex items-center justify-center gap-[5px] h-fit absolute w-fit right-2.5 top-2.5'>
           {onDelete && <button onClick={() => onDelete(room._id)} className='fa-trash-can fa-light w-10 h-10 lg:w-8 lg:h-8 block  rounded-lg text-base lg:text-sm text-dark dark:text-white bg-white/80 dark:bg-midnight/80 group-hover:scale-105  hover:text-red-500 dark:hover:text-red-500' />}
-          {onEdit && <button className='fa-pen fa-light w-10 h-10 lg:w-8 lg:h-8 block group-hover:scale-105 dark:text-white bg-white/80 dark:bg-midnight/80 rounded-lg text-base lg:text-sm hover:text-orangePrimary dark:hover:text-orangePrimary' />}
+          {onEdit && <button onClick={() => onEdit(room._id)} className='fa-pen fa-light w-10 h-10 lg:w-8 lg:h-8 block group-hover:scale-105 dark:text-white bg-white/80 dark:bg-midnight/80 rounded-lg text-base lg:text-sm hover:text-orangePrimary dark:hover:text-orangePrimary' />}
         </div>
         <div className='bg-white/80 absolute px-3 py-[3px] z-20 font-medium text-[15px] rounded-md bg-white/80 dark:bg-midnight/80 dark:text-white left-5 bottom-5'>{room.price}€ <span className='font-light'>/</span> mo</div>
         <ImgFallbackRoom style={{ transition: 'all 400ms ease' }} src={room.images[0]} alt={room.title} className='w-full h-full group-hover:scale-[1.20] group-hover:rotate-6' />

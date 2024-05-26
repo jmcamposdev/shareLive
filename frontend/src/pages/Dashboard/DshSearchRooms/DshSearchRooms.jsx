@@ -3,6 +3,7 @@ import SearchRoomsTable from '../../../components/Dashboard/SearchRooms/SearchRo
 import useRooms from '../../../hooks/useRooms'
 import { isAdministrator } from '../../../utils/user.utils'
 import { useAuth } from '../../../context/AuthContext'
+import DashboardMyRooms from '../DashboardMyRooms/DashboardMyRooms'
 
 const DshSearchRooms = () => {
   const { user } = useAuth()
@@ -10,13 +11,19 @@ const DshSearchRooms = () => {
   const { rooms, setRooms, loading } = useRooms(isAdmin ? null : user._id)
   return (
     <DashboardLayout>
-      <SearchRoomsTable
-        rooms={rooms}
-        setRooms={setRooms}
-        loading={loading}
-        title={isAdmin ? 'Search Rooms' : 'My Rooms'}
-        subTitle={isAdmin ? 'Search all for rooms here!' : 'Search your rooms here!'}
-      />
+      {isAdmin
+        ? (
+          <SearchRoomsTable
+            rooms={rooms}
+            setRooms={setRooms}
+            loading={loading}
+            title={isAdmin ? 'Search Rooms' : 'My Rooms'}
+            subTitle={isAdmin ? 'Search all for rooms here!' : 'Search your rooms here!'}
+          />
+          )
+        : (
+          <DashboardMyRooms rooms={rooms} loading={loading} />
+          )}
     </DashboardLayout>
   )
 }
