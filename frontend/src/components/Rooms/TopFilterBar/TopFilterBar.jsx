@@ -46,7 +46,7 @@ const TopFilterBar = () => {
               value={orderOptions.find((order) => order.value === orderByValue)}
               inputName='order'
               inputType='select'
-              containerClassName='w-40'
+              containerClassName='w-40 !mb-0'
               optionValue='value'
               optionName='label'
               onChange={({ value }) => orderBy(value)}

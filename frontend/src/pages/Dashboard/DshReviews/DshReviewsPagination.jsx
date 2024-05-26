@@ -29,7 +29,6 @@ const DshReviewsPagination = ({ loading, onUpdateReview, onDeleteReview }) => {
         : (
             pageData.map(review => <Review key={review._id} review={review} onUpdate={onUpdateReview} onDelete={onDeleteReview} />)
           )}
-      <Review loading />
     </div>
   )
 }

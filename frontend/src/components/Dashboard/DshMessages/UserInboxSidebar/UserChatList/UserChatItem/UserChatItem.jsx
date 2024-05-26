@@ -33,15 +33,13 @@ const UserChatItem = ({ user, loading }) => {
                     {user.name}
                   </div>
                   <span className='preview dark:text-white'>
-                    {
-                    user.lastMessage?.message
+                    {user.lastMessage?.message
                       ? (
                           user.lastMessage.message.length > 30
                             ? `${user.lastMessage.message.substring(0, 30)}...`
                             : user.lastMessage.message
                         )
-                      : 'No messages'
-})
+                      : 'No messages'}
                   </span>
                 </div>
               </div>

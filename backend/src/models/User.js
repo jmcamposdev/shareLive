@@ -39,6 +39,16 @@ const userSchema = new Schema({
 })
 
 /**
+ * Middleware to remove the password from the user object when it is returned
+ * @returns {Object} User without password
+ */
+userSchema.methods.toJSON = function () {
+  const user = this.toObject()
+  delete user.password
+  return user
+}
+
+/**
  * Trigger to update the ownerName and ownerAvatar in the reviews when the user is updated
  */
 userSchema.post('findOneAndUpdate', async function (doc) {

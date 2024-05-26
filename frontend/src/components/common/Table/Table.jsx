@@ -10,6 +10,7 @@ import { useEffect, useState } from 'react'
 import TableSkeleton from './TableSkeleton'
 import { useDeleteDialog } from '../../../hooks/useDeleteDialog'
 import { toNormalCase } from '../../../utils/formatString'
+import Selector from '../Inputs/Selector'
 
 const Table = ({ loading = false, data, setData, columns, onEdit, onDelete, filterValue, onFilter, itemName = 'item' }) => {
   const [itemToDelete, setItemToDelete] = useState(null)
@@ -103,20 +104,19 @@ const Table = ({ loading = false, data, setData, columns, onEdit, onDelete, filt
           <section className='pt-0 packages_table table-responsive 2xl:bg-white 2xl:dark:bg-midnight 2xl:p-5 rounded-xl'>
             {/* Start of Search and Entries per page */}
             <div className=''>
-              <div className='flex items-center font-medium !mb-7'>
-                <select
-                  className='bg-transparent pl-2 dark:text-white'
+              <div className='flex items-center font-medium !mb-7 w-'>
+                <Selector
+                  id='entriesPerPage'
+                  inputName='entriesPerPage'
+                  inputType='select'
+                  labelClassName='dark:text-white'
+                  containerClassName='w-40 dark:bg-midnight !mb-0'
+                  options={[{ value: 10, label: 10 }, { value: 20, label: 20 }, { value: 30, label: 30 }, { value: 40, label: 40 }, { value: 50, label: 50 }]}
+                  optionName='label'
+                  optionValue='value'
                   value={table.getState().pagination.pageSize}
-                  onChange={e => {
-                    table.setPageSize(Number(e.target.value))
-                  }}
-                >
-                  {[10, 20, 30, 40, 50].map(pageSize => (
-                    <option key={pageSize} value={pageSize} className='dark:bg-lightmidnight'>
-                      {pageSize}
-                    </option>
-                  ))}
-                </select>
+                  onChange={(option) => table.setPageSize(option.value)}
+                />
                 <span className='pl-2 dark:!text-white duration-300 ease-linear mb-0'>Entries Per Page</span>
               </div>
             </div>

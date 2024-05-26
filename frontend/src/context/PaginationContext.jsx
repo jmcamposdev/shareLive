@@ -11,21 +11,20 @@ export const PaginationProvider = ({ presetData = [], defaultItemsPerPage = 5, e
   // State variables
   const [data, setData] = useState(presetData)
   const [pageData, setPageData] = useState([])
-  const [itemsPerPage, setItemsPerPage] = useState(defaultItemsPerPage)
+  const itemsPerPage = useMemo(() => defaultItemsPerPage, [defaultItemsPerPage])
   const [currentPage, setCurrentPage] = useState(1)
   // Context value
   const contextValue = useMemo(() => ({
     data,
     setData,
     itemsPerPage,
-    setItemsPerPage,
     currentPage,
     setCurrentPage,
     totalPages: Math.ceil(data.length / itemsPerPage),
     pageData,
     elementIdToScroll,
     elementType
-  }), [data, setData, itemsPerPage, setItemsPerPage, currentPage, setCurrentPage, pageData])
+  }), [data, setData, itemsPerPage, currentPage, setCurrentPage, pageData])
 
   useEffect(() => {
     contextValue.totalPages = Math.ceil(data.length / itemsPerPage)

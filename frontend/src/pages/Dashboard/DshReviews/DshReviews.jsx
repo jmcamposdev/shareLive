@@ -49,7 +49,7 @@ const DshReviews = () => {
     <DashboardLayout>
       <TitleDashboard title='Reviews' subtitle='Here you can see all the reviews' />
       <BoxDashboard>
-        <div className='flex justify-between items-center mb30'>
+        <div className='flex justify-between items-center mb30 w-'>
           <UserReviewsStats reviews={orderReviews} iconClassName='fz12 pe-2 !text-black' loading={loading} />
           <Selector
             id='sort-by'
@@ -57,6 +57,7 @@ const DshReviews = () => {
             inputType='select'
             label=''
             labelClassName='min-w-[200px]'
+            containerClassName='w-52 dark:bg-midnight !mb-0'
             options={[
               { value: USER_REVIEWS_ORDER.NEWEST, label: USER_REVIEWS_ORDER_LABEL.NEWEST },
               { value: USER_REVIEWS_ORDER.OLDEST, label: USER_REVIEWS_ORDER_LABEL.OLDEST },
