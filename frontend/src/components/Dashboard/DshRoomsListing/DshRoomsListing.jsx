@@ -6,6 +6,7 @@ import { useMemo, useState } from 'react'
 import Selector from '../../common/Inputs/Selector'
 import RoomSmallSkeleton from '../../common/Room/RoomSmall/RoomsSmallSkeleton'
 import DshRoomsPagination from './DshRoomsPagination'
+import BoxDashboard from '../../common/Dashboard/BoxDashboard/BoxDashboard'
 
 const ENTRIES_PER_PAGES = [
   { value: 8, label: 8 },
@@ -30,7 +31,7 @@ const DshRoomsListing = ({ rooms, onDelete, onEdit, search, loading = false }) =
     ), [rooms, search])
 
   return (
-    <>
+    <BoxDashboard>
       {/* Start of Search and Entries per page */}
       <div className=''>
         <div className='flex items-center font-medium !mb-7 w-'>
@@ -72,7 +73,7 @@ const DshRoomsListing = ({ rooms, onDelete, onEdit, search, loading = false }) =
             </PaginationProvider>
             )}
       </RoomsContainer>
-    </>
+    </BoxDashboard>
   )
 }
 
