@@ -27,9 +27,7 @@ const RoomSmall = ({ room, onDelete, onEdit }) => {
             <span><span className='flaticon-expand mr-1.5' /> {room.squareMeters}</span> sqft
           </p>
         </div>
-
       </div>
-
     </div>
   )
 }

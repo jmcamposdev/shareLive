@@ -30,11 +30,6 @@ const DashboardFavouriteRooms = (loading) => {
 
       </div>
       <RoomsContainer>
-        {/*
-        Dejo aquí el selector para seleccionar los items por página de la
-        paginación como con la tabla, lo he dejado importado
-          <Selector />
-        */}
         {
           loading
             ? (skeletonItems)
@@ -49,16 +44,7 @@ const DashboardFavouriteRooms = (loading) => {
                 )
 
         }
-
-        {/*
-            Aquí puede ir la paginación, si quieres que se vea bien tienes que
-            Envolverla en un div que tenga de ancho 100% para que haga wrap y le puedes
-            poner a ese div un margin top si quieres separarlo mas
-        */}
-
       </RoomsContainer>
-
-      {/* Si pones la paginación aquí no seria necesario lo del div */}
     </DashboardLayout>
   )
 }
