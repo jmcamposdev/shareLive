@@ -2,7 +2,7 @@ import LoadingSkeleton from '../Loading/LoadingSkeleton'
 import RowSkeleton from './RowSkeleton'
 
 const RoomSimpleSkeleton = () => {
-  const rowSkeleton = Array.from({ length: 20 }, (_, index) => <RowSkeleton key={index} />)
+  const rowSkeleton = Array.from({ length: 10 }, (_, index) => <RowSkeleton key={index} />)
   return (
     <section className='pt-0 packages_table table-responsive 2xl:bg-white 2xl:dark:bg-midnight 2xl:p-5 rounded-xl'>
       {/* Start of Search and Entries per page */}
