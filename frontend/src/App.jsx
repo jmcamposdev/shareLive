@@ -1,4 +1,4 @@
-import { Route, Routes } from 'react-router-dom'
+import { Route, Routes, useLocation } from 'react-router-dom'
 import Home from './pages/WebPages/Home/Home'
 import AboutUs from './pages/WebPages/AboutUs/AboutUs'
 import Contact from './pages/WebPages/Contact/Contact'
@@ -35,6 +35,11 @@ import DashboardFavouriteRooms from './pages/Dashboard/DashboardFavouriteRooms/D
 
 function App () {
   const [isDarkMode, setIsDarkMode] = useState(false)
+  const { pathname } = useLocation()
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [pathname])
 
   // Add event listener de body class change to know if the dark mode is activated
   useEffect(() => {
