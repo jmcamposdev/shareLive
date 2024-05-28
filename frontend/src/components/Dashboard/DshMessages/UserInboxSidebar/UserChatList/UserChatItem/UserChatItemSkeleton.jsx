@@ -8,7 +8,10 @@ const UserChatItemSkeleton = () => {
     >
       <div className='flex items-center relative'>
         <div className='w-[50px] h-[50px] mr10'>
-          <LoadingImg className='w-full h-full !rounded-full' />
+          <LoadingImg
+            className='w-full h-full !rounded-full'
+            svgClassName='scale-75'
+          />
         </div>
         <div className='flex flex-1 justify-between'>
           <div className='d-inline-block'>
