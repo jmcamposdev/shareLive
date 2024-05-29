@@ -40,7 +40,7 @@ const WhyChoose = () => {
               src={OrangeCircleImg}
               alt='Orange Circle'
             />
-            <Link href='/single-v1/5' className='group '>
+            <Link className='group '>
               <div style={{ left: '40%', right: 'unset' }} className='iconbox-style5 flex items-center shadow-lg dark:bg-midnight hover:!bg-orangePrimaryLightHover'>
                 <span style={{ transition: 'all 0.4s ease' }} className='bg-orangePrimary bg-opacity-10 w-[70px] h-[70px] rounded-full group-hover:bg-white group-hover:bg-opacity-10 flex items-center justify-center'>
                   <svg width='27' height='31' viewBox='0 0 27 31' fill='none' xmlns='http://www.w3.org/2000/svg'>
