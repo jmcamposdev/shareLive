@@ -32,7 +32,6 @@ export const basicUserInitialValues = (userToEdit) => {
 
   if (!isSameUser) {
     const { roles } = userToEdit
-    console.log(roles)
     const isUserAdmin = roles.some((role) => role.name === ROLES.SUPER_ADMIN || role.name === ROLES.ADMIN)
     initialValues[isAdministrator.name] = isUserAdmin
   }
