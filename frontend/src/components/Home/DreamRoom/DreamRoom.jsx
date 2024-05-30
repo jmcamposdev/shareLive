@@ -32,11 +32,11 @@ const DreamRoom = () => {
                   alt='about'
                 />
               </div>
-              <a href='/'>
+              <p>
                 <div className='!left-auto !bottom-auto iconbox-style5 flex items-center shadow-lg right-[13%] top-[35%] dark:bg-midnight/90 group hover:dark:bg-orangePrimary'>
                   <span className='icon flaticon-home flex-shrink-0 dark:hover:bg-orangePrimaryLightHover' />
                 </div>
-              </a>
+              </p>
               <img
                 className='absolute top-[10%] right-3 z-[-1]'
                 src={VerticalMeshImage}
@@ -46,7 +46,7 @@ const DreamRoom = () => {
                 <div className='listing-style1 mini-style bounce-y dark:bg-midnight/90'>
                   <div className='list-content'>
                     <h6 className='list-title'>
-                      <Link href='/single-v1/1' className='dark:text-white'>Rego Park Room</Link>
+                      <a className='dark:text-white'>Rego Park Room</a>
                     </h6>
                     <h6 className='list-title dark:text-white'>
                       $250 / month
@@ -56,20 +56,20 @@ const DreamRoom = () => {
                       Málaga, Spain
                     </p>
                     <div className='list-meta d-flex align-items-center dark:text-white'>
-                      <a href='#' className='group'>
+                      <Link className='group'>
                         <span className='flaticon-bed dark:text-white group-hover:dark:text-orangePrimary' />
                         <div className='dark:text-white inline group-hover:dark:text-orangePrimary'>3 beds</div>
-                      </a>
-                      <a href='#' className='dark:text-white group'>
+                      </Link>
+                      <Link className='dark:text-white group'>
                         <span className='flaticon-shower dark:text-white group-hover:dark:text-orangePrimary' />
                         <div className='dark:text-white inline group-hover:dark:text-orangePrimary'>2 baths</div>
-                      </a>
-                      <a href='#' className='group'>
+                      </Link>
+                      <Link className='group'>
                         <span className='flaticon-expand dark:text-white group-hover:dark:text-orangePrimary' />
                         <div className='dark:text-white inline group-hover:dark:text-orangePrimary'>30 sqft</div>
-                      </a>
+                      </Link>
                     </div>
-                    <Link href='/single-v1/1' className='btn mt15 fz15 dark:!text-white'>
+                    <Link className='btn mt15 fz15 dark:!text-white'>
                       View Room
                       <i className='fal fa-arrow-right-long dark:text-white' />
                     </Link>

@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const MenuWidget = () => {
   const menuSections = [
@@ -43,7 +44,7 @@ const MenuWidget = () => {
             <ul className='ps-0'>
               {section.links.map((link, linkIndex) => (
                 <li key={linkIndex}>
-                  <a href={link.href}>{link.label}</a>
+                  <Link to={link.href}>{link.label}</Link>
                 </li>
               ))}
             </ul>

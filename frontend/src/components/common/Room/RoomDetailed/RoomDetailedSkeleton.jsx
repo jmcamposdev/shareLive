@@ -13,7 +13,7 @@ const RoomDetailedSkeleton = () => {
         </div>
         <div className='list-content flex flex-col'>
           <h6 className='list-title'>
-            <Link href='/sigle-v2' className='hover:!text-orangePrimary'><LoadingSkeleton className='w-52 h-6' /></Link>
+            <Link className='hover:!text-orangePrimary'><LoadingSkeleton className='w-52 h-6' /></Link>
           </h6>
           <div className='list-text flex items-center mt-2'>
             <LoadingSkeleton className='w-44 h-4' />

@@ -2,6 +2,7 @@ import funFactCardsData from '../../../data/home/funFacts.jsx'
 import topImage from '../../../assets/img/home/funFact/funfact-1.png'
 import bottomImage from '../../../assets/img/home/funFact/funfact-2.png'
 import FunFactCards from './FunFactCards'
+import { Link } from 'react-router-dom'
 
 const FunFact = () => {
   return (
@@ -31,9 +32,9 @@ const FunFact = () => {
               <p className='cta-text fz15 mb25 dark:text-slate-800'>
                 Established with a commitment to excellence, our venture boasts over two  decades of unwavering dedication in delivering superior student  accommodation solutions.
               </p>
-              <a href='/contact' className='ud-btn bg-gray-900 text-white hover:bg-gray-900 rounded-2xl'>
+              <Link to='/contact' className='ud-btn bg-gray-900 text-white hover:bg-gray-900 rounded-2xl'>
                 See More <i className='fal fa-arrow-right-long' />
-              </a>
+              </Link>
             </div>
           </div>
           <div

@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import circulo from '../../../assets/vectors/greyPatternCircle.svg'
 
 const NeedHelpBox = () => {
@@ -20,8 +21,8 @@ const NeedHelpBox = () => {
             </div>
             <div className='lg:w-2/5 pr-4 pl-4 xl:w-1/2 wow fadeInRight w-full' data-wow-delay='300ms' style={{ visibility: 'visible', animationDelay: '300ms', animationName: 'fadeInRight' }}>
               <div className='cta-btns-style1 block sm:flex items-center lg:justify-end'>
-                <a href='page-contact.html' className='ud-btn btn-transparent mr30 mr0-xs clear-start dark:border-white dark:hover:border-[#eb6753] dark:text-white'>Contact Us<i className='fal fa-arrow-right-long' /></a>
-                <a href='page-contact.html' className='ud-btn bg-gray-900 text-white hover:bg-gray-900 dark:bg-transparent dark:border-white dark:border-[1px] dark:hover:border-[#eb6753]'><span className='flaticon-call vam pe-2 relative top-[2px]' />920 851 9087</a>
+                <Link to='tel:9208519087' className='ud-btn btn-transparent mr30 mr0-xs clear-start dark:border-white dark:hover:border-[#eb6753] dark:text-white'>Contact Us<i className='fal fa-arrow-right-long' /></Link>
+                <Link to='tel:9208519087' className='ud-btn bg-gray-900 text-white hover:bg-gray-900 dark:bg-transparent dark:border-white dark:border-[1px] dark:hover:border-[#eb6753]'><span className='flaticon-call vam pe-2 relative top-[2px]' />920 851 9087</Link>
               </div>
             </div>
           </div>

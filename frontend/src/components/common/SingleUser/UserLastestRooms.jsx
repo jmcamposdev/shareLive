@@ -44,15 +44,17 @@ const UserLatestRooms = ({ userName, rooms, numToDisplay }) => {
                   </div>
                 </div>
               </div>
-              <div className='d-grid pb30 bdrb1 dark:border-borderColor/20'>
-                <a
-                  className='ud-btn btn-white2'
-                  onClick={handleToggleExpand}
-                >
-                  {isExpanded ? 'Show less' : 'Show all'} rooms
-                  <i className='fal fa-arrow-right-long' />
-                </a>
-              </div>
+              {rooms.length > numToDisplay && (
+                <div className='d-grid pb30 bdrb1 dark:border-borderColor/20'>
+                  <a
+                    className='ud-btn btn-white2 cursor-pointer'
+                    onClick={handleToggleExpand}
+                  >
+                    {isExpanded ? 'Show less' : 'Show all'} rooms
+                    <i className='fal fa-arrow-right-long' />
+                  </a>
+                </div>
+              )}
             </div>
           </div>
         </>

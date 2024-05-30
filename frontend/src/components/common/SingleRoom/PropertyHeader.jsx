@@ -2,6 +2,7 @@ import React from 'react'
 import { useRoomSingle } from '../../../context/RoomSingleContext'
 import RoomFavouriteIcon from '../Room/RoomFavouriteIcon'
 import RoomVisits from '../Room/RoomVisits'
+import RoomShareButton from '../Room/RoomShareButton'
 
 const PropertyHeader = ({ title, address, price }) => {
   const { room, visits } = useRoomSingle()
@@ -23,12 +24,10 @@ const PropertyHeader = ({ title, address, price }) => {
       <div className='flex-[0_0_auto] w-full md:w-1/3 px-[12px]'>
         <div className='single-property-content'>
           <div className='property-action lg:text-right'>
-            <div className='flex mb-[20px] mb10-md items-center justify-start lg:justify-end'>
+            <div className='flex mb-[20px] mb10-md items-center justify-start lg:justify-end relative'>
               <RoomVisits visits={visits} />
               <RoomFavouriteIcon roomId={room._id} className='!leading-[40px]' />
-              <a className='icon mr-[10px] !leading-[40px] dark:bg-midnight dark:!border-none  dark:hover:!bg-orangePrimary/10' href='#'>
-                <span className='flaticon-share-1 dark:text-white' />
-              </a>
+              <RoomShareButton room={room} />
             </div>
             <h3 className='price mb15 dark:text-white'>${price} / month</h3>
           </div>

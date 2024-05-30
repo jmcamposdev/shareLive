@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import WebLayout from '../../../layout/WebLayout'
 import ErrorImg from '../../../assets/vectors/404img.svg'
 import ErrorImgDark from '../../../assets/vectors/404imgDark.svg'
+import { Link } from 'react-router-dom'
 
 function NotFound () {
   // Variable to know if the user scrolled the page
@@ -36,7 +37,7 @@ function NotFound () {
                 <div className='erro_code'><span className='text-thm'>40</span><span className='dark:text-white'>4</span></div>
                 <div className='h2 error_title dark:text-white'>Oops! It looks like you're lost.</div>
                 <p className='text fz15 mb20 dark:text-white'>The page you're looking for isn't available. Try to search again <br className='hidden lg:block' /> or use the go to.</p>
-                <a className='ud-btn bg-gray-900 text-white hover:bg-gray-900' href='/'>Go Back To Homepages<i className='fal fa-arrow-right-long' /></a>
+                <Link className='ud-btn bg-gray-900 text-white hover:bg-gray-900' to='/'>Go Back To Homepages<i className='fal fa-arrow-right-long' /></Link>
               </div>
             </div>
           </div>

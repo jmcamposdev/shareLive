@@ -1,4 +1,4 @@
-import { Route, Routes } from 'react-router-dom'
+import { Route, Routes, useLocation } from 'react-router-dom'
 import Home from './pages/WebPages/Home/Home'
 import AboutUs from './pages/WebPages/AboutUs/AboutUs'
 import Contact from './pages/WebPages/Contact/Contact'
@@ -35,6 +35,11 @@ import DashboardFavouriteRooms from './pages/Dashboard/DashboardFavouriteRooms/D
 
 function App () {
   const [isDarkMode, setIsDarkMode] = useState(false)
+  const { pathname } = useLocation()
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [pathname])
 
   // Add event listener de body class change to know if the dark mode is activated
   useEffect(() => {
@@ -59,6 +64,8 @@ function App () {
         <Route path='about' element={<AboutUs />} />
         <Route path='rooms' element={<Rooms />} />
         <Route path='contact' element={<Contact />} />
+        {/* END Routes for the web pages */}
+
         {/* Routes for Dinamic pages like user, room */}
         <Route
           path='rooms/:id' element={
@@ -74,29 +81,44 @@ function App () {
             </UserSingleProvider>
           }
         />
+        {/* END Routes for Dinamic pages like user, room */}
+
         {/* Autentication */}
         <Route path='login' element={<Login />} />
         <Route path='register' element={<Register />} />
         <Route path='logout' element={<LogOut />} />
-        {/* Routes for the Dashboard */}
+        {/* END Autentication */}
+
+        {/* Routes for the Dashboard for all users */}
         <Route element={<RequireAuth allowedRoles={[ROLES.SUPER_ADMIN, ROLES.ADMIN, ROLES.USER]} />}>
           <Route path='dashboard' element={<DashboardHome />} />
           <Route path='dashboard/reviews' element={<DshReviews />} />
           <Route path='dashboard/rooms' element={<DshSearchRooms />} />
-          <Route path='dashboard/users' element={<DashboardSearchUsers />} />
-          <Route path='dashboard/users/add' element={<DshUserCreate />} />
-          <Route path='dashboard/users/edit/:id' element={<DshUserEdit />} />
           <Route path='dashboard/rooms/add' element={<DshRoomCreateForm />} />
           <Route path='dashboard/rooms/edit/:id' element={<DshRoomEditForm />} />
           <Route path='dashboard/profile' element={<DashboardMyProfile />} />
           <Route path='dashboard/messages' element={<DshMessages />} />
           <Route path='dashboard/favourites' element={<DashboardFavouriteRooms />} />
         </Route>
+        {/* END Routes for the Dashboard */}
+
+        {/* Routes for the Admin Dashboard */}
+        <Route element={<RequireAuth allowedRoles={[ROLES.SUPER_ADMIN, ROLES.ADMIN]} />}>
+          <Route path='dashboard/users' element={<DashboardSearchUsers />} />
+          <Route path='dashboard/users/add' element={<DshUserCreate />} />
+          <Route path='dashboard/users/edit/:id' element={<DshUserEdit />} />
+        </Route>
+        {/* END Routes for the Dashboard */}
+
         {/* 404 page */}
         <Route path='*' element={<NotFound />} />
+        {/* END 404 page */}
+
+        {/* Static pages of Privacy and Terms */}
         <Route path='privacy' element={<PrivacyPolicy />} />
         <Route path='terms' element={<TermsConditions />} />
         <Route path='sitemap' element={<SiteMap />} />
+        {/* END Static pages of Privacy and Terms */}
       </Routes>
       <ToastContainer
         position='bottom-right'

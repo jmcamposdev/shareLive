@@ -32,47 +32,50 @@ const DshRoomsListing = ({ rooms, onDelete, onEdit, search, loading = false }) =
 
   return (
     <BoxDashboard>
-      {/* Start of Search and Entries per page */}
-      <div className=''>
-        <div className='flex items-center font-medium !mb-7 w-'>
-          <Selector
-            id='entriesPerPage'
-            inputName='entriesPerPage'
-            inputType='select'
-            labelClassName='dark:text-white'
-            containerClassName='w-40 dark:bg-midnight !mb-0'
-            options={ENTRIES_PER_PAGES}
-            optionName='label'
-            optionValue='value'
-            value={entriesPerPage.value}
-            onChange={(option) => setEntriesPerPage(option)}
-          />
-          <span className='pl-2 dark:!text-white duration-300 ease-linear mb-0'>Entries Per Page</span>
+      <div className='2xl:p-5'>
+        {/* Start of Search and Entries per page */}
+        <div className=''>
+          <div className='flex items-center font-medium !mb-7 w-'>
+            <Selector
+              id='entriesPerPage'
+              inputName='entriesPerPage'
+              inputType='select'
+              labelClassName='dark:text-white'
+              containerClassName='w-40 dark:bg-midnight !mb-0'
+              options={ENTRIES_PER_PAGES}
+              optionName='label'
+              optionValue='value'
+              value={entriesPerPage.value}
+              onChange={(option) => setEntriesPerPage(option)}
+            />
+            <span className='pl-2 dark:!text-white duration-300 ease-linear mb-0'>Entries Per Page</span>
+          </div>
         </div>
-      </div>
-      {/* End of Search and Entries per page */}
-      <RoomsContainer>
-        {loading && favoriteRoomsSkeletons}
+        {/* End of Search and Entries per page */}
+        <RoomsContainer>
+          {loading && favoriteRoomsSkeletons}
 
-        {filteredFavoriteRooms.length === 0 && !loading
-          ? (
-            <div className='min-h-[40dvh] w-full flex items-center justify-center'>
-              <h3 className='black:text-white'>No rooms favourited yet...</h3>
-            </div>
-            )
-          : (
-            <PaginationProvider
-              presetData={filteredFavoriteRooms}
-              defaultItemsPerPage={entriesPerPage.value}
-              elementType='rooms'
-            >
-              <DshRoomsPagination onDelete={onDelete} onEdit={onEdit} />
-              <div className='w-full mt-7'>
-                <Pagination />
+          {filteredFavoriteRooms.length === 0 && !loading
+            ? (
+              <div className='min-h-[40dvh] w-full flex items-center justify-center'>
+                <h3 className='black:text-white'>No rooms favourited yet...</h3>
               </div>
-            </PaginationProvider>
-            )}
-      </RoomsContainer>
+              )
+            : (
+              <PaginationProvider
+                presetData={filteredFavoriteRooms}
+                defaultItemsPerPage={entriesPerPage.value}
+                elementType='rooms'
+              >
+                <DshRoomsPagination onDelete={onDelete} onEdit={onEdit} />
+                <div className='w-full mt-7'>
+                  <Pagination />
+                </div>
+              </PaginationProvider>
+              )}
+        </RoomsContainer>
+      </div>
+
     </BoxDashboard>
   )
 }
