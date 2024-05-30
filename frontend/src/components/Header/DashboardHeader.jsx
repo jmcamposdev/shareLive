@@ -55,9 +55,9 @@ const DashboardHeader = () => {
                   {/* End email box */}
 
                   <li className='!flex justify-center items-center'>
-                    <a className='text-center mr20 notif !flex justify-center items-center dark:bg-lightmidnight block' href='#'>
+                    <Link className='text-center mr20 notif !flex justify-center items-center dark:bg-lightmidnight' to='#'>
                       <span className='flaticon-bell !flex dark:text-white' />
-                    </a>
+                    </Link>
                   </li>
                   {/* End notification icon */}
 

@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const AppWidget = () => {
   const appList = [
@@ -22,7 +23,7 @@ const AppWidget = () => {
       <div className='flex flex-wrap  mb-4 lg:mb-12 gap-6'>
         {appList.map((app, index) => (
           <div className='col-auto widget-container' key={index}>
-            <a href={app.link} target='_blank' rel='noopener noreferrer'>
+            <Link to={app.link} target='_blank' rel='noopener noreferrer'>
               <div className='app-info flex items-center mb10'>
                 <div className='flex-shrink-0'>
                   <i className={app.icon} />
@@ -32,7 +33,7 @@ const AppWidget = () => {
                   <h6 className='app-title text-white fz14'>{app.title}</h6>
                 </div>
               </div>
-            </a>
+            </Link>
           </div>
         ))}
       </div>

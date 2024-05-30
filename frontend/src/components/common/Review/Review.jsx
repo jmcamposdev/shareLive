@@ -59,9 +59,7 @@ const Review = ({ review, className, onUpdate, onDelete, loading = false }) => {
                 {
                   Array.from({ length: review.reviewRate }).map((_, index) => (
                     <li key={index} className='list-inline-item me-0'>
-                      <a href='#'>
-                        <i className='fas fa-star review-color2 fz10 dark:text-white' />
-                      </a>
+                      <i className='fas fa-star review-color2 fz10 dark:text-white' />
                     </li>
                   ))
                 }

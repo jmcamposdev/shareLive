@@ -22,10 +22,10 @@ const ContactWithAgent = ({ user }) => {
           </h6>
           <div className='agent-meta d-md-flex align-items-center'>
             {/* Muestra el número de teléfono del propietario */}
-            <a className='text fz15 dark:text-white dark:hover:text-orangePrimary' href={`tel:${user.phone}`}>
+            <Link className='text fz15 dark:text-white dark:hover:text-orangePrimary' to={`tel:${user.phone}`}>
               <i className='flaticon-call pe-1 ' />
               {user.phone || 'No phone'}
-            </a>
+            </Link>
           </div>
           <UserReviewsStats reviews={user.reviews} />
           {/* Puedes agregar aquí las reseñas del propietario si lo deseas */}

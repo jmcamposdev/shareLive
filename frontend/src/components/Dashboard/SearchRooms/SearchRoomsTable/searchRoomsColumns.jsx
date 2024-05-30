@@ -63,7 +63,7 @@ const searchRoomsColumns = [
               </div>
               <p className='list-text mb-0'>{room.city !== room.state ? `${room.city},` : ''} {room.state}, {room.country}</p>
               <div className='list-price dark:bg-midnight'>
-                <p href='#' className='dark:text-white font-normal'>{room.price}€ /<span className='font-normal'> month</span></p>
+                <p className='dark:text-white font-normal'>{room.price}€ /<span className='font-normal'> month</span></p>
               </div>
             </div>
           </div>

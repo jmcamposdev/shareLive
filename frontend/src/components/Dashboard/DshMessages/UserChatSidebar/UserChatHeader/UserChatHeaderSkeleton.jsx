@@ -15,10 +15,7 @@ const UserChatHeaderSkeleton = () => {
             {/* <p className='preview'>Active</p> */}
           </div>
           <div>
-            <a
-              className='text-decoration-underline fz14 fw600 dark-color ff-heading'
-              href='#'
-            >
+            <a className='text-decoration-underline fz14 fw600 dark-color ff-heading'>
               <LoadingSkeleton className='h-4 w-36' />
             </a>
           </div>

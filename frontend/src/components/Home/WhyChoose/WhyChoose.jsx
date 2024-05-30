@@ -48,7 +48,7 @@ const WhyChoose = () => {
                 src={OrangeCircleImg}
                 alt='Orange Circle'
               />
-              <Link href='/single-v1/5'>
+              <Link>
                 <div className='iconbox-style5 flex items-center shadow-lg dark:bg-midnight/90 hover:!bg-orangePrimary/90'>
                   <span className='icon flaticon-home flex-shrink-0 dark:hover:!bg-orangePrimaryLightHover' />
                   <div className='iconbox-content flex-shrink-1 ms-2'>

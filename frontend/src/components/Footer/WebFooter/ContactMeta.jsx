@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const ContactMeta = () => {
   const contactInfoList = [
@@ -22,12 +23,12 @@ const ContactMeta = () => {
             <p className='info-title'>{contact.title}</p>
             {contact.phone && (
               <h6 className='info-phone'>
-                <a href={contact.phoneLink}>{contact.phone}</a>
+                <Link to={contact.phoneLink}>{contact.phone}</Link>
               </h6>
             )}
             {contact.mail && (
               <h6 className='info-mail'>
-                <a href={contact.mailLink}>{contact.mail}</a>
+                <Link to={contact.mailLink}>{contact.mail}</Link>
               </h6>
             )}
           </div>

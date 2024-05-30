@@ -17,7 +17,7 @@ const PopularCities = () => {
           </div>
           <div className='lg:w-1/4 w-auto pr-4 pl-4'>
             <div className='text-end sm:text-start mb-3'>
-              <Link className='ud-btn2 dark:text-white' href='/grid-full-3-col'>
+              <Link className='ud-btn2 dark:text-white' to='/rooms'>
                 See All Cities
                 <i className='fal fa-arrow-right-long' />
               </Link>

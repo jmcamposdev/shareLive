@@ -57,7 +57,7 @@ const RoomDetailed = ({ room, loading = false }) => {
               <i className='fal fa-arrow-right-long !text-[12px]' />
             </Link>
             <div className='list-meta2 icons d-flex align-items-center gap-1'>
-              <a href='#' className='!bg-borderColor/30 hover:!bg-borderColor/50 dark:!bg-lightmidnight dark:hover:!bg-orangePrimary/10'><span className='flaticon-fullscreen dark:text-white' /></a>
+              <Link to={linkUrl} className='!bg-borderColor/30 hover:!bg-borderColor/50 dark:!bg-lightmidnight dark:hover:!bg-orangePrimary/10'><span className='flaticon-fullscreen dark:text-white' /></Link>
               <RoomFavouriteIcon
                 roomId={room._id}
                 className='!bg-borderColor/30 hover:!bg-borderColor/50 dark:!bg-lightmidnight dark:hover:!bg-orangePrimary/10 rounded-md w-[35px] !h-[35px]'
