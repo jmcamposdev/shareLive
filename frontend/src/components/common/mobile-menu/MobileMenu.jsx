@@ -6,8 +6,10 @@ import MobileDarkNavIcon from '../../../assets/vectors/mobile-dark-nav-icon.svg'
 import LogoDark from '../../../assets/logos/logo-dark.png'
 import LogoWhite from '../../../assets/logos/logo-white.png'
 import DarkModeSwitcher from '../darkModeSwitcher/DarkModeSwitcher'
+import { useAuth } from '../../../context/AuthContext'
 
 const MobileMenu = () => {
+  const { user } = useAuth()
   return (
     <div className='mobilie_header_nav stylehome1 dark:!bg-midnight/90'>
       <div className='mobile-menu'>
@@ -46,7 +48,7 @@ const MobileMenu = () => {
                 />
               </Link>
               <div className='flex gap-3 justify-center !align-center' style={{ alignItems: 'center' }}>
-                <Link to='/login' className=' flex justify-center align-center h-fit'>
+                <Link to={user ? '/dashboard' : '/login'} className=' flex justify-center align-center h-fit'>
                   <svg width='28' height='28' viewBox='0 0 18 17' fill='none' xmlns='http://www.w3.org/2000/svg'>
                     <path className='stroke-black dark:stroke-white' d='M9.09698 9.12405C9.04098 9.11605 8.96898 9.11605 8.90498 9.12405C7.49698 9.07605 6.37695 7.92405 6.37695 6.50803C6.37695 5.06003 7.54498 3.88403 9.00098 3.88403C10.449 3.88403 11.625 5.06003 11.625 6.50803C11.617 7.92405 10.505 9.07605 9.09698 9.12405Z' strokeWidth='0.8' strokeLinecap='round' strokeLinejoin='round' />
                     <path className='stroke-black dark:stroke-white' d='M14.3914 14.404C12.9674 15.708 11.0794 16.5 8.99941 16.5C6.91942 16.5 5.03142 15.708 3.60742 14.404C3.68742 13.652 4.16742 12.916 5.02342 12.34C7.21542 10.884 10.7994 10.884 12.9754 12.34C13.8314 12.916 14.3114 13.652 14.3914 14.404Z' strokeWidth='0.8' strokeLinecap='round' strokeLinejoin='round' />
