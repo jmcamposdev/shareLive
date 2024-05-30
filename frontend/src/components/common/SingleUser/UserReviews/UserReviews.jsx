@@ -37,6 +37,7 @@ const UserReviews = ({ userSingle }) => {
                               inputType='select'
                               label=''
                               labelClassName='min-w-[180px]'
+                              containerClassName='w-52 !mb-0'
                               options={[
                                 { value: USER_REVIEWS_ORDER.NEWEST, label: USER_REVIEWS_ORDER_LABEL.NEWEST },
                                 { value: USER_REVIEWS_ORDER.OLDEST, label: USER_REVIEWS_ORDER_LABEL.OLDEST },
