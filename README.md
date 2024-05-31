@@ -181,124 +181,91 @@ To access certain resources, authentication is required. Be sure to include the 
 
 ### Endpoints
 
-#### Auth 
+#### Auth
 - `POST /auth/signin`: Sign in a user. Returns a `JSON` object with the user's data and a token. Requires a `JSON` object with the user's data.
+- `POST /auth/signup`: Sign up a new user. Returns a `JSON` object with the new user's data and a token. Requires a `JSON` object with the user's data.
+
+#### Message
+- `GET /messages/:from/:to`: Get all messages between two users. Returns a `JSON` array of messages sorted by creation date. Each message includes `_id`, `fromSelf` (a boolean indicating if the message is from the requesting user), `message`, and `createdAt`.
+- `POST /messages`: Create a new message. Returns a `JSON` object with the new message's data. Requires a `JSON` object with `from` (sender ID), `to` (recipient ID), and `message` (message content).
+
+#### Review
+- `GET /reviews/:id`: Get all reviews for a user. Returns a `JSON` array of reviews. Requires the user ID as a URL parameter.
+- `POST /reviews`: Create a new review. Returns a `JSON` object with the new review's data. Requires a `JSON` object with `ownerId`, `assignedId`, `reviewRate`, and `reviewContent`.
+- `PUT /reviews/:id`: Update a review by ID. Returns a `JSON` object with the updated review's data. Requires a `JSON` object with `ownerId`, `ownerName`, `ownerAvatar`, `reviewRate`, `reviewContent`, `helpful`, and `notHelpful`.
+- `DELETE /reviews/:id`: Delete a review by ID. Returns a `JSON` object with a success message. Requires the review ID as a URL parameter.
+
+#### Room
+- `GET /rooms`: Get all rooms. Returns a `JSON` array of all rooms.
+- `GET /rooms/:id`: Get a room by ID. Returns a `JSON` object with the room's data. 
+- `POST /rooms`: Create a new room. Returns a `JSON` object with the new room's data. Requires a `JSON` object with the room's data.
+- `PUT /rooms/:id`: Update a room by ID. Returns a `JSON` object with the updated room's data. Requires a `JSON` object with the room's data.
+- `DELETE /rooms/:id`: Delete a room by ID. Returns a `JSON` object with the deleted room's data.
+- `POST /rooms/:id/images`: Upload images for a room. Returns a `JSON` array of the uploaded images' URLs. Requires a `form-data` object with the images.
+- `DELETE /rooms/:id/images`: Delete images for a room. Returns a `JSON` object with a success message. Requires a `JSON` object with the images' URLs to delete.
+- `GET /rooms/:id/visits`: Increment and get the visit count for a room. Returns a `JSON` object with the updated visit count.
 
 #### User
-- `GET /users`: Get all users. Returns a `JSON` array of all users. `x-access-token` header required.
-- `GET /users/:id`: Get a user by ID. Returns a `JSON` object with the user's data. `x-access-token` header required.
-- `POST /users`: Create a new user. Returns a `JSON` object with the new user's data. Requires a `JSON` object with the user's data. `x-access-token` header required.
-- `PUT /users/:senecaUser`: Update a user by ID. Returns a `JSON` object with the updated user's data. Requires a `JSON` object with the user's data. `x-access-token` header required.
-- `DELETE /users/:id`: Delete a user by ID. Returns a `JSON` object with the deleted user's data. `x-access-token` header required.
+- `GET /users`: Get all users. Returns a `JSON` array of all users.
+- `GET /users/:id`: Get a user by ID. Returns a `JSON` object with the user's data.
+- `POST /users`: Create a new user. Returns a `JSON` object with the new user's data. Requires a `JSON` object with the user's data.
+- `PUT /users/:id`: Update a user by ID. Returns a `JSON` object with the updated user's data. Requires a `JSON` object with the user's data.
+- `DELETE /users/:id`: Delete a user by ID. Returns a `JSON` object with the deleted user's data.
+- `POST /users/:id/avatar`: Upload an avatar for a user. Returns a `JSON` object with the user's data, including the new avatar URL. Requires a `form-data` object with the avatar image.
+- `PUT /users/:id/password`: Change a user's password. Returns a `JSON` object with the updated user's data. Requires a `JSON` object with the current and new passwords.
+- `GET /users/:id/rooms`: Get all rooms created by a user. Returns a `JSON` array of the user's rooms.
+- `GET /users/:id/favourite-rooms`: Get all favourite rooms of a user. Returns a `JSON` array of the user's favourite rooms.
+- `POST /users/:id/favourite-rooms`: Toggle a favourite room for a user. Returns a `JSON` object with the updated user's data. Requires a `JSON` object with the room ID.
+- `GET /users/contacts`: Get the contact list of the current user. Returns a `JSON` array of the user's contacts.
+- `POST /users/:id/contacts`: Add a user to the contact list. Returns a `JSON` object with the updated user's data. Requires a `JSON` object with the contact ID.
+- `DELETE /users/contacts/:contactId`: Delete a user from the contact list. Returns a `JSON` object with the updated user's data.
 
+#### Statistics
+- `GET /statistics/rooms`: Get statistics about rooms. Returns a `JSON` object with the total number of rooms, total visits to rooms, and total number of rooms marked as favorites.
+- `GET /statistics/reviews`: Get statistics about reviews. Returns a `JSON` object with the total number of reviews and the average review rate.
+- `GET /statistics/weekly`: Get weekly statistics. Returns a `JSON` object with the number of new users, new rooms, and new reviews for the past week.
+- `GET /statistics/activities/:limit?`: Get activity logs. Returns a `JSON` array of activity logs, limited by the optional `limit` parameter.
 
-#### Professor
-- `GET /professors`: Get all professors. Returns a `JSON` array of all professors.
-- `GET /professors/:id`: Get a professor by ID. Returns a `JSON` object with the professor's data.
-- `GET /professors/:id/lessons`: Get all lessons assigned to a professor by ID. Returns a `JSON` array of all lessons. 
-- `POST /professors`: Create a new professor. Returns a `JSON` object with the new professor's data. Requires a `JSON` object with the professor's data. `x-access-token` header required.
-- `PUT /professors/:id`: Update a professor by ID. Returns a `JSON` object with the updated professor's data. Requires a `JSON` object with the professor's data. `x-access-token` header required.
-- `DELETE /professors/:id`: Delete a professor by ID. Returns a `JSON` object with the deleted professor's data. `x-access-token` header required.
+## User Features
+- View rooms: Browse through available rooms.
+- Filter rooms: Filter rooms by price range, number of bedrooms, bathrooms, structure type, square meters, and amenities such as microwave, refrigerator, dishwasher, etc.
+- Sort results: Sort room listings by newest, lowest price, or highest price.
+- Change room layout: Switch between grid and list view for room listings.
+- View room details: Access detailed information and photos of each room.
+- Save favorites: Save favorite rooms for future reference.
+- Share rooms: Share room listings via WhatsApp, Facebook, and Twitter.
+- Message room owner: Communicate with room owners through the integrated messaging system connected via socket.
+- View street scores: Check street scores for walking, driving, and cycling.
+- View owner profile: Explore the profile of room owners, including their posted rooms and reviews.
+- Message owner: Send messages to room owners directly from their profile.
+- View owner's published rooms: Access a list of all rooms published by a specific owner.
+- View owner's reviews: Read reviews received by a room owner, and sort them as per preference.
+- Write reviews: Write reviews for rooms and vote on existing reviews (requires login).
+- Login/Register: Log in or register to access features such as the dashboard, room creation, room management, profile modification, and message viewing.
+- Dashboard: Access a personalized dashboard to manage rooms, view reviews, modify profile, and check received messages.
+- Dark/Light mode switch: Toggle between light and dark mode for better readability.
 
-#### Formation
-- `GET /formations`: Get all formations. Returns a `JSON` array of all formations.
-- `GET /formations/:id`: Get a formation by ID. Returns a `JSON` object with the formation's data.
-- `GET /formations/:id/groups`: Get all groups of a formation by ID. Returns a `JSON` array of all groups.
-- `GET /formations/:id/modules`: Get all modules of a formation by ID. Returns a `JSON` array of all modules.
-- `POST /formations`: Create a new formation. Returns a `JSON` object with the new formation's data. Requires a `JSON` object with the formation's data. `x-access-token` header required.
-- `PUT /formations/:id`: Update a formation by ID. Returns a `JSON` object with the updated formation's data. Requires a `JSON` object with the formation's data. `x-access-token` header required.
-- `DELETE /formations/:id`: Delete a formation by ID. Returns a `JSON` object with the deleted formation's data. `x-access-token` header required.
-
-#### Module
-- `GET /modules`: Get all modules. Returns a `JSON` array of all modules.
-- `GET /modules/:id`: Get a module by ID. Returns a `JSON` object with the module's data.
-- `GET /modules/:id/lessons`: Get all lessons of a module by ID.  Returns a `JSON` array of all lessons.
-- `POST /modules`: Create a new module. Returns a `JSON` object with the new module's data. Requires a `JSON` object with the module's data. `x-access-token` header required.
-- `PUT /modules/:id`: Update a module by ID. Returns a `JSON` object with the updated module's data. Requires a `JSON` object with the module's data. `x-access-token` header required.
-- `DELETE /modules/:id`: Delete a module by ID. Returns a `JSON` object with the deleted module's data. `x-access-token` header required.
-
-#### Group
-- `GET /groups`: Get all groups. Returns a `JSON` array of all groups.
-- `GET /groups/:id`: Get a group by ID. Returns a `JSON` object with the group's data.
-- `GET /groups/:id/lessons`: Get all lessons of a group by ID.  Returns a `JSON` array of all lessons.
-- `POST /groups`: Create a new group. Returns a `JSON` object with the new group's data. Requires a `JSON` object with the group's data. `x-access-token` header required.
-- `PUT /groups/:id`: Update a group by ID. Returns a `JSON` object with the updated group's data. Requires a `JSON` object with the group's data. `x-access-token` header required.
-- `DELETE /groups/:id`: Delete a group by ID. Returns a `JSON` object with the deleted group's data. `x-access-token` header required.
-
-#### Lesson
-- `GET /lessons`: Get all lessons. Returns a `JSON` array of all lessons.
-- `GET /lessons/:id`: Get a lesson by ID. Returns a `JSON` object with the lesson's data.
-- `GET /lessons-current-year`: Get all lessons of the current year e.g. 2024/2025
-- `POST /lessons`: Create a new lesson. Returns a `JSON` object with the new lesson's data. Requires a `JSON` object with the lesson's data. `x-access-token` header required.
-- `POST /lessons-generate`: Automatically generates as many lessons as possible with the available groups and modules by assigning the teacher to null.
-- `PUT /lessons/:id`: Update a lesson by ID. Returns a `JSON` object with the updated lesson's data. Requires a `JSON` object with the lesson's data. `x-access-token` header required.
-- `DELETE /lessons/:id`: Delete a lesson by ID. Returns a `JSON` object with the deleted lesson's data. `x-access-token` header required.
-
-### Example
-```bash
-# Request
-GET /professors/
-
-# Response
-[
-  {
-    "id": 1,
-    "senecaUser": "josemariacampos",
-    "name": "José María",
-    "firstSurname": "Campos",
-    "lastSurname": "Trujillo",
-    "specialty": "FP",
-  },
-  {
-    "id": 2,
-    "senecaUser": "carloshernandez",
-    "name": "Carlos",
-    "firstSurname": "Hernández",
-    "lastSurname": "Palma",
-    "specialty": "Secundary",
-  },
-]
-
-# Request
-POST /professors/
-Headers: x-access-token: <token>
-{
-  "seneceUser": "davidluque",
-  "name": "David",
-  "firstSurname": "Luque",
-  "lastSurname": "Vegas",
-  "specialty": "FP"
-}
-
-# Response - 201 Created
-{
-  "id": 3,
-  "senecaUser": "davidluque",
-  "name": "David",
-  "firstSurname": "Luque",
-  "lastSurname": "Vegas",
-  "specialty": "FP"
-}
-```
-
-## Key Features
-- Management of five tables: Professor, Formation, Module, Group, Lesson.
-- Administrators can perform any operation on the tables.
-- Registered users can view data without making modifications.
-- Unregistered users can view the structure of groups in the current school year.
-
-## Lesson Generation
-1. Enter data into the Professor, Formation, and Module tables.
-2. Register data in the Group table.
-3. Create lessons for the school year, leaving the professor_id field blank (null).
-
-## Important Considerations
-1. Multiple lessons can be created for a module, assigned to different professors.
-2. Create lessons to ensure no hours are left untaught in any module.
-
-## Interactive Lesson Assignment Web Page
-- Administrators can filter and assign professors to lessons.
-- Authenticated users can check the progress of lesson assignments.
+#### Admin Features
+- View rooms: Browse through available rooms.
+- Filter rooms: Filter rooms by price range, number of bedrooms, bathrooms, structure type, square meters, and amenities such as microwave, refrigerator, dishwasher, etc.
+- Sort results: Sort room listings by newest, lowest price, or highest price.
+- Change room layout: Switch between grid and list view for room listings.
+- View room details: Access detailed information and photos of each room.
+- Save favorites: Save favorite rooms for future reference.
+- Share rooms: Share room listings via WhatsApp, Facebook, and Twitter.
+- Message room owner: Communicate with room owners through the integrated messaging system connected via socket.
+- View street scores: Check street scores for walking, driving, and cycling.
+- View owner profile: Explore the profile of room owners, including their posted rooms and reviews.
+- Message owner: Send messages to room owners directly from their profile.
+- View owner's published rooms: Access a list of all rooms published by a specific owner.
+- View owner's reviews: Read reviews received by a room owner, and sort them as per preference.
+- Write reviews: Write reviews for rooms and vote on existing reviews (requires login).
+- Login/Register: Log in or register to access features such as the dashboard, room creation, room management, profile modification, and message viewing.
+- Dashboard: Access a personalized dashboard to manage rooms, view reviews, modify profile, and check received messages.
+- Dark/Light mode switch: Toggle between light and dark mode for better readability.
+- Manage users: View and administer all users, including changing their role to administrator or user, modifying any user's details, and deleting users.
+- Manage rooms: Edit, create, and delete any room listing.
+- Edit profile: Modify the admin's profile information.
 
 ## License
 This project is under the MIT License - see the [LICENSE](LICENSE) file for details.
