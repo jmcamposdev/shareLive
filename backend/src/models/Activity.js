@@ -100,7 +100,6 @@ Activity.createFavoriteActivity = async function (type, entityId, user, room) {
 
 Activity.createReviewActivity = async function (type, user, review) {
   let details = ''
-  console.log(user)
   switch (type) {
     case ACTIVITY_TYPES.CREATE:
       details = `${user.name} wrote a review`

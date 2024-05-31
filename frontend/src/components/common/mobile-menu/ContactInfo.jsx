@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const ContactInfo = () => {
   const contactInfo = [
@@ -24,12 +25,12 @@ const ContactInfo = () => {
             <p className='info-title dark-color dark:text-white'>{info.title}</p>
             {info.phone && (
               <h6 className='info-phone dark-color'>
-                <a className='dark:text-white dark:hover:text-orangePrimary' href={info.phoneHref}>{info.phone}</a>
+                <Link className='dark:text-white dark:hover:text-orangePrimary' to={info.phoneHref}>{info.phone}</Link>
               </h6>
             )}
             {info.email && (
               <h6 className='info-mail dark-color'>
-                <a className='dark:text-white dark:hover:text-orangePrimary' href={info.emailHref}>{info.email}</a>
+                <Link className='dark:text-white dark:hover:text-orangePrimary' to={info.emailHref}>{info.email}</Link>
               </h6>
             )}
           </div>

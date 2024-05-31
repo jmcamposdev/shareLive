@@ -45,9 +45,9 @@ const Footer = () => {
             <p className='footer-menu ff-heading text-gray'>
               {footerMenuItems.map((item, index) => (
                 <React.Fragment key={index}>
-                  <a className='text-gray' href={item.link}>
+                  <Link className='text-gray' to={item.link}>
                     {item.label}
-                  </a>
+                  </Link>
                   {index !== footerMenuItems.length - 1 && ' · '}
                 </React.Fragment>
               ))}

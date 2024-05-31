@@ -33,7 +33,7 @@ const DashboardFooter = () => {
               <p className='dark:text-white'>
                 {footerLinks.map((link, index) => (
                   <React.Fragment key={index}>
-                    <a className='dark:text-white dark:hover:text-orangePrimary' href={link.href}>{link.text}</a>
+                    <Link className='dark:text-white dark:hover:text-orangePrimary' to={link.href}>{link.text}</Link>
                     {index !== footerLinks.length - 1 && ' · '}
                   </React.Fragment>
                 ))}

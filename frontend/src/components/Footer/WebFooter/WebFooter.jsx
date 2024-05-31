@@ -18,7 +18,7 @@ const WebFooter = () => {
           <div className='flex flex-wrap '>
             <div className='w-full lg:w-2/5 pr-4 pl-4'>
               <div className='footer-widget mb-4 lg:mb-12'>
-                <Link className='footer-logo' href='/'>
+                <Link className='footer-logo' to='/'>
                   <img
                     className='mb40'
                     src={LogoWhite}

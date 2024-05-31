@@ -52,7 +52,7 @@ const Login = () => {
             <div className='w-full lg:w-1/2 pr-4 pl-4'>
               <div className='dark:bg-midnight log-reg-form signup-modal form-style1 bgc-white p50 p30-sm default-box-shadow2 bdrs12'>
                 <div className='text-center mb40 flex flex-col justify-center items-center'>
-                  <a href='/'>
+                  <Link to='/'>
                     <img
                       className='dark:hidden text-transparent mb25'
                       alt='logo'
@@ -73,7 +73,7 @@ const Login = () => {
                       data-nimg='1'
                       src={LogoWhite}
                     />
-                  </a>
+                  </Link>
                   <h2 className='dark:text-white'>Sign in</h2>
                 </div>
                 <Formik

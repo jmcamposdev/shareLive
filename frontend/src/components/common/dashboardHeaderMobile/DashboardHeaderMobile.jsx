@@ -12,7 +12,7 @@ const MobileMenu = () => {
           <div className='menu_and_widgets w-full'>
             <div className='mobile_menu_bar flex justify-between items-center w-full'>
               <UserSettings />
-              <Link className='mobile_logo' href='/'>
+              <Link className='mobile_logo' to='/'>
                 <img
                   width={138}
                   height={44}

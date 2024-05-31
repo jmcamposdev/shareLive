@@ -130,7 +130,6 @@ const MessagesProvider = ({ children }) => {
       await UserService.deleteContact(user._id, contactId)
       setMessages([])
       const contactIndex = contactList.findIndex(c => c._id === contactId)
-      console.log(contactIndex, contactList[contactIndex])
       if (contactIndex !== -1) {
         const updatedContacts = contactList.filter(c => c._id !== contactId)
         setContactList(updatedContacts)
