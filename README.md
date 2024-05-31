@@ -226,7 +226,9 @@ To access certain resources, authentication is required. Be sure to include the 
 - `GET /statistics/weekly`: Get weekly statistics. Returns a `JSON` object with the number of new users, new rooms, and new reviews for the past week.
 - `GET /statistics/activities/:limit?`: Get activity logs. Returns a `JSON` array of activity logs, limited by the optional `limit` parameter.
 
-## User Features
+## Key Features
+
+### User Features
 - View rooms: Browse through available rooms.
 - Filter rooms: Filter rooms by price range, number of bedrooms, bathrooms, structure type, square meters, and amenities such as microwave, refrigerator, dishwasher, etc.
 - Sort results: Sort room listings by newest, lowest price, or highest price.
@@ -245,7 +247,7 @@ To access certain resources, authentication is required. Be sure to include the 
 - Dashboard: Access a personalized dashboard to manage rooms, view reviews, modify profile, and check received messages.
 - Dark/Light mode switch: Toggle between light and dark mode for better readability.
 
-#### Admin Features
+### Admin Features
 - View rooms: Browse through available rooms.
 - Filter rooms: Filter rooms by price range, number of bedrooms, bathrooms, structure type, square meters, and amenities such as microwave, refrigerator, dishwasher, etc.
 - Sort results: Sort room listings by newest, lowest price, or highest price.
