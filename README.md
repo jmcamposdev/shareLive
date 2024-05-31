@@ -27,7 +27,8 @@ Sharelive is a web application oriented to the search and publication of room re
 Sharelive's main objective is to help students, workers and anyone who needs to move home to find a room for rent quickly and easily. Sharelive seeks to simplify the process of searching and posting room listings, providing an accessible and efficient platform for both renters and landlords.
 
 ### Entity Relationship Diagram
-![Integral Project IZV Diagram](https://github.com/jmcamposdev/integralProjectIZV/assets/108521775/d994cb94-a544-4aef-823d-b2aea052a847)
+![SCR-20240531-kybn](https://github.com/jmcamposdev/shareLive/assets/108521775/2d649e96-cea0-4ae1-a733-ae80451bd0cc)
+
 
 ## Technologies
 
@@ -60,7 +61,7 @@ Project is created with:
     <td align="center">
       <img width="50" src="https://user-images.githubusercontent.com/25181517/183568594-85e280a7-0d7e-4d1a-9028-c8c2209e073c.png" alt="Node.js" title="Node.js"/>
       <img width="50" src="https://user-images.githubusercontent.com/25181517/183859966-a3462d8d-1bc7-4880-b353-e2cbed900ed6.png" alt="Express" title="Express"/>
-      <img width="50" src="https://user-images.githubusercontent.com/25181517/183896128-ec99105a-ec1a-4d85-b08b-1aa1620b2046.png" alt="MySQL" title="MySQL"/>
+      <img width="50" src="https://user-images.githubusercontent.com/25181517/182884177-d48a8579-2cd0-447a-b9a6-ffc7cb02560e.png" alt="MongoDB" title="MongoDB"/>
     </td>
     <td align="center">
       <img width="50" src="https://user-images.githubusercontent.com/25181517/192107858-fe19f043-c502-4009-8c47-476fc89718ad.png" alt="REST" title="REST"/>
@@ -81,18 +82,27 @@ Project is created with:
 ### Steps to Start the Application
 To clone and run this applicaion, you'll need [Git](https://git-scm.com/downloads) and [Node.js](https://nodejs.org/en/download) (which comes with [npm](https://www.npmjs.com/)) installed on you computer.
 
-Next you'll need to create the ```eduAssignment``` database created
+Next you will have to create a **MongoDB Atlas** database and copy the Cluster's URL
+
+This is an example of what the MongoDB URL would look like 
+- Copy the URL to the ENV file on ```/backend/.env.development```
+
+```
+mongodb+srv://<username>:<password>@cluster0.off3wjd.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
+```
+
+Clone the repository and start the project
 
 ```
 # Clone this repository
-$ git clone https://github.com/jmcamposdev/integralProjectIZV.git
+$ git clone https://github.com/jmcamposdev/sharelive.git
 
 # Go into the repository
-$ cd integralProjectIZV
+$ cd sharelive
 
 # Install dependencies on the Server and Client
-$ cd client && npm i
-$ cd ../server && npm i
+$ cd frontend && npm i --force
+$ cd ../backend && npm i
 
 # Run the app
 $ npm run dev // On the Client and Server
@@ -103,22 +113,44 @@ $ npm run dev // On the Client and Server
 ```bash
 integralProjectIZV/
 │
-├── client/
+├── frontend/
 │ ├── public/
 │ │ └── ... (React public files)
 │ ├── src/
+│ │ ├── assets/
+│ │ │ ├── img/
+│ │ │ ├── logos/
+│ │ │ ├── vectors/
+│ │ │ └── lottifiles/
 │ │ ├── components/
+│ │ │ ├── commons/
 │ │ │ └── ... (React components)
 │ │ ├── pages/
 │ │ │ └── ... (React pages)
+│ │ ├── constants/
+│ │ ├── context/ (Custom Context)
+│ │ ├── hooks/ (Custom Hooks)
+│ │ ├── css/
+│ │ ├── data/ (Mock Data)
+│ │ ├── fonts/ (All Fonts)
+│ │ ├── services/ (Backend Connections)
+│ │ ├── utils/ (Global Functions)
 │ │ ├── App.js
 │ │ └── index.js
 │ │
 │ ├── .gitignore
+│ ├── .env.development
+│ ├── .env.production
 │ ├── package.json
 │ └── README.md
 │
-├── server/
+├── backend/
+│ ├── database/
+│ ├── faker/ (Generate Fake Data)
+│ ├── listeners/
+│ │ └── ... (Socket.io connections)
+│ ├── middlewares/
+│ │ └── ... (Node.js middlewares)
 │ ├── controllers/
 │ │ └── ... (Node.js controllers)
 │ ├── models/
@@ -138,11 +170,10 @@ integralProjectIZV/
 ```
 
 ## RESTful API
-Welcome to the Integral Project RESTful API. This API provides access to the management of all available resources.
+Welcome to the Sharelive RESTful API. This API provides access to the management of all available resources.
 
 ### Base URL 
-The API can be accessed through the following base URL:
-[https://api.zawee.jmcampos.dev](https://api.zawee.jmcampos.dev)
+The API will only be accessible from the **web**, access from outside the url [https://sharelive.jmcampos.dev](sharelive.jmcampos.dev) is prohibited for security reasons. In localhost you can make requests from outside the web.
 
 ### Authentication
 
@@ -277,11 +308,8 @@ Campos Trujillo, José María - [jmcamposdev](https://github.com/jmcamposdev)
 
 Carlos Hernandez Palma - [carloshpdev](https://github.com/carloshpdev)
 
-Luque Vegas, David - [Daviiid999](https://github.com/Daviiid999)
+Carlos Hernandez Palma - [carloshpdev](https://github.com/carloshpdev)
 
-Capdevila Rodríguez, Víctor - [vilacprd](https://github.com/vilacprd)
-
-Rodríguez Jareño, Manuel - [Manabimassu](https://github.com/Manabimassu)
 
 ## Acknowledgments
 We appreciate the collaboration of IES Zaidín-Vergeles in this project.
