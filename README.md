@@ -273,9 +273,9 @@ This project is under the MIT License - see the [LICENSE](LICENSE) file for deta
 ## Authors
 Campos Trujillo, José María - [jmcamposdev](https://github.com/jmcamposdev)
 
-Carlos Hernandez Palma - [carloshpdev](https://github.com/carloshpdev)
+Hernandez Palma ,Carlos - [carloshpdev](https://github.com/carloshpdev)
 
-Carlos Hernandez Palma - [carloshpdev](https://github.com/carloshpdev)
+Bernal Barrionuevo, Carlos - [caberbar](https://github.com/Caberbar)
 
 
 ## Acknowledgments
