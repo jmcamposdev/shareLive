@@ -22,7 +22,6 @@ const RoomFavouriteIcon = ({ roomId, className }) => {
         setIsRoomFavourite(!isRoomFavourite)
         setFavouriteLoading(false)
       } catch (error) {
-        console.log(error)
         toast.showError('Error adding to favourites')
       }
     }
