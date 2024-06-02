@@ -4,10 +4,10 @@ import LoadingImg from '../../Loading/LoadingImg'
 
 const RoomDetailedSkeleton = () => {
   return (
-    <div className='item dark:bg-midnight'>
+    <div className='item '>
       <div className='listing-style1 listCustom listing-type flex-col md:flex-row dark:bg-midnight'>
-        <div className='list-thumb'>
-          <LoadingImg className='md:h-full h-60 ' />
+        <div style={{ borderTopRightRadius: 0 }} className='list-thumb overflow-hidden'>
+          <LoadingImg className='md:h-full h-60 !rounded-none' />
           <LoadingSkeleton className='absolute bottom-5 left-5 w-[125px] h-[32px]' innerClasses='!rounded-md shadow-sm' />
 
         </div>
