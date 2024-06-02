@@ -39,7 +39,7 @@ const AdvanceFilterModal = () => {
           <div className='flex flex-wrap '>
             <div className='w-full pr-4 pl-4'>
               <div className='widget-wrapper'>
-                <h6 className='list-title mb20 dark:text-white'>Price Range</h6>
+                <h6 className='list-title mb20 dark:!text-white'>Price Range</h6>
                 <div className='range-slider-style modal-version'>
                   <PriceRange />
                 </div>
@@ -63,7 +63,7 @@ const AdvanceFilterModal = () => {
           <div className='flex flex-wrap '>
             <div className='sm:w-1/2 pr-4 pl-4'>
               <div className='widget-wrapper'>
-                <h6 className='list-title'>Bedrooms</h6>
+                <h6 className='list-title dark:!text-white'>Bedrooms</h6>
                 <div className='flex'>
                   <Bedroom />
                 </div>
@@ -73,7 +73,7 @@ const AdvanceFilterModal = () => {
 
             <div className='sm:w-1/2 pr-4 pl-4'>
               <div className='widget-wrapper'>
-                <h6 className='list-title'>Bathrooms</h6>
+                <h6 className='list-title dark:text-white'>Bathrooms</h6>
                 <div className='flex'>
                   <Bathroom />
                 </div>
@@ -86,7 +86,7 @@ const AdvanceFilterModal = () => {
           <div className='flex flex-wrap '>
             <div className='sm:w-full pr-4 pl-4'>
               <div className='widget-wrapper'>
-                <h6 className='list-title'>Square Feet</h6>
+                <h6 className='list-title dark:text-white'>Square Feet</h6>
                 <SquareFeet />
               </div>
             </div>
