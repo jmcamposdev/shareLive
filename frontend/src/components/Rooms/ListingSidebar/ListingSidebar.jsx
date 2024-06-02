@@ -57,19 +57,19 @@ const ListingSidebar = () => {
       {/* End .widget-wrapper */}
 
       <div className='widget-wrapper '>
-        <div className='feature-accordion rounded-md dark:!border-borderColor/20 dark:border dark:bg-lightmidnight'>
+        <div className='feature-accordion rounded-md dark:!border-borderColor/20 border dark:bg-lightmidnight'>
           <div className='accordion' id='accordionExample '>
             <div className='accordion-item border-none dark:bg-lightmidnight '>
-              <h2 className='accordion-header ' id='headingOne'>
+              <h2 className='accordion-header' id='headingOne'>
                 <button
-                  className='accordion-button border-none p-0 after-none feature-button dark:text-white dark:bg-lightmidnight '
+                  className='accordion-button border-none p-0 after-none feature-button bg-transparent dark:text-white '
                   type='button'
                   data-bs-toggle='collapse'
                   data-bs-target='#collapseOne'
                   aria-expanded='true'
                   aria-controls='collapseOne'
                 >
-                  <span className='flaticon-settings dark:text-white bg-transparent' /> Other Features
+                  <span className='flaticon-settings dark:!text-white bg-transparent' /> Other Features
                 </button>
               </h2>
               <div
