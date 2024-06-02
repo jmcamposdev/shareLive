@@ -84,8 +84,7 @@ const DreamRoom = () => {
             <div className='about-box-1'>
               <h2 className='title mb30 dark:text-white'>With Us Help You Find Your Dream Home</h2>
               <p className='text mb20 fz15 dark:text-white'>
-                As the complexity of buildings to increase, the field of
-                architecture.
+                You can trust us with your needs for a room, we are experts in the field of renting.
               </p>
               <ul className='flex flex-col gap-8 pb-9'>
                 <li className='flex items-center'>

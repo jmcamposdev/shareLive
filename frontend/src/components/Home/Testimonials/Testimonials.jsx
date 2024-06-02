@@ -13,7 +13,7 @@ const Testimonials = () => {
             data-aos-delay='300'
           >
             <div className='main-title text-center'>
-              <h2 className='title text-white'>Testimonials</h2>
+              <h2 className='title text-white'>What our clients say</h2>
               <p className='paragraph text-white'>
                 10,000+ unique online course list designs
               </p>
