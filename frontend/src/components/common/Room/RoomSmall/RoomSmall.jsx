@@ -10,7 +10,7 @@ const RoomSmall = ({ room, onDelete, onEdit }) => {
           {onEdit && <button onClick={() => onEdit(room._id)} className='fa-pen fa-light w-10 h-10 lg:w-8 lg:h-8 block group-hover:scale-105 dark:text-white bg-white/80 dark:bg-midnight/80 rounded-lg text-base lg:text-sm hover:text-orangePrimary dark:hover:text-orangePrimary' />}
         </div>
         <div className='bg-white/80 absolute px-3 py-[3px] z-20 font-medium text-[15px] rounded-md bg-white/80 dark:bg-midnight/80 dark:text-white left-5 bottom-5'>{room.price}€ <span className='font-light'>/</span> mo</div>
-        <ImgFallbackRoom src={room.images[0]} alt={room.title} className='transition-all duration-400 ease w-full h-full group-hover:scale-[1.20] group-hover:rotate-6' />
+        <ImgFallbackRoom src={room.images[0]} alt={room.title} className='transition-all duration-1000 ease w-full h-full group-hover:scale-[1.20] group-hover:rotate-6' />
       </div>
       <Link className='mb-auto px-5 pt-5 transition-all duration-400 ease' to={`/rooms/${room._id}`}><h6 className='list-title dark:text-white hover:text-orangePrimary dark:hover:text-orangePrimary line-clamp-2'>{room.title}</h6></Link>
       <div className='p-[1.2rem] pt-0'>
