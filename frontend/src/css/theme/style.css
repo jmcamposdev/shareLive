@@ -64,6 +64,7 @@
 html,
 body {
   scroll-behavior: auto !important;
+  overflow-x: hidden;
 }
 
 body {
