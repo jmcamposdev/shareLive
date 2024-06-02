@@ -13,7 +13,7 @@ const searchRoomsColumns = [
             <div className='w-full flex justify-between h-fit flex-wrap-reverse !mb-7 gap-6'>
 
               <Link to={`/rooms/${room._id}`} className='group overflow-hidden h-[140px] aspect-square rounded-md shrink-0 block bg-cover mb-[20px] !order-last md:!order-first'>
-                <img alt={`${room.title} Room`} style={{ transition: 'all 400ms ease' }} src={room.images[0] || DefaultRoom} className='group-hover:scale-110 h-full w-full block object-cover' />
+                <img alt={`${room.title} Room`} src={room.images[0] || DefaultRoom} className='transition-all duration-400 ease group-hover:scale-110 h-full w-full block object-cover' />
               </Link>
 
               <div className='grow shrink flex flex-col justify-center gap-3 mb-4 order-last sm:order-5'>
