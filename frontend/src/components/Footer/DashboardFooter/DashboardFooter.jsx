@@ -3,8 +3,7 @@ import { Link } from 'react-router-dom'
 
 const footerLinks = [
   { text: 'Privacy', href: 'privacy' },
-  { text: 'Terms', href: 'terms' },
-  { text: 'Sitemap', href: 'sitemap' }
+  { text: 'Terms', href: 'terms' }
 ]
 
 const DashboardFooter = () => {

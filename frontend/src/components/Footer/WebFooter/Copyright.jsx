@@ -14,10 +14,6 @@ const Footer = () => {
     {
       label: 'Terms',
       link: 'terms'
-    },
-    {
-      label: 'Sitemap',
-      link: 'sitemap'
     }
   ]
 
