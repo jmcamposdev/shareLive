@@ -23,7 +23,7 @@ const searchUsersColumns = [
               </div>
 
               <Link to={`/users/${user._id}`} className='h-[65px] aspect-square rounded-full shrink-0 block bg-cover mb-[20px] overflow-hidden group'>
-                <img alt={`Avatar of user ${user.firstName} ${user.lastName}`} src={user.avatar || DefaultAvatar} className='transition-all duration-400 ease h-full aspect-square block group-hover:scale-110' />
+                <img alt={`Avatar of user ${user.firstName} ${user.lastName}`} src={user.avatar || DefaultAvatar} className='transition-all duration-500 ease h-full aspect-square block group-hover:scale-110' />
               </Link>
 
             </div>
@@ -49,7 +49,7 @@ const searchUsersColumns = [
           </div>
           <div className='listing-style1 dashboard-style d-xxl-flex align-items-center !mb-0 dark:bg-midnight hidden 2xl:table-cell !bg-transparent'>
             <Link to={`/users/${user._id}`} className='block group list-thumb !rounded-full overflow-hidden !h-[76px] !aspect-square !min-w-0 !min-h-0'>
-              <img className='transition-all duration-400 ease group-hover:scale-110 w-full h-full object-fill' src={user.avatar || DefaultAvatar} alt={`Avatar of user ${user.firstName} ${user.lastName}`} />
+              <img className='transition-all duration-500 ease group-hover:scale-110 w-full h-full object-fill' src={user.avatar || DefaultAvatar} alt={`Avatar of user ${user.firstName} ${user.lastName}`} />
             </Link>
             <div className='list-content py-0 p-0 mt-2 mt-xxl-0 ps-xxl-4 !pr-0'>
               <div className='h6 list-title'>
