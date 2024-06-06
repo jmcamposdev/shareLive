@@ -32,7 +32,7 @@ const UserSingle = () => {
                     <UserLatestRooms userName={user.name} rooms={userRooms} numToDisplay={ROOMS_TO_DISPLAY} />
                     <UserReviews userSingle={user} />
                   </div>
-                  <div className='lg:w-1/3 pr-4 pl-4'>
+                  <div className='w-full lg:w-1/3 pr-4 pl-4'>
                     <UserSidebar user={user} />
                   </div>
                 </div>
