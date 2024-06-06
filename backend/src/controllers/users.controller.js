@@ -6,7 +6,10 @@ import { handleDeleteImage, handleUploadImage } from '../storage/cloudinary.js'
 import Activity, { ACTIVITY_TYPES } from '../models/Activity.js'
 import mongoose from 'mongoose'
 import Message from '../models/Message.js'
-dotenv.config()
+
+// Cargar variables de entorno según el entorno
+const envFile = process.env.NODE_ENV === 'production' ? '.env.production' : '.env.development'
+dotenv.config({ path: envFile })
 
 const getUsers = async (req, res) => {
   try {
