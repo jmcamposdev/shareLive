@@ -86,7 +86,7 @@ const AdvanceFilterModal = () => {
           <div className='flex flex-wrap '>
             <div className='sm:w-full pr-4 pl-4'>
               <div className='widget-wrapper'>
-                <h6 className='list-title dark:text-white'>Square Feet</h6>
+                <h6 className='list-title dark:text-whitegit'>Square Feet</h6>
                 <SquareFeet />
               </div>
             </div>

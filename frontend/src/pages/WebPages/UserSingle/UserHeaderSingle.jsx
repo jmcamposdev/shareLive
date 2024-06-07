@@ -16,7 +16,7 @@ const UserHeaderSingle = ({ user }) => {
           <div className='xl:w-3/5 pr-4 pl-4'>
             <div className='agent-single sm:flex items-center'>
               <div className='single-img mb30-sm'>
-                <img alt='agents' loading='lazy' width='172' height='172' decoding='async' data-nimg='1' className='text-transparent rounded-full object-cover z-20 relative' src={getAvatarImage(user.avatar)} />
+                <img alt='agents' loading='lazy' width='172' height='172' decoding='async' data-nimg='1' className='text-transparent rounded-full object-cover z-20 relative w-[172px] aspect-square' src={getAvatarImage(user.avatar)} />
               </div>
               <div className='single-contant ml30 ml0-xs'>
                 <h2 className='title dark:text-white mb-2'>{`${user.firstName} ${user.lastName}`}</h2>
