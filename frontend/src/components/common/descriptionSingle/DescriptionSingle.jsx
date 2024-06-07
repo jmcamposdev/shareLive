@@ -16,7 +16,7 @@ const DescriptionSingle = ({ title, description, amountOfWords = 36 }) => {
 
   return (
     <div className='flex flex-wrap '>
-      <div className='lg:w-full pr-4 pl-4'>
+      <div className='w-full pr-4 pl-4'>
         {description
           ? (
             <div className='agent-single-details mt30 pb30 bdrb1 dark:border-borderColor/20'>
