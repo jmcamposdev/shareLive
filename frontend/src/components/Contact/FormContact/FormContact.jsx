@@ -1,4 +1,32 @@
+import { Formik, Form } from 'formik'
+import * as Yup from 'yup'
+import FormikControl from '../../common/Formik/Inputs/FormikControl'
+import FormikSubmitBtn from '../../common/Formik/Buttons/FormikSubmitBtn'
+import { useMemo } from 'react'
+import useAlertToast from '../../../hooks/useToast'
+
 const FormContact = () => {
+  const { toast } = useAlertToast()
+  const initialValues = useMemo(() => ({
+    firstName: '',
+    lastName: '',
+    email: '',
+    message: ''
+  }), [])
+
+  const validationSchema = Yup.object().shape({
+    firstName: Yup.string().required('First Name is required'),
+    lastName: Yup.string().required('Last Name is required'),
+    email: Yup.string().email('Invalid email').required('Email is required'),
+    message: Yup.string().required('Message is required')
+  })
+
+  const onSubmit = (values, actions) => {
+    actions.setSubmitting(false)
+    actions.resetForm()
+    toast.showSuccess('Message sent successfully!')
+  }
+
   return (
     <div className=' dark:bg-lightmidnight'>
       <section className='p-0'>
@@ -18,77 +46,58 @@ const FormContact = () => {
                 <h4 className='form-title mb-[25px] dark:text-white'>
                   Have questions? Get in touch!
                 </h4>
-                <form className='relative'>
-                  <div className='flex flex-wrap'>
-                    <div className='w-full pr-4 pl-4 flex-[0_0_auto]'>
-                      <div className='mb-[20px]'>
-                        <label className='text-[#181A20] font-[600] mb-[10px] dark:text-white'>
-                          First Name
-                        </label>
-                        <input
+                <Formik
+                  initialValues={initialValues}
+                  validationSchema={validationSchema}
+                  onSubmit={onSubmit}
+                >
+                  <Form className='relative'>
+                    <div className='flex flex-wrap'>
+                      <div className='w-full pr-4 pl-4 flex-[0_0_auto] flex flex-col gap-2'>
+                        <FormikControl
+                          control='input'
                           type='text'
-                          className='rounded-[8px] border-[1px] border-solid border-[#DDDDDD] placeholder:text-borderColor/40 dark:border-borderColor/20 shadow-none text-[14px] h-[55px] pl-[15px] w-full block font-[400] text-[#212529] leading-[21px] bg-clip-padding appearance-none dark:!bg-midnight '
+                          id='firstName'
+                          name='firstName'
+                          label='First Name'
                           placeholder='Your First Name'
-                          required
                         />
-                      </div>
-                    </div>
-
-                    <div className='w-full pr-4 pl-4 flex-[0_0_auto]'>
-                      <div className='mb-[20px]'>
-                        <label className='text-[#181A20] font-[600] mb-[10px] dark:text-white'>
-                          Last Name
-                        </label>
-                        <input
+                        <FormikControl
+                          control='input'
                           type='text'
-                          className='rounded-[8px] border-[1px] border-solid border-[#DDDDDD] placeholder:text-borderColor/40 dark:border-borderColor/20 shadow-none text-[14px] h-[55px] pl-[15px] w-full block font-[400] text-[#212529] leading-[21px] bg-clip-padding appearance-none dark:!bg-midnight'
+                          id='lastName'
+                          name='lastName'
+                          label='Last Name'
                           placeholder='Your Last Name'
-                          required
                         />
-                      </div>
-                    </div>
-
-                    <div className='w-full pr-4 pl-4 flex-[0_0_auto]'>
-                      <div className='mb-[20px]'>
-                        <label className='text-[#181A20] font-[600] mb-[10px] dark:text-white'>
-                          Email
-                        </label>
-                        <input
-                          type='text'
-                          className='rounded-[8px] border-[1px] border-solid border-[#DDDDDD] placeholder:text-borderColor/40 dark:border-borderColor/20 shadow-none text-[14px] h-[55px] pl-[15px] w-full block font-[400] text-[#212529] leading-[21px] bg-clip-padding appearance-none dark:!bg-midnight'
+                        <FormikControl
+                          control='input'
+                          type='email'
+                          id='email'
+                          name='email'
+                          label='Email'
                           placeholder='Your Email'
-                          required
                         />
-                      </div>
-                    </div>
-
-                    <div className='w-full pr-4 pl-4 flex-[0_0_auto]'>
-                      <div className='mb-[10px]'>
-                        <label className='text-[#181A20] font-[600] mb-[10px] inline-block dark:text-white'>
-                          Textarea
-                        </label>
-                        <textarea
-                          cols={30}
-                          rows={4}
+                        <FormikControl
+                          control='textarea'
+                          type='text'
+                          id='message'
+                          name='message'
+                          label='Message'
                           placeholder='There are many variations of passages.'
-                          className='rounded-[8px] border-[1px] border-solid border-[#DDDDDD] placeholder:text-borderColor/40 dark:!border-borderColor/20 w-full h-auto scroll-py-[25px] scroll-px-[20px] resize-y m-0 dark:!bg-midnight dark:!border-[#ffffff] dark:border-[1px] dark:focus-visible:border-[2px]'
-                          style={{ fontSize: 'inherit', lineHeight: 'inherit' }}
-                          defaultValue=''
-                          required
+                          rows='5'
+                        />
+                        <FormikSubmitBtn
+                          label='Submit'
+                          isSubmitting={false}
+                          className='w-full'
+                          isOrange
                         />
                       </div>
                     </div>
+                  </Form>
+                </Formik>
 
-                    <div className='w-full pr-4 pl-4'>
-                      <div className='grid'>
-                        <button type='submit' className='ud-btn btn-thm'>
-                          Submit
-                          <i className='fal fa-arrow-right-long' />
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                </form>
               </div>
             </div>
 
