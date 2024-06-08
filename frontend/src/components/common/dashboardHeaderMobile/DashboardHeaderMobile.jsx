@@ -37,11 +37,6 @@ const MobileMenu = () => {
                 </li>
                 {/* End email box */}
 
-                <li className='!flex justify-center items-center'>
-                  <a className='text-center notif !flex justify-center items-center dark:bg-lightmidnight block !mr-2' href='#'>
-                    <span className='flaticon-bell !flex dark:text-white text-2xl' />
-                  </a>
-                </li>
                 <DarkModeSwitcher />
               </div>
 
