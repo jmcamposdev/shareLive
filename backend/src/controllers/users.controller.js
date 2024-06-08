@@ -174,6 +174,21 @@ const changePassword = async (req, res) => {
   }
 }
 
+const resetPassword = async (req, res) => {
+  try {
+    const { password, email } = req.body
+
+    const encryptedPassword = await User.encryptPassword(password)
+    const updated = await User.findOneAndUpdate({ email }, { password: encryptedPassword }, { new: true })
+    res.json(updated)
+  } catch (error) {
+    res.status(500).json({
+      message: 'An error occurred while resetting the password',
+      error
+    })
+  }
+}
+
 const deleteUser = async (req, res) => {
   try {
     const { id } = req.params
@@ -381,6 +396,7 @@ export {
   getFavouriteRooms,
   uploadAvatar,
   changePassword,
+  resetPassword,
   getUserContacts,
   addUserToContactList,
   deleteUserFromContactList

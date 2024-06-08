@@ -76,7 +76,7 @@ export const sendResetPasswordEmail = async (req, res) => {
 
   // If the user does not exist, return an error
   if (!user) {
-    return res.status(404).json({ message: 'User not found' })
+    return res.json({ error: 'User not found' })
   }
 
   // Send the email

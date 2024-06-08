@@ -113,7 +113,7 @@ const Login = () => {
                         <Field type='checkbox' name='rememberMe' className='hidden' />
                         <span className='checkmark dark:border-white' />
                       </label>
-                      <a className='fz14 ff-heading dark:text-white' href='#'>Lost your password?</a>
+                      <Link className='fz14 ff-heading dark:text-white' to='/password-reset'>Lost your password?</Link>
                     </div>
                     <div className='d-grid mb20'>
                       <button className='ud-btn btn-thm dark:text-white' type='submit'>

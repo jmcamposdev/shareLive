@@ -81,6 +81,15 @@ const UserService = {
     }
   },
 
+  resetPassword: async (email, password) => {
+    try {
+      await api.post('users/reset-password', { email, password })
+    } catch (error) {
+      console.error('Error resetting password:', error.message)
+      throw error
+    }
+  },
+
   deleteUser: async (id) => {
     try {
       await api.delete(`users/${id}`)
