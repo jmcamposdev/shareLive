@@ -10,20 +10,20 @@ const RoomSmall = ({ room, onDelete, onEdit }) => {
           {onEdit && <button onClick={() => onEdit(room._id)} className='fa-pen fa-light w-10 h-10 lg:w-8 lg:h-8 block group-hover:scale-105 dark:text-white bg-white/80 dark:bg-midnight/80 rounded-lg text-base lg:text-sm hover:text-orangePrimary dark:hover:text-orangePrimary' />}
         </div>
         <div className='bg-white/80 absolute px-3 py-[3px] z-20 font-medium text-[15px] rounded-md bg-white/80 dark:bg-midnight/80 dark:text-white left-5 bottom-5'>{room.price}€ <span className='font-light'>/</span> mo</div>
-        <ImgFallbackRoom style={{ transition: 'all 400ms ease' }} src={room.images[0]} alt={room.title} className='w-full h-full group-hover:scale-[1.20] group-hover:rotate-6' />
+        <ImgFallbackRoom src={room.images[0]} alt={room.title} className='transition-all duration-1000 ease w-full h-full group-hover:scale-[1.20] group-hover:rotate-6' />
       </div>
-      <Link className='mb-auto px-5 pt-5' to={`/rooms/${room._id}`}><h6 style={{ transition: 'all 400ms ease' }} className='list-title dark:text-white hover:text-orangePrimary dark:hover:text-orangePrimary line-clamp-2'>{room.title}</h6></Link>
+      <Link className='mb-auto px-5 pt-5 transition-all duration-500 ease' to={`/rooms/${room._id}`}><h6 className='list-title dark:text-white hover:text-orangePrimary dark:hover:text-orangePrimary line-clamp-2'>{room.title}</h6></Link>
       <div className='p-[1.2rem] pt-0'>
         <p className='list-text text-[#717171] mb-[10px] line-clamp-1'>{room.city !== room.state ? `${room.city},` : ''} {room.state}, {room.country}</p>
         <div className='w-full bg-[#ddd]/50 dark:bg-borderColor/20 h-[1px] my-2' />
         <div className='flex'>
-          <p style={{ transition: 'all 400ms ease' }} className='mr-[1.2rem] dark:text-white hover:text-orangePrimary dark:hover:text-orangePrimary mb-0 flex justify-center items-center flex-wrap gap-x-1'>
+          <p className='transition-all duration-500 ease mr-[1.2rem] dark:text-white hover:text-orangePrimary dark:hover:text-orangePrimary mb-0 flex justify-center items-center flex-wrap gap-x-1'>
             <span><span className='flaticon-bed mr-1.5' /> {room.bedrooms}</span> {room.bedrooms > 1 ? 'beds' : 'bed'}
           </p>
-          <p style={{ transition: 'all 400ms ease' }} className='mr-[1.2rem] dark:text-white hover:text-orangePrimary dark:hover:text-orangePrimary mb-0 flex justify-center items-center flex-wrap gap-x-1'>
+          <p className='transition-all duration-500 ease mr-[1.2rem] dark:text-white hover:text-orangePrimary dark:hover:text-orangePrimary mb-0 flex justify-center items-center flex-wrap gap-x-1'>
             <span><span className='flaticon-shower mr-1.5' /> {room.bathrooms}</span> {room.bathrooms > 1 ? 'baths' : 'bath'}
           </p>
-          <p style={{ transition: 'all 400ms ease' }} className='mr-[1.2rem] dark:text-white hover:text-orangePrimary dark:hover:text-orangePrimary mb-0 flex justify-center items-center flex-wrap gap-x-1'>
+          <p className='transition-all duration-500 ease mr-[1.2rem] dark:text-white hover:text-orangePrimary dark:hover:text-orangePrimary mb-0 flex justify-center items-center flex-wrap gap-x-1'>
             <span><span className='flaticon-expand mr-1.5' /> {room.squareMeters}</span> sqft
           </p>
         </div>

@@ -21,7 +21,7 @@ const DashboardFooter = () => {
                 <Link
                   rel='noopener noreferrer'
                 >
-                  <span style={{ transition: 'all 400ms ease' }} className='font-semibold dark:text-white dark:hover:text-orangePrimary'>JCC Designs</span>
+                  <span className='transition-all duration-500 ease font-semibold dark:text-white dark:hover:text-orangePrimary'>JCC Designs</span>
                 </Link>{' '}
                 - All rights reserved
               </p>

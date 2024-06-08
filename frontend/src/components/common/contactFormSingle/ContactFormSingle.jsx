@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom'
 import UserService from '../../../services/UserService'
 import { useAuth } from '../../../context/AuthContext'
 
-const ContactFormSingle = ({ title, contactUser }) => {
+const ContactFormSingle = ({ title, contactUser, placeholder }) => {
   const { user, updateUser } = useAuth()
   const navigate = useNavigate()
   const onSubmit = async (values, actions) => {
@@ -44,7 +44,7 @@ const ContactFormSingle = ({ title, contactUser }) => {
               type='text'
               id='message'
               name='message'
-              placeholder='I am interested in this property. Please contact me.'
+              placeholder={placeholder}
               rows='10'
             />
             <FormikSubmitBtn

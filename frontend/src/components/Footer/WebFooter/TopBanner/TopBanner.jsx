@@ -27,10 +27,10 @@ const TopBanner = () => {
             >
               <div className='cta-style2'>
                 <h2 className='cta-title'>
-                  Start Listing or Buying a Property With Realton
+                  Start Listing or Buying a Property With Sharelive
                 </h2>
                 <p className='cta-text'>
-                  Talk to our experts or Browse through more properties.
+                  Talk to our experts or Browse through more Rooms.
                 </p>
                 <Link to='/contact' className='ud-btn btn-dark mt10'>
                   Learn More

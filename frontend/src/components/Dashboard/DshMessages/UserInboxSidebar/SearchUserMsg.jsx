@@ -16,7 +16,7 @@ const SearchUserMsg = () => {
           <input
             className='form-control !outline-none dark:!bg-midnight dark:placeholder:text-borderColor/40 dark:text-white'
             type='search'
-            placeholder='Serach'
+            placeholder='Search'
             aria-label='Search'
             required
             onChange={handleSearchContacts}

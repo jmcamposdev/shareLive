@@ -16,7 +16,7 @@ const UserReviews = ({ userSingle }) => {
   const noReviews = userSingle.reviews.length === 0
   return (
     <div className='flex flex-wrap '>
-      <div className='lg:w-full pr-4 pl-4'>
+      <div className='w-full pr-4 pl-4'>
         {
           !noReviews
             ? (

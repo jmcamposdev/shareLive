@@ -76,9 +76,9 @@ const Pagination = () => {
         <div className='mbp_pagination text-center'>
           <ul className='page_navigation'>
             {/* Botón para la página anterior */}
-            <li className='page-item'>
+            <li className='page-item overflow-hidden dark:!bg-midnight'>
               <span
-                className='page-link pointer'
+                className='page-link pointer dark:bg-midnight'
                 onClick={() => handlePageChange(currentPage - 1)}
                 disabled={currentPage === 1}
               >
@@ -90,9 +90,9 @@ const Pagination = () => {
             {renderPageNumbers()}
 
             {/* Botón para la página siguiente */}
-            <li className='page-item'>
+            <li className='page-item overflow-hidden dark:!bg-midnight'>
               <span
-                className='page-link pointer dark:!text-white'
+                className='page-link pointer dark:!text-white dark:bg-midnight'
                 onClick={() => handlePageChange(currentPage + 1)}
                 disabled={currentPage === totalPages}
               >
@@ -100,7 +100,7 @@ const Pagination = () => {
               </span>
             </li>
           </ul>
-          <p className='mt10 pagination_page_count text-center'>
+          <p className='mt10 pagination_page_count text-center dark:text-white'>
             {((currentPage - 1) * itemsPerPage) + 1}-{(currentPage * itemsPerPage) > data.length ? data.length : (currentPage * itemsPerPage)} of {data.length}+ {elementType} available
           </p>
         </div>

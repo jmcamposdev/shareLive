@@ -27,7 +27,7 @@ const FormContact = () => {
                         </label>
                         <input
                           type='text'
-                          className='rounded-[8px] border-[1px] border-solid border-[#DDDDDD] shadow-none text-[14px] h-[55px] pl-[15px] w-full block font-[400] text-[#212529] leading-[21px] bg-clip-padding appearance-none dark:!bg-midnight '
+                          className='rounded-[8px] border-[1px] border-solid border-[#DDDDDD] placeholder:text-borderColor/40 dark:border-borderColor/20 shadow-none text-[14px] h-[55px] pl-[15px] w-full block font-[400] text-[#212529] leading-[21px] bg-clip-padding appearance-none dark:!bg-midnight '
                           placeholder='Your First Name'
                           required
                         />
@@ -41,7 +41,7 @@ const FormContact = () => {
                         </label>
                         <input
                           type='text'
-                          className='rounded-[8px] border-[1px] border-solid border-[#DDDDDD] shadow-none text-[14px] h-[55px] pl-[15px] w-full block font-[400] text-[#212529] leading-[21px] bg-clip-padding appearance-none dark:!bg-midnight'
+                          className='rounded-[8px] border-[1px] border-solid border-[#DDDDDD] placeholder:text-borderColor/40 dark:border-borderColor/20 shadow-none text-[14px] h-[55px] pl-[15px] w-full block font-[400] text-[#212529] leading-[21px] bg-clip-padding appearance-none dark:!bg-midnight'
                           placeholder='Your Last Name'
                           required
                         />
@@ -55,7 +55,7 @@ const FormContact = () => {
                         </label>
                         <input
                           type='text'
-                          className='rounded-[8px] border-[1px] border-solid border-[#DDDDDD] shadow-none text-[14px] h-[55px] pl-[15px] w-full block font-[400] text-[#212529] leading-[21px] bg-clip-padding appearance-none dark:!bg-midnight'
+                          className='rounded-[8px] border-[1px] border-solid border-[#DDDDDD] placeholder:text-borderColor/40 dark:border-borderColor/20 shadow-none text-[14px] h-[55px] pl-[15px] w-full block font-[400] text-[#212529] leading-[21px] bg-clip-padding appearance-none dark:!bg-midnight'
                           placeholder='Your Email'
                           required
                         />
@@ -71,7 +71,7 @@ const FormContact = () => {
                           cols={30}
                           rows={4}
                           placeholder='There are many variations of passages.'
-                          className='rounded-[8px] border-[1px] border-solid border-[#DDDDDD] w-full h-auto scroll-py-[25px] scroll-px-[20px] resize-y m-0 dark:!bg-midnight dark:!border-[#ffffff] dark:border-[1px] dark:focus-visible:border-[2px]'
+                          className='rounded-[8px] border-[1px] border-solid border-[#DDDDDD] placeholder:text-borderColor/40 dark:!border-borderColor/20 w-full h-auto scroll-py-[25px] scroll-px-[20px] resize-y m-0 dark:!bg-midnight dark:!border-[#ffffff] dark:border-[1px] dark:focus-visible:border-[2px]'
                           style={{ fontSize: 'inherit', lineHeight: 'inherit' }}
                           defaultValue=''
                           required
@@ -98,9 +98,8 @@ const FormContact = () => {
                 from you.
               </h2>
               <p className='text dark:text-white'>
-                We are here to answer any question you may have. As a partner
-                of corporates, realton has more than 9,000 offices of all
-                sizes and all potential of session.
+                We are here to answer any question you may have. As the leader in our sector
+                we can help you with any question you may have.
               </p>
             </div>
           </div>
