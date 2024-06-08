@@ -2,9 +2,9 @@ import ThreeBlobs from '../../../assets/img/aboutUs/threeBlobs.png'
 
 const AboutIntro = () => {
   return (
-    <section className='about-us bg-f7f7f7 dark:bg-lightmidnight'>
+    <section className='about-us bg-f7f7f7 dark:bg-lightmidnight pt-0 pb90'>
       <div className='container mx-auto sm:px-4'>
-        <div className='flex flex-wrap  mt80 mt0-md'>
+        <div className='flex flex-wrap mt0-md'>
 
           <div className='md:w-1/2 pr-4 pl-4 xl:mx-1/5'>
             <div className='about-box-1 wow fadeInLeft h-full flex flex-col justify-center' data-wow-delay='300ms' style={{ visibility: 'visible', animationDelay: '300ms', animationName: 'fadeInLeft' }}>

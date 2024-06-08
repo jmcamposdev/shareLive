@@ -48,7 +48,7 @@ const Faq = () => {
 
   ]
   return (
-    <section className='our-faq pb90 pt-0 relative'>
+    <section className='our-faq pt90 pb90 pt-0 relative'>
       <div className='absolute w-full h-full -z-[20] bg-f7f7f7 dark:bg-lightmidnight' />
       <div className='container mx-auto sm:px-4'>
         <div className='flex flex-wrap  wow fadeInUp' data-wow-delay='300ms'>

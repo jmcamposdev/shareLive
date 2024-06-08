@@ -3,7 +3,7 @@ import RightHalfBlob from '../../../assets/img/aboutUs/rightHalfBlob.png'
 
 const FaqIntro = () => {
   return (
-    <section className='our-about pb90 relative'>
+    <section className='our-about pb90 pt90 relative'>
       <div style={{ height: 'calc(100% + 210px)' }} className='w-full top-0 absolute -z-20 bg-f7f7f7 dark:bg-lightmidnight' />
       <img className='dark:hidden absolute max-w-[450px] -z-10 left-0 top-[14rem] hidden lg:block' src={LeftHalfBlob} alt='' />
 
