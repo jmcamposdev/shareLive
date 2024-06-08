@@ -31,6 +31,8 @@ import DshUserEdit from './pages/Dashboard/DshUserForms/DshUserEdit.jsx'
 import DshUserCreate from './pages/Dashboard/DshUserForms/DshUserCreate.jsx'
 import DshMessages from './pages/Dashboard/DshMessages/DshMessages.jsx'
 import DashboardFavouriteRooms from './pages/Dashboard/DashboardFavouriteRooms/DashboardFavouriteRooms.jsx'
+import PasswordReset from './pages/WebPages/PasswordReset/PasswordReset.jsx'
+import SiteMap from './pages/WebPages/PrivacyTerms/SiteMap.jsx'
 
 function App () {
   const [isDarkMode, setIsDarkMode] = useState(false)
@@ -63,6 +65,7 @@ function App () {
         <Route path='about' element={<AboutUs />} />
         <Route path='rooms' element={<Rooms />} />
         <Route path='contact' element={<Contact />} />
+        <Route path='password-reset' element={<PasswordReset />} />
         {/* END Routes for the web pages */}
 
         {/* Routes for Dinamic pages like user, room */}
@@ -116,6 +119,7 @@ function App () {
         {/* Static pages of Privacy and Terms */}
         <Route path='privacy' element={<PrivacyPolicy />} />
         <Route path='terms' element={<TermsConditions />} />
+        <Route path='sitemap' element={<SiteMap />} />
         {/* END Static pages of Privacy and Terms */}
       </Routes>
       <ToastContainer
