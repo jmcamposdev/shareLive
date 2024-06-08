@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 
 const WhyChoose = () => {
   return (
-    <section className='pb90 relative overflow-hidden'>
+    <section className='pt90 pb90 relative overflow-hidden'>
       <div className='absolute w-full h-[250%] dark:bg-lightmidnight bg-f7f7f7 -z-[10] top-[-50%]' />
       <div className='container mx-auto sm:px-4'>
         <div
