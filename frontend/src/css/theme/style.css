@@ -689,57 +689,61 @@ li {
 
 
 
-.dashboard_sidebar_list .sidebar_list_item a .strokeVector * {
+ a .strokeVector * {
      stroke: black; 
      transition:all 0.3s ease 0s;
 }
-.dashboard_sidebar_list .sidebar_list_item a:hover .strokeVector * {
+ a:hover .strokeVector * {
     stroke: white !important; 
 }
 
- .dashboard_sidebar_list .sidebar_list_item .-is-active .strokeVector * {
+.-is-active .strokeVector * {
   stroke: white !important; 
 }
 
-.dark .dashboard_sidebar_list .sidebar_list_item a .strokeVector * {
+.dark  a .strokeVector * {
   stroke: white !important; 
   transition:all 0.3s ease 0s;
 }
 
-.dark .dashboard_sidebar_list .sidebar_list_item a:hover .strokeVector * {
+.dark  a:hover .strokeVector * {
   stroke: white !important; 
 }
 
-.dark .dashboard_sidebar_list .sidebar_list_item .-is-active .strokeVector * {
+.dark  .-is-active .strokeVector * {
   stroke: white !important; 
 }
 
 
 
 
-.dashboard_sidebar_list .sidebar_list_item a .fillVector * {
+a .fillVector * {
   fill: black; 
   transition:all 0.3s ease 0s;
 }
-.dashboard_sidebar_list .sidebar_list_item a:hover .fillVector * {
+ a:hover .fillVector * {
   fill: white !important; 
 }
 
-.dashboard_sidebar_list .sidebar_list_item .-is-active .fillVector * {
+.-is-active .fillVector * {
   fill: white !important; 
 }
 
-.dark .dashboard_sidebar_list .sidebar_list_item a .fillVector * {
+.dark a .fillVector * {
   fill: white !important; 
 transition:all 0.3s ease 0s;
 }
 
-.dark .dashboard_sidebar_list .sidebar_list_item a:hover .fillVector * {
+.dark  a:hover .fillVector * {
   fill: white !important; 
 }
 
-.dark .dashboard_sidebar_list .sidebar_list_item .-is-active .fillVector * {
+.dark .-is-active .fillVector * {
 stroke: white !important; 
+}
+
+.logout:hover span{
+  color:#f1416dbc !important;
 }
 
 .dashboard {

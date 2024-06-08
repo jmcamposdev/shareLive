@@ -49,7 +49,7 @@ const UserSettings = () => {
                 {section.items.map((item, itemIndex) => (
                   <Link
                     key={itemIndex}
-                    className={`dark:text-white dropdown-item dashboard-phone-link max-h-[65px] flex items-center  ${pathname === item.href ? '-is-active active-dashboard-phone-link dark:!bg-lightmidnight' : 'dark:hover:!bg-lightmidnight'} ${item.text === 'Log out' ? 'log-bt bg-[#FFF5F8] hover:!bg-[#FBE2EA] dark:!bg-red-700/10 dark:hover:!bg-red-600/20' : ''} `}
+                    className={`dark:text-white dropdown-item dashboard-phone-link max-h-[65px] flex items-center  ${pathname === item.href ? '-is-active active-dashboard-phone-link dark:!bg-lightmidnight' : 'dark:hover:!bg-lightmidnight'} ${item.text === 'Log out' ? 'logout log-bt bg-[#FFF5F8] hover:!bg-[#FBE2EA] dark:!bg-red-700/10 dark:hover:!bg-red-600/20' : ''} `}
                     to={item.href}
                   >
                     {item.icon}
