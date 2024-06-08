@@ -1,6 +1,12 @@
 import { v2 as cloudinary } from 'cloudinary'
 import dotenv from 'dotenv'
-dotenv.config()
+// Cargar variables de entorno según el entorno
+const envFile = process.env.NODE_ENV === 'production' ? '.env.production' : '.env.development'
+dotenv.config({ path: envFile })
+
+const CLOUDINARY_CLOUD_NAME = process.env.CLOUDINARY_CLOUD_NAME
+const CLOUDINARY_API_KEY = process.env.CLOUDINARY_API_KEY
+const CLOUDINARY_API_SECRET = process.env.CLOUDINARY_API_SECRET
 
 export const CLOUDINARY_FOLDERS = {
   ROOMS: 'rooms',
@@ -8,19 +14,25 @@ export const CLOUDINARY_FOLDERS = {
 }
 
 cloudinary.config({
-  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
-  api_key: process.env.CLOUDINARY_API_KEY,
-  api_secret: process.env.CLOUDINARY_API_SECRET
+  cloud_name: CLOUDINARY_CLOUD_NAME,
+  api_key: CLOUDINARY_API_KEY,
+  api_secret: CLOUDINARY_API_SECRET
 })
 
 export async function checkAndCreateFolder (folderName) {
   try {
-    const folderExists = await cloudinary.api.resource(folderName, { type: 'upload' })
-    if (!folderExists) {
+    const folderExists = await cloudinary.api.resources({
+      type: 'upload',
+      prefix: folderName,
+      max_results: 1
+    })
+
+    if (folderExists.resources.length === 0) {
       const createFolderResponse = await cloudinary.api.create_folder(folderName)
       return createFolderResponse
     }
-    return folderExists
+
+    return { message: 'Folder already exists', ...folderExists }
   } catch (error) {
     console.error('Error checking and creating folder:', error)
     throw error
