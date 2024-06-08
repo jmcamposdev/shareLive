@@ -29,7 +29,7 @@ const UserSettings = () => {
           onClick={toggleExpanded}
         >
           <img
-            className='rounded-full'
+            className='rounded-full aspect-square object-cover object-center'
             width={44}
             height={44}
             src={user.avatar}

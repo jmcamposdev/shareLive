@@ -5,6 +5,8 @@ import { useUserSingle } from '../../../../context/UserSingleContext'
 import useAlertToast from '../../../../hooks/useToast'
 import { Link } from 'react-router-dom'
 import { useAuth } from '../../../../context/AuthContext'
+import LottiePlayer from '../../../common/LottiePlayer/LottiePlayer'
+import FirstOne from '../../../../assets/lotties/firstReview.json'
 
 const RATING_OPTIONS = [
   { value: 1, label: '1 Star' },
@@ -61,7 +63,7 @@ const UserReviewForm = ({ noReviews }) => {
         {youAlreadyReviewed
           ? 'Update your review'
           : noReviews
-            ? 'Be the first one to leave a Review'
+            ? <><h6 className='fz17 w-full'>This user has no reviews, be the first one ot leave one</h6><LottiePlayer lottie={FirstOne} /></>
             : 'Leave A Review'}
       </h6>
       {!user

@@ -7,6 +7,8 @@ import Selector from '../../common/Inputs/Selector'
 import RoomSmallSkeleton from '../../common/Room/RoomSmall/RoomsSmallSkeleton'
 import DshRoomsPagination from './DshRoomsPagination'
 import BoxDashboard from '../../common/Dashboard/BoxDashboard/BoxDashboard'
+import LottiePlayer from '../../common/LottiePlayer/LottiePlayer'
+import NoFavorites from '../../../assets/lotties/noFavorites.json'
 
 const ENTRIES_PER_PAGES = [
   { value: 8, label: 8 },
@@ -57,9 +59,10 @@ const DshRoomsListing = ({ rooms, onDelete, onEdit, search, loading = false }) =
 
           {filteredFavoriteRooms.length === 0 && !loading
             ? (
-              <div className='min-h-[40dvh] w-full flex items-center justify-center'>
-                <h3 className='black:text-white'>No rooms favourited yet...</h3>
-              </div>
+              <>
+                <h3 className='dark:text-white w-full text-center'>No Rooms here...</h3>
+                <LottiePlayer lottie={NoFavorites} />
+              </>
               )
             : (
               <PaginationProvider
