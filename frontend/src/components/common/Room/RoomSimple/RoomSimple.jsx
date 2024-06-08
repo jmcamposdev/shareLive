@@ -12,7 +12,7 @@ const RoomSimple = ({ room, loading = false }) => {
         <div className='list-thumb h-[50%]'>
           <Link to={linkUrl}>
             <img
-              className='cover'
+              className='cover w-full h-full object-cover object-center'
               src={room.images[0]}
               alt={room.title}
             />

@@ -3,7 +3,7 @@ import ContactFormSingle from '../contactFormSingle/ContactFormSingle'
 const UserSidebar = ({ user }) => {
   return (
     <>
-      <ContactFormSingle title='Contact Me' contactUser={user} />
+      <ContactFormSingle title='Contact Me' contactUser={user} placeholder='Contact me if you are interested in initiating a conversation.' />
       <div className='agen-personal-info relative bgc-white default-box-shadow1 bdrs12 p30 mt30 dark:bg-midnight'>
         <div className='widget-wrapper mb-0'>
           <h6 className='title fz17 mb35 dark:text-white'>More Information</h6>

@@ -9,11 +9,15 @@ const Footer = () => {
   const footerMenuItems = [
     {
       label: 'Privacy',
-      link: 'privacy'
+      link: '/privacy'
     },
     {
       label: 'Terms',
-      link: 'terms'
+      link: '/terms'
+    },
+    {
+      label: 'Sitemap',
+      link: '/sitemap'
     }
   ]
 
@@ -23,7 +27,7 @@ const Footer = () => {
         <div className='sm:w-1/2 pr-4 pl-4'>
           <div className='text-center text-lg-start'>
             <p className='copyright-text text-gray ff-heading'>
-              © Homez {getCurrentYear()}{' '}
+              © Sharelive {getCurrentYear()}{' '}
               <Link
                 rel='noopener noreferrer'
                 className='text-white'

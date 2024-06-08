@@ -1,16 +1,14 @@
 import WebLayout from '../../../layout/WebLayout'
 import PageIntro from '../../../components/common/PageIntro/PageIntro'
-import PrivacyImg from '../../../assets/img/privacy/privacy.jpg'
-
-const PrivacyPolicy = () => {
+import SitemapImg from '../../../assets/img/sitemap/sitemap.jpg'
+const SiteMap = () => {
   return (
     <WebLayout>
-      <PageIntro title='Privacy Policy' description='Learn about our Privacy Policy' backgroundImage={PrivacyImg} />
+      <PageIntro title='Site Map' description='Learn about our Sitemap' backgroundImage={SitemapImg} />
       <section className='our-compare pt-20 pb-20 relative dark:bg-lightmidnight'>
 
         <div className='container mx-auto sm:px-4 pt-20'>
           <div className='flex flex-wrap  aos-init aos-animate' data-aos='fade-left' data-aos-delay='300'>
-
             <div className='container mx-auto py-8'>
               <h1 className='text-3xl font-bold mb-4 dark:text-white'>Welcome to ShareLive Privacy Policy</h1>
               <p className='mb-8 dark:text-white'>
@@ -97,4 +95,4 @@ const PrivacyPolicy = () => {
   )
 }
 
-export default PrivacyPolicy
+export default SiteMap
