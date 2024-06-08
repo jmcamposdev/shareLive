@@ -11,7 +11,8 @@ import TableSkeleton from './TableSkeleton'
 import { useDeleteDialog } from '../../../hooks/useDeleteDialog'
 import { toNormalCase } from '../../../utils/formatString'
 import Selector from '../Inputs/Selector'
-import NotFoundLottie from '../notFoundLottie/NotFoundLottie'
+import LottiePlayer from '../LottiePlayer/LottiePlayer'
+import NotFound from '../../../assets/lotties/notFound.json'
 
 const Table = ({ loading = false, data, setData, columns, onEdit, onDelete, filterValue, onFilter, itemName = 'item' }) => {
   const [itemToDelete, setItemToDelete] = useState(null)
@@ -165,7 +166,7 @@ const Table = ({ loading = false, data, setData, columns, onEdit, onDelete, filt
                 {!showData && (
                   <tr role='row' className='border-b border-stroke dark:border-strokedark duration-300 ease-linear block w-full border-none'>
                     <td colSpan={columns.length} className='pl-8 !py-7 pr-2 text-center block w-full dark:!text-white bg-white dark:bg-midnight !font-medium rounded-xl text-base my-6 !border-[#ddd] dark:!border-borderColor/20'>
-                      <NotFoundLottie mssg='No Data Found' />
+                      <LottiePlayer mssg='No Data Found' lottie={NotFound} />
                     </td>
                   </tr>
                 )}

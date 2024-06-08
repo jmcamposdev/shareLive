@@ -2,9 +2,9 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 const footerLinks = [
-  { text: 'Privacy', href: 'privacy' },
-  { text: 'Terms', href: 'terms' },
-  { text: 'Sitemap', href: 'sitemap' }
+  { text: 'Privacy', href: '/privacy' },
+  { text: 'Terms', href: '/terms' },
+  { text: 'Sitemap', href: '/sitemap' }
 ]
 
 const DashboardFooter = () => {

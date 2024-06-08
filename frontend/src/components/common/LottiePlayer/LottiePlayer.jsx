@@ -1,15 +1,14 @@
-import NotFound from '../../../assets/lotties/notFound.json'
 import Lottie from 'react-lottie'
 
-const NotFoundLottie = ({ mssg }) => {
+const NotFoundLottie = ({ mssg, lottie }) => {
   return (
     <div className='mx-auto md:max-w-96'>
-      <h6 className='mx-auto'>{mssg}</h6>
+      <h6 className='mx-auto dark:text-white'>{mssg}</h6>
       <Lottie
         options={{
           loop: true,
           autoplay: true,
-          animationData: NotFound,
+          animationData: lottie,
           rendererSettings: {
             preserveAspectRatio: 'xMidYMid slice'
           }

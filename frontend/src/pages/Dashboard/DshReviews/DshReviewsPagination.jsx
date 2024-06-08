@@ -1,6 +1,8 @@
 import { useContext } from 'react'
 import { PaginationContext } from '../../../context/PaginationContext'
 import Review from '../../../components/common/Review/Review'
+import LottiePlayer from '../../../components/common/LottiePlayer/LottiePlayer'
+import NoReviews from '../../../assets/lotties/noReviews.json'
 
 const DshReviewsPagination = ({ loading, onUpdateReview, onDeleteReview }) => {
   const { pageData, itemsPerPage } = useContext(PaginationContext)
@@ -9,11 +11,12 @@ const DshReviewsPagination = ({ loading, onUpdateReview, onDeleteReview }) => {
     <div className='mb-16'>
       {pageData.length === 0 && !loading &&
         (
-          <div className='text-center my-24'>
-            <h3>
-              You don't write any review yet
+          <>
+            <h3 className='w-full text-center dark:text-white'>
+              No Reviews Here...
             </h3>
-          </div>
+            <LottiePlayer lottie={NoReviews} />
+          </>
         )}
 
       {loading
