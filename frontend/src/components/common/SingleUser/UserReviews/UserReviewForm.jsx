@@ -5,8 +5,6 @@ import { useUserSingle } from '../../../../context/UserSingleContext'
 import useAlertToast from '../../../../hooks/useToast'
 import { Link } from 'react-router-dom'
 import { useAuth } from '../../../../context/AuthContext'
-import LottiePlayer from '../../../common/LottiePlayer/LottiePlayer'
-import FirstOne from '../../../../assets/lotties/firstReview.json'
 
 const RATING_OPTIONS = [
   { value: 1, label: '1 Star' },
@@ -16,7 +14,7 @@ const RATING_OPTIONS = [
   { value: 5, label: '5 Stars' }
 ]
 
-const UserReviewForm = ({ noReviews }) => {
+const UserReviewForm = () => {
   const { toast } = useAlertToast()
   const { user } = useAuth()
   const { createReview, updateReview, youAlreadyReviewed, yourReview } = useUserSingle()
@@ -59,12 +57,10 @@ const UserReviewForm = ({ noReviews }) => {
 
   return (
     <div className='bsp_reveiw_wrt'>
-      <h6 className={`fz17 dark:text-white ${noReviews ? 'mt60' : ''}`}>
+      <h6 className='fz17 dark:text-white'>
         {youAlreadyReviewed
           ? 'Update your review'
-          : noReviews
-            ? <><h6 className='fz17 w-full'>This user has no reviews, be the first one ot leave one</h6><LottiePlayer lottie={FirstOne} /></>
-            : 'Leave A Review'}
+          : 'Leave A Review'}
       </h6>
       {!user
         ? (

@@ -29,7 +29,7 @@ const roomSchema = new Schema({
     washer: { type: Boolean, default: false },
     dryer: { type: Boolean, default: false },
     microwave: { type: Boolean, default: false },
-    dishWasher: { type: Boolean, default: false },
+    dishwasher: { type: Boolean, default: false },
     refrigerator: { type: Boolean, default: false },
     furnace: { type: Boolean, default: false },
     airConditioning: { type: Boolean, default: false },

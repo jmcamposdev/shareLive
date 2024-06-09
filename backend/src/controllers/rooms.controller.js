@@ -132,6 +132,7 @@ const deleteImages = async (req, res) => {
 const updateRoom = (req, res) => {
   const user = req.user
   const { id } = req.params
+  console.log('req.body', req.body)
   Room.findByIdAndUpdate(id, req.body, { new: true })
     .then((room) => {
       if (!room) {
