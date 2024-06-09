@@ -12,6 +12,7 @@ import { registerInitialValues } from './FormModel/registerFormInitialValues'
 import registerValidationSchema from './FormModel/registerValidationSchema'
 import registerFormModel from './FormModel/registerFormModel'
 import { useAuth } from '../../../context/AuthContext'
+import FormikSubmitBtn from '../../../components/common/Formik/Buttons/FormikSubmitBtn'
 
 const {
   formId,
@@ -36,7 +37,7 @@ const Register = () => {
       const res = await AuthService.signUp(username, firstName, lastName, email, password)
       signInUser(res.user, res.token)
       toast.showSuccess('Registered successfully')
-      navigate('/dashboard')
+      navigate('/dashboard/rooms')
     } catch (error) {
       toast.showError(error.message)
     }
@@ -99,80 +100,85 @@ const Register = () => {
                   validationSchema={registerValidationSchema}
                   onSubmit={onSubmit}
                 >
-                  <Form id={formId} className='flex flex-col gap-5'>
-                    <FormikControl
-                      control='input'
-                      type='text'
-                      id={username.name}
-                      name={username.name}
-                      label={username.label}
-                      placeholder={username.placeholder}
-                    />
-                    <div className='flex gap-5 sm:flex-row flex-col'>
+                  {({ isSubmitting }) => (
+                    <Form id={formId} className='flex flex-col gap-5'>
                       <FormikControl
                         control='input'
                         type='text'
-                        id={firstName.name}
-                        name={firstName.name}
-                        label={firstName.label}
-                        placeholder={firstName.placeholder}
+                        id={username.name}
+                        name={username.name}
+                        label={username.label}
+                        placeholder={username.placeholder}
                       />
-                      <FormikControl
-                        control='input'
-                        type='text'
-                        id={lastName.name}
-                        name={lastName.name}
-                        label={lastName.label}
-                        placeholder={lastName.placeholder}
-                      />
-                    </div>
-                    <FormikControl
-                      control='input'
-                      type='text'
-                      id={email.name}
-                      name={email.name}
-                      label={email.label}
-                      placeholder={email.placeholder}
-                    />
-                    <div className='flex gap-5 sm:flex-row flex-col'>
-                      <FormikControl
-                        control='input'
-                        type='password'
-                        id={password.name}
-                        name={password.name}
-                        label={password.label}
-                        placeholder={password.placeholder}
-                      />
-                      <FormikControl
-                        control='input'
-                        type='password'
-                        id={confirmPassword.name}
-                        name={confirmPassword.name}
-                        label={confirmPassword.label}
-                        placeholder={confirmPassword.placeholder}
-                      />
-                    </div>
-                    <div className='checkbox-style1 block sm:flex items-center justify-between mb10'>
-                      {/* Coloca onChange directamente en el input */}
-                      <label className='custom_checkbox fz14 ff-heading dark:text-white'>I agree to the <a className='fz14 ff-heading dark:text-white font-bold' href='#'>Terms & Conditions</a>
-                        <input id='checkbox' type='checkbox' checked={isChecked} onChange={handleCheckboxChange} />
-                        <span className='checkmark dark:border-white' />
-                      </label>
-
-                    </div>
-                    <div className='d-grid mb20'>
-                      <button className='ud-btn btn-thm dark:text-white' type='submit'>
-                        Create Account <i className='fal fa-arrow-right-long' />
-                      </button>
-                    </div>
-                    <div>
-                      <div className='hr_content h-[33px] relative mb20'>
-                        <hr className='absolute top-[45%] w-full dark:text-white' />
-                        <span className='hr_top_text dark:text-white dark:bg-midnight'>OR</span>
+                      <div className='flex gap-5 sm:flex-row flex-col'>
+                        <FormikControl
+                          control='input'
+                          type='text'
+                          id={firstName.name}
+                          name={firstName.name}
+                          label={firstName.label}
+                          placeholder={firstName.placeholder}
+                        />
+                        <FormikControl
+                          control='input'
+                          type='text'
+                          id={lastName.name}
+                          name={lastName.name}
+                          label={lastName.label}
+                          placeholder={lastName.placeholder}
+                        />
                       </div>
-                      <p className='dark:text-white dark-color text-center mb0 mt10'>Already Have an Account? <Link className='dark:text-white dark-color fw600' to='/login'>Login</Link></p>
-                    </div>
-                  </Form>
+                      <FormikControl
+                        control='input'
+                        type='text'
+                        id={email.name}
+                        name={email.name}
+                        label={email.label}
+                        placeholder={email.placeholder}
+                      />
+                      <div className='flex gap-5 sm:flex-row flex-col'>
+                        <FormikControl
+                          control='input'
+                          type='password'
+                          id={password.name}
+                          name={password.name}
+                          label={password.label}
+                          placeholder={password.placeholder}
+                        />
+                        <FormikControl
+                          control='input'
+                          type='password'
+                          id={confirmPassword.name}
+                          name={confirmPassword.name}
+                          label={confirmPassword.label}
+                          placeholder={confirmPassword.placeholder}
+                        />
+                      </div>
+                      <div className='checkbox-style1 block sm:flex items-center justify-between mb10'>
+                        {/* Coloca onChange directamente en el input */}
+                        <label className='custom_checkbox fz14 ff-heading dark:text-white'>I agree to the <a className='fz14 ff-heading dark:text-white font-bold' href='#'>Terms & Conditions</a>
+                          <input id='checkbox' type='checkbox' checked={isChecked} onChange={handleCheckboxChange} />
+                          <span className='checkmark dark:border-white' />
+                        </label>
+
+                      </div>
+                      <div className='d-grid mb20'>
+                        <FormikSubmitBtn
+                          label='Create Account'
+                          className='w-full'
+                          isOrange
+                          isSubmitting={isSubmitting}
+                        />
+                      </div>
+                      <div>
+                        <div className='hr_content h-[33px] relative mb20'>
+                          <hr className='absolute top-[45%] w-full dark:text-white' />
+                          <span className='hr_top_text dark:text-white dark:bg-midnight'>OR</span>
+                        </div>
+                        <p className='dark:text-white dark-color text-center mb0 mt10'>Already Have an Account? <Link className='dark:text-white dark-color fw600' to='/login'>Login</Link></p>
+                      </div>
+                    </Form>
+                  )}
                 </Formik>
               </div>
             </div>

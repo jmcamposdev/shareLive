@@ -8,6 +8,7 @@ import useAlertToast from '../../../hooks/useToast'
 import AuthService from '../../../services/authService'
 import { Link, useNavigate } from 'react-router-dom'
 import { useAuth } from '../../../context/AuthContext'
+import { ROLES } from '../../../constants/roles.constants'
 
 const Login = () => {
   const { signInUser } = useAuth()
@@ -26,7 +27,8 @@ const Login = () => {
       const res = await AuthService.signIn(email, password)
       signInUser(res.user, res.token)
       toast.showSuccess('Logged in successfully')
-      navigate('/dashboard')
+      const isAdministrator = res.user.roles.some((role) => role.name === ROLES.SUPER_ADMIN || role.name === ROLES.ADMIN)
+      navigate(isAdministrator ? '/dashboard' : '/dashboard/rooms')
     } catch (error) {
       toast.showError(error.message)
     }
