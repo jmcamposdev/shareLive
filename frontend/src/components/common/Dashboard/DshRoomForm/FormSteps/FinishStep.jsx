@@ -20,7 +20,7 @@ const FinishStep = ({ room, isEdit }) => {
         width={200}
       />
       <div className=''>
-        <RoomDetailed room={room} />
+        <RoomDetailed room={room} className='max-w-[780px]' />
       </div>
       <div className='flex gap-5'>
         <Link
