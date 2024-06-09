@@ -27,6 +27,9 @@ export const signInValidations = [
     .custom(async (value, { req }) => {
       const user = await User.findOne({ email: req.body.email })
 
+      await user.populate('roles')
+      await user.populate('reviews')
+
       if (!user) {
         throw new Error('Invalid email or password')
       }

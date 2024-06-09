@@ -31,7 +31,7 @@ const rejectStyle = {
   borderColor: '#ff1744'
 }
 
-const MAX_FILES = 3
+const MAX_FILES = 5
 
 function DropZone ({ name, value, onChange }) {
   const [allFiles, setAllFiles] = useState(value || [])

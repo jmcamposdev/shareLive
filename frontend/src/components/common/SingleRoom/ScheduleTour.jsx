@@ -7,8 +7,10 @@ import { useAuth } from '../../../context/AuthContext'
 import UserService from '../../../services/UserService'
 import MessageService from '../../../services/MessageService'
 import { useNavigate } from 'react-router-dom'
+import useAlertToast from '../../../hooks/useToast'
 
 const ScheduleTour = ({ contactUser }) => {
+  const { toast } = useAlertToast()
   const { user, updateUser } = useAuth()
   const navigate = useNavigate()
   const initialValues = useMemo(() => {
@@ -33,7 +35,14 @@ const ScheduleTour = ({ contactUser }) => {
     actions.setSubmitting(true)
     // Send the message
     try {
-      if (!user || user._id === contactUser._id) return
+      if (!user) {
+        navigate('/login')
+        return
+      }
+      if (user && user._id === contactUser._id) {
+        toast.showError('You cannot send a message to yourself!')
+        return
+      }
       // Verify if the user is already a contact
       if (!user.contactList.includes(contactUser._id)) {
         const newUser = await UserService.addContact(user._id, contactUser._id)

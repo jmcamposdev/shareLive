@@ -8,19 +8,22 @@ const createUserFormModel = {
     name: 'password',
     label: 'Password',
     placeholder: 'Password',
-    type: 'password'
+    type: 'password',
+    requiredErrorMsg: 'Password is required'
   },
   confirmPassword: {
     name: 'confirmPassword',
     label: 'Confirm Password',
     placeholder: 'Confirm Password',
-    type: 'password'
+    type: 'password',
+    requiredErrorMsg: 'Confirm Password is required'
   },
   isAdministrator: {
     name: 'isAdministrator',
     label: 'Administrator',
     type: 'checkbox',
-    value: false
+    value: false,
+    requiredErrorMsg: 'Administrator is required'
   }
 }
 

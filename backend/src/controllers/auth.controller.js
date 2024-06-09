@@ -13,10 +13,6 @@ export const signIn = async (req, res) => {
   // Extract the user from the request
   const { user } = req
 
-  // Populate the user's roles
-  await user.populate('roles')
-  await user.populate('reviews')
-
   // Generate a token
   const token = await User.generateToken(user)
 

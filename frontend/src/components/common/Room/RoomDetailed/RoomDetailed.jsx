@@ -2,13 +2,13 @@ import { Link } from 'react-router-dom'
 import RoomDetailedSkeleton from './RoomDetailedSkeleton'
 import RoomFavouriteIcon from '../RoomFavouriteIcon'
 
-const RoomDetailed = ({ room, loading = false }) => {
+const RoomDetailed = ({ room, loading = false, className }) => {
   if (loading) return <RoomDetailedSkeleton />
 
   const linkUrl = `/rooms/${room._id}`
 
   return (
-    <div className='item'>
+    <div className={`item ${className || ''}`}>
       <div className='listing-style1 listCustom listing-type flex-col md:flex-row dark:bg-midnight'>
         <div className='list-thumb'>
           <Link to={linkUrl}>
