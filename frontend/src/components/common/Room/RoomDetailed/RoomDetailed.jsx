@@ -44,7 +44,7 @@ const RoomDetailed = ({ room, loading = false, className }) => {
               <span className='flaticon-expand text-[#717171]' /> {room.squareMeters} sqft
             </a>
           </div>
-          <p className='list-text2 dark:!text-white'>
+          <p className='list-text2 dark:!text-white line-clamp-1'>
             {room.excerpt ? room.excerpt : room.description?.substring(0, 100) + '...'}
           </p>
           <hr className='mt-auto mb-3 text-[#C5C6C7] dark:!bg-borderColor/20' />
