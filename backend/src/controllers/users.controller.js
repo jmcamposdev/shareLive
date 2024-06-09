@@ -305,6 +305,10 @@ const addUserToContactList = async (req, res) => {
   const { contactId } = req.body
 
   const user = await User.findById(id)
+  // Populate the owners reviews
+  await user.populate('reviews')
+  // Populate the roles
+  await user.populate('roles')
   if (!user) {
     return res.status(404).json({
       message: 'User not found'
