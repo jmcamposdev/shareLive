@@ -61,7 +61,7 @@ export default [
       washer: Yup.boolean(),
       dryer: Yup.boolean(),
       microwave: Yup.boolean(),
-      dishWasher: Yup.boolean(),
+      dishwasher: Yup.boolean(),
       refrigerator: Yup.boolean(),
       furnace: Yup.boolean(),
       airConditioning: Yup.boolean(),

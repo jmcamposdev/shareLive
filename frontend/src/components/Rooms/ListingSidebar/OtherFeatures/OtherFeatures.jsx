@@ -8,7 +8,7 @@ const OtherFeatures = () => {
     { label: 'Washer' },
     { label: 'Dryer' },
     { label: 'Microwave' },
-    { label: 'DishWasher' },
+    { label: 'dishwasher' },
     { label: 'Refrigerator' },
     { label: 'Furnace' }
   ]

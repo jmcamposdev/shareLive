@@ -29,7 +29,7 @@ const generateFakeRoom = () => {
       washer: faker.datatype.boolean(),
       dryer: faker.datatype.boolean(),
       microwave: faker.datatype.boolean(),
-      dishWasher: faker.datatype.boolean(),
+      dishwasher: faker.datatype.boolean(),
       refrigerator: faker.datatype.boolean(),
       furnace: faker.datatype.boolean(),
       airConditioning: faker.datatype.boolean(),
