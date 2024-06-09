@@ -33,7 +33,10 @@ const ScheduleTour = ({ contactUser }) => {
     actions.setSubmitting(true)
     // Send the message
     try {
-      if (!user || user._id === contactUser._id) return
+      if (!user || user._id === contactUser._id) {
+        navigate('/login')
+        return
+      }
       // Verify if the user is already a contact
       if (!user.contactList.includes(contactUser._id)) {
         const newUser = await UserService.addContact(user._id, contactUser._id)
