@@ -31,7 +31,7 @@ const DetailsForm = (props) => {
   }, [amenities, numColumns])
 
   const handleAmenitiesChange = (e) => {
-    const amenitieName = e.target.value !== 'TV' ? toCamelCase(e.target.value) : e.target.value.toLowerCase()
+    const amenitieName = e.target.value !== 'TV' && e.target.value !== 'WIFI' ? toCamelCase(e.target.value) : e.target.value.toLowerCase()
     const updatedAmenities = { ...values.amenities, [amenitieName]: e.target.checked }
     handleChange({ target: { name: 'amenities', value: updatedAmenities } })
   }
