@@ -58,6 +58,16 @@ app.use(cors({
   }
 }))
 
+// Middleware para verificar el Referer o Origin
+app.use((req, res, next) => {
+  const origin = req.get('Origin') || req.get('Referer');
+  if (origin && allowedOrigins.includes(origin)) {
+    next();
+  } else {
+    res.status(403).json({ message: 'Forbidden' });
+  }
+});
+
 app.use(handleJsonSyntaxError) // Verify JSON
 app.use(morgan('dev')) // Log requests to the console
 // Connect to MongoDB
