@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Gallery, Item } from 'react-photoswipe-gallery'
 import 'photoswipe/dist/photoswipe.css'
+import PropertyGallerySkeleton from './PropertyGallerySkeleton'
 
 const PropertyGallery = ({ images }) => {
   const [imageDimensions, setImageDimensions] = useState([])
@@ -12,10 +13,7 @@ const PropertyGallery = ({ images }) => {
         const img = new window.Image()
         img.src = image
         img.onload = () => {
-          newImageDimensions[index] = {
-            width: img.naturalWidth,
-            height: img.naturalHeight
-          }
+          newImageDimensions[index] = calculateImageStyle(img.naturalWidth, img.naturalHeight)
           if (newImageDimensions.length === images.length) {
             setImageDimensions(newImageDimensions)
           }
@@ -24,8 +22,26 @@ const PropertyGallery = ({ images }) => {
     }
   }, [images])
 
+  const calculateImageStyle = (width, height) => {
+    const maxWidth = window.innerWidth * 0.8
+    const maxHeight = window.innerHeight * 0.8
+
+    if (width > maxWidth || height > maxHeight) {
+      const widthRatio = maxWidth / width
+      const heightRatio = maxHeight / height
+      const ratio = Math.min(widthRatio, heightRatio)
+
+      return {
+        width: width * ratio,
+        height: height * ratio
+      }
+    }
+
+    return { width, height }
+  }
+
   if (!images || imageDimensions.length !== images.length) {
-    return null
+    return <PropertyGallerySkeleton />
   }
 
   return (
