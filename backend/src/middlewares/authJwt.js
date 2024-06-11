@@ -32,7 +32,7 @@ export const verifyToken = async (req, res, next) => {
     req.userId = decoded._id
 
     // Find the user in the database
-    const user = await User.findById(req.userId)
+    const user = await User.findById(req.userId).populate('roles')
 
     // If the user is not found, send a 404 status code and a message
     if (!user) {

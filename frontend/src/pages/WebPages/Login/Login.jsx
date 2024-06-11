@@ -8,6 +8,7 @@ import useAlertToast from '../../../hooks/useToast'
 import AuthService from '../../../services/authService'
 import { Link, useNavigate } from 'react-router-dom'
 import { useAuth } from '../../../context/AuthContext'
+import { ROLES } from '../../../constants/roles.constants'
 
 const Login = () => {
   const { signInUser } = useAuth()
@@ -26,7 +27,8 @@ const Login = () => {
       const res = await AuthService.signIn(email, password)
       signInUser(res.user, res.token)
       toast.showSuccess('Logged in successfully')
-      navigate('/dashboard')
+      const isAdministrator = res.user.roles.some((role) => role.name === ROLES.SUPER_ADMIN || role.name === ROLES.ADMIN)
+      navigate(isAdministrator ? '/dashboard' : '/dashboard/rooms')
     } catch (error) {
       toast.showError(error.message)
     }
@@ -113,7 +115,7 @@ const Login = () => {
                         <Field type='checkbox' name='rememberMe' className='hidden' />
                         <span className='checkmark dark:border-white' />
                       </label>
-                      <a className='fz14 ff-heading dark:text-white' href='#'>Lost your password?</a>
+                      <Link className='fz14 ff-heading dark:text-white' to='/password-reset'>Lost your password?</Link>
                     </div>
                     <div className='d-grid mb20'>
                       <button className='ud-btn btn-thm dark:text-white' type='submit'>
@@ -124,7 +126,7 @@ const Login = () => {
                       <hr className='absolute top-[45%] w-full dark:text-white' />
                       <span className='hr_top_text dark:text-white dark:bg-midnight'>OR</span>
                     </div>
-                    <div className='d-grid mb10'>
+                    {/* <div className='d-grid mb10'>
                       <button className='ud-btn btn-white' type='button'>
                         <i className='fab fa-google' /> Continue Google
                       </button>
@@ -138,7 +140,7 @@ const Login = () => {
                       <button className='ud-btn btn-apple bg-black' type='button'>
                         <i className='fab fa-apple' /> Continue Apple
                       </button>
-                    </div>
+                    </div> */}
                     <p className='dark-color text-center mb0 mt10 dark:text-white'>
                       Not signed up? <Link className='dark-color fw600 dark:text-white' to='/register'>Create an account</Link>
                     </p>

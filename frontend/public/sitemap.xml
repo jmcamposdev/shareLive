@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created manually -->
+
+<!-- Static web pages -->
+<url>
+  <loc>https://sharelive.jmcampos.dev/</loc>
+  <lastmod>2024-06-01T00:00:00+00:00</lastmod>
+</url>
+<url>
+  <loc>https://sharelive.jmcampos.dev/about</loc>
+  <lastmod>2024-06-01T00:00:00+00:00</lastmod>
+</url>
+<url>
+  <loc>https://sharelive.jmcampos.dev/rooms</loc>
+  <lastmod>2024-06-01T00:00:00+00:00</lastmod>
+</url>
+<url>
+  <loc>https://sharelive.jmcampos.dev/contact</loc>
+  <lastmod>2024-06-01T00:00:00+00:00</lastmod>
+</url>
+<url>
+  <loc>https://sharelive.jmcampos.dev/login</loc>
+  <lastmod>2024-06-01T00:00:00+00:00</lastmod>
+</url>
+<url>
+  <loc>https://sharelive.jmcampos.dev/register</loc>
+  <lastmod>2024-06-01T00:00:00+00:00</lastmod>
+</url>
+<url>
+  <loc>https://sharelive.jmcampos.dev/logout</loc>
+  <lastmod>2024-06-01T00:00:00+00:00</lastmod>
+</url>
+<url>
+  <loc>https://sharelive.jmcampos.dev/privacy</loc>
+  <lastmod>2024-06-01T00:00:00+00:00</lastmod>
+</url>
+<url>
+  <loc>https://sharelive.jmcampos.dev/terms</loc>
+  <lastmod>2024-06-01T00:00:00+00:00</lastmod>
+</url>
+<url>
+  <loc>https://sharelive.jmcampos.dev/sitemap</loc>
+  <lastmod>2024-06-01T00:00:00+00:00</lastmod>
+</url>
+
+<!-- Dashboard routes for all users -->
+<url>
+  <loc>https://sharelive.jmcampos.dev/dashboard</loc>
+  <lastmod>2024-06-01T00:00:00+00:00</lastmod>
+</url>
+<url>
+  <loc>https://sharelive.jmcampos.dev/dashboard/reviews</loc>
+  <lastmod>2024-06-01T00:00:00+00:00</lastmod>
+</url>
+<url>
+  <loc>https://sharelive.jmcampos.dev/dashboard/rooms</loc>
+  <lastmod>2024-06-01T00:00:00+00:00</lastmod>
+</url>
+<url>
+  <loc>https://sharelive.jmcampos.dev/dashboard/rooms/add</loc>
+  <lastmod>2024-06-01T00:00:00+00:00</lastmod>
+</url>
+<url>
+  <loc>https://sharelive.jmcampos.dev/dashboard/profile</loc>
+  <lastmod>2024-06-01T00:00:00+00:00</lastmod>
+</url>
+<url>
+  <loc>https://sharelive.jmcampos.dev/dashboard/messages</loc>
+  <lastmod>2024-06-01T00:00:00+00:00</lastmod>
+</url>
+<url>
+  <loc>https://sharelive.jmcampos.dev/dashboard/favourites</loc>
+  <lastmod>2024-06-01T00:00:00+00:00</lastmod>
+</url>
+
+<!-- Admin dashboard routes -->
+<url>
+  <loc>https://sharelive.jmcampos.dev/dashboard/users</loc>
+  <lastmod>2024-06-01T00:00:00+00:00</lastmod>
+</url>
+<url>
+  <loc>https://sharelive.jmcampos.dev/dashboard/users/add</loc>
+  <lastmod>2024-06-01T00:00:00+00:00</lastmod>
+</url>
+
+</urlset>

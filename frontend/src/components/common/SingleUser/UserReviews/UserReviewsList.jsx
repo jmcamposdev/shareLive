@@ -3,6 +3,8 @@ import { USER_REVIEWS_ORDER } from './UserReviews.constant'
 import { useUserSingle } from '../../../../context/UserSingleContext'
 import { useAuth } from '../../../../context/AuthContext'
 import { useRef, useState } from 'react'
+import LottiePlayer from '../../../common/LottiePlayer/LottiePlayer'
+import FirstOne from '../../../../assets/lotties/firstReview.json'
 
 const UserReviewsList = ({ userId, reviews, order, numtoDisplay = 4 }) => {
   const [isExpanded, setIsExpanded] = useState(false)
@@ -48,8 +50,11 @@ const UserReviewsList = ({ userId, reviews, order, numtoDisplay = 4 }) => {
 
     <>
       <div ref={titleRef} />
+      {reviews.length === 0 && (
+        <><h6 className='fz17 w-full text-center'>This user has no reviews, be the first one ot leave one</h6><LottiePlayer lottie={FirstOne} /></>
+      )}
       {reviews.slice(0, isExpanded ? reviews.length : numtoDisplay).map(review => (
-        <Review key={review._id} review={review} onUpdate={updateReview} />
+        <Review key={review._id} review={review} onUpdate={updateReview} className='w-full' />
       ))}
       {reviews.length > numtoDisplay && (
         <div className='md:w-full'>

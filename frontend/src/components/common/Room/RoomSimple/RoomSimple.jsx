@@ -8,11 +8,11 @@ const RoomSimple = ({ room, loading = false }) => {
 
   return (
     <div className='item rounded-xl h-full'>
-      <div className='listing-style1 mb-0 dark:bg-midnight' style={{ height: 'calc(100% - 30px)' }}>
+      <div className='listing-style1 mb-0 dark:bg-midnight'>
         <div className='list-thumb h-[50%]'>
           <Link to={linkUrl}>
             <img
-              className='cover'
+              className='cover w-full h-full object-cover object-center'
               src={room.images[0]}
               alt={room.title}
             />
@@ -22,8 +22,8 @@ const RoomSimple = ({ room, loading = false }) => {
             <span className='dark:text-white'>{room.images.length}</span>
           </div>
         </div>
-        <div className='list-content dark:bg-midnight h-[50%] flex flex-col'>
-          <h6 className='list-title'>
+        <div className='list-content dark:bg-midnight h-fit flex flex-col'>
+          <h6 className='list-title line-clamp-1'>
             <Link
               to={linkUrl}
               className='hover:!text-orangePrimary dark:text-white'
@@ -38,7 +38,7 @@ const RoomSimple = ({ room, loading = false }) => {
             <i className='fa-solid fa-location-dot pr-3' />
             {room.city !== room.state ? room.city : ''} {room.state}, {room.country}
           </p>
-          <div className='list-meta d-flex align-items-center mt-auto'>
+          <div className='list-meta d-flex align-items-center !pt-3 border-t border-[#ddd] dark:border-borderColor/20'>
             <a className='text-[#717171]'>
               <span className='flaticon-bed text-[#717171]' /> {room.bedrooms} bed
             </a>

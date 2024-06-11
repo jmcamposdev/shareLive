@@ -6,7 +6,9 @@ import Review from './Review.js'
 import { deleteAllContactsOfUser, deleteAllMessagesOfUser, deleteAllReviewsOfUser, deleteAllRoomsOfUser, deleteReviewParticipationOfUser, deleteUserAvatar } from '../utils/user.utils.js'
 import Activity from './Activity.js'
 
-dotenv.config()
+// Cargar variables de entorno según el entorno
+const envFile = process.env.NODE_ENV === 'production' ? '.env.production' : '.env.development'
+dotenv.config({ path: envFile })
 
 // Definición del esquema de Usuario
 const userSchema = new Schema({

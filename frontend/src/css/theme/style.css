@@ -64,6 +64,7 @@
 html,
 body {
   scroll-behavior: auto !important;
+  overflow-x: hidden;
 }
 
 body {
@@ -683,6 +684,66 @@ li {
   width: 20px;
   height: 20px;
   margin-right: 15px;
+}
+
+
+
+
+ a .strokeVector * {
+     stroke: black; 
+     transition:all 0.3s ease 0s;
+}
+ a:hover .strokeVector * {
+    stroke: white !important; 
+}
+
+.-is-active .strokeVector * {
+  stroke: white !important; 
+}
+
+.dark  a .strokeVector * {
+  stroke: white !important; 
+  transition:all 0.3s ease 0s;
+}
+
+.dark  a:hover .strokeVector * {
+  stroke: white !important; 
+}
+
+.dark  .-is-active .strokeVector * {
+  stroke: white !important; 
+}
+
+
+
+
+a .fillVector * {
+  fill: black; 
+  transition:all 0.3s ease 0s;
+}
+ a:hover .fillVector * {
+  fill: white !important; 
+}
+
+.-is-active .fillVector * {
+  fill: white !important; 
+}
+
+.dark a .fillVector * {
+  fill: white !important; 
+transition:all 0.3s ease 0s;
+}
+
+.dark  a:hover .fillVector * {
+  fill: white !important; 
+}
+
+.dark .-is-active .fillVector * {
+stroke: white !important; 
+}
+
+.logout:hover span{
+  color:#f1416dbc !important;
 }
 
 .dashboard {

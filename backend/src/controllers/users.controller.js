@@ -6,7 +6,10 @@ import { handleDeleteImage, handleUploadImage } from '../storage/cloudinary.js'
 import Activity, { ACTIVITY_TYPES } from '../models/Activity.js'
 import mongoose from 'mongoose'
 import Message from '../models/Message.js'
-dotenv.config()
+
+// Cargar variables de entorno según el entorno
+const envFile = process.env.NODE_ENV === 'production' ? '.env.production' : '.env.development'
+dotenv.config({ path: envFile })
 
 const getUsers = async (req, res) => {
   try {
@@ -171,6 +174,21 @@ const changePassword = async (req, res) => {
   }
 }
 
+const resetPassword = async (req, res) => {
+  try {
+    const { password, email } = req.body
+
+    const encryptedPassword = await User.encryptPassword(password)
+    const updated = await User.findOneAndUpdate({ email }, { password: encryptedPassword }, { new: true })
+    res.json(updated)
+  } catch (error) {
+    res.status(500).json({
+      message: 'An error occurred while resetting the password',
+      error
+    })
+  }
+}
+
 const deleteUser = async (req, res) => {
   try {
     const { id } = req.params
@@ -287,6 +305,10 @@ const addUserToContactList = async (req, res) => {
   const { contactId } = req.body
 
   const user = await User.findById(id)
+  // Populate the owners reviews
+  await user.populate('reviews')
+  // Populate the roles
+  await user.populate('roles')
   if (!user) {
     return res.status(404).json({
       message: 'User not found'
@@ -378,6 +400,7 @@ export {
   getFavouriteRooms,
   uploadAvatar,
   changePassword,
+  resetPassword,
   getUserContacts,
   addUserToContactList,
   deleteUserFromContactList

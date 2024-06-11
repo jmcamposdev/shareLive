@@ -4,7 +4,9 @@ import dotenv from 'dotenv'
 import { CLOUDINARY_FOLDERS, checkAndDeleteFolder, handleDeleteImage } from '../storage/cloudinary.js'
 import Message from '../models/Message.js'
 import User from '../models/User.js'
-dotenv.config()
+// Cargar variables de entorno según el entorno
+const envFile = process.env.NODE_ENV === 'production' ? '.env.production' : '.env.development'
+dotenv.config({ path: envFile })
 
 const deleteAllRoomsOfUser = async (user) => {
   const rooms = await Room.find({ user: user._id })

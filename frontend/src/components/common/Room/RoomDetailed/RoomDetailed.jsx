@@ -2,13 +2,13 @@ import { Link } from 'react-router-dom'
 import RoomDetailedSkeleton from './RoomDetailedSkeleton'
 import RoomFavouriteIcon from '../RoomFavouriteIcon'
 
-const RoomDetailed = ({ room, loading = false }) => {
+const RoomDetailed = ({ room, loading = false, className }) => {
   if (loading) return <RoomDetailedSkeleton />
 
   const linkUrl = `/rooms/${room._id}`
 
   return (
-    <div className='item'>
+    <div className={`item ${className || ''}`}>
       <div className='listing-style1 listCustom listing-type flex-col md:flex-row dark:bg-midnight'>
         <div className='list-thumb'>
           <Link to={linkUrl}>
@@ -44,7 +44,7 @@ const RoomDetailed = ({ room, loading = false }) => {
               <span className='flaticon-expand text-[#717171]' /> {room.squareMeters} sqft
             </a>
           </div>
-          <p className='list-text2 dark:!text-white'>
+          <p className='list-text2 dark:!text-white line-clamp-1'>
             {room.excerpt ? room.excerpt : room.description?.substring(0, 100) + '...'}
           </p>
           <hr className='mt-auto mb-3 text-[#C5C6C7] dark:!bg-borderColor/20' />

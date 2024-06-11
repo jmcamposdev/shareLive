@@ -14,7 +14,7 @@ const RATING_OPTIONS = [
   { value: 5, label: '5 Stars' }
 ]
 
-const UserReviewForm = ({ noReviews }) => {
+const UserReviewForm = () => {
   const { toast } = useAlertToast()
   const { user } = useAuth()
   const { createReview, updateReview, youAlreadyReviewed, yourReview } = useUserSingle()
@@ -57,12 +57,10 @@ const UserReviewForm = ({ noReviews }) => {
 
   return (
     <div className='bsp_reveiw_wrt'>
-      <h6 className={`fz17 dark:text-white ${noReviews ? 'mt60' : ''}`}>
+      <h6 className='fz17 dark:text-white'>
         {youAlreadyReviewed
           ? 'Update your review'
-          : noReviews
-            ? 'Be the first one to leave a Review'
-            : 'Leave A Review'}
+          : 'Leave A Review'}
       </h6>
       {!user
         ? (

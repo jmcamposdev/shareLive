@@ -29,6 +29,16 @@ const AuthService = {
       console.error('Error signing up:', error.message)
       throw error
     }
+  },
+
+  sendPasswordResetEmail: async (email, OPT) => {
+    try {
+      const response = await api.post('auth/send-reset-password-email', { email, OPT })
+      return response
+    } catch (error) {
+      console.error('Error sending password reset email:', error.message)
+      throw error
+    }
   }
 }
 

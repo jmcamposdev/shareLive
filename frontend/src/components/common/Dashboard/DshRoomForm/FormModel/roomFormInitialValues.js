@@ -54,7 +54,7 @@ export const roomFormInitialValues = (room) => {
       washer: room?.amenities?.washer || false,
       dryer: room?.amenities?.dryer || false,
       microwave: room?.amenities?.microwave || false,
-      dishWasher: room?.amenities?.dishWasher || false,
+      dishwasher: room?.amenities?.dishwasher || false,
       refrigerator: room?.amenities?.refrigerator || false,
       furnace: room?.amenities?.furnace || false,
       airConditioning: room?.amenities?.airConditioning || false,

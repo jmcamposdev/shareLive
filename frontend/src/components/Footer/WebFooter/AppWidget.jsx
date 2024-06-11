@@ -7,13 +7,13 @@ const AppWidget = () => {
       icon: 'fab fa-apple fz30 text-white',
       text: 'Download on the',
       title: 'Apple Store',
-      link: '#'
+      link: 'https://www.apple.com/es/app-store/'
     },
     {
       icon: 'fab fa-google-play fz30 text-white',
       text: 'Get it on',
       title: 'Google Play',
-      link: '#'
+      link: 'https://play.google.com/store/games?hl=es'
     }
   ]
 

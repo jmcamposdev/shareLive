@@ -6,8 +6,8 @@ import WhyChooseFeatures from './WhyChooseFeatures/WhyChooseFeatures'
 
 const WhyChoose = () => {
   return (
-    <section className='pb90 mt90 mb90 relative'>
-      <div style={{ height: 'calc(100% + 90px)' }} className='absolute top-0 left-0 w-full -z-10 hidden dark:block dark:bg-lightmidnight' />
+    <section className='pb-[180px] mt90  relative overflow-x-hidden'>
+      <div className='absolute top-0 left-0 w-full h-full -z-10 hidden dark:block dark:bg-lightmidnight' />
       <div className='container mx-auto sm:px-4'>
         <div
           className='flex flex-wrap  md:items-center justify-between'

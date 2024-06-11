@@ -8,7 +8,7 @@ import MainMenu from '../common/MainMenu'
 import { useAuth } from '../../context/AuthContext'
 
 const Header = () => {
-  const { user } = useAuth()
+  const { user, isAdministrator } = useAuth()
   const [navbar, setNavbar] = useState(false)
 
   // Variable to know if the user scrolled the page
@@ -94,7 +94,7 @@ const Header = () => {
                   {user
                     ? (
                       <Link
-                        to='/dashboard'
+                        to={isAdministrator ? '/dashboard' : '/dashboard/rooms'}
                         className='ud-btn btn-thm dark:text-white !px-[22px] !py-[9px] '
                       >
                         Dashboard <i className='fal fa-arrow-right-long' />

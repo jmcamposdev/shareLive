@@ -6,15 +6,26 @@ import MessageService from '../../../services/MessageService'
 import { useNavigate } from 'react-router-dom'
 import UserService from '../../../services/UserService'
 import { useAuth } from '../../../context/AuthContext'
+import useAlertToast from '../../../hooks/useToast'
 
-const ContactFormSingle = ({ title, contactUser }) => {
+const ContactFormSingle = ({ title, contactUser, placeholder }) => {
+  const { toast } = useAlertToast()
   const { user, updateUser } = useAuth()
   const navigate = useNavigate()
   const onSubmit = async (values, actions) => {
     actions.setSubmitting(true)
     // Send the message
     try {
-      if (!user || user._id === contactUser._id) return
+      if (!user) {
+        toast.showInfo('Please login to send a message')
+        navigate('/login')
+        return
+      }
+
+      if (user._id === contactUser._id) {
+        toast.showInfo('You cannot send a message to yourself')
+        return
+      }
       // Verify if the user is already a contact
       if (!user.contactList.includes(contactUser._id)) {
         const newUser = await UserService.addContact(user._id, contactUser._id)
@@ -44,7 +55,7 @@ const ContactFormSingle = ({ title, contactUser }) => {
               type='text'
               id='message'
               name='message'
-              placeholder='I am interested in this property. Please contact me.'
+              placeholder={placeholder}
               rows='10'
             />
             <FormikSubmitBtn
