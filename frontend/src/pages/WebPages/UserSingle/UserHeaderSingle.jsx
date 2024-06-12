@@ -6,6 +6,7 @@ import Bounce2Dark from '../../../assets/img/users/bounce2Dark.png'
 import CircleOrangeDark from '../../../assets/img/users/circleOrangeDark.png'
 import UserReviewsStats from '../../../components/common/SingleUser/UserReviewsStats'
 import UserSocials from '../../../components/common/SingleUser/UserSocials'
+import { Link } from 'react-router-dom'
 import { getAvatarImage } from '../../../utils/user.utils'
 
 const UserHeaderSingle = ({ user }) => {

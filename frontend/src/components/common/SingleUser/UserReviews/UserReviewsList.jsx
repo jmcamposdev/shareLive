@@ -51,7 +51,7 @@ const UserReviewsList = ({ userId, reviews, order, numtoDisplay = 4 }) => {
     <>
       <div ref={titleRef} />
       {reviews.length === 0 && (
-        <><h6 className='fz17 w-full text-center'>This user has no reviews, be the first one ot leave one</h6><LottiePlayer lottie={FirstOne} /></>
+        <><h6 className='fz17 w-full text-center dark:text-white'>This user has no reviews, be the first one ot leave one</h6><LottiePlayer lottie={FirstOne} /></>
       )}
       {reviews.slice(0, isExpanded ? reviews.length : numtoDisplay).map(review => (
         <Review key={review._id} review={review} onUpdate={updateReview} className='w-full' />

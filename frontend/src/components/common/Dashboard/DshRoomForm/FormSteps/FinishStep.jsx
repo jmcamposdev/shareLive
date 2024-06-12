@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
 const FinishStep = ({ room, isEdit }) => {
   return (
     <div className='flex flex-col justify-center items-center pt-10'>
-      <h2>¡Room {isEdit ? 'updated' : 'created'} successfully!</h2>
+      <h2 className='dark:text-white'>¡Room {isEdit ? 'updated' : 'created'} successfully!</h2>
       <Lottie
         options={{
           loop: false,
