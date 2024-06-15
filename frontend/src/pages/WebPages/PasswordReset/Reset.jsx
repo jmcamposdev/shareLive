@@ -77,7 +77,7 @@ const Reset = () => {
             </div>
             <div className='d-grid mb20'>
               <FormikSubmitBtn
-                label='Send Email'
+                label='Reset Password'
                 isSubmitting={isSubmitting}
                 className='w-full'
                 isOrange
