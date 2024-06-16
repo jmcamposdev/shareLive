@@ -45,7 +45,6 @@ const PropertyGallery = ({ images }) => {
     return <PropertyGallerySkeleton />
   }
 
-  console.log(imageDimensions)
   return (
     <Gallery>
       {(images.length >= 5) && (
