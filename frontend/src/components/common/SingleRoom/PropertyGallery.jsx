@@ -13,10 +13,9 @@ const PropertyGallery = ({ images }) => {
         const img = new window.Image()
         img.src = image
         img.onload = () => {
+          console.log(img.naturalWidth, img.naturalHeight, img.width, img.height)
           newImageDimensions[index] = calculateImageStyle(img.naturalWidth, img.naturalHeight)
-          if (newImageDimensions.length === images.length) {
-            setImageDimensions(newImageDimensions)
-          }
+          setImageDimensions([...newImageDimensions])
         }
       })
     }
@@ -40,12 +39,13 @@ const PropertyGallery = ({ images }) => {
     return { width, height }
   }
 
-  const allImagesHasWidthAndHeight = imageDimensions.every(image => image)
+  const allImagesHasWidthAndHeight = imageDimensions.every(image => image) && imageDimensions.every(image => image.width && image.height)
 
   if (!images || imageDimensions.length !== images.length || !allImagesHasWidthAndHeight) {
     return <PropertyGallerySkeleton />
   }
 
+  console.log(imageDimensions)
   return (
     <Gallery>
       {(images.length >= 5) && (
