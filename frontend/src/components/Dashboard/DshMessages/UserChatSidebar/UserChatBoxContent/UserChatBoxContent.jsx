@@ -2,7 +2,7 @@ import { format } from 'date-fns'
 
 const UserChatBoxContent = ({ messages, senderUser, receiverUser, scrollRef, loading }) => {
   return (
-    <div className='inbox_chatting_box'>
+    <div className='inbox_chatting_box min-h-[500px] xl:min-h-px'>
       {loading
         ? (
           <div className='chatting_content flex justify-center items-center h-full'>
