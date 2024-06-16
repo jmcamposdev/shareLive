@@ -32,6 +32,7 @@ export const PaginationProvider = ({ presetData = [], defaultItemsPerPage = 5, e
 
   useEffect(() => {
     setData(presetData)
+    setCurrentPage(1)
   }, [presetData])
 
   useEffect(() => {
