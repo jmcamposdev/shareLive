@@ -71,7 +71,8 @@ const weeklyStats = async (req, res) => {
           _id: { $dateToString: { format: '%Y-%m-%d', date: '$joinDate' } },
           count: { $sum: 1 }
         }
-      }
+      },
+      { $sort: { _id: 1 } } // Ordenar por fecha de la más antigua a la más reciente
     ])
 
     const rooms = await Room.aggregate([
@@ -81,7 +82,8 @@ const weeklyStats = async (req, res) => {
           _id: { $dateToString: { format: '%Y-%m-%d', date: '$createdAt' } },
           count: { $sum: 1 }
         }
-      }
+      },
+      { $sort: { _id: 1 } } // Ordenar por fecha de la más antigua a la más reciente
     ])
 
     const reviews = await Review.aggregate([
@@ -91,7 +93,8 @@ const weeklyStats = async (req, res) => {
           _id: { $dateToString: { format: '%Y-%m-%d', date: '$createdAt' } },
           count: { $sum: 1 }
         }
-      }
+      },
+      { $sort: { _id: 1 } } // Ordenar por fecha de la más antigua a la más reciente
     ])
 
     const result = {
@@ -105,6 +108,7 @@ const weeklyStats = async (req, res) => {
     res.status(500).json({ message: 'Error fetching data', error })
   }
 }
+
 
 const activitiesLogs = async (req, res) => {
   const { limit } = req.params

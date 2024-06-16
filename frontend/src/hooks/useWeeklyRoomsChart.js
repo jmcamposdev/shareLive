@@ -59,8 +59,8 @@ const useWeeklyRoomsChart = () => {
           dataMap[review._id].reviews = review.count
         })
 
-        // Convertir el objeto de vuelta a array
-        const finalData = Object.values(dataMap)
+        // Convertir el objeto de vuelta a array y ordenar por fecha
+        const finalData = Object.values(dataMap).sort((a, b) => new Date(a.date) - new Date(b.date))
 
         setWeeklyStats(finalData)
 
