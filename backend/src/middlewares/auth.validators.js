@@ -26,14 +26,15 @@ export const signInValidations = [
     .withMessage('Please provide a password')
     .custom(async (value, { req }) => {
       const user = await User.findOne({ email: req.body.email })
-
-      await user.populate('roles')
-      await user.populate('reviews')
-
+      
       if (!user) {
         throw new Error('Invalid email or password')
       }
 
+      await user.populate('roles')
+      await user.populate('reviews')
+
+      
       const isPasswordValid = await User.comparePassword(value, user.password)
       if (!isPasswordValid) {
         throw new Error('Invalid email or password')

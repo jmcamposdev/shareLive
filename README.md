@@ -4,14 +4,14 @@
 
   <img src="https://github.com/jmcamposdev/shareLive/assets/108521775/8bcd51b6-4e96-465b-b2c0-ce0a0639fbee" width="300px" />
 
-
-  
-
 </p>
 
 
 ## Project Link 🌐
 Access to the website here -> [Sharelive](https://sharelive.jmcampos.dev)
+
+![image](https://github.com/jmcamposdev/shareLive/assets/108521775/b7166e81-3fd4-4179-8262-d5bb58b5083d)
+
 
 ## Table of Contents
 * [General Info](#general-info)
