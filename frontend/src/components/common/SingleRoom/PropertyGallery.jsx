@@ -13,7 +13,6 @@ const PropertyGallery = ({ images }) => {
         const img = new window.Image()
         img.src = image
         img.onload = () => {
-          console.log(img.naturalWidth, img.naturalHeight, img.width, img.height)
           newImageDimensions[index] = calculateImageStyle(img.naturalWidth, img.naturalHeight)
           setImageDimensions([...newImageDimensions])
         }
